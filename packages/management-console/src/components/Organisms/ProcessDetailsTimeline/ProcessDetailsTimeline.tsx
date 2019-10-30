@@ -1,5 +1,5 @@
 import { TimeAgo } from '@n1ru4l/react-time-ago';
-import { Button, Card, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
+import { Card, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
 import { ServicesIcon, UserIcon } from '@patternfly/react-icons'
 import React from 'react';
 import './ProcessDetailsTimeline.css';
@@ -12,7 +12,7 @@ export interface IOwnProps {
 const ProcessDetailsTimeline: React.FC<IOwnProps> = ({ loading, data }) => {
 
   return (
-    <Card className="processdetailstimetine-timelinestyle">
+    <Card>
       <CardHeader>Timeline</CardHeader>
       <CardBody>
         <div className="timeline-container">
@@ -39,11 +39,6 @@ const ProcessDetailsTimeline: React.FC<IOwnProps> = ({ loading, data }) => {
           )}
         </div>
       </CardBody>
-      <CardFooter>
-        <Button variant="primary" style={{ float: 'right' }}>
-          Primary
-        </Button>
-      </CardFooter>
     </Card>
   );
 };
