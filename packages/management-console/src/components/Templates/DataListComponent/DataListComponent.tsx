@@ -52,7 +52,7 @@ const DataListComponent: React.FC<{}> = () => {
       } else if (!isActiveChecked === false) {
         const tempArr = checkedArray.slice();
         const temp = 'ACTIVE';
-        _.remove(tempArr, temp => {
+        _.remove(tempArr, _temp => {
           return temp === 'ACTIVE';
         });
         setCheckedArray(tempArr);
@@ -66,7 +66,7 @@ const DataListComponent: React.FC<{}> = () => {
       } else if (!isCompletedChecked === false) {
         const tempArr = checkedArray.slice();
         const temp = 'COMPLETED';
-        _.remove(tempArr, temp => {
+        _.remove(tempArr, _temp => {
           return temp === 'COMPLETED';
         });
         setCheckedArray(tempArr);
@@ -79,7 +79,7 @@ const DataListComponent: React.FC<{}> = () => {
       } else if (!isAbortChecked === false) {
         const tempArr = checkedArray.slice();
         const temp = 'ABORTED';
-        _.remove(tempArr, temp => {
+        _.remove(tempArr, _temp => {
           return temp === 'ABORTED';
         });
         setCheckedArray(tempArr);
@@ -90,7 +90,7 @@ const DataListComponent: React.FC<{}> = () => {
   const onFilterClick = () => {
     const tempArr = [];
     checkedArray.map(check => {
-      initData['ProcessInstances'].map(data => {
+      initData['ProcessInstances'].map(_data => {
         if (data.state.toString().toLowerCase() === check.toString().toLowerCase()) {
           tempArr.push(data);
         }
@@ -142,7 +142,7 @@ const DataListComponent: React.FC<{}> = () => {
                 <DataList aria-label="Expandable data list example">
                   <ScrollArea smoothScrolling={true} className="scrollArea">
                     {!loading &&
-                    filterArray != undefined &&
+                    filterArray !== undefined &&
                     filterArray['ProcessInstances'].map((item, index) => {
                       return (
                           <DataListItemComponent

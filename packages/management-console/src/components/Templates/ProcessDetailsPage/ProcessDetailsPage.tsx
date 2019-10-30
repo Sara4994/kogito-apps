@@ -59,36 +59,7 @@ const ProcessDetailsPage = ({match}) => {
                             </Breadcrumb>
                         </GridItem>
                         <GridItem span={8}>
-
-<<<<<<< HEAD
-  {
-    if (loading) return <p>Loading..</p>;
-  }
-  
-  return (
-    <>
-      <Page>
-        <PageSection style={PageSectionstyle}>
-          <Grid>
-            <GridItem span={8}>
-              <ProcessDetailsProcessDiagram />
-            </GridItem>
-            <GridItem span={4}>
-              <ProcessDetails loading={loading} data={data} />
-            </GridItem>
-            <GridItem span={8}>
-              <ProcessDetailsProcessVariables loading={loading} data={data} />
-            </GridItem>
-            <GridItem span={4} rowSpan={3}>
-              <ProcessDetailsTimeline loading={loading} data={data.ProcessInstances} />
-            </GridItem>
-          </Grid>
-        </PageSection>
-      </Page>
-    </>
-  );
-=======
-                            <ProcessDetailsProcessDiagram/>
+                          <ProcessDetailsProcessDiagram/>
                         </GridItem>
                         <GridItem span={4}>
                             <ProcessDetails loading={loading} data={data}/>
@@ -104,7 +75,6 @@ const ProcessDetailsPage = ({match}) => {
             </Page>
         </>
     );
->>>>>>> 56b1a579d538bf04b73145e896e9e73b9d06d2c3
 };
 
-export default withApollo(ProcessDetailsPage as any);
+export default ProcessDetailsPage;
