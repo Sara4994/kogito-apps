@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import { Page, PageSection, Grid, GridItem } from '@patternfly/react-core';
+/* istanbul ignore next */
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { withApollo } from 'react-apollo';
@@ -66,4 +67,4 @@ const ProcessDetailsPage = ({ match }) => {
   );
 };
 
-export default ProcessDetailsPage;
+export default withApollo(ProcessDetailsPage as any);

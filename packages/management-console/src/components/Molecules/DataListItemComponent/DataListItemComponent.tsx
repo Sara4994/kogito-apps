@@ -138,7 +138,6 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
           {isLoaded &&
             childList['ProcessInstances'] != undefined &&
             childList['ProcessInstances'].map((child, index) => {
-              console.log('i am a child', child);
               return (
                 <DataListItemComponent
                   id={index}

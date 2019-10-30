@@ -18,7 +18,7 @@ const DataListComponent: React.FC<IOwnProps> = () => {
   const [initData, setInitData] = useState<any>([]);
   const [checkedArray, setCheckedArray] = useState<any>([]);
   const [filterArray, setFilterArray] = useState<any>([]);
-
+/* tslint:disable:no-string-literal */
   const GET_INSTANCES = gql`
     query getInstances($parentProcessId: [String]) {
       ProcessInstances(filter: { parentProcessInstanceId: $parentProcessId }) {
@@ -38,49 +38,48 @@ const DataListComponent: React.FC<IOwnProps> = () => {
     fetchPolicy: 'network-only'
   });
 
-  console.log(data);
   useEffect(() => {
     setInitData(data);
     setFilterArray(data);
   }, [data]);
 
   const handleChange = (checked, event) => {
-    if (event.target.name == 'isActiveChecked') {
+    if (event.target.name === 'isActiveChecked') {
       setIsActiveChecked(isActiveChecked ? false : true);
-      if (!isActiveChecked == true) {
+      if (!isActiveChecked === true) {
         setCheckedArray([...checkedArray, 'ACTIVE']);
-      } else if (!isActiveChecked == false) {
-        let tempArr = checkedArray.slice();
-        let temp = 'ACTIVE';
-        _.remove(tempArr, function(temp) {
-          return temp == 'ACTIVE';
+      } else if (!isActiveChecked === false) {
+        const tempArr = checkedArray.slice();
+        const temp = 'ACTIVE';
+        _.remove(tempArr, temp => {
+          return temp === 'ACTIVE';
         });
         setCheckedArray(tempArr);
       }
     }
 
-    if (event.target.name == 'isCompletedChecked') {
+    if (event.target.name === 'isCompletedChecked') {
       setIsCompletedChecked(isCompletedChecked ? false : true);
-      if (!isCompletedChecked == true) {
+      if (!isCompletedChecked === true) {
         setCheckedArray([...checkedArray, 'COMPLETED']);
-      } else if (!isCompletedChecked == false) {
-        let tempArr = checkedArray.slice();
-        let temp = 'COMPLETED';
-        _.remove(tempArr, function(temp) {
-          return temp == 'COMPLETED';
+      } else if (!isCompletedChecked === false) {
+        const tempArr = checkedArray.slice();
+        const temp = 'COMPLETED';
+        _.remove(tempArr, temp => {
+          return temp === 'COMPLETED';
         });
         setCheckedArray(tempArr);
       }
     }
-    if (event.target.name == 'isAbortChecked') {
+    if (event.target.name === 'isAbortChecked') {
       setisAbortChecked(isAbortChecked ? false : true);
-      if (!isAbortChecked == true) {
+      if (!isAbortChecked === true) {
         setCheckedArray([...checkedArray, 'ABORTED']);
-      } else if (!isAbortChecked == false) {
-        let tempArr = checkedArray.slice();
-        let temp = 'ABORTED';
-        _.remove(tempArr, function(temp) {
-          return temp == 'ABORTED';
+      } else if (!isAbortChecked === false) {
+        const tempArr = checkedArray.slice();
+        const temp = 'ABORTED';
+        _.remove(tempArr, temp => {
+          return temp === 'ABORTED';
         });
         setCheckedArray(tempArr);
       }
@@ -88,22 +87,22 @@ const DataListComponent: React.FC<IOwnProps> = () => {
   };
 
   const onFilterClick = () => {
-    let tempArr = [];
+    const tempArr = [];
     checkedArray.map(check => {
       initData['ProcessInstances'].map(data => {
-        if (data.state.toString().toLowerCase() == check.toString().toLowerCase()) {
+        if (data.state.toString().toLowerCase() === check.toString().toLowerCase()) {
           tempArr.push(data);
         }
       });
     });
-    let processInstanceObject = { ProcessInstances: tempArr };
+    const processInstanceObject = { ProcessInstances: tempArr };
     setFilterArray(processInstanceObject);
   };
 
   const removeChecked = id => {
-    if (id.toString().toLowerCase() == 'active') {
+    if (id.toString().toLowerCase() === 'active') {
       setIsActiveChecked(false);
-    } else if (id.toString().toLowerCase() == 'completed') {
+    } else if (id.toString().toLowerCase() === 'completed') {
       setIsCompletedChecked(false);
     } else if (id.toString().toLowerCase() === 'aborted') {
       setisAbortChecked(false);
@@ -132,7 +131,7 @@ const DataListComponent: React.FC<IOwnProps> = () => {
           <DataList aria-label="Expandable data list example">
             <ScrollArea smoothScrolling={true} className="scrollArea">
               {!loading &&
-                filterArray != undefined &&
+                filterArray !== undefined &&
                 filterArray['ProcessInstances'].map((item, index) => {
                   return (
                     <DataListItemComponent

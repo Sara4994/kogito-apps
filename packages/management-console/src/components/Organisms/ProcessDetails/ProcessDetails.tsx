@@ -24,7 +24,7 @@ const ProcessDetails = ({ loading, data }) => {
         <Grid gutter="md">
           <GridItem span={6}>
             <TextContent>
-              <Text component={TextVariants.h4} className="--pf-global--FontSize--md">
+              <Text component={TextVariants.h4}>
                 Defintion Id
               </Text>
               <Text component={TextVariants.h4}>Instance State</Text>

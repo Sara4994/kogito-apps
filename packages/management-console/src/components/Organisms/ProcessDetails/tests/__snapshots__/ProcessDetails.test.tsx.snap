@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Process Details component Snapshot tests 1`] = `
+<Card
+  style={
+    Object {
+      "height": "25em",
+      "marginLeft": "2em",
+    }
+  }
+>
+  <CardHeader>
+    Details
+  </CardHeader>
+  <CardBody>
+    <Grid
+      gutter="md"
+    >
+      <GridItem
+        span={6}
+      >
+        <TextContent>
+          <Text
+            component="h4"
+          >
+            Defintion Id
+          </Text>
+          <Text
+            component="h4"
+          >
+            Instance State
+          </Text>
+        </TextContent>
+      </GridItem>
+      <GridItem
+        span={6}
+      >
+        <TextContent>
+          <div
+            key=""
+          >
+            <Text
+              component="h4"
+            />
+            <Text
+              component="h4"
+            />
+          </div>
+        </TextContent>
+      </GridItem>
+    </Grid>
+  </CardBody>
+  <CardFooter>
+    <Component
+      style={
+        Object {
+          "float": "right",
+        }
+      }
+      variant="primary"
+    >
+      Primary
+    </Component>
+  </CardFooter>
+</Card>
+`;
