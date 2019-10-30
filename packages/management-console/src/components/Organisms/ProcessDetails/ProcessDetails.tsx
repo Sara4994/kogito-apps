@@ -3,51 +3,6 @@ import {Button, Card, CardBody, CardHeader, Form, FormGroup, Text, TextVariants}
 import React from 'react';
 import {Link} from "react-router-dom";
 
-<<<<<<< HEAD
-const ProcessDetails = ({ loading, data }) => {
-  const DetailsStyle = {
-    marginLeft: '2em',
-    height: '25em'
-  };
-  return (
-    <Card style={DetailsStyle}>
-      <CardHeader>Details</CardHeader>
-      <CardBody>
-        <Grid gutter="md">
-          <GridItem span={6}>
-            <TextContent>
-              <Text component={TextVariants.h4}>
-                Defintion Id
-              </Text>
-              <Text component={TextVariants.h4}>Instance State</Text>
-            </TextContent>
-          </GridItem>
-          <GridItem span={6}>
-            <TextContent>
-              {!loading ? (
-                data.ProcessInstances.map(item => {
-                  return (
-                    <div key={item.id}>
-                      <Text component={TextVariants.h4}>{item.processId}</Text>
-                      <Text component={TextVariants.h4}>{item.state}</Text>
-                    </div>
-                  );
-                })
-              ) : (
-                <Text component={TextVariants.h4}>Loading...</Text>
-              )}
-            </TextContent>
-          </GridItem>
-        </Grid>
-      </CardBody>
-      <CardFooter>
-        <Button variant="primary" style={{ float: 'right' }}>
-          Primary
-        </Button>
-      </CardFooter>
-    </Card>
-  );
-=======
 const ProcessDetails = ({loading, data}) => {
     return (
         <Card>
@@ -63,25 +18,24 @@ const ProcessDetails = ({loading, data}) => {
                     <FormGroup label="Id" fieldId="id">
                         <Text component={TextVariants.p}>{data.ProcessInstances[0].id}</Text>
                     </FormGroup>
+                    {data.ProcessInstances[0].endpoint ?
                     <FormGroup label="Endpoint" fieldId="endpoint">
                         <Text component={TextVariants.p}>{data.ProcessInstances[0].endpoint}</Text>
-                    </FormGroup>
+                    </FormGroup> : '' }
+                    {data.ProcessInstances[0].start ?
                     <FormGroup label="Start" fieldId="start">
                         <Text component={TextVariants.p}>
-                            {data.ProcessInstances[0].start ?
-                                <TimeAgo date={new Date(`${data.ProcessInstances[0].start}`)} render={({error, value}) =>
+                            <TimeAgo date={new Date(`${data.ProcessInstances[0].start}`)} render={({error, value}) =>
                                     <span>{value}</span>}/>
-                                : ''}
                         </Text>
-                    </FormGroup>
+                    </FormGroup> : ''}
+                    {data.ProcessInstances[0].end ?
                     <FormGroup label="End" fieldId="end">
                         <Text component={TextVariants.p}>
-                            {data.ProcessInstances[0].end ?
-                                <TimeAgo date={new Date(`${data.ProcessInstances[0].end}`)} render={({error, value}) =>
-                                    <span>{value}</span>}/>
-                                : ''}
+                            <TimeAgo date={new Date(`${data.ProcessInstances[0].end}`)} render={({error, value}) =>
+                                <span>{value}</span>}/>
                         </Text>
-                    </FormGroup>
+                    </FormGroup> : ''}
                     {data.ProcessInstances[0].parentProcessInstanceId ?
                         <FormGroup label="Parent Process" fieldId="parent">
                             <Text component={TextVariants.p}>
@@ -104,7 +58,6 @@ const ProcessDetails = ({loading, data}) => {
             </CardBody>
         </Card>
     );
->>>>>>> 56b1a579d538bf04b73145e896e9e73b9d06d2c3
 };
 
 export default ProcessDetails;
