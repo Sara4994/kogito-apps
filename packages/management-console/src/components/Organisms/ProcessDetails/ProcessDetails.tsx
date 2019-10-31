@@ -18,25 +18,24 @@ const ProcessDetails = ({loading, data}) => {
                     <FormGroup label="Id" fieldId="id">
                         <Text component={TextVariants.p}>{data.ProcessInstances[0].id}</Text>
                     </FormGroup>
+                    {data.ProcessInstances[0].endpoint ?
                     <FormGroup label="Endpoint" fieldId="endpoint">
                         <Text component={TextVariants.p}>{data.ProcessInstances[0].endpoint}</Text>
-                    </FormGroup>
+                    </FormGroup> : '' }
+                    {data.ProcessInstances[0].start ?
                     <FormGroup label="Start" fieldId="start">
                         <Text component={TextVariants.p}>
-                            {data.ProcessInstances[0].start ?
-                                <TimeAgo date={new Date(`${data.ProcessInstances[0].start}`)} render={({error, value}) =>
+                            <TimeAgo date={new Date(`${data.ProcessInstances[0].start}`)} render={({error, value}) =>
                                     <span>{value}</span>}/>
-                                : ''}
                         </Text>
-                    </FormGroup>
+                    </FormGroup> : ''}
+                    {data.ProcessInstances[0].end ?
                     <FormGroup label="End" fieldId="end">
                         <Text component={TextVariants.p}>
-                            {data.ProcessInstances[0].end ?
-                                <TimeAgo date={new Date(`${data.ProcessInstances[0].end}`)} render={({error, value}) =>
-                                    <span>{value}</span>}/>
-                                : ''}
+                            <TimeAgo date={new Date(`${data.ProcessInstances[0].end}`)} render={({error, value}) =>
+                                <span>{value}</span>}/>
                         </Text>
-                    </FormGroup>
+                    </FormGroup> : ''}
                     {data.ProcessInstances[0].parentProcessInstanceId ?
                         <FormGroup label="Parent Process" fieldId="parent">
                             <Text component={TextVariants.p}>

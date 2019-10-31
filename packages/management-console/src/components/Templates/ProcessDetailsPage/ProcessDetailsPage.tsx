@@ -22,6 +22,8 @@ const ProcessDetailsPage = ({match}) => {
                 roles
                 variables
                 state
+                start
+                end
                 childProcessInstanceId
                 nodes {
                     id
