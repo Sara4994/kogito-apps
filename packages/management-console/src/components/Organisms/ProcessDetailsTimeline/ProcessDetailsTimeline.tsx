@@ -1,6 +1,7 @@
 import { TimeAgo } from '@n1ru4l/react-time-ago';
 import { Card, CardBody, CardFooter, CardHeader } from '@patternfly/react-core';
 import { ServicesIcon, UserIcon } from '@patternfly/react-icons'
+import { Spinner } from '@patternfly/react-core/dist/esm/experimental';
 import React from 'react';
 import './ProcessDetailsTimeline.css';
 
@@ -15,9 +16,9 @@ const ProcessDetailsTimeline: React.FC<IOwnProps> = ({ loading, data }) => {
     <Card>
       <CardHeader>Timeline</CardHeader>
       <CardBody>
+      {loading ? 
         <div className="timeline-container">
-          {!loading ? (
-            data[0].nodes.map(content => {
+          {data[0].nodes.map(content => {
               return (
                 <div className="timeline-item" key={content.id}>
                   <div className="timeline-item-content">
@@ -33,11 +34,9 @@ const ProcessDetailsTimeline: React.FC<IOwnProps> = ({ loading, data }) => {
                   </div>
                 </div>
               );
-            })
-          ) : (
-            <p>loading...</p>
-          )}
+            })}
         </div>
+         : <Spinner />}
       </CardBody>
     </Card>
   );

@@ -2,6 +2,7 @@ import {TimeAgo} from '@n1ru4l/react-time-ago';
 import {Button, Card, CardBody, CardHeader, Form, FormGroup, Text, TextVariants} from '@patternfly/react-core';
 import React from 'react';
 import {Link} from "react-router-dom";
+import Skeleton from 'react-skeleton-loader';
 
 const ProcessDetails = ({loading, data}) => {
     return (
@@ -10,31 +11,32 @@ const ProcessDetails = ({loading, data}) => {
             <CardBody>
                 <Form>
                     <FormGroup label="Name" fieldId="name">
-                        <Text component={TextVariants.p}>{data.ProcessInstances[0].processName}</Text>
-                    </FormGroup>
+                        {loading ?  <Text component={TextVariants.p}>{data.ProcessInstances[0].processName}</Text> : <div><Skeleton height="25px" width="200px"/></div>}
+                    </FormGroup> 
+                    
                     <FormGroup label="State" fieldId="state">
-                        <Text component={TextVariants.p}>{data.ProcessInstances[0].state}</Text>
+                        {loading ? <Text component={TextVariants.p}>{data.ProcessInstances[0].state}</Text>  : <div><Skeleton height="25px" width="200px"/></div> }
                     </FormGroup>
                     <FormGroup label="Id" fieldId="id">
-                        <Text component={TextVariants.p}>{data.ProcessInstances[0].id}</Text>
+                        {loading ? <Text component={TextVariants.p}>{data.ProcessInstances[0].id}</Text> : <div><Skeleton height="25px" width="200px"/></div> }
                     </FormGroup>
                     {data.ProcessInstances[0].endpoint ?
                     <FormGroup label="Endpoint" fieldId="endpoint">
-                        <Text component={TextVariants.p}>{data.ProcessInstances[0].endpoint}</Text>
+                        {loading ? <Text component={TextVariants.p}>{data.ProcessInstances[0].endpoint}</Text> : <div><Skeleton height="25px" width="200px"/></div> }
                     </FormGroup> : '' }
                     {data.ProcessInstances[0].start ?
                     <FormGroup label="Start" fieldId="start">
-                        <Text component={TextVariants.p}>
+                        {loading ? <Text component={TextVariants.p}>
                             <TimeAgo date={new Date(`${data.ProcessInstances[0].start}`)} render={({error, value}) =>
                                     <span>{value}</span>}/>
-                        </Text>
+                        </Text> : <div><Skeleton height="25px" width="200px"/></div>}
                     </FormGroup> : ''}
                     {data.ProcessInstances[0].end ?
                     <FormGroup label="End" fieldId="end">
-                        <Text component={TextVariants.p}>
+                        {loading ? <Text component={TextVariants.p}>
                             <TimeAgo date={new Date(`${data.ProcessInstances[0].end}`)} render={({error, value}) =>
                                 <span>{value}</span>}/>
-                        </Text>
+                        </Text> : <div><Skeleton height="25px" width="200px"/></div> }
                     </FormGroup> : ''}
                     {data.ProcessInstances[0].parentProcessInstanceId ?
                         <FormGroup label="Parent Process" fieldId="parent">
@@ -53,7 +55,7 @@ const ProcessDetails = ({loading, data}) => {
                                     </Link>
                                 </Text>)
                             }
-                        </FormGroup> : ''}
+                        </FormGroup> : <Skeleton height="25px" width="200px"/>}
                 </Form>
             </CardBody>
         </Card>

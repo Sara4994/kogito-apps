@@ -18,6 +18,7 @@ import {
 } from '@patternfly/react-core';
 import { Link } from 'react-router-dom';
 import { useApolloClient } from 'react-apollo';
+import Skeleton from 'react-skeleton-loader';
 /* tslint:disable:no-string-literal */
 export interface IOwnProps {
   id: number;

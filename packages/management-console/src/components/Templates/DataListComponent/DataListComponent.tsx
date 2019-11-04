@@ -1,5 +1,5 @@
 import {useQuery} from '@apollo/react-hooks';
-import {Breadcrumb, BreadcrumbItem, Card, DataList , Grid, GridItem, PageSection} from '@patternfly/react-core';
+import {Breadcrumb, BreadcrumbItem, Card, DataList , Grid, GridItem, PageSection, TextContent, TextVariants, Text} from '@patternfly/react-core';
 import gql from 'graphql-tag';
 import _ from 'lodash';
 import React, {useEffect, useState} from 'react';
@@ -9,6 +9,7 @@ import DataListItemComponent from '../../Molecules/DataListItemComponent/DataLis
 import DataListTitleComponent from '../../Molecules/DataListTitleComponent/DataListTitleComponent';
 import DataListToolbarComponent from '../../Molecules/DataListToolbarComponent/DataListToolbarComponent';
 import './DataList.css';
+import { Spinner } from '@patternfly/react-core/dist/esm/experimental';
 
 const DataListComponent: React.FC<{}> = () => {
   const [isActiveChecked, setIsActiveChecked] = useState<boolean>(false);
@@ -130,35 +131,48 @@ const DataListComponent: React.FC<{}> = () => {
           <Grid gutter="md">
             <GridItem span={12}>
               <Card className="dataList">
-                <DataListToolbarComponent
-                    isActive={isActiveChecked}
-                    isComplete={isCompletedChecked}
-                    isAborted={isAbortChecked}
-                    handleChange={handleChange}
-                    checkedArray={checkedArray}
-                    filterClick={onFilterClick}
-                    removeCheck={removeChecked}
-                />
-                <DataList aria-label="Expandable data list example">
-                  <ScrollArea smoothScrolling={true} className="scrollArea">
-                    {!loading &&
-                    filterArray !== undefined &&
-                    filterArray['ProcessInstances'].map((item, index) => {
-                      return (
-                          <DataListItemComponent
-                              id={index}
-                              key={index}
-                              instanceState={item.state}
-                              instanceID={item.id}
-                              processID={item.processId}
-                              parentInstanceID={item.parentProcessInstanceId}
-                              processName={item.processName}
-                              start={item.start}
-                          />
-                      );
-                    })}
-                  </ScrollArea>
-                </DataList>
+                {data.ProcessInstances.length > 0 ? ( 
+                  <>
+                    <DataListToolbarComponent
+                        isActive={isActiveChecked}
+                        isComplete={isCompletedChecked}
+                        isAborted={isAbortChecked}
+                        handleChange={handleChange}
+                        checkedArray={checkedArray}
+                        filterClick={onFilterClick}
+                        removeCheck={removeChecked}
+                    />
+                    <DataList aria-label="Expandable data list example">
+                      <ScrollArea smoothScrolling={true} className="scrollArea">
+                        {!loading &&
+                        filterArray !== undefined &&
+                        filterArray['ProcessInstances'].map((item, index) => {
+                          return (
+                              <DataListItemComponent
+                                  id={index}
+                                  key={index}
+                                  instanceState={item.state}
+                                  instanceID={item.id}
+                                  processID={item.processId}
+                                  parentInstanceID={item.parentProcessInstanceId}
+                                  processName={item.processName}
+                                  start={item.start}
+                              />
+                          );
+                        })}
+                        {
+                          loading && ( <div className="spinner-center"> <Spinner /> </div> )
+                        }
+                      </ScrollArea>
+                    </DataList> 
+                  </>): 
+                (
+                  <div className="error-text">
+                    <TextContent>
+                      <Text component={TextVariants.h6}>No data to display</Text>
+                    </TextContent> 
+                  </div>  
+                )}
               </Card>
             </GridItem>
           </Grid>

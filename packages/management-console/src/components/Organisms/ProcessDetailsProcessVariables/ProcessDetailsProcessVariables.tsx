@@ -1,6 +1,7 @@
 import { Card, CardBody, CardFooter, CardHeader, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import React from 'react';
 import ReactJson from 'react-json-view';
+import { Spinner } from '@patternfly/react-core/dist/esm/experimental';
 
 const ProcessDetailsProcessVariables = ({ loading, data }) => {
   return (
@@ -8,7 +9,7 @@ const ProcessDetailsProcessVariables = ({ loading, data }) => {
       <CardHeader>Process Variables</CardHeader>
       <CardBody>
         <TextContent style={{ width: '30em' }}>
-          {!loading ? (
+          {loading ? (
             data.ProcessInstances.map((item, index) => {
               return (
                 <div key={index}>
@@ -17,7 +18,7 @@ const ProcessDetailsProcessVariables = ({ loading, data }) => {
               );
             })
           ) : (
-            <Text component={TextVariants.h4}>Loading...</Text>
+            <Spinner />
           )}
         </TextContent>
       </CardBody>
