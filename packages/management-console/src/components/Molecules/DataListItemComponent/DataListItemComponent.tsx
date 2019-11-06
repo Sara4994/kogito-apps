@@ -98,13 +98,15 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
           />
           <DataListItemCells
             dataListCells={[
-              <DataListCell key={1}>{processName}</DataListCell>,
-              <DataListCell key={2}>
-                {start? 
-                  <TimeAgo date={new Date(`${start}`)} render={({ error, value }) => <span>{value}</span>} />
-                : ''}
+              <DataListCell key={1}>
+                {!isLoaded ?  <Skeleton /> : <>{processName}</>}
               </DataListCell>,
-              <DataListCell key={3}>{instanceState}</DataListCell>
+              <DataListCell key={2}>
+                {!isLoaded && start? 
+                  <Skeleton /> : <TimeAgo date={new Date(`${start}`)} render={({ error, value }) => <span>{value}</span>} />
+                }
+              </DataListCell>,
+              <DataListCell key={3}>{!isLoaded ? <Skeleton /> : <>{instanceState}</>}</DataListCell>
             ]}
           />
 
