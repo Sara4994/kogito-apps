@@ -30,7 +30,7 @@ export interface IOwnProps {
 }
 
 const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceState, processID, parentInstanceID, processName,start }) => {
-  const [expanded, setexpanded] = useState(['kie-datalist-toggle']);
+  const [expanded, setexpanded] = useState([]);
   const [isOpen, setisOpen] = useState(false);
   const [isLoaded, setisLoaded] = useState(false);
   const [isChecked, setisChecked] = useState(false);
@@ -136,7 +136,7 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
         <DataListContent
           aria-label="Primary Content Details"
           id="kie-datalist-expand1"
-          isHidden={expanded.includes('kie-datalist-toggle')}
+          isHidden={!expanded.includes('kie-datalist-toggle')}
         >
           {isLoaded &&
             childList['ProcessInstances'] !== undefined &&
