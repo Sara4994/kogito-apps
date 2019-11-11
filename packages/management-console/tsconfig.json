@@ -5,6 +5,7 @@
     "module": "commonjs",
     "sourceMap": false,
     "outDir": "./dist",
+    "allowJs": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
