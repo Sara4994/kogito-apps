@@ -43,15 +43,11 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
   const [isChecked, setisChecked] = useState(false);
   const [childList, setchildList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
-  const [skipAlertVisible, setSkipAlertVisible] = useState(false);
-  const [retryAlertVisible, setRetryAlertVisible] = useState(false);
+  const [alertVisible, setAlertVisible] = useState(false);
   const [error, setError] = useState('')
-  const [skipStatus, setSkipStatus] = useState('');
-  const [skipMessage, setSkipMessage] = useState('');
-  const [skipError, setSkipError] = useState(false);
-  const [retryStatus, setRetryStatus] = useState('');
-  const [retryMessage, setRetryMessage] = useState('');
-  const [retryError, setRetryError] = useState(false);
+  const [alertTitle, setAlertTitle] = useState('');
+  const [alertType, setAlertType] = useState(null);
+  const [alertMessage, setAlertMessage] = useState('');
 
   const client = useApolloClient();
   
@@ -81,29 +77,34 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
   const handleSkip = useCallback(async (_processID, _instanceID, _endpoint) => {
     const processInstanceId = instanceID;
     const processId = processID;
-    setSkipAlertVisible(true);
     try {
       const result = await axios.get(`${endpoint}/management/process/${processId}/instances/${processInstanceId}/skip`);
-      setSkipStatus('success');
-      setSkipMessage(result.data);
+      setAlertType('success');
+      setAlertMessage('Process execution has successfully skipped node which was in error state.');
+      setAlertVisible(true);
     }
     catch(error) {
-      setSkipError(true)
-      setSkipMessage(JSON.stringify(error.message))
+      setAlertType('danger');
+      setAlertMessage('Process execution failed to skip node which in error state. Message: ' + JSON.stringify(error.message));
+      setAlertVisible(true);
     }
   },[])
   
   const handleRetry = useCallback(async (_processID, _instanceID, _endpoint) => {
     const processInstanceId = instanceID;
     const processId = processID;
-    setRetryAlertVisible(true);
     try {
       const result = await axios.get(`${endpoint}/management/process/${processId}/instances/${processInstanceId}/retrigger`);
-      setRetryStatus('success');
+      setAlertTitle('Skip operation');
+      setAlertType('success');
+      setAlertMessage('Process execution has successfully re executed node which was in error state.');
+      setAlertVisible(true);
     }
     catch(error) {
-      setRetryError(true)
-      setRetryMessage(JSON.stringify(error.message))
+      setAlertTitle('Skip operation');
+      setAlertType('danger');
+      setAlertMessage('Process execution failed to re executed node which is error state. Message: ' + JSON.stringify(error.message));
+      setAlertVisible(true);
     }
     
   },[])
@@ -122,12 +123,10 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
     setOpenModal(!openModal)
   }
 
-  const closeSkipAlert = () => {
-    setSkipAlertVisible(false)
+  const closeAlert = () => {
+    setAlertVisible(false);
   }
-  const closeRetryAlert = () => {
-    setRetryAlertVisible(false)
-  }
+
   const toggle = async _id => {
     const index = expanded.indexOf(_id);
     const newExpanded =
@@ -155,38 +154,14 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
   }
   return (
     <React.Fragment>
-      {skipAlertVisible && skipStatus === 'success' && (
+      {alertVisible && (
         <Alert
-            variant="success"
-            title="Skip operation"
-            action={<AlertActionCloseButton onClose={() => closeSkipAlert()} />}
+            variant={alertType}
+            title={alertTitle}
+            action={<AlertActionCloseButton onClose={() => closeAlert()} />}
           >
-            Process execution has successfully skipped node which was in error state.
+            {alertMessage}
           </Alert>)}
-      {skipAlertVisible && skipError  && (    
-          <Alert
-          variant="danger"
-          title="Skip operation"
-          action={<AlertActionCloseButton onClose={() => closeSkipAlert()} />}
-        >
-          Process execution failed to skip node which in error state. Message: {skipMessage}
-        </Alert>)}
-        {retryAlertVisible && retryStatus === 'success' && (
-        <Alert
-            variant="success"
-            title="Retry operation"
-            action={<AlertActionCloseButton onClose={() => closeRetryAlert()} />}
-          >
-            Process execution has successfully re executed node which was in error state.
-          </Alert>)}
-      {retryAlertVisible && retryError && (    
-          <Alert
-          variant="danger"
-          title="Retry operation"
-          action={<AlertActionCloseButton onClose={() => closeRetryAlert()} />}
-        >
-          Process execution failed to re executed node which is error state. Message {retryMessage}
-        </Alert>)}
       <DataListItem aria-labelledby="kie-datalist-item" isExpanded={expanded.includes('kie-datalist-toggle')}>
         <DataListItemRow>
           <DataListToggle
