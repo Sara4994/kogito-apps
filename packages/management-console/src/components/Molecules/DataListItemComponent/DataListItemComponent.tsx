@@ -34,9 +34,10 @@ export interface IOwnProps {
   state:string;
   managementEnabled: boolean;
   endpoint: string;
+  error: string;
 }
 
-const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceState, state, managementEnabled, processID, endpoint, parentInstanceID, processName,start }) => {
+const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceState, state, error, managementEnabled, processID, endpoint, parentInstanceID, processName,start }) => {
   const [expanded, setexpanded] = useState(['kie-datalist-toggle']);
   const [isOpen, setisOpen] = useState(false);
   const [isLoaded, setisLoaded] = useState(false);
@@ -44,7 +45,6 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
   const [childList, setchildList] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [alertVisible, setAlertVisible] = useState(false);
-  const [error, setError] = useState('');
   const [alertTitle, setAlertTitle] = useState('');
   const [alertType, setAlertType] = useState(null);
   const [alertMessage, setAlertMessage] = useState('');
@@ -62,15 +62,12 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
         state
         start
         endpoint
+        error
       }
     }
   `;
   const handleViewError = useCallback(async (_processID, _instanceID, _endpoint) => {
-    const processInstanceId = instanceID;
-    const processId = processID;
     setOpenModal(true);
-    const result = await axios.get(`${endpoint}/management/process/${processId}/instances/${processInstanceId}/error`);
-    setError(result.data);
   },[])
 
   const handleSkip = useCallback(async (_processID, _instanceID, _endpoint) => {
@@ -207,7 +204,7 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
             id="kie-datalist-action"
             aria-label="Actions"
           >
-            {state === "ERROR" && managementEnabled ? 
+            {state === "ERROR"  && managementEnabled ? 
               <Dropdown
               isPlain
               position={DropdownPosition.right}
@@ -271,6 +268,7 @@ const DataListItemComponent: React.FC<IOwnProps> = ({ id, instanceID, instanceSt
                   start={child.start}
                   state={child.state}
                   managementEnabled={child.state}
+                  error = {child.error}
                   endpoint={child.endpoint}
                 />
               );

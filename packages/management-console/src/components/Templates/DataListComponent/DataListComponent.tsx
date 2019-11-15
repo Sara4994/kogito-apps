@@ -29,6 +29,7 @@ const DataListComponent: React.FC<{}> = () => {
         start
         managementEnabled
         endpoint
+        error
       }
     }
   `;
@@ -155,6 +156,7 @@ const DataListComponent: React.FC<{}> = () => {
                               start={item.start}
                               state={item.state}
                               managementEnabled={item.managementEnabled}
+                              error = {item.error}
                               endpoint={item.endpoint}
                           />
                       );
