@@ -16,17 +16,20 @@ const DomainExplorerTable = ({ columnFilters, tableLoading }) => {
   const firstKey = Object.keys(columnFilters)[0];
   const tableContent = columnFilters[firstKey];
   let colsTemp: any = [];
-  let tableRows: any = [];
-  const rows = [];
+  const tableRows: any = [];
+  let rows = [];
   const rowObject: any = {};
+  const temp: any = {};
   if (tableContent) {
-    const tableObjects = Object.values(tableContent[0]);
-    tableObjects.filter(item => {
+    const tableObjects: any = [];
+    tableContent.filter(items => tableObjects.push(Object.values(items)));
+    const tableData = tableObjects.flat();
+    tableData.filter(item => {
       colsTemp.push(Object.keys(item));
-      tableRows.push(Object.values(item));
+      temp.cells = Object.values(item);
+      tableRows.push(temp);
     });
-    colsTemp = colsTemp.flat();
-    tableRows = tableRows.flat();
+    colsTemp = colsTemp[0];
     if (tableLoading) {
       rowObject.cells = [
         {
@@ -38,13 +41,11 @@ const DomainExplorerTable = ({ columnFilters, tableLoading }) => {
           )
         }
       ];
+      rows.push(rowObject);
     } else {
-      rowObject.cells = tableRows;
+      rows = tableRows;
     }
-
-    rows.push(rowObject);
   }
-
   const onRowSelect = (event, isSelected, rowId) => {
     return null;
   };
