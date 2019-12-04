@@ -4,7 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import HeaderComponent from '../../Organisms/PageHeaderComponent/HeaderComponent';
 import DataListContainer from '../DataListContainer/DataListContainer';
 import ProcessDetailsPage from '../ProcessDetailsPage/ProcessDetailsPage';
-import DomainListPage from '../DomainListPage/DomainListPage';
+import DomainExplorerPage from '../DomainExplorerPage/DomainExplorerPage';
 import './Dashboard.css';
 
 const Dashboard: React.FC<{}> = () => {
@@ -32,7 +32,7 @@ const Dashboard: React.FC<{}> = () => {
           path="/ProcessInstances/:instanceID"
           component={ProcessDetailsPage}
         />
-        <Route exact path="/DomainList" component={DomainListPage}/>
+        <Route exact path="/DomainExplorer" component={DomainExplorerPage} />
       </Page>
     </React.Fragment>
   );

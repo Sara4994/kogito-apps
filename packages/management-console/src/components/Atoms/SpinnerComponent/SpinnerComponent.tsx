@@ -1,6 +1,6 @@
 import React from 'react';
 import { Title, EmptyState, EmptyStateIcon } from '@patternfly/react-core';
-import { Spinner } from '@patternfly/react-core/dist/esm/experimental';
+import { Spinner } from '@patternfly/react-core/dist/esm/experimental/components/Spinner/Spinner';
 
 interface IOwnProps {
   spinnerText: string;
