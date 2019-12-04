@@ -11,7 +11,7 @@ const uuidv1 = require('uuid/v1');
 const config = require('./config');
 
 //Mock data
-const data = require('./MockData/graphql');
+const { data } = require('./MockData/graphql');
 const controller = require('./MockData/controllers');
 const typeDefs = require('./MockData/types');
 
