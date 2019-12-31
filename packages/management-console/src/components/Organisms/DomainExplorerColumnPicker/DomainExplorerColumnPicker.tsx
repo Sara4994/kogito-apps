@@ -46,6 +46,7 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     );
     fieldObject.value = Object.create({ parent });
     fieldObject.value[parent] = [selection];
+    // console.log('fields', fieldObject);
     setParameters(prevState => [...prevState, fieldObject.value]);
   };
   const onToggle = _isExpanded => {
@@ -55,6 +56,7 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   const getPicker = useQuery(GET_PICKER, {
     variables: { columnPickerType }
   });
+
   async function sampleQuery() {
     try {
       await axios

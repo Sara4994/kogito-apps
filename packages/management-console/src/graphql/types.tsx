@@ -58,6 +58,25 @@ export type KogitoMetadataOrderBy = {
   lastUpdate?: Maybe<OrderBy>;
 };
 
+export type FlightArgument = {};
+
+export type HotelArgument = {};
+
+export type TravellerArgument = {};
+export type TripArgument = {};
+export type VisaApplicationArgument = {};
+export type TravelsArgument = {
+  and?: Maybe<TravelsArgument>;
+  or?: Maybe<TravelsArgument>;
+  flight?: Maybe<FlightArgument>;
+  hotel?: Maybe<HotelArgument>;
+  id?: Maybe<IdArgument>;
+  traveller?: Maybe<TravellerArgument>;
+  trip?: Maybe<TripArgument>;
+  visaApplication?: Maybe<VisaApplicationArgument>;
+  metadata?: Maybe<KogitoMetadataArgument>;
+};
+
 export type NodeInstance = {
   __typename?: 'NodeInstance';
   id: Scalars['String'];
