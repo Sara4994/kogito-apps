@@ -18,12 +18,18 @@ import {
   SelectVariant,
   Grid,
   GridItem,
-  PageSection
+  PageSection,
+  Button
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
+import * as gql from 'gql-query-builder';
+// import MyQueryAdapter from 'where/adapters/live/MyQueryAdapter';
+import IMutationAdapter from 'gql-query-builder/build/adapters/IMutationAdapter';
+import axios from 'axios';
 
 import DomainExplorerColumnPicker from '../../Organisms/DomainExplorerColumnPicker/DomainExplorerColumnPicker';
 import DomainExplorerTable from '../../Organisms/DomainExplorerTable/DomainExplorerTable';
+import { TravelsArgument } from '../../../graphql/types';
 
 import {
   GET_QUERY_TYPES,
@@ -53,6 +59,10 @@ const DomainExplorerPage = () => {
   const [selected, setSelected] = useState('');
   const [columnFilters, setColumnFilters] = useState({});
   const [tableLoading, setTableLoading] = useState(true);
+  const [schemaChips, setSchemaChips] = useState([]);
+  const [typeChips, setTypeChips] = useState([]);
+  const [textValue, setTextValue] = useState('');
+  const [typeParent, setTypeParent] = useState('');
 
   const temp = [];
   const nullTypes = [
@@ -98,6 +108,26 @@ const DomainExplorerPage = () => {
     setIsCategoryDropdownOpen(_isOpen);
   };
 
+  const onDeleteSchemaChip = (event, selection) => {
+    setSchemaChips(prev => prev.filter(s => s !== selection));
+    setSelected('');
+  };
+
+  const onDeleteTypeChip = () => {
+    setTypeChips([]);
+    setSelectTypes('');
+  };
+
+  const clearAllFilters = () => {
+    setSchemaChips([]);
+    setTypeChips([]);
+    setSelectTypes('');
+    setSelected('');
+    setCurrentCategory('Query');
+    setSchemaDropDown(false);
+    setTypesDropdown(false);
+  };
+
   const onCategorySelect = event => {
     setCurrentCategory(event.target.innerText);
     const tempChip = [];
@@ -115,10 +145,15 @@ const DomainExplorerPage = () => {
     setSchemaDropDown(true);
   };
 
-  const onChange = (_value, selection, event) => {
+  const onChange = (event, selection) => {
     setTypesDropdown(true);
     setSelected(selection);
-
+    !schemaChips.includes(selection) &&
+      setSchemaChips(prev => [...prev, selection]);
+    const parent = event.nativeEvent.target.parentElement.parentElement.getAttribute(
+      'value'
+    );
+    setTypeParent(parent);
     const x = samp.find(item =>
       item.inputFields.find(option => {
         if (option.name === selection) {
@@ -136,7 +171,6 @@ const DomainExplorerPage = () => {
     } else {
       setCurrentArgumentScalar(y.type.name);
     }
-
     setIsExpanded(false);
   };
 
@@ -151,6 +185,7 @@ const DomainExplorerPage = () => {
   const onSelect = event => {
     setSelectTypes(event.target.innerText);
     const _temp = event.target.innerText;
+    setTypeChips([_temp]);
     setIsFilterDropdownOpen(false);
     const typeName =
       getTypes.data.__type &&
@@ -168,6 +203,42 @@ const DomainExplorerPage = () => {
 
   const onSelectBoolean = event => {
     setIsOpen(!isOpen);
+  };
+
+  const textBoxChange = value => {
+    // console.log(value);
+    setTextValue(value);
+  };
+
+  const obj: any = {};
+  const set = (_obj, path, val) => {
+    const keys = path.split('.');
+    const lastKey = keys.pop();
+    // tslint:disable-next-line: no-shadowed-variable
+    const lastObj = keys.reduce(
+      // tslint:disable-next-line: no-shadowed-variable
+      (_obj, key) => (_obj[key] = _obj[key] || {}),
+      _obj
+    );
+    lastObj[lastKey] = val;
+  };
+
+  const onApplyFilter = async () => {
+    const n = `${typeParent}.${selected}.${selectTypes}`;
+    set(obj, n, textValue);
+    try {
+      const resp = await axios.post(
+        'http://localhost:4000/graphql',
+        gql.query({
+          operation: columnPickerType,
+          fields: ['id'],
+          variables: { where: { value: obj, type: 'TravelsArgument' } }
+        })
+      );
+      // console.log(resp);
+    } catch (error) {
+      // console.log(error);
+    }
   };
 
   const buildCategoryDropdown = () => {
@@ -271,7 +342,11 @@ const DomainExplorerPage = () => {
       <React.Fragment>
         {schemaDropdown
           ? !getSchema.loading && (
-              <DataToolbarFilter categoryName="Schema">
+              <DataToolbarFilter
+                chips={schemaChips}
+                deleteChip={onDeleteSchemaChip}
+                categoryName="Schema"
+              >
                 <Select
                   variant={SelectVariant.single}
                   onToggle={onFieldToggle}
@@ -290,7 +365,11 @@ const DomainExplorerPage = () => {
           : ''}
 
         {!getTypes.loading && typesDropdown && (
-          <DataToolbarFilter categoryName="Types">
+          <DataToolbarFilter
+            chips={typeChips}
+            deleteChip={onDeleteTypeChip}
+            categoryName="Types"
+          >
             <Select
               aria-label="Location"
               onToggle={onToggle}
@@ -304,20 +383,34 @@ const DomainExplorerPage = () => {
           </DataToolbarFilter>
         )}
 
-        {currentArgumentScalar === 'String' && (
-          <TextInput type="text" aria-label="text input example" />
+        {selectTypes.length > 0 && currentArgumentScalar === 'String' && (
+          <>
+            <TextInput
+              type="text"
+              aria-label="text input example"
+              onChange={textBoxChange}
+            />
+            <Button variant="primary" onClick={onApplyFilter}>
+              Apply Filter
+            </Button>
+          </>
         )}
-        {currentArgumentScalar === 'Boolean' && (
-          <Dropdown
-            onSelect={onSelectBoolean}
-            toggle={
-              <DropdownToggle id="toggle-id" onToggle={onToggleBoolean}>
-                Boolean
-              </DropdownToggle>
-            }
-            isOpen={isOpen}
-            dropdownItems={dropdownItems}
-          />
+        {selectTypes.length > 0 && currentArgumentScalar === 'Boolean' && (
+          <>
+            <Dropdown
+              onSelect={onSelectBoolean}
+              toggle={
+                <DropdownToggle id="toggle-id" onToggle={onToggleBoolean}>
+                  Boolean
+                </DropdownToggle>
+              }
+              isOpen={isOpen}
+              dropdownItems={dropdownItems}
+            />
+            <Button variant="primary" onClick={onApplyFilter}>
+              Apply Filter
+            </Button>
+          </>
         )}
       </React.Fragment>
     );
@@ -329,7 +422,9 @@ const DomainExplorerPage = () => {
         <GridItem span={columnPickerType ? 9 : 12}>
           <DataToolbar
             id="data-toolbar-with-chip-groups"
+            className="pf-m-toggle-group-container"
             collapseListedFiltersBreakpoint="xl"
+            clearAllFilters={clearAllFilters}
           >
             <DataToolbarContent>
               <DataToolbarToggleGroup
