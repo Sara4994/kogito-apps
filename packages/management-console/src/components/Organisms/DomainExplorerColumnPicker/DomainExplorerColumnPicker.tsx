@@ -18,12 +18,14 @@ export interface IOwnProps {
   columnPickerType: any;
   setColumnFilters: any;
   setTableLoading: any;
+  setPickedColumns: any;
 }
 
 const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   columnPickerType,
   setColumnFilters,
-  setTableLoading
+  setTableLoading,
+  setPickedColumns
 }) => {
   const [selected, setSelected] = useState([]);
   const [isExpanded, setIsExpanded] = useState(false);
@@ -48,6 +50,7 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     fieldObject.value[parent] = [selection];
     // console.log('fields', fieldObject);
     setParameters(prevState => [...prevState, fieldObject.value]);
+    setPickedColumns(prevState => [...prevState, fieldObject.value]);
   };
   const onToggle = _isExpanded => {
     setIsExpanded(_isExpanded);
@@ -56,7 +59,6 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   const getPicker = useQuery(GET_PICKER, {
     variables: { columnPickerType }
   });
-
   async function sampleQuery() {
     try {
       await axios

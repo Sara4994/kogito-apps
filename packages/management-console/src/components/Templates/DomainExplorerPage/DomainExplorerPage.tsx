@@ -19,17 +19,17 @@ import {
   Grid,
   GridItem,
   PageSection,
-  Button
+  Button,
+  Bullseye
 } from '@patternfly/react-core';
-import { FilterIcon } from '@patternfly/react-icons';
+import { FilterIcon, CommentsDollarIcon } from '@patternfly/react-icons';
 import * as gql from 'gql-query-builder';
-// import MyQueryAdapter from 'where/adapters/live/MyQueryAdapter';
-import IMutationAdapter from 'gql-query-builder/build/adapters/IMutationAdapter';
 import axios from 'axios';
 
 import DomainExplorerColumnPicker from '../../Organisms/DomainExplorerColumnPicker/DomainExplorerColumnPicker';
 import DomainExplorerTable from '../../Organisms/DomainExplorerTable/DomainExplorerTable';
 import { TravelsArgument } from '../../../graphql/types';
+import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 
 import {
   GET_QUERY_TYPES,
@@ -59,10 +59,13 @@ const DomainExplorerPage = () => {
   const [selected, setSelected] = useState('');
   const [columnFilters, setColumnFilters] = useState({});
   const [tableLoading, setTableLoading] = useState(true);
+  const [FilterLoading, setFilterLoading] = useState(true);
   const [schemaChips, setSchemaChips] = useState([]);
   const [typeChips, setTypeChips] = useState([]);
   const [textValue, setTextValue] = useState('');
   const [typeParent, setTypeParent] = useState('');
+  const [pickedColumns, setPickedColumns] = useState([]);
+  const [pickedColumnsData, setPickedColumnsData] = useState([]);
 
   const temp = [];
   const nullTypes = [
@@ -206,7 +209,6 @@ const DomainExplorerPage = () => {
   };
 
   const textBoxChange = value => {
-    // console.log(value);
     setTextValue(value);
   };
 
@@ -227,20 +229,61 @@ const DomainExplorerPage = () => {
     const n = `${typeParent}.${selected}.${selectTypes}`;
     set(obj, n, textValue);
     try {
-      const resp = await axios.post(
-        'http://localhost:4000/graphql',
-        gql.query({
-          operation: columnPickerType,
-          fields: ['id'],
-          variables: { where: { value: obj, type: 'TravelsArgument' } }
-        })
-      );
-      // console.log(resp);
+      await axios
+        .post(
+          'http://localhost:4000/graphql',
+          gql.query({
+            operation: columnPickerType,
+            fields: pickedColumns,
+            variables: { where: { value: obj, type: 'TravelsArgument' } }
+          })
+        )
+        .then(res => {
+          setPickedColumnsData(res.data.data);
+          setFilterLoading(false);
+        });
     } catch (error) {
       // console.log(error);
     }
   };
+  let colsTemp: any = [];
+  const tableRows: any = [];
+  let rows = [];
+  const rowObject: any = {};
+  const temps: any = {};
+  useEffect(() => {
+    const firstKey = Object.keys(pickedColumnsData)[0];
+    const tableContent = pickedColumnsData[firstKey];
 
+    if (tableContent) {
+      const tableObjects: any = [];
+      tableContent.filter(items => tableObjects.push(Object.values(items)));
+      const tableData = tableObjects.flat();
+      tableData.filter(item => {
+        colsTemp.push(Object.keys(item));
+        temps.cells = Object.values(item);
+        tableRows.push(temps);
+      });
+      colsTemp = colsTemp[0];
+      if (FilterLoading) {
+        rowObject.cells = [
+          {
+            props: { colSpan: 8 },
+            title: (
+              <Bullseye>
+                <SpinnerComponent spinnerText="Loading Domain Explorer..." />
+              </Bullseye>
+            )
+          }
+        ];
+        rows.push(rowObject);
+      } else {
+        rows = tableRows;
+      }
+    }
+    // console.log('rows', rows);
+    // console.log('cols', colsTemp);
+  }, [pickedColumnsData]);
   const buildCategoryDropdown = () => {
     const queryDropDown =
       !getQuery.loading && getQuery.data.__type.fields.slice(2);
@@ -445,6 +488,7 @@ const DomainExplorerPage = () => {
               columnPickerType={columnPickerType}
               setColumnFilters={setColumnFilters}
               setTableLoading={setTableLoading}
+              setPickedColumns={setPickedColumns}
             />
           )}
         </GridItem>
@@ -460,6 +504,8 @@ const DomainExplorerPage = () => {
           <DomainExplorerTable
             columnFilters={columnFilters}
             tableLoading={tableLoading}
+            filteredRow={rows}
+            filteredColumn={colsTemp}
           />
         </GridItem>
       </Grid>
