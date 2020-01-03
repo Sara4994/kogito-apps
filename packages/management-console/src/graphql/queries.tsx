@@ -61,7 +61,10 @@ const GET_PROCESS_INSTANCE = gql`
       start
       end
       endpoint
-      childProcessInstanceId
+      childProcessInstances {
+        id
+        processName
+      }
       nodes {
         id
         name
@@ -73,7 +76,7 @@ const GET_PROCESS_INSTANCE = gql`
   }
 `;
 
-export const GET_PICKER = gql`
+const GET_PICKER = gql`
   query getPicker($columnPickerType: String!) {
     __type(name: $columnPickerType) {
       name
@@ -84,6 +87,10 @@ export const GET_PICKER = gql`
           kind
           fields {
             name
+            type {
+              name
+              kind
+            }
           }
         }
       }
@@ -91,14 +98,18 @@ export const GET_PICKER = gql`
   }
 `;
 
-export const GET_QUERY_TYPES = gql`
-  {
+const GET_QUERY_TYPES = gql`
+  query getQueryTypes {
     __schema {
       queryType: types {
         name
         kind
         fields {
           name
+          type {
+            name
+            kind
+          }
         }
         inputFields {
           name
@@ -112,8 +123,8 @@ export const GET_QUERY_TYPES = gql`
   }
 `;
 
-export const GET_QUERY = gql`
-  {
+const GET_QUERY = gql`
+  query getQuery {
     __type(name: "Query") {
       name
       fields {
@@ -135,7 +146,7 @@ export const GET_QUERY = gql`
   }
 `;
 
-export const GET_SCHEMA = gql`
+const GET_SCHEMA = gql`
   query getSchema($currentQuery: String!) {
     __type(name: $currentQuery) {
       name
@@ -156,7 +167,7 @@ export const GET_SCHEMA = gql`
   }
 `;
 
-export const GET_TYPES = gql`
+const GET_TYPES = gql`
   query getTypes($currentArgument: String!) {
     __type(name: $currentArgument) {
       name
