@@ -12,24 +12,41 @@ import {
 import { SearchIcon } from '@patternfly/react-icons';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 
-const DomainExplorerTable = ({ columnFilters, tableLoading }) => {
+const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
+  const getKeys = object => {
+    const iter = (data, k = '') => {
+      // tslint:disable-next-line: forin
+      for (const i in data) {
+        const rest = k.length ? ' < ' + i : i;
+        if (typeof data[i] === 'object') {
+          if (!Array.isArray(data[i])) {
+            iter(data[i], k + rest);
+          }
+        } else {
+          !tempKeys.includes(k + rest) && tempKeys.push(k + rest);
+          if (rest.hasOwnProperty) {
+            tempValue.push(data[i]);
+          }
+        }
+      }
+    };
+    const tempKeys = [];
+    const tempValue = [];
+    iter(object);
+    return { tempKeys, tempValue };
+  };
   const firstKey = Object.keys(columnFilters)[0];
   const tableContent = columnFilters[firstKey];
-  let colsTemp: any = [];
-  const tableRows: any = [];
-  let rows = [];
-  const rowObject: any = {};
-  const temp: any = {};
+
+  const keys = [];
+  const values = [];
   if (tableContent) {
-    const tableObjects: any = [];
-    tableContent.filter(items => tableObjects.push(Object.values(items)));
-    const tableData = tableObjects.flat();
-    tableData.filter(item => {
-      colsTemp.push(Object.keys(item));
-      temp.cells = Object.values(item);
-      tableRows.push(temp);
+    const finalResult = tableContent.map(item => getKeys(item));
+    finalResult.map(result => {
+      keys.push(result.tempKeys);
+      values.push({ cells: result.tempValue });
     });
-    colsTemp = colsTemp[0];
+    const rowObject: any = {};
     if (tableLoading) {
       rowObject.cells = [
         {
@@ -41,11 +58,11 @@ const DomainExplorerTable = ({ columnFilters, tableLoading }) => {
           )
         }
       ];
-      rows.push(rowObject);
-    } else {
-      rows = tableRows;
+      values.push(rowObject);
     }
   }
+  const finalKeys = keys[0];
+
   const onRowSelect = (event, isSelected, rowId) => {
     return null;
   };
@@ -56,34 +73,16 @@ const DomainExplorerTable = ({ columnFilters, tableLoading }) => {
 
   return (
     <React.Fragment>
-      {colsTemp.length > 0 && (
+      {displayTable && (
         <Table
-          cells={colsTemp}
-          rows={rows}
+          cells={finalKeys}
+          rows={values}
           onSelect={onRowSelect}
           aria-label="Filterable Table Demo"
         >
           <TableHeader />
           <TableBody />
         </Table>
-      )}
-      {colsTemp.length > 0 && rows.length === 0 && (
-        <Bullseye>
-          <EmptyState>
-            <EmptyStateIcon icon={SearchIcon} />
-            <Title headingLevel="h5" size="lg">
-              No results found
-            </Title>
-            <EmptyStateBody>
-              No results match this filter criteria.
-            </EmptyStateBody>
-            <EmptyStateSecondaryActions>
-              <Button variant="link" onClick={() => onDelete(null)}>
-                Clear all filters
-              </Button>
-            </EmptyStateSecondaryActions>
-          </EmptyState>
-        </Bullseye>
       )}
     </React.Fragment>
   );
