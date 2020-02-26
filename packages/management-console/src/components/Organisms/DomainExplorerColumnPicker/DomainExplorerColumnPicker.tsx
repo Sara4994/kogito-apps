@@ -39,6 +39,11 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   getPicker
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [tempDomain, setTempDomain] = useState('');
+
+  useEffect(() => {
+    setTempDomain(columnPickerType);
+  });
 
   const nullTypes = [null, 'String', 'Boolean', 'Int', 'DateTime'];
   const client = useApolloClient();
@@ -88,8 +93,9 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   };
 
   useEffect(() => {
-    generateQuery();
-  });
+    // tslint:disable-next-line: no-floating-promises
+    parameters && generateQuery();
+  }, [tempDomain, parameters.length > -1]);
 
   async function generateQuery() {
     if (columnPickerType && parameters.length > 0) {
@@ -264,4 +270,4 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   );
 };
 
-export default React.memo(DomainExplorerColumnPicker);
+export default DomainExplorerColumnPicker;
