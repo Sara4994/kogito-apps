@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Select,
   SelectOption,
@@ -9,7 +9,6 @@ import {
 import { query } from 'gql-query-builder';
 import _ from 'lodash';
 import gql from 'graphql-tag';
-import { useGetColumnPickerAttributesQuery } from '../../../graphql/types';
 import { useApolloClient } from 'react-apollo';
 
 export interface IOwnProps {
@@ -22,6 +21,8 @@ export interface IOwnProps {
   setParameters: any;
   selected: any;
   setSelected: any;
+  data: any;
+  getPicker: any;
 }
 
 const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
@@ -33,7 +34,9 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   parameters,
   setParameters,
   selected,
-  setSelected
+  setSelected,
+  data,
+  getPicker
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -84,8 +87,8 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     setIsExpanded(_isExpanded);
   };
 
-  const getPicker = useGetColumnPickerAttributesQuery({
-    variables: { columnPickerType }
+  useEffect(() => {
+    generateQuery();
   });
 
   async function generateQuery() {
@@ -115,19 +118,6 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
       setDisplayTable(false);
     }
   }
-
-  let data = [];
-  const tempArray = [];
-  !getPicker.loading &&
-    getPicker.data.__type &&
-    getPicker.data.__type.fields.filter(i => {
-      if (i.type.kind === 'SCALAR') {
-        tempArray.push(i);
-      } else {
-        data.push(i);
-      }
-    });
-  data = tempArray.concat(data);
 
   const fetchSchema = option => {
     return (
