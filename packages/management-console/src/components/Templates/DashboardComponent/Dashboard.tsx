@@ -71,7 +71,7 @@ const Dashboard: React.FC<{}> = (props: any) => {
         header={Header}
         skipToContent={PageSkipToContent}
         mainContainerId={pageId}
-        className="page"
+        className="kogito-management-console--dashboard-page"
         sidebar={Sidebar}
       >
         <Switch>
