@@ -50,7 +50,9 @@ const DomainExplorerDashboard = props => {
   const [tableLoading, setTableLoading] = useState(true);
   const [displayTable, setDisplayTable] = useState(false);
   const [selected, setSelected] = useState([]);
-  const [parameters, setParameters] = useState([]);
+  const [parameters, setParameters] = useState([
+    { metadata: [{ processInstances: ['processName', 'state', 'start'] }] }
+  ]);
 
   const temp = [];
 
@@ -121,7 +123,7 @@ const DomainExplorerDashboard = props => {
   defaultParams = defaultParams.slice(0, 5);
 
   useEffect(() => {
-    setParameters(defaultParams);
+    setParameters(prev => [...defaultParams, ...prev]);
     setSelected(selections);
   }, [columnPickerType, selections.length > 0]);
 
@@ -195,10 +197,14 @@ const DomainExplorerDashboard = props => {
           </BreadcrumbItem>
           {BreadCrumb.map((item, index) => {
             if (index === BreadCrumb.length - 1) {
-              return <BreadcrumbItem isActive>{item}</BreadcrumbItem>;
+              return (
+                <BreadcrumbItem key={index} isActive>
+                  {item}
+                </BreadcrumbItem>
+              );
             } else {
               return (
-                <BreadcrumbItem>
+                <BreadcrumbItem key={index}>
                   <Link to="/DomainExplorer">{item}</Link>{' '}
                 </BreadcrumbItem>
               );

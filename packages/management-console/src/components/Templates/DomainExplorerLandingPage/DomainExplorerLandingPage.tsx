@@ -22,7 +22,6 @@ import { useGetQueryFieldsQuery } from '../../../graphql/types';
 
 const DomainExplorerLandingPage = () => {
   const getQuery = useGetQueryFieldsQuery();
-  const domains = [];
 
   const availableDomains =
     !getQuery.loading && getQuery.data.__type.fields.slice(2);

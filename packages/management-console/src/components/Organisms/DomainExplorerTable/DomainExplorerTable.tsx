@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableHeader, TableBody } from '@patternfly/react-table';
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableVariant
+} from '@patternfly/react-table';
 import {
   Title,
   EmptyState,
@@ -9,11 +14,80 @@ import {
   Card,
   CardBody
 } from '@patternfly/react-core';
+import {
+  EllipsisVIcon,
+  ExternalLinkAltIcon,
+  InProgressIcon,
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  SyncIcon,
+  BanIcon,
+  OnRunningIcon,
+  SearchIcon,
+  ErrorCircleOIcon,
+  PausedIcon
+} from "@patternfly/react-icons";
+import Moment from 'react-moment';
 import './DomainExplorerTable.css';
-import { SearchIcon } from '@patternfly/react-icons';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 
 const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
+  const [columns, setColumns] = useState([]);
+  const [rows, setRows] = useState([]);
+
+  const stateIcon = (state) => {
+    switch (state) {
+      case 'ACTIVE':
+        return (
+          <>
+            <OnRunningIcon className="pf-u-mr-sm" />
+            Active
+          </>
+        );
+      case 'COMPLETED':
+        return (
+          <>
+            <CheckCircleIcon
+              className="pf-u-mr-sm"
+              color="var(--pf-global--success-color--100)"
+            />
+            Completed
+          </>
+        );
+      case 'ABORTED':
+        return (
+          <>
+            <BanIcon className="pf-u-mr-sm" />
+            Aborted
+          </>
+        );
+      case 'SUSPENDED':
+        return (
+          <>
+            <PausedIcon className="pf-u-mr-sm" />
+            Suspended
+          </>
+        );
+      case 'PENDING':
+        return (
+          <>
+            <PausedIcon className="pf-u-mr-sm" />
+            Suspended
+            </>
+        );
+      case 'ERROR':
+        return (
+          <>
+            <ErrorCircleOIcon
+              className="pf-u-mr-sm"
+              color="var(--pf-global--danger-color--100)"
+            />
+            Error
+          </>
+        );
+    }
+  }
+
   const getKeys = object => {
     const iter = (data, k = '') => {
       // tslint:disable-next-line: forin
@@ -28,7 +102,29 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
           if (rest !== '__typename' && !rest.match('/ __typename')) {
             !tempKeys.includes(k + rest) && tempKeys.push(k + rest);
             if (rest.hasOwnProperty) {
-              tempValue.push(data[i].toString());
+              if (rest === 'start') {
+                const ele = {
+                  title: (
+                    <>
+                      <SyncIcon
+                        className="pf-u-mr-sm"
+                        color="var(--pf-global--disabled-color--100)"
+                      />
+                      <Moment fromNow>{data[i].toString()}</Moment>
+                    </>
+                  )
+                }
+                tempValue.push(ele)
+              } else if (rest === 'state') {
+                console.log('state', data[i].toString())
+                const ele = {
+                  title:
+                    stateIcon(data[i].toString())
+                }
+                tempValue.push(ele)
+              } else {
+                tempValue.push(data[i].toString());
+              }
             }
           }
         }
@@ -37,41 +133,92 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
     const tempKeys = [];
     const tempValue = [];
     iter(object);
+    console.log('tempValue', tempValue)
     return { tempKeys, tempValue };
   };
   const firstKey = Object.keys(columnFilters)[0];
   const tableContent = columnFilters[firstKey];
 
   const keys = [];
-  const values = [];
-  if (tableContent) {
-    const finalResult = tableContent.map(item => getKeys(item));
-    finalResult.map(result => {
-      keys.push(result.tempKeys);
-      values.push({
-        cells: result.tempValue,
-        rowKey: Math.random().toString()
-      });
-    });
-    const rowObject: any = {};
-    if (tableLoading) {
-      rowObject.cells = [
-        {
-          props: { colSpan: 8 },
-          title: (
-            <Bullseye>
-              <SpinnerComponent spinnerText="Loading domain explorer" />
-            </Bullseye>
-          )
-        }
-      ];
-      values.push(rowObject);
-    }
-  }
-  const finalKeys = keys[0];
+  let values = [];
+  let parentIndex = 0;
 
-  const onRowSelect = (event, isSelected, rowId) => {
-    return null;
+  const initLoad = () => {
+    if (tableContent) {
+      tableContent.map(item => {
+        let metaArray = [];
+        const metaKeys = [];
+        const metaValues = [];
+        metaArray = item.metadata.processInstances;
+        const tempParents = getKeys(item);
+        keys.push(tempParents.tempKeys);
+        values.push({
+          isOpen: false,
+          cells: tempParents.tempValue,
+          rowKey: Math.random().toString()
+        });
+        metaArray.map(data => {
+          const tempMeta = getKeys(data);
+          metaKeys.push(tempMeta.tempKeys);
+          metaValues.push({
+            cells: tempMeta.tempValue,
+            rowKey: Math.random().toString()
+          });
+        });
+        const finalMetaKeys = metaKeys[0];
+        const innerTable = [
+          {
+            parent: parentIndex,
+            rowKey: Math.random().toString(),
+            cells: [
+              {
+                title: (
+                  <Table
+                    aria-label="Process Instances"
+                    variant={TableVariant.compact}
+                    cells={finalMetaKeys}
+                    rows={metaValues}
+                    className="kogito-management-console__embedded-table"
+                  >
+                    <TableHeader />
+                    <TableBody />
+                  </Table>
+                )
+              }
+            ]
+          }
+        ];
+        values = values.concat(innerTable);
+        parentIndex = parentIndex + 2;
+      });
+
+      const rowObject: any = {};
+      if (tableLoading) {
+        rowObject.cells = [
+          {
+            props: { colSpan: 8 },
+            title: (
+              <Bullseye>
+                <SpinnerComponent spinnerText="Loading domain explorer" />
+              </Bullseye>
+            )
+          }
+        ];
+        values.push(rowObject);
+      }
+    }
+    setRows([...values]);
+    const finalKeys = keys[0];
+    setColumns(finalKeys);
+  };
+
+  useEffect(() => {
+    initLoad();
+  }, [tableContent]);
+
+  const onCollapse = (event, rowKey, isOpen) => {
+    rows[rowKey].isOpen = isOpen;
+    setRows([...rows]);
   };
 
   const onDelete = (type = '', id = '') => {
@@ -80,12 +227,13 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
 
   return (
     <React.Fragment>
-      {displayTable && (
+      {displayTable && columns.length > 0 && (
         <Table
-          cells={finalKeys}
-          rows={values}
+          cells={columns}
+          rows={rows}
           aria-label="Domain Explorer Table"
           className="kogito-management-console--domain-explorer__table"
+          onCollapse={onCollapse}
         >
           <TableHeader />
           <TableBody rowKey="rowKey" />
