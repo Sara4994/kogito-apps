@@ -155,10 +155,10 @@ const DomainExplorerDashboard = props => {
       <DataToolbar
         id="data-toolbar-with-chip-groups"
         className="pf-m-toggle-group-container"
-        collapseListedFiltersBreakpoint="xl"
+        collapseListedFiltersBreakpoint="md"
       >
         <DataToolbarContent>
-          <DataToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="xl">
+          <DataToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
             <DataToolbarGroup>
               {!getSchema.loading && (
                 <DomainExplorerColumnPicker
