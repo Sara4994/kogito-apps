@@ -10,7 +10,7 @@ import {
   CardBody
 } from '@patternfly/react-core';
 import './DomainExplorerTable.css';
-import { SearchIcon } from '@patternfly/react-icons';
+import { SearchIcon, FilterIcon } from '@patternfly/react-icons';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 
 const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
@@ -58,6 +58,7 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
         rowKey: Math.random().toString()
       });
     });
+
     const rowObject: any = {};
     if (tableLoading) {
       rowObject.cells = [
@@ -73,7 +74,7 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
       values.push(rowObject);
     }
   }
-  const finalKeys = keys[0];
+  const finalKeys = keys[0]
 
   const onRowSelect = (event, isSelected, rowId) => {
     return null;
@@ -101,9 +102,9 @@ const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable }) => {
           <CardBody>
             <Bullseye>
               <EmptyState>
-                <EmptyStateIcon icon={SearchIcon} />
+                <EmptyStateIcon icon={FilterIcon} />
                 <Title headingLevel="h5" size="lg">
-                  No domain data to display
+                  No columns selected
                 </Title>
                 <EmptyStateBody>
                   Select columns from the dropdown to see content

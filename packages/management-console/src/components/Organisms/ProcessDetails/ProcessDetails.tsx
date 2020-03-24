@@ -25,10 +25,9 @@ import { Link } from 'react-router-dom';
 import { ProcessInstanceState } from '../../../graphql/types';
 
 interface IOwnProps {
-  loading: boolean;
   data: any;
 }
-const ProcessDetails: React.FC<IOwnProps> = ({ data, loading }) => {
+const ProcessDetails: React.FC<IOwnProps> = ({ data }) => {
   const stateIconCreator = state => {
     switch (state) {
       case ProcessInstanceState.Active:
@@ -130,8 +129,8 @@ const ProcessDetails: React.FC<IOwnProps> = ({ data, loading }) => {
                 ''
               )}
           </FormGroup>
-          {!loading &&
-            data.ProcessInstances[0].parentProcessInstance !== null ? (
+          {
+            data.ProcessInstances[0].parentProcessInstance !== null && (
               <FormGroup label="Parent Process" fieldId="parent">
                 <div>
                   <Link
@@ -152,12 +151,9 @@ const ProcessDetails: React.FC<IOwnProps> = ({ data, loading }) => {
                     </Tooltip>
                   </Link>
                 </div>
-              </FormGroup>
-            ) : (
-              <div />
-            )}
+            </FormGroup>)}
 
-          {!loading &&
+          {
             data.ProcessInstances[0].childProcessInstances.length !== 0 ? (
               <FormGroup label="Sub Processes" fieldId="child">
                 {data.ProcessInstances[0].childProcessInstances.map(
