@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { Redirect } from 'react-router';
 import './DomainExplorerDashboard.css';
 import DomainExplorerColumnPicker from '../../Organisms/DomainExplorerColumnPicker/DomainExplorerColumnPicker';
+import DomainExplorerFilterOptions from '../../Organisms/DomainExplorerFilterOptions/DomainExplorerFilterOptions';
 import DomainExplorerTable from '../../Organisms/DomainExplorerTable/DomainExplorerTable';
 import PageTitleComponent from '../../Molecules/PageTitleComponent/PageTitleComponent';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
@@ -183,6 +184,14 @@ const DomainExplorerDashboard = props => {
                 />
               )}
             </DataToolbarGroup>
+            {!getQuery.loading &&
+            (<DataToolbarGroup>
+                <DomainExplorerFilterOptions 
+                  currentDomain={domainName} 
+                  getQuery = {getQuery}
+                  parameters = {parameters}
+                />
+            </DataToolbarGroup>)}
           </DataToolbarToggleGroup>
         </DataToolbarContent>
       </DataToolbar>
