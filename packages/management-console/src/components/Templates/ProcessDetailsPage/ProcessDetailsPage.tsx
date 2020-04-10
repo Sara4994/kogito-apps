@@ -34,13 +34,13 @@ import ProcessBulkModalComponent from '../../Atoms/ProcessBulkModalComponent/Pro
 import axios from 'axios';
 import { InfoCircleIcon } from '@patternfly/react-icons';
 
-const ProcessDetailsPage = ({ match }) => {
+const ProcessDetailsPage = (props) => {
+  const id = props.match.params.instanceID;
   const [isSkipModalOpen, setIsSkipModalOpen] = useState<boolean>(false);
   const [isRetryModalOpen, setIsRetryModalOpen] = useState<boolean>(false);
   const [modalTitle, setModalTitle] = useState<string>('');
   const [titleType, setTitleType] = useState<string>('');
   const [modalContent, setModalContent] = useState<string>('');
-  const id = match.params.instanceID;
   const [isAbortModalOpen, setIsAbortModalOpen] = useState<boolean>(false);
   const currentPage = JSON.parse(window.localStorage.getItem('state'))
 
@@ -248,6 +248,15 @@ const ProcessDetailsPage = ({ match }) => {
                       <Link to={'/'}>Home</Link>
                     </BreadcrumbItem>
                     {BreadCrumb.map((item, index) => {
+                      if(index === 1){
+                        return (
+                          <BreadcrumbItem key={index}>
+                            <Link to={props.location.state && {pathname:BreadCrumbRoute[index], state:{...props.location.state}}}>
+                              {item.replace(/([A-Z])/g, ' $1').trim()}
+                            </Link>
+                          </BreadcrumbItem>
+                        );
+                      } else {
                       return (
                         <BreadcrumbItem key={index}>
                           <Link to={BreadCrumbRoute[index]}>
@@ -255,7 +264,7 @@ const ProcessDetailsPage = ({ match }) => {
                           </Link>
                         </BreadcrumbItem>
                       );
-                      // }
+                      }
                     })}
                     <BreadcrumbItem isActive>
                       {data.ProcessInstances[0].processName}
