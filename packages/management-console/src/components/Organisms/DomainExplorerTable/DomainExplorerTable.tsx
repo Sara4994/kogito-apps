@@ -36,7 +36,7 @@ import './DomainExplorerTable.css';
 import SpinnerComponent from '../../Atoms/SpinnerComponent/SpinnerComponent';
 import ProcessDescriptor from '../../Molecules/ProcessDescriptor/ProcessDescriptor';
 
-const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable, displayEmptyState }) => {
+const DomainExplorerTable = ({ columnFilters, tableLoading, displayTable, displayEmptyState, parameters, selected }) => {
   // tslint:disable: forin
   const [columns, setColumns] = useState([]);
   const [rows, setRows] = useState([]);
