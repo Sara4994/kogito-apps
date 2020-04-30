@@ -10,6 +10,9 @@ import {
   Spinner
 } from '@patternfly/react-core';
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> KOGITO-2008: Configured common package to share react components
+=======
 >>>>>>> KOGITO-2008: Configured common package to share react components
 =======
 >>>>>>> KOGITO-2008: Configured common package to share react components
