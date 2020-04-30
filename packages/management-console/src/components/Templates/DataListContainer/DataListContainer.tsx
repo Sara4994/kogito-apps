@@ -9,6 +9,7 @@ import {
   GridItem,
   PageSection
 } from '@patternfly/react-core';
+import { ServerErrors } from '@kogito-apps/common/src/components';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageTitleComponent from '../../Molecules/PageTitleComponent/PageTitleComponent';
@@ -25,7 +26,6 @@ import {
 } from '../../../graphql/types';
 import axios from 'axios';
 import { InfoCircleIcon } from '@patternfly/react-icons';
-import ServerErrorsComponent from '../../Molecules/ServerErrorsComponent/ServerErrorsComponent';
 
 const DataListContainer: React.FC<{}> = () => {
   const pSize = 10;
@@ -283,9 +283,7 @@ const DataListContainer: React.FC<{}> = () => {
 
   if (error || getProcessInstancesWithBK.error) {
     return (
-      <ServerErrorsComponent
-        message={error ? error : getProcessInstancesWithBK.error}
-      />
+      <ServerErrors error={error ? error : getProcessInstancesWithBK.error} />
     );
   }
   return (

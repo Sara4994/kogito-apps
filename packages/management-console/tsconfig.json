@@ -5,10 +5,13 @@
         "src/**/*.tsx",
         "src/**/*.jsx",
         "src/**/*.js",
-        "../../config/declare.d.ts"
+        "../../config/declare.d.ts",
+        "../../node_modules/@kogito-apps/common/src/**/*.ts",
+        "../../node_modules/@kogito-apps/common/src/**/*.tsx"
     ],
     "exclude": [
         "src/graphql/queries.tsx",
         "node_modules"
-    ]
+    ],
+    "preserveSymlinks": true
 }
