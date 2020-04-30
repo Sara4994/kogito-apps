@@ -9,6 +9,9 @@ import {
   Button,
   Spinner
 } from '@patternfly/react-core';
+<<<<<<< HEAD
+>>>>>>> KOGITO-2008: Configured common package to share react components
+=======
 >>>>>>> KOGITO-2008: Configured common package to share react components
 import { ServerErrors } from '@kogito-apps/common/src/components';
 import '../../Templates/DataListContainer/DataList.css';
