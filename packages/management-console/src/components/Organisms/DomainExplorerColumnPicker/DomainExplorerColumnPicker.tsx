@@ -4,13 +4,26 @@ import {
   SelectOption,
   SelectVariant,
   SelectGroup,
-  Button
+  Button,
+  Modal,
+  Text,
+  TextContent,
+  TextVariants,
+  DataList,
+  DataListCheck,
+  DataListItem,
+  DataListItemRow,
+  DataListCell,
+  DataListItemCells,
+  DataListToggle,
+  DataListContent
 } from '@patternfly/react-core';
 import { SyncIcon } from '@patternfly/react-icons';
 import { query } from 'gql-query-builder';
 import _ from 'lodash';
 import gql from 'graphql-tag';
 import { useApolloClient } from 'react-apollo';
+import './DomainExplorerColumnPicker.css';
 
 export interface IOwnProps {
   columnPickerType: any;
@@ -47,6 +60,8 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
   // tslint:disable: no-floating-promises
   const [isExpanded, setIsExpanded] = useState(false);
   const [enableRefresh, setEnableRefresh] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [expanded, setExpanded] = useState(['ex-toggle1', 'ex-toggle3']);
 
   const nullTypes = [null, 'String', 'Boolean', 'Int', 'DateTime'];
   const client = useApolloClient();
@@ -347,6 +362,117 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
     }
   };
 
+  // Manage Columns starts
+
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const onSave = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const renderModal = () => {
+    const toggle = id => {
+      const index = expanded.indexOf(id);
+      const newExpanded =
+        index >= 0
+          ? [
+              ...expanded.slice(0, index),
+              ...expanded.slice(index + 1, expanded.length)
+            ]
+          : [...expanded, id];
+      setExpanded(newExpanded);
+    };
+
+    const dataListItems = _data => {
+      return (
+        <DataListItem
+          aria-labelledby="table-column-management-item1"
+          isExpanded={expanded.includes('ex-toggle1')}
+        >
+          <DataListItemRow>
+            <DataListToggle
+              onClick={() => toggle('ex-toggle1')}
+              isExpanded={expanded.includes('ex-toggle1')}
+              id="ex-toggle1"
+              aria-controls="ex-expand1"
+            />
+            <DataListItemCells
+              dataListCells={[
+                <DataListCell
+                  id="table-column-management-item1"
+                  key="table-column-management-item1"
+                >
+                  Flight
+                </DataListCell>
+              ]}
+            />
+          </DataListItemRow>
+          <DataListContent
+            aria-label="Primary Content Details"
+            id="ex-expand1"
+            isHidden={!expanded.includes('ex-toggle1')}
+          >
+            <DataListItemCells
+              dataListCells={[
+                <DataListCheck
+                  key="check1"
+                  aria-labelledby="table-column-management-item1"
+                  name="check1"
+                />,
+                <DataListCell
+                  id="table-column-management-item1"
+                  key="table-column-management-item1"
+                >
+                  Test
+                </DataListCell>
+              ]}
+            />
+          </DataListContent>
+        </DataListItem>
+      );
+    };
+
+    return (
+      <Modal
+        title="Manage columns"
+        isOpen={isModalOpen}
+        isSmall
+        description={
+          <TextContent>
+            <Text component={TextVariants.p}>
+              Selected categories will be displayed in the table.
+            </Text>
+            <Button isInline variant="link">
+              Select all
+            </Button>
+          </TextContent>
+        }
+        onClose={handleModalToggle}
+        actions={[
+          <Button key="save" variant="primary" onClick={onSave}>
+            Save
+          </Button>,
+          <Button key="cancel" variant="secondary" onClick={handleModalToggle}>
+            Cancel
+          </Button>
+        ]}
+        isFooterLeftAligned
+      >
+        <DataList
+          aria-label="Table column management"
+          id="table-column-management"
+          className="ModalOverflow"
+        >
+          {dataListItems(data)}
+        </DataList>
+      </Modal>
+    );
+  };
+
+  // Manage Columns Ends
+
   return (
     <React.Fragment>
       {!getPicker.loading && columnPickerType && (
@@ -376,6 +502,10 @@ const DomainExplorerColumnPicker: React.FC<IOwnProps> = ({
           >
             <SyncIcon />
           </Button>
+          <Button variant="link" onClick={handleModalToggle}>
+            Manage columns
+          </Button>
+          {renderModal()}
         </>
       )}
     </React.Fragment>
