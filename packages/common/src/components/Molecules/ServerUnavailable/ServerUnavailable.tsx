@@ -65,7 +65,7 @@ const ServerUnavailable = props => {
                   Error connecting server
                 </Title>
                 <EmptyStateBody>
-                  The console could not access the server to display content.
+                  {`The ${process.env.KOGITO_APP_NAME} could not access the server to display content.`}
                 </EmptyStateBody>
                 <EmptyStateBody>
                   Try reloading the page, or contact your administrator for more
