@@ -10,7 +10,7 @@ import DataListContainer from '../DataListContainer/DataListContainer';
 import ProcessDetailsPage from '../ProcessDetailsPage/ProcessDetailsPage';
 import DomainExplorerDashboard from '../DomainExplorerDashboard/DomainExplorerDashboard';
 import DomainExplorerLandingPage from '../DomainExplorerLandingPage/DomainExplorerLandingPage';
-import './Dashboard.css';
+import './PageLayoutComponent.css';
 import managementConsoleLogo from '../../../static/managementConsoleLogo.svg';
 
 import { useGetQueryFieldsQuery } from '../../../graphql/types';

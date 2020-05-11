@@ -19,7 +19,7 @@ module.exports = {
       KOGITO_KEYCLOAK_URL: 'http://localhost:8280',
       KOGITO_KEYCLOAK_CLIENT_ID: 'kogito-management-console',
       KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:4000/graphql',
-      KOGITO_MANAGEMENTCONSOLE_VERSION: 'DEV',
+      KOGITO_APP_VERSION: 'DEV',
       KOGITO_APP_NAME: 'Management Console'
     })
   ],

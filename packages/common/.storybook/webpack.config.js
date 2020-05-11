@@ -1,29 +1,82 @@
 const path = require("path");
 const SRC_PATH = path.join(__dirname, '../src');
 const STORIES_PATH = path.join(__dirname, '../stories');
-//dont need stories path if you have your stories inside your //components folder
+const webpack = require('webpack');
+
 module.exports = ({config}) => {
+  config.plugins.push(
+    new webpack.EnvironmentPlugin({
+      KOGITO_AUTH_ENABLED: false,
+      KOGITO_KEYCLOAK_REALM: 'kogito',
+      KOGITO_KEYCLOAK_URL: 'http://localhost:8280',
+      KOGITO_KEYCLOAK_CLIENT_ID: 'kogito-management-console',
+      KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:4000/graphql',
+      KOGITO_APP_VERSION: 'DEV',
+      KOGITO_APP_NAME: 'Management Console'
+    })
+  )
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
     include: [SRC_PATH, STORIES_PATH],
       use: [
         {
-          loader: require.resolve('awesome-typescript-loader'),
+          loader: require.resolve('ts-loader'),
           options: {
-            configFileName: './.storybook/tsconfig.json'
+            configFile: path.resolve('./tsconfig.json')
           }
         },
         { loader: require.resolve('react-docgen-typescript-loader') }
       ]
+  },
+  {
+    test: /\.css$/,
+    include: [
+      path.resolve('../src'),
+      path.resolve('../../../node_modules/patternfly'),
+      path.resolve('../../../node_modules/@patternfly/patternfly'),
+      path.resolve('../../../node_modules/@patternfly/react-styles/css'),
+      path.resolve(
+        '../../../node_modules/@patternfly/react-core/dist/styles/base.css'
+      ),
+      path.resolve(
+        '../../../node_modules/@patternfly/react-core/dist/esm/@patternfly/patternfly'
+      ),
+      path.resolve(
+        '../../../node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css'
+      ),
+      path.resolve(
+        '../../../node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css'
+      ),
+      path.resolve (
+        '../../../node_modules/@kogito-apps/common/src/components'
+      )
+    ],
+    use: ['style-loader', 'css-loader']
+  },
+  {
+    test: /\.stories\.tsx?$/,
+    loaders: [
+      {
+        loader: require.resolve('@storybook/source-loader'),
+        options: { parser: 'typescript' },
+      },
+    ],
+    enforce: 'pre',
   });
-  config.resolve.extensions.push('.ts', '.tsx');
+
+  config.resolve.extensions.push('.ts', '.tsx', '.js', '.jsx');
+  config.resolve.modules.push(
+    path.resolve('../../../node_modules'),
+      path.resolve('./node_modules'),
+      path.resolve('../src')
+  )
 
   config.module.rules.push({
-    // only process modules with this loader
-    // if they live under a 'fonts' or 'pficon' directory
     test: /\.(svg|ttf|eot|woff|woff2)$/,
     include: [
-      path.resolve('../src/static')
+      path.resolve('../src/static'),
+      path.resolve('../../../node_modules/@kogito-apps/management-console/src/static'),
+      path.resolve('../../../node_modules/@kogito-apps/task-console/src/static')
     ],
     use: {
       loader: 'file-loader',

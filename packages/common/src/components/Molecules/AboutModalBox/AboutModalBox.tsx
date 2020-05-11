@@ -21,14 +21,14 @@ const AboutModalBox: React.FC<IOwnProps> = ({
   const dataIndexURL =
     // @ts-ignore
     window.DATA_INDEX_ENDPOINT || process.env.KOGITO_DATAINDEX_HTTP_URL;
-
+  const logoSrc = useContext(aboutLogoContext);
   return (
     <AboutModal
       isOpen={isOpenProp}
       onClose={handleModalToggleProp}
       trademark={`${process.env.KOGITO_APP_NAME} is part of Kogito, an open source software released under the Apache Software License 2.0`}
       brandImageAlt="Kogito Logo"
-      brandImageSrc={useContext(aboutLogoContext)}
+      brandImageSrc={logoSrc}
       backgroundImageSrc={aboutPageBackground}
     >
       <TextContent>

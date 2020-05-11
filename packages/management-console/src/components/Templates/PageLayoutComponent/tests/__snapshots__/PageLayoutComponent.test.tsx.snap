@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard component tests snapshot testing 1`] = `
+exports[`PageLayoutComponent component tests snapshot testing 1`] = `
 <ApolloProvider
   client={
     ApolloClient {

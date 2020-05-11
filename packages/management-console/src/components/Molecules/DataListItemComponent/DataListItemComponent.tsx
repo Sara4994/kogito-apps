@@ -27,7 +27,7 @@ import { HistoryIcon } from '@patternfly/react-icons';
 import ErrorPopover from '../../Atoms/ErrorPopoverComponent/ErrorPopoverComponent';
 import ProcessBulkModalComponent from '../../Atoms/ProcessBulkModalComponent/ProcessBulkModalComponent';
 import ProcessDescriptor from '../ProcessDescriptor/ProcessDescriptor';
-import DisablePopup from '../DiablePopup/DisablePopup';
+import DisablePopup from '../DisablePopup/DisablePopup';
 import {
   stateIconCreator,
   setTitle,
