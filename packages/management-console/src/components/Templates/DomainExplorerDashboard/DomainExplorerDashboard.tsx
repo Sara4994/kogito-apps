@@ -61,7 +61,8 @@ const DomainExplorerDashboard = props => {
             'state',
             'start',
             'lastUpdate',
-            'businessKey'
+            'businessKey',
+            'serviceUrl'
           ]
         }
       ]
