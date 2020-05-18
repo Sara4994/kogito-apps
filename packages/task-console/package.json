@@ -55,7 +55,6 @@
       "**/tests/*.(ts|tsx|js)"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "../../config/Jest-config/fileMock.js",
       "\\.(scss|sass|css)$": "identity-obj-proxy"
     }
   },

@@ -18,6 +18,6 @@ describe('PageLayoutComponent component tests', () => {
         <PageLayoutComponent {...props} />
       </MockedProvider>
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find(PageLayoutComponent)).toMatchSnapshot();
   });
 });

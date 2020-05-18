@@ -16,6 +16,7 @@ import {
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { aboutLogoContext } from '../../contexts';
 import PageToolbar from '../PageToolbar/PageToolbar';
 import userImage from '../../../static/avatar.svg';
 import './ServerUnavailable.css';
@@ -29,7 +30,11 @@ const ServerUnavailable = props => {
   const Header = (
     <PageHeader
       logo={<Brand src={props.src} alt="Management Console Logo" />}
-      toolbar={<PageToolbar />}
+      toolbar={
+        <aboutLogoContext.Provider value={props.src}>
+          <PageToolbar />
+        </aboutLogoContext.Provider>
+      }
       avatar={<Avatar src={userImage} alt="Kogito Logo" />}
       showNavToggle
       isNavOpen={isNavOpen}
@@ -75,7 +80,7 @@ const ServerUnavailable = props => {
                   variant="primary"
                   onClick={() => window.location.reload()}
                 >
-                  Refresh               
+                  Refresh
                 </Button>
               </EmptyState>
             </Bullseye>

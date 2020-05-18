@@ -5,9 +5,7 @@
         "src/**/*.tsx",
         "src/**/*.jsx",
         "src/**/*.js",
-        "../../config/declare.d.ts",
-        "../../node_modules/@kogito-apps/common/src/**/*.ts",
-        "../../node_modules/@kogito-apps/common/src/**/*.tsx"
+        "../../config/declare.d.ts"
     ],
     "preserveSymlinks": true
 }

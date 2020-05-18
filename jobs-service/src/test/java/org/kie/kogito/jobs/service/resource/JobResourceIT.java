@@ -16,7 +16,6 @@
 
 package org.kie.kogito.jobs.service.resource;
 
-import java.io.IOException;
 import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
@@ -36,6 +35,7 @@ import org.kie.kogito.jobs.api.Job;
 import org.kie.kogito.jobs.api.JobBuilder;
 import org.kie.kogito.jobs.service.model.JobStatus;
 import org.kie.kogito.jobs.service.model.ScheduledJob;
+import org.kie.kogito.jobs.service.scheduler.impl.VertxJobScheduler;
 import org.kie.kogito.jobs.service.utils.DateUtil;
 
 import static io.restassured.RestAssured.given;
@@ -46,31 +46,34 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @QuarkusTest
 @QuarkusTestResource(InfinispanServerTestResource.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class JobResourceTest {
+public class JobResourceIT {
 
     @Inject
-    private ObjectMapper objectMapper;
+    ObjectMapper objectMapper;
 
     @Inject
-    private Vertx vertx;
+    Vertx vertx;
+
+    @Inject
+    VertxJobScheduler scheduler;
 
     @Test
     void create() throws Exception {
         final Job job = getJob("1");
         final ScheduledJob response = create(jobToJson(job))
+                .statusCode(200)
                 .extract()
                 .as(ScheduledJob.class);
         assertEquals(job, response);
     }
 
-    private ValidatableResponse create(String body) throws IOException {
+    private ValidatableResponse create(String body) {
         return given()
                 .contentType(ContentType.JSON)
                 .body(body)
                 .when()
                 .post(JobResource.JOBS_PATH)
-                .then()
-                .statusCode(200);
+                .then();
     }
 
     private String jobToJson(Job job) throws JsonProcessingException {
@@ -151,7 +154,7 @@ public class JobResourceTest {
     }
 
     @Test
-    @Disabled // see https://issues.redhat.com/browse/KOGITO-1941
+    @Disabled("see https://issues.redhat.com/browse/KOGITO-1941")
     void cancelRunningPeriodicJobTest() throws Exception {
         final String id = UUID.randomUUID().toString();
         int timeMillis = 1000;
@@ -232,5 +235,93 @@ public class JobResourceTest {
         assertThat(scheduledJob.getStatus()).isEqualTo(JobStatus.SCHEDULED);
         assertThat(scheduledJob.getScheduledId()).isNotBlank();
         return scheduledJob;
+    }
+
+    @Test
+    void testCreateExpiredJob() throws Exception {
+        createExpiredJob().statusCode(500);
+    }
+
+    @Test
+    void testForcingCreateExpiredJob() throws Exception {
+        scheduler.setForceExecuteExpiredJobs(true);
+        createExpiredJob().statusCode(200);
+    }
+
+    private ValidatableResponse createExpiredJob() throws JsonProcessingException {
+        final Job job =
+                JobBuilder
+                        .builder()
+                        .id(UUID.randomUUID().toString())
+                        .expirationTime(DateUtil.now().minusMinutes(10))
+                        .callbackEndpoint("http://localhost:8081/callback")
+                        .priority(1)
+                        .build();
+        return create(jobToJson(job));
+    }
+
+    @Test
+    void patchCallbackEndpointTest() throws Exception {
+        final String id = UUID.randomUUID().toString();
+        final Job job = getJob(id);
+        create(jobToJson(job));
+
+        final String newCallbackEndpoint = "http://localhost/newcallback";
+        final Job toPatch = JobBuilder.builder().callbackEndpoint(newCallbackEndpoint).build();
+
+        final ScheduledJob scheduledJob = given()
+                .pathParam("id", id)
+                .contentType(ContentType.JSON)
+                .body(jobToJson(toPatch))
+                .when()
+                .patch(JobResource.JOBS_PATH + "/{id}")
+                .then()
+                .statusCode(200)
+                .contentType(ContentType.JSON)
+                .assertThat()
+                .extract()
+                .as(ScheduledJob.class);
+
+        assertThat(scheduledJob.getCallbackEndpoint()).isEqualTo(newCallbackEndpoint);
+        assertThat(scheduledJob.getId()).isEqualTo(job.getId());
+        assertThat(scheduledJob.getExpirationTime()).isEqualTo(job.getExpirationTime());
+        assertThat(scheduledJob.getPriority()).isEqualTo(job.getPriority());
+        assertThat(scheduledJob.getRepeatLimit()).isEqualTo(job.getRepeatLimit());
+        assertThat(scheduledJob.getRepeatInterval()).isEqualTo(job.getRepeatInterval());
+        assertThat(scheduledJob.getProcessId()).isEqualTo(job.getProcessId());
+        assertThat(scheduledJob.getRootProcessInstanceId()).isEqualTo(job.getRootProcessInstanceId());
+        assertThat(scheduledJob.getRootProcessId()).isEqualTo(job.getRootProcessId());
+        assertThat(scheduledJob.getProcessInstanceId()).isEqualTo(job.getRootProcessInstanceId());
+    }
+
+    @Test
+    void patchInvalidIdPathTest() throws Exception {
+        final String id = UUID.randomUUID().toString();
+        final Job job = getJob(id);
+        create(jobToJson(job));
+
+        final String newCallbackEndpoint = "http://localhost/newcallback";
+        Job toPatch = JobBuilder.builder().callbackEndpoint(newCallbackEndpoint).build();
+
+        //not found id on path
+        given()
+                .pathParam("id", "invalid")
+                .contentType(ContentType.JSON)
+                .body(jobToJson(toPatch))
+                .when()
+                .patch(JobResource.JOBS_PATH + "/{id}")
+                .then()
+                .statusCode(404);
+
+        //different id on the job object from path id
+        toPatch = JobBuilder.builder().id("differentId").callbackEndpoint(newCallbackEndpoint).build();
+        given()
+                .pathParam("id", id)
+                .contentType(ContentType.JSON)
+                .body(jobToJson(toPatch))
+                .when()
+                .patch(JobResource.JOBS_PATH + "/{id}")
+                .then()
+                .statusCode(500);
     }
 }

@@ -1,0 +1,9 @@
+import React from 'react';
+import {storiesOf} from '@storybook/react';
+import ServerErrors from './ServerErrors';
+
+const error = {"graphQLErrors":[],"networkError":{"name":"ServerError","response":{},"statusCode":400,"result":{"errors":[{"message":"Cannot query field \"random\" on type \"ProcessInstanceMeta\".","locations":[{"line":31,"column":9}],"extensions":{"code":"GRAPHQL_VALIDATION_FAILED","exception":{"stacktrace":["GraphQLError: Cannot query field \"random\" on type \"ProcessInstanceMeta\".","    at Object.Field (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/graphql/validation/rules/FieldsOnCorrectType.js:53:31)","    at Object.enter (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/graphql/language/visitor.js:324:29)","    at Object.enter (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/graphql/language/visitor.js:375:25)","    at visit (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/graphql/language/visitor.js:242:26)","    at Object.validate (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/graphql/validation/validate.js:73:24)","    at validate (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/apollo-server-core/dist/requestPipeline.js:213:34)","    at Object.<anonymous> (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/apollo-server-core/dist/requestPipeline.js:119:42)","    at Generator.next (<anonymous>)","    at fulfilled (/home/sbalaji/Documents/Kogito/Master-code/kogito-apps/node_modules/apollo-server-core/dist/requestPipeline.js:5:58)","    at process._tickCallback (internal/process/next_tick.js:68:7)"]}}}]}},"message":"Network error: Response not successful: Received status code 400"}
+
+storiesOf('Server Errors', module).add('default', () => (
+    <ServerErrors error={error}/>
+))

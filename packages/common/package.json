@@ -11,19 +11,14 @@
   },
   "scripts": {
     "precommit": "lint-staged",
-    "build:prod": "yarn run lint && webpack --config webpack.prod.js && yarn run test",
     "test:report": "yarn test --ci --reporters=jest-junit",
     "test": "jest --runInBand --ci --reporters=default --reporters=jest-junit",
     "update-snapshot": "jest --updateSnapshot",
     "test:coverage": "jest --coverage",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "lint": "tslint -c ./tslint.json --project . './src/**/*.ts{,x}'",
     "format": "prettier --config ../../.prettierrc --check --write './src/**/*.{tsx,ts,js}'",
-    "build:bundle-profile": "webpack --config webpack.prod.js --profile --json > stats.json",
-    "bundle-profile:analyze": "yarn build:bundle-profile && webpack-bundle-analyzer ./stats.json",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "clean": "rimraf dist",
-    "cypress:run": "cypress run",
-    "cypress:open": "cypress open"
+    "clean": "rimraf dist"
   },
   "dependencies": {},
   "devDependencies": {
@@ -63,7 +58,6 @@
       "**/tests/*.(ts|tsx|js)"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "../../config/Jest-config/fileMock.js",
       "\\.(scss|sass|css)$": "identity-obj-proxy"
     }
   },

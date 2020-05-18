@@ -2,6 +2,7 @@ import { Page, PageSidebar, PageHeader, Avatar } from '@patternfly/react-core';
 import React, { useState } from 'react';
 import PageToolbar from '../../Molecules/PageToolbar/PageToolbar';
 import BrandLogo from '../../Atoms/BrandLogo/BrandLogo';
+import { aboutLogoContext } from '../../contexts';
 import './PageLayout.css';
 
 import userImage from '../../../static/avatar.svg';
@@ -13,8 +14,6 @@ interface IOwnProps {
   BrandAltText: string;
   BrandClick: () => void;
 }
-
-export const aboutLogoContext = React.createContext('');
 
 const PageLayout: React.FC<IOwnProps> = (props: any) => {
   const pageId = 'main-content-page-layout-default-nav';

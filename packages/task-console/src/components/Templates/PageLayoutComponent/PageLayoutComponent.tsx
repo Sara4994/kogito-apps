@@ -28,7 +28,7 @@ const PageLayoutComponent = props => {
     <PageLayout
       PageNav={PageNav}
       BrandSrc={taskConsoleLogo}
-      BrandAltText="Task Consol Logo"
+      BrandAltText="Task Console Logo"
       BrandClick={BrandClick}
     >
       <PageSection variant="light">

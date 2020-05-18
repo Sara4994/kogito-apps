@@ -7,8 +7,8 @@ import {
   TextListItem
 } from '@patternfly/react-core';
 import './AboutModalBox.css';
-import { aboutLogoContext } from '../../Templates/PageLayout/PageLayout';
-import aboutPageBackground from '../../../static/KogitoAbout.png';
+import { aboutLogoContext } from '../../contexts';
+import aboutPageBackground from '../../../static/kogitoAbout.png';
 
 export interface IOwnProps {
   isOpenProp: boolean;

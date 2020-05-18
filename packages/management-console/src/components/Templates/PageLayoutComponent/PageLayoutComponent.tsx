@@ -15,7 +15,7 @@ import managementConsoleLogo from '../../../static/managementConsoleLogo.svg';
 
 import { useGetQueryFieldsQuery } from '../../../graphql/types';
 
-const Dashboard: React.FC<{}> = (props: any) => {
+const PageLayoutComponent: React.FC<{}> = (props: any) => {
   const { pathname } = props.location;
 
   const PageNav = (
@@ -45,7 +45,7 @@ const Dashboard: React.FC<{}> = (props: any) => {
       <PageLayout
         PageNav={PageNav}
         BrandSrc={managementConsoleLogo}
-        BrandAltText="Task Consol Logo"
+        BrandAltText="Management Console Logo"
         BrandClick={BrandClick}
       >
         <Switch>
@@ -98,4 +98,4 @@ const Dashboard: React.FC<{}> = (props: any) => {
   );
 };
 
-export default Dashboard;
+export default PageLayoutComponent;
