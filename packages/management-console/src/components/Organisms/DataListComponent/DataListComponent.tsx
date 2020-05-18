@@ -1,21 +1,5 @@
 import React, { useEffect } from 'react';
-<<<<<<< HEAD
 import { DataList, Bullseye } from '@patternfly/react-core';
-=======
-import {
-  DataList,
-  DataListCell,
-  Bullseye,
-  Button,
-  Spinner
-} from '@patternfly/react-core';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> KOGITO-2008: Configured common package to share react components
-=======
->>>>>>> KOGITO-2008: Configured common package to share react components
-=======
->>>>>>> KOGITO-2008: Configured common package to share react components
 import { ServerErrors } from '@kogito-apps/common/src/components';
 import '../../Templates/DataListContainer/DataList.css';
 import DataListItemComponent from '../../Molecules/DataListItemComponent/DataListItemComponent';
