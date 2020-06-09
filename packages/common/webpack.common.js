@@ -1,41 +1,39 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const nodeExternals = require("webpack-node-externals");
+const CircularDependencyPlugin = require("circular-dependency-plugin");
 const webpack = require('webpack');
 const BG_IMAGES_DIRNAME = 'bgimages';
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src', 'index.tsx')
+    index: path.resolve(__dirname, 'index.ts')
+  },
+  devtool: "inline-source-map",
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js',
+    libraryTarget: "umd",
+    globalObject: "this"
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'src', 'index.html'),
-      favicon: 'src/favicon.ico'
-    }),
-    new webpack.EnvironmentPlugin({
-      KOGITO_AUTH_ENABLED: false,
-      KOGITO_KEYCLOAK_REALM: 'kogito',
-      KOGITO_KEYCLOAK_URL: 'http://localhost:8280',
-      KOGITO_KEYCLOAK_CLIENT_ID: 'kogito-management-console',
-      KOGITO_DATAINDEX_HTTP_URL: 'http://localhost:4000/graphql',
-      KOGITO_APP_VERSION: 'DEV',
-      KOGITO_APP_NAME: 'Management Console'
+    new CircularDependencyPlugin({
+      exclude: /node_modules/, // exclude detection of files based on a RegExp
+      failOnError: false, // add errors to webpack instead of warnings
+      cwd: process.cwd() // set the current working directory for displaying module paths
     })
   ],
   module: {
     rules: [
       {
         test: /\.(tsx|ts)?$/,
-        include: [
-          path.resolve(__dirname, 'src')
-        ],
         use: [
           {
             loader: 'ts-loader',
             options: {
               configFile: path.resolve('./tsconfig.json'),
-              allowTsInNodeModules: true
+
             }
           }
         ]
@@ -64,7 +62,7 @@ module.exports = {
           options: {
             // Limit at 50k. larger files emited into separate files
             limit: 5000,
-            outputPath: 'fonts',
+            outputPath: 'src/static',
             name: '[name].[ext]'
           }
         }
@@ -118,18 +116,13 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 5000,
-              outputPath: 'images',
+              outputPath: 'src/static',
               name: '[name].[ext]'
             }
           }
         ]
       }
     ]
-  },
-  output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],

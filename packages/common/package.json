@@ -2,16 +2,22 @@
   "name": "@kogito-apps/common",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/kiegroup/kogito-apps.git"
   },
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "precommit": "lint-staged",
-    "build:prod": "yarn run lint && yarn run test",
+    "build": "tsc && tsc -m es6 --outDir dist && webpack --config webpack.prod.js --mode production",
+    "build:watch": "webpack --watch --mode development",
+    "build:prod": "yarn run clean && yarn run lint && yarn run test && yarn run build",
     "test:report": "yarn test --ci --reporters=jest-junit",
     "test": "jest --runInBand --ci --reporters=default --reporters=jest-junit",
     "update-snapshot": "jest --updateSnapshot",
@@ -21,7 +27,11 @@
     "clean": "rimraf dist",
     "codegen": "graphql-codegen"
   },
-  "dependencies": {},
+  "dependencies": {
+    "circular-dependency-plugin": "^5.2.0",
+    "typings-for-css-modules-loader": "^1.7.0",
+    "webpack-node-externals": "^1.7.2"
+  },
   "jest": {
     "preset": "ts-jest/presets/js-with-ts",
     "setupFiles": [
