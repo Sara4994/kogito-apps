@@ -1,12 +1,14 @@
-{
+{    
     "extends": "../../tsconfig.json",
-    "include": [
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/**/*.jsx",
-        "src/**/*.js",
-        "../../config/declare.d.ts",
+    "compilerOptions": {
+        "outDir": "dist"
+    },
+    "files": [
         "./index.ts"
     ],
-    "exclude": ["src/graphql/"]
+    "include": [
+        "src/",
+        "../../config/declare.d.ts"
+    ],
+    "exclude": ["src/**/*.test.tsx"]
 }

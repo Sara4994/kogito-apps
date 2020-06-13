@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 
+// @ts-ignore
 const GET_PROCESS_INSTANCES = gql`
   query getProcessInstances(
     $state: [ProcessInstanceState!]
@@ -33,6 +34,7 @@ const GET_PROCESS_INSTANCES = gql`
   }
 `;
 
+// @ts-ignore
 const GET_PROCESS_INSTANCES_WITH_BUSINESSKEY = gql`
   query getProcessInstancesWithBusinessKey(
     $state: [ProcessInstanceState!]
@@ -68,6 +70,7 @@ const GET_PROCESS_INSTANCES_WITH_BUSINESSKEY = gql`
   }
 `;
 
+// @ts-ignore
 const GET_CHILD_INSTANCES = gql`
   query getChildInstances($rootProcessInstanceId: String) {
     ProcessInstances(
@@ -93,6 +96,7 @@ const GET_CHILD_INSTANCES = gql`
   }
 `;
 
+// @ts-ignore
 const GET_PROCESS_INSTANCE = gql`
   query getProcessInstanceById($id: String) {
     ProcessInstances(where: { id: { equal: $id } }) {
@@ -138,6 +142,7 @@ const GET_PROCESS_INSTANCE = gql`
   }
 `;
 
+// @ts-ignore
 const GET_COLUMN_PICKER_ATTRIBUTES = gql`
   query getColumnPickerAttributes($columnPickerType: String!) {
     __type(name: $columnPickerType) {
@@ -160,6 +165,7 @@ const GET_COLUMN_PICKER_ATTRIBUTES = gql`
   }
 `;
 
+// @ts-ignore
 const GET_QUERY_TYPES = gql`
   query getQueryTypes {
     __schema {
@@ -185,6 +191,7 @@ const GET_QUERY_TYPES = gql`
   }
 `;
 
+// @ts-ignore
 const GET_QUERY_FIELDS = gql`
   query getQueryFields {
     __type(name: "Query") {
@@ -208,6 +215,7 @@ const GET_QUERY_FIELDS = gql`
   }
 `;
 
+// @ts-ignore
 const GET_INPUT_FIELDS_FROM_QUERY = gql`
   query getInputFieldsFromQuery($currentQuery: String!) {
     __type(name: $currentQuery) {
@@ -229,6 +237,7 @@ const GET_INPUT_FIELDS_FROM_QUERY = gql`
   }
 `;
 
+// @ts-ignore
 const GET_INPUT_FIELDS_FROM_TYPES = gql`
   query getInputFieldsFromType($type: String!) {
     __type(name: $type) {

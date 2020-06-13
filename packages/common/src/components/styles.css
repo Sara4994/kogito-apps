@@ -1,0 +1,11 @@
+.pf-c-about-modal-box__hero {
+    background-attachment: unset;
+  }
+
+  .kogito-management-console--Server-Errors__text-color {
+    color: var(--pf-global--primary-color--100);
+    cursor: pointer
+}
+.kogito-common--PageLayout {
+    --pf-c-page__header-brand-link--c-brand--MaxHeight: 42px;
+}

@@ -2,7 +2,8 @@
   "name": "@kogito-apps/common",
   "version": "1.0.0",
   "private": true,
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "author": "",
   "license": "Apache-2.0",
   "repository": {
@@ -14,8 +15,9 @@
   ],
   "scripts": {
     "precommit": "lint-staged",
-    "build": "NODE_ENV='production' && webpack --config webpack.prod.js --mode production",
-    "build:prod": "yarn run clean && yarn run build ",
+    "build": "tsc && tsc -m commonjs --outDir dist && webpack --config webpack.prod.js --mode production",
+    "build:watch": "webpack --watch --mode development",
+    "build:prod": "yarn run clean && yarn run lint && yarn run test && yarn run build",
     "test:report": "yarn test --ci --reporters=jest-junit",
     "test": "jest --runInBand --ci --reporters=default --reporters=jest-junit",
     "update-snapshot": "jest --updateSnapshot",
@@ -27,6 +29,7 @@
   },
   "dependencies": {
     "circular-dependency-plugin": "^5.2.0",
+    "typings-for-css-modules-loader": "^1.7.0",
     "webpack-node-externals": "^1.7.2"
   },
   "jest": {

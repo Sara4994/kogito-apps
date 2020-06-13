@@ -39,7 +39,10 @@ module.exports = merge(common, {
           ),
           path.resolve (
             '../../node_modules/@kogito-apps/common/src/components'
-          )
+          ),
+          path.resolve(
+            '../../node_modules/@kogito-apps/common/dist/src/components/styles.css'
+          ),
         ],
         loaders: ['style-loader', 'css-loader']
       }

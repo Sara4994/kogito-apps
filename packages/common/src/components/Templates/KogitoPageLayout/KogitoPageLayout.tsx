@@ -10,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 import PageToolbar from '../../Molecules/PageToolbar/PageToolbar';
 import BrandLogo from '../../Atoms/BrandLogo/BrandLogo';
 import { aboutLogoContext } from '../../contexts';
-import './KogitoPageLayout.css';
+import '../../styles.css';
 
 import userImage from '../../../static/avatar.svg';
 import { ouiaAttribute } from '../../../utils/OuiaUtils';
