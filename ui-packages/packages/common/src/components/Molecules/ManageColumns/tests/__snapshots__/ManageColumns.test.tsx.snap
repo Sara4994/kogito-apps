@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Domain Explorer Manage columns component Snapshot testing with default props 1`] = `
+<ManageColumns
+  columnPickerType="Travels"
+  data={
+    Array [
+      Object {
+        "name": "id",
+        "type": Object {
+          "__typename": "__Type",
+          "fields": null,
+          "kind": "SCALAR",
+          "name": "String",
+        },
+      },
+      Object {
+        "name": "flight",
+        "type": Object {
+          "fields": Array [
+            Object {
+              "name": "arrival",
+              "type": Object {
+                "kind": "SCALAR",
+                "name": "String",
+              },
+            },
+            Object {
+              "name": "departure",
+              "type": Object {
+                "kind": "SCALAR",
+                "name": "String",
+              },
+            },
+          ],
+          "kind": "OBJECT",
+          "name": "Flight",
+        },
+      },
+      Object {
+        "name": "hotel",
+        "type": Object {
+          "fields": Array [
+            Object {
+              "name": "address",
+              "type": Object {
+                "kind": "OBJECT",
+                "name": "Address",
+              },
+            },
+            Object {
+              "name": "bookingNumber",
+              "type": Object {
+                "kind": "SCALAR",
+                "name": "String",
+              },
+            },
+          ],
+          "kind": "OBJECT",
+          "name": "Hotel",
+        },
+      },
+    ]
+  }
+  enableCache={false}
+  getPicker={
+    Object {
+      "data": Object {},
+      "loading": false,
+    }
+  }
+  getQueryTypes={
+    Object {
+      "data": Object {
+        "__schema": Object {
+          "queryType": Array [
+            Object {
+              "fields": Array [
+                Object {
+                  "name": "city",
+                  "type": Object {
+                    "kind": "SCALAR",
+                    "name": "String",
+                  },
+                },
+                Object {
+                  "name": "country",
+                  "type": Object {
+                    "kind": "SCALAR",
+                    "name": "String",
+                  },
+                },
+                Object {
+                  "name": "location",
+                  "type": Object {
+                    "kind": "OBJECT",
+                    "name": "Test",
+                  },
+                },
+              ],
+              "kind": "OBJECT",
+              "name": "Address",
+            },
+            Object {
+              "fields": Array [
+                Object {
+                  "name": "city",
+                  "type": Object {
+                    "kind": "SCALAR",
+                    "name": "String",
+                  },
+                },
+                Object {
+                  "name": "country",
+                  "type": Object {
+                    "kind": "SCALAR",
+                    "name": "String",
+                  },
+                },
+              ],
+              "kind": "OBJECT",
+              "name": "Test",
+            },
+          ],
+        },
+      },
+      "loading": false,
+    }
+  }
+  isLoadingMore={true}
+  metaData={
+    Object {
+      "metadata": Array [
+        Object {
+          "processInstances": Array [
+            "id",
+            "processName",
+            "state",
+            "start",
+            "lastUpdate",
+            "businessKey",
+          ],
+        },
+      ],
+    }
+  }
+  offsetVal={0}
+  pageSize={10}
+  parameters={
+    Array [
+      Object {
+        "flight": Array [
+          "arrival",
+        ],
+      },
+      Object {
+        "flight": Array [
+          "departure",
+        ],
+      },
+    ]
+  }
+  rememberedParams={
+    Array [
+      Object {
+        "flight": Array [
+          "arrival",
+        ],
+      },
+      Object {
+        "flight": Array [
+          "departure",
+        ],
+      },
+    ]
+  }
+  selected={Array []}
+  setColumnFilters={[MockFunction]}
+  setDisplayEmptyState={[MockFunction]}
+  setDisplayTable={[MockFunction]}
+  setEnableCache={[MockFunction]}
+  setError={[MockFunction]}
+  setIsLoadingMore={[MockFunction]}
+  setOffsetVal={[MockFunction]}
+  setPageSize={[MockFunction]}
+  setParameters={[MockFunction]}
+  setSelected={[MockFunction]}
+  setTableLoading={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          true,
+        ],
+        Array [
+          true,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    }
+  }
+>
+  <Component
+    id="manage-columns-button"
+    onClick={[Function]}
+    variant="link"
+  >
+    <ComponentWithOuia
+      component={[Function]}
+      componentProps={
+        Object {
+          "children": "Manage columns",
+          "id": "manage-columns-button",
+          "onClick": [Function],
+          "variant": "link",
+        }
+      }
+      consumerContext={null}
+    >
+      <Button
+        id="manage-columns-button"
+        onClick={[Function]}
+        ouiaContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+        variant="link"
+      >
+        <button
+          aria-disabled={null}
+          aria-label={null}
+          className="pf-c-button pf-m-link"
+          disabled={false}
+          id="manage-columns-button"
+          onClick={[Function]}
+          tabIndex={null}
+          type="button"
+        >
+          <span
+            className="pf-c-button__text"
+          >
+            Manage columns
+          </span>
+        </button>
+      </Button>
+    </ComponentWithOuia>
+  </Component>
+  <Modal
+    actions={
+      Array [
+        <Unknown
+          id="save-columns"
+          onClick={[Function]}
+          variant="primary"
+        >
+          Save
+        </Unknown>,
+        <Unknown
+          onClick={[Function]}
+          variant="secondary"
+        >
+          Cancel
+        </Unknown>,
+      ]
+    }
+    appendTo={
+      <body>
+        <div />
+      </body>
+    }
+    ariaDescribedById=""
+    className="kogito-common--manage-columns__modal"
+    description={
+      <TextContent>
+        <Text
+          component="p"
+        >
+          Selected categories will be displayed in the table.
+        </Text>
+      </TextContent>
+    }
+    hideTitle={false}
+    isFooterLeftAligned={false}
+    isLarge={false}
+    isOpen={false}
+    isSmall={true}
+    onClose={[Function]}
+    showClose={true}
+    title="Manage columns"
+  >
+    <Portal
+      containerInfo={<div />}
+    >
+      <ModalContent
+        actions={
+          Array [
+            <Unknown
+              id="save-columns"
+              onClick={[Function]}
+              variant="primary"
+            >
+              Save
+            </Unknown>,
+            <Unknown
+              onClick={[Function]}
+              variant="secondary"
+            >
+              Cancel
+            </Unknown>,
+          ]
+        }
+        ariaDescribedById=""
+        className="kogito-common--manage-columns__modal"
+        description={
+          <TextContent>
+            <Text
+              component="p"
+            >
+              Selected categories will be displayed in the table.
+            </Text>
+          </TextContent>
+        }
+        hideTitle={false}
+        id="pf-modal-0"
+        isFooterLeftAligned={false}
+        isLarge={false}
+        isOpen={false}
+        isSmall={true}
+        onClose={[Function]}
+        showClose={true}
+        title="Manage columns"
+      />
+    </Portal>
+  </Modal>
+  <Component
+    aria-label="Refresh list"
+    className="pf-u-m-md"
+    id="refresh-button"
+    onClick={[Function]}
+    variant="plain"
+  >
+    <ComponentWithOuia
+      component={[Function]}
+      componentProps={
+        Object {
+          "aria-label": "Refresh list",
+          "children": <SyncIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+            title={null}
+          />,
+          "className": "pf-u-m-md",
+          "id": "refresh-button",
+          "onClick": [Function],
+          "variant": "plain",
+        }
+      }
+      consumerContext={null}
+    >
+      <Button
+        aria-label="Refresh list"
+        className="pf-u-m-md"
+        id="refresh-button"
+        onClick={[Function]}
+        ouiaContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+        variant="plain"
+      >
+        <button
+          aria-disabled={null}
+          aria-label="Refresh list"
+          className="pf-c-button pf-m-plain pf-u-m-md"
+          disabled={false}
+          id="refresh-button"
+          onClick={[Function]}
+          tabIndex={null}
+          type="button"
+        >
+          <SyncIcon
+            color="currentColor"
+            noVerticalAlign={false}
+            size="sm"
+            title={null}
+          >
+            <svg
+              aria-hidden={true}
+              aria-labelledby={null}
+              fill="currentColor"
+              height="1em"
+              role="img"
+              style={
+                Object {
+                  "verticalAlign": "-0.125em",
+                }
+              }
+              viewBox="0 0 512 512"
+              width="1em"
+            >
+              <path
+                d="M440.65 12.57l4 82.77A247.16 247.16 0 0 0 255.83 8C134.73 8 33.91 94.92 12.29 209.82A12 12 0 0 0 24.09 224h49.05a12 12 0 0 0 11.67-9.26 175.91 175.91 0 0 1 317-56.94l-101.46-4.86a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12H500a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12h-47.37a12 12 0 0 0-11.98 12.57zM255.83 432a175.61 175.61 0 0 1-146-77.8l101.8 4.87a12 12 0 0 0 12.57-12v-47.4a12 12 0 0 0-12-12H12a12 12 0 0 0-12 12V500a12 12 0 0 0 12 12h47.35a12 12 0 0 0 12-12.6l-4.15-82.57A247.17 247.17 0 0 0 255.83 504c121.11 0 221.93-86.92 243.55-201.82a12 12 0 0 0-11.8-14.18h-49.05a12 12 0 0 0-11.67 9.26A175.86 175.86 0 0 1 255.83 432z"
+                transform=""
+              />
+            </svg>
+          </SyncIcon>
+        </button>
+      </Button>
+    </ComponentWithOuia>
+  </Component>
+</ManageColumns>
+`;
