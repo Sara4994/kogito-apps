@@ -14,6 +14,7 @@ import KogitoSpinner from '../../Atoms/KogitoSpinner/KogitoSpinner';
 import LoadMore from '../../Atoms/LoadMore/LoadMore';
 import ServerErrors from '../../Molecules/ServerErrors/ServerErrors';
 import ManageColumns from '../../Molecules/ManageColumns/ManageColumns';
+import DomainExplorerFilterOptions from '../../Molecules/DomainExplorerFilterOptions/DomainExplorerFilterOptions';
 import './DomainExplorer.css';
 
 import { GraphQL } from '../../../graphql/types';
@@ -49,6 +50,8 @@ const DomainExplorer: React.FC<IOwnProps> = ({
   const [error, setError] = useState();
   const [enableCache, setEnableCache] = useState(false);
   const [parameters, setParameters] = useState([metaData]);
+  const [enableFilter, setEnableFilter] = useState(false);
+  const [queryAttributes, setQueryAttributes] = useState({});
 
   useEffect(() => {
     /* istanbul ignore else */
@@ -155,6 +158,26 @@ const DomainExplorer: React.FC<IOwnProps> = ({
                     setIsLoadingMore={setIsLoadingMore}
                     isLoadingMore={isLoadingMore}
                   /> */}
+
+{!getQuery.loading && !getQueryTypes.loading && (
+              <DataToolbarGroup>
+                <DomainExplorerFilterOptions
+                  currentDomain={domainName}
+                  getQuery={getQuery}
+                  parameters={parameters}
+                  setColumnFilters={setColumnFilters}
+                  setDisplayTable={setDisplayTable}
+                  setDisplayEmptyState={setDisplayEmptyState}
+                  setTableLoading={setTableLoading}
+                  queryAttributes={queryAttributes}
+                  setQueryAttributes={setQueryAttributes}
+                  enableFilter={enableFilter}
+                  setEnableFilter={setEnableFilter}
+                  setError={setError}
+                  getQueryTypes={getQueryTypes}
+                />
+              </DataToolbarGroup>
+            )}
                   <ManageColumns
                     columnPickerType={columnPickerType}
                     setColumnFilters={onAddColumnFilters}
