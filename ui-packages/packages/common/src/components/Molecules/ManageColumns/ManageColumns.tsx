@@ -91,7 +91,6 @@ const ManageColumns: React.FC<IOwnProps> = ({
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
-
   const handleChange = (checked, event) => {
     const target = event.target;
     const selection = target.name;
@@ -176,6 +175,7 @@ const ManageColumns: React.FC<IOwnProps> = ({
           <DataListItem
             aria-labelledby={'kie-datalist-item-' + label.replace(/\,/g, '')}
             isExpanded={expanded.includes(label.replace(/\,/g, ''))}
+            key={'kie-datalist-item-' + label.replace(/\,/g, '')}
           >
             <DataListItemRow>
               <DataListToggle
@@ -258,7 +258,10 @@ const ManageColumns: React.FC<IOwnProps> = ({
           } else {
             allSelections.push(group.name);
             const rootEle = (
-              <DataListItem aria-labelledby={'kie-datalist-item-' + group.name}>
+              <DataListItem 
+                aria-labelledby={'kie-datalist-item-' + group.name}
+                key={'kie-datalist-item-' + group.name}
+              >
                 <DataListItemRow>
                   <DataListCheck
                     aria-labelledby={'kie-datalist-item-' + group.name}
@@ -289,6 +292,7 @@ const ManageColumns: React.FC<IOwnProps> = ({
             <DataListItem
               aria-labelledby={'kie-datalist-item-' + group.name}
               isExpanded={expanded.includes(group.name)}
+              key={'kie-datalist-item-' + group.name}
             >
               <DataListItemRow>
                 <DataListToggle
@@ -574,11 +578,12 @@ const ManageColumns: React.FC<IOwnProps> = ({
     const bulkSelection = (<Dropdown
       onSelect={onDropDownSelect}
       position={DropdownPosition.left}
+      id="selectAll-dropdown"
       toggle={
         <DropdownToggle
           splitButtonItems={[
             <DropdownToggleCheckbox
-              id="selectAll-dropdown"
+              id="selectAll-dropdown-checkbox"
               key="split-checkbox"
               aria-label={anySelected ? 'Deselect all' : 'Select all'}
               isChecked={isChecked}
@@ -616,6 +621,7 @@ const ManageColumns: React.FC<IOwnProps> = ({
             onClick={() => {
               onResetQuery(parameters);
             }}
+            id="save-columns"
           >
             Save
           </Button>,
@@ -628,6 +634,7 @@ const ManageColumns: React.FC<IOwnProps> = ({
         <DataList
           aria-label="Table column management"
           id="table-column-management"
+          key={1}
           className="kogito-common--manage-columns__data-list"
           isCompact
         >
@@ -660,7 +667,7 @@ const ManageColumns: React.FC<IOwnProps> = ({
 
   return (
     <>
-      <Button variant="link" onClick={handleModalToggle}>
+      <Button variant="link" onClick={handleModalToggle} id="manage-columns-button">
         Manage columns
       </Button>
       {renderModal()}
