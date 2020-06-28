@@ -224,8 +224,9 @@ const DomainExplorerTable = ({
         let metaArray = [];
         const metaKeys = [];
         const metaValues = [];
-        const firstKey = Object.keys(item.metadata)[0];
-        metaArray = item.metadata[firstKey];
+        if (item.metadata.hasOwnProperty('processInstances')) {
+          metaArray = item.metadata.processInstances;
+        }
         const tempParents = getKeys(item);
         parentkeys.push(tempParents.tempKeys);
         values.push({
@@ -330,7 +331,7 @@ const DomainExplorerTable = ({
                   No columns selected
                 </Title>
                 <EmptyStateBody>
-                  Select columns from the dropdown to see content
+                  Select columns from Manage Columns to see content
                 </EmptyStateBody>
               </EmptyState>
             </Bullseye>

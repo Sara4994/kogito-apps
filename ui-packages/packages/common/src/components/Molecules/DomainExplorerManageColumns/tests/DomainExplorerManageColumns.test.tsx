@@ -1,6 +1,5 @@
-// tslint:disable:no-string-literal
 import React from 'react';
-import { shallow, configure, mount } from 'enzyme';
+import { configure, mount, shallow } from 'enzyme';
 import DomainExplorerManageColumns from '../DomainExplorerManageColumns';
 import Adapter from 'enzyme-adapter-react-16';
 import reactApollo from 'react-apollo';
@@ -13,7 +12,9 @@ jest.mock('react-apollo', () => {
   return { useApolloClient: jest.fn(() => ApolloClient) };
 });
 global.Math.random = () => 0.7336705311965102;
-describe('Domain Explorer manage columns component', () => {
+// tslint:disable: no-string-literal
+// tslint:disable: no-unexpected-multiline
+describe('Domain Explorer Manage columns component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -29,7 +30,7 @@ describe('Domain Explorer manage columns component', () => {
     useApolloClient = jest.spyOn(reactApollo, 'useApolloClient');
     mockUseEffect();
   });
-  it('Snapshot testing', () => {
+  it('Snapshot testing with default props', () => {
     const props = {
       columnPickerType: 'Travels',
       setColumnFilters: jest.fn(),
@@ -137,7 +138,23 @@ describe('Domain Explorer manage columns component', () => {
                 name: 'address',
                 type: {
                   name: 'Address',
-                  kind: 'OBJECT'
+                  kind: 'OBJECT',
+                  fields: [
+                    {
+                      name: 'city',
+                      type: {
+                        name: 'String',
+                        kind: 'SCALAR'
+                      }
+                    },
+                    {
+                      name: 'country',
+                      type: {
+                        name: 'String',
+                        kind: 'SCALAR'
+                      }
+                    }
+                  ]
                 }
               },
               {
@@ -166,15 +183,43 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
-
+    // const event = {
+    // target: {
+    //     name: 'id'
+    //   }
+    // } as React.ChangeEvent<HTMLInputElement>
+    const event2 = { target: {} } as React.MouseEvent<HTMLInputElement>;
     const wrapper = mount(<DomainExplorerManageColumns {...props} />);
     wrapper.update();
     wrapper.setProps({});
+    wrapper
+      .find('#manage-columns-button')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('DataListToggle')
+      .first()
+      .props()
+      .onClick(event2);
+    // wrapper.find('DataListCheck').first().props().onChange(event);
     expect(wrapper).toMatchSnapshot();
   });
-
   it('Test Apply columns button', async () => {
     const props = {
       columnPickerType: 'Travels',
@@ -204,7 +249,21 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
     const mGraphQLResponse = {
       data: {
@@ -284,10 +343,10 @@ describe('Domain Explorer manage columns component', () => {
     client.query.mockReturnValueOnce(mGraphQLResponse);
     const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
     wrapper.find('#refresh-button').simulate('click');
-    wrapper.find('#apply-columns').simulate('click');
+    wrapper.find('#manage-columns-button').simulate('click');
     await Promise.resolve();
   });
-  it('Test empty response for query', async () => {
+  it('Simulate save button', () => {
     const props = {
       columnPickerType: 'Travels',
       setColumnFilters: jest.fn(),
@@ -316,23 +375,31 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
-    const mGraphQLResponse = {
-      data: {
-        Travels: []
-      },
-      loading: false,
-      errors: [],
-      networkStatus: '',
-      stale: true
-    };
-
-    client.query.mockReturnValueOnce(mGraphQLResponse);
-    const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
-    wrapper.find('#refresh-button').simulate('click');
-    wrapper.find('#apply-columns').simulate('click');
-    await Promise.resolve();
+    const wrapper = mount(<DomainExplorerManageColumns {...props} />);
+    wrapper
+      .find('#manage-columns-button')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('#save-columns')
+      .first()
+      .simulate('click');
   });
   it('Test null response for domain attributes', async () => {
     const props = {
@@ -367,7 +434,21 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
     const mGraphQLResponse = {
       data: {
@@ -441,7 +522,6 @@ describe('Domain Explorer manage columns component', () => {
     client.query.mockReturnValueOnce(mGraphQLResponse);
     const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
     wrapper.find('#refresh-button').simulate('click');
-    wrapper.find('#apply-columns').simulate('click');
     await Promise.resolve();
   });
   it('Test nested null response for domain attributes', async () => {
@@ -481,7 +561,21 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
     const mGraphQLResponse = {
       data: {
@@ -555,10 +649,9 @@ describe('Domain Explorer manage columns component', () => {
     client.query.mockReturnValueOnce(mGraphQLResponse);
     const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
     wrapper.find('#refresh-button').simulate('click');
-    wrapper.find('#apply-columns').simulate('click');
     await Promise.resolve();
   });
-  it('Test refresh button', async () => {
+  it('Test nested null response for domain attributes', async () => {
     const props = {
       columnPickerType: 'Travels',
       setColumnFilters: jest.fn(),
@@ -568,193 +661,15 @@ describe('Domain Explorer manage columns component', () => {
         loading: false
       },
       setDisplayTable: jest.fn(),
-      parameters: [{ flight: ['arrival'] }, { flight: ['departure'] }],
-      setParameters: jest.fn(),
-      selected: ['cityhotelAddress'],
-      setSelected: jest.fn(),
-      data: [],
-      getPicker: {
-        data: {},
-        loading: false
-      },
-      setError: jest.fn(),
-      setDisplayEmptyState: jest.fn(),
-      rememberedParams: [],
-      enableCache: true,
-      setEnableCache: jest.fn(),
-      pageSize: 10,
-      offsetVal: 0,
-      setOffsetVal: jest.fn(),
-      setPageSize: jest.fn(),
-      setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
-    };
-    const obj = {
-      target: { id: 'cityhotelAddress' },
-      nativeEvent: {
-        target: {
-          nextSibling: {
-            innerText: ''
-          },
-          parentElement: {
-            parentElement: {
-              getAttribute: jest.fn(() => 'cityhotelAddress')
-            }
-          }
-        }
-      }
-    };
-    const mGraphQLResponse = {
-      response: {
-        data: {
-          Travels: [
-            {
-              flight: {
-                arrival: 'Hello World',
-                __typename: 'Flight',
-                departure: 'Hello World',
-                flightNumber: 'Hello World',
-                gate: 'Hello World',
-                seat: 'Hello World'
-              },
-              metadata: {
-                processInstances: [
-                  {
-                    businessKey: 'Hello World',
-                    id: 'Hello World',
-                    lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
-                    processName: 'Hello World',
-                    start: 'Sat, 16 May 2020 14:46:29 GMT',
-                    state: 'PENDING',
-                    __typename: 'ProcessInstanceMeta'
-                  },
-                  {
-                    businessKey: 'Hello World',
-                    id: 'Hello World',
-                    lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
-                    processName: 'Hello World',
-                    start: 'Sat, 16 May 2020 14:46:29 GMT',
-                    state: 'PENDING',
-                    __typename: 'ProcessInstanceMeta'
-                  }
-                ]
-              }
-            },
-            {
-              flight: {
-                arrival: 'Hello World',
-                __typename: 'Flight',
-                departure: 'Hello World',
-                flightNumber: 'Hello World',
-                gate: 'Hello World',
-                seat: 'Hello World'
-              },
-              metadata: {
-                processInstances: [
-                  {
-                    businessKey: 'Hello World',
-                    id: 'Hello World',
-                    lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
-                    processName: 'Hello World',
-                    start: 'Sat, 16 May 2020 14:46:29 GMT',
-                    state: 'PENDING',
-                    __typename: 'ProcessInstanceMeta'
-                  },
-                  {
-                    businessKey: 'Hello World',
-                    id: 'Hello World',
-                    lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
-                    processName: 'Hello World',
-                    start: 'Sat, 16 May 2020 14:46:29 GMT',
-                    state: 'PENDING',
-                    __typename: 'ProcessInstanceMeta'
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      loading: false,
-      errors: []
-    };
-    client.query.mockReturnValueOnce(mGraphQLResponse);
-    const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
-    wrapper.find('#refresh-button').simulate('click');
-    wrapper.find('#apply-columns').simulate('click');
-    await Promise.resolve();
-    wrapper.find('#columnPicker-dropdown').simulate('select', obj);
-    wrapper
-      .find('#columnPicker-dropdown')
-      .props()
-      [
-        // tslint:disable-next-line
-        'onToggle'
-      ]();
-  });
-  it('check invalid column picker', () => {
-    const props = {
-      columnPickerType: ' ',
-      setColumnFilters: jest.fn(),
-      setTableLoading: jest.fn(),
-      getQueryTypes: {
-        data: {},
-        loading: false
-      },
-      setDisplayTable: jest.fn(),
-      parameters: [],
-      setParameters: jest.fn(),
-      selected: [],
-      setSelected: jest.fn(),
-      data: [],
-      getPicker: {
-        data: {},
-        loading: false
-      },
-      setError: jest.fn(),
-      setDisplayEmptyState: jest.fn(),
-      rememberedParams: [],
-      enableCache: false,
-      setEnableCache: jest.fn(),
-      pageSize: 10,
-      offsetVal: 0,
-      setOffsetVal: jest.fn(),
-      setPageSize: jest.fn(),
-      setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
-    };
-    const obj = {
-      target: { id: 'id' },
-      nativeEvent: {
-        target: {
-          nextSibling: {
-            innerText: ''
-          },
-          parentElement: {
-            parentElement: {
-              getAttribute: jest.fn(() => 'id')
-            }
-          }
-        }
-      }
-    };
-    const wrapper = shallow(<DomainExplorerManageColumns {...props} />);
-    wrapper.update();
-
-    wrapper.find('#columnPicker-dropdown').simulate('select', obj);
-    expect(wrapper).toMatchSnapshot();
-  });
-  it('check condition remembered params equal to zero', () => {
-    const props = {
-      columnPickerType: ' ',
-      setColumnFilters: jest.fn(),
-      setTableLoading: jest.fn(),
-      getQueryTypes: {
-        data: {},
-        loading: false
-      },
-      setDisplayTable: jest.fn(),
-      parameters: [{ flight: ['arrival'] }, { flight: ['departure'] }],
+      parameters: [
+        { flight: ['arrival'] },
+        { flight: ['departure'] },
+        { hotel: [{ address: [{ city: [{ test: ['random'] }] }] }] },
+        {
+          hotel: [{ address: [{ city: [{ test: [{ test2: ['random'] }] }] }] }]
+        },
+        { hotel: [{ address: [{ country: [{ test: ['random'] }] }] }] }
+      ],
       setParameters: jest.fn(),
       selected: [],
       setSelected: jest.fn(),
@@ -773,12 +688,208 @@ describe('Domain Explorer manage columns component', () => {
       setOffsetVal: jest.fn(),
       setPageSize: jest.fn(),
       setIsLoadingMore: jest.fn(),
-      isLoadingMore: true
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
     };
-
+    const mGraphQLResponse = {
+      data: {
+        Travels: [
+          {
+            flight: null,
+            hotel: null,
+            metadata: {
+              processInstances: [
+                {
+                  businessKey: 'Hello World',
+                  id: 'Hello World',
+                  lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
+                  processName: 'Hello World',
+                  start: 'Sat, 16 May 2020 14:46:29 GMT',
+                  state: 'PENDING',
+                  __typename: 'ProcessInstanceMeta'
+                },
+                {
+                  businessKey: 'Hello World',
+                  id: 'Hello World',
+                  lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
+                  processName: 'Hello World',
+                  start: 'Sat, 16 May 2020 14:46:29 GMT',
+                  state: 'PENDING',
+                  __typename: 'ProcessInstanceMeta'
+                }
+              ]
+            }
+          },
+          {
+            flight: {
+              arrival: 'Hello World',
+              __typename: 'Flight',
+              departure: 'Hello World',
+              flightNumber: 'Hello World',
+              gate: 'Hello World',
+              seat: 'Hello World'
+            },
+            metadata: {
+              processInstances: [
+                {
+                  businessKey: 'Hello World',
+                  id: 'Hello World',
+                  lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
+                  processName: 'Hello World',
+                  start: 'Sat, 16 May 2020 14:46:29 GMT',
+                  state: 'PENDING',
+                  __typename: 'ProcessInstanceMeta'
+                },
+                {
+                  businessKey: 'Hello World',
+                  id: 'Hello World',
+                  lastUpdate: 'Sat, 16 May 2020 14:46:29 GMT',
+                  processName: 'Hello World',
+                  start: 'Sat, 16 May 2020 14:46:29 GMT',
+                  state: 'PENDING',
+                  __typename: 'ProcessInstanceMeta'
+                }
+              ]
+            }
+          }
+        ]
+      },
+      loading: false,
+      errors: [],
+      networkStatus: '',
+      stale: true
+    };
+    const event = { target: {} } as React.ChangeEvent<HTMLInputElement>;
+    client.query.mockReturnValueOnce(mGraphQLResponse);
     const wrapper = mount(<DomainExplorerManageColumns {...props} />);
-    wrapper.update();
-    wrapper.setProps({});
-    expect(wrapper).toMatchSnapshot();
+    wrapper
+      .find('#manage-columns-button')
+      .first()
+      .simulate('click');
+    expect(wrapper.find('#selectAll-dropdown')).toBeTruthy();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['toggle']['props'].onToggle();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['onSelect'](event);
+  });
+  it('Test anySelected value and query empty response', async () => {
+    const props = {
+      columnPickerType: 'Travels',
+      setColumnFilters: jest.fn(),
+      setTableLoading: jest.fn(),
+      getQueryTypes: {
+        data: {},
+        loading: false
+      },
+      setDisplayTable: jest.fn(),
+      parameters: [
+        { flight: ['arrival'] },
+        { flight: ['departure'] },
+        { hotel: [{ address: [{ city: [{ test: ['random'] }] }] }] },
+        {
+          hotel: [{ address: [{ city: [{ test: [{ test2: ['random'] }] }] }] }]
+        },
+        { hotel: [{ address: [{ country: [{ test: ['random'] }] }] }] }
+      ],
+      setParameters: jest.fn(),
+      selected: [{ flight: ['arrival'] }, { flight: ['departure'] }],
+      setSelected: jest.fn(),
+      data: [],
+      getPicker: {
+        data: {},
+        loading: false
+      },
+      setError: jest.fn(),
+      setDisplayEmptyState: jest.fn(),
+      rememberedParams: [],
+      enableCache: false,
+      setEnableCache: jest.fn(),
+      pageSize: 2,
+      offsetVal: 10,
+      setOffsetVal: jest.fn(),
+      setPageSize: jest.fn(),
+      setIsLoadingMore: jest.fn(),
+      isLoadingMore: true,
+      metaData: {
+        metadata: [
+          {
+            processInstances: [
+              'id',
+              'processName',
+              'state',
+              'start',
+              'lastUpdate',
+              'businessKey'
+            ]
+          }
+        ]
+      }
+    };
+    const mGraphQLResponse = {
+      data: {
+        Travels: []
+      },
+      loading: false,
+      errors: [],
+      networkStatus: '',
+      stale: true
+    };
+    const event = { target: {} } as React.ChangeEvent<HTMLInputElement>;
+    client.query.mockReturnValueOnce(mGraphQLResponse);
+    const wrapper = mount(<DomainExplorerManageColumns {...props} />);
+    wrapper
+      .find('#manage-columns-button')
+      .first()
+      .simulate('click');
+    expect(wrapper.find('#selectAll-dropdown')).toBeTruthy();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['toggle']['props'].onToggle();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      .onSelect(event);
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['dropdownItems'][0].props['onClick']();
+    wrapper
+      .find('#selectAll-dropdown')
+      .first()
+      .props()
+      ['dropdownItems'][1].props['onClick']();
   });
 });

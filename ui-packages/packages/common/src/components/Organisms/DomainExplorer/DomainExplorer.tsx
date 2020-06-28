@@ -97,7 +97,7 @@ const DomainExplorer: React.FC<IOwnProps> = ({
       /* istanbul ignore else */
       if (item.type.kind !== 'OBJECT') {
         const tempObj = {};
-        selections.push(item.name + key);
+        selections.push(item.name + '/' + key);
         tempObj[`${key}`] = [item.name];
         defaultParams.push(tempObj);
       }
@@ -152,6 +152,7 @@ const DomainExplorer: React.FC<IOwnProps> = ({
                   setPageSize={setPageSize}
                   setIsLoadingMore={setIsLoadingMore}
                   isLoadingMore={isLoadingMore}
+                  metaData={metaData}
                 />
               )}
             </DataToolbarGroup>
