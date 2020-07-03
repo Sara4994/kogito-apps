@@ -5,33 +5,45 @@ import {
   DataToolbarToggleGroup,
   DataToolbarGroup,
   Card,
-  Bullseye
+  Bullseye,
+  DataToolbarItem,
+  DataToolbarFilter
 } from '@patternfly/react-core';
 import { FilterIcon } from '@patternfly/react-icons';
+import DomainExplorerFilterOptions from '../../Molecules/DomainExplorerFilterOptions/DomainExplorerFilterOptions';
 import DomainExplorerManageColumns from '../../Molecules/DomainExplorerManageColumns/DomainExplorerManageColumns';
 import DomainExplorerTable from '../../Molecules/DomainExplorerTable/DomainExplorerTable';
 import KogitoSpinner from '../../Atoms/KogitoSpinner/KogitoSpinner';
 import LoadMore from '../../Atoms/LoadMore/LoadMore';
 import ServerErrors from '../../Molecules/ServerErrors/ServerErrors';
+import { deleteKey, clearEmpties } from '../../../utils/Utils';
 import './DomainExplorer.css';
 
 import { GraphQL } from '../../../graphql/types';
 import useGetQueryTypesQuery = GraphQL.useGetQueryTypesQuery;
 import useGetQueryFieldsQuery = GraphQL.useGetQueryFieldsQuery;
 import useGetColumnPickerAttributesQuery = GraphQL.useGetColumnPickerAttributesQuery;
-
+import useGetInputFieldsFromQueryQuery = GraphQL.useGetInputFieldsFromQueryQuery;
 interface IOwnProps {
   domainName: string;
   rememberedParams: any;
   rememberedSelections: any;
   metaData: any;
+  rememberedFilters: any;
+  rememberedChips: any[];
+  defaultChip: any[];
+  defaultFilter: any;
 }
 
 const DomainExplorer: React.FC<IOwnProps> = ({
   domainName,
   rememberedParams,
   rememberedSelections,
-  metaData
+  rememberedFilters,
+  rememberedChips,
+  metaData,
+  defaultChip,
+  defaultFilter
 }) => {
   const [defaultPageSize] = useState(10);
   const [columnPickerType, setColumnPickerType] = useState('');
@@ -49,6 +61,11 @@ const DomainExplorer: React.FC<IOwnProps> = ({
   const [enableCache, setEnableCache] = useState(false);
   const [parameters, setParameters] = useState([metaData]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [runFilter, setRunFilter] = useState(false);
+  const [filterChips, setFilterChips] = useState(defaultChip);
+  const [finalFilters, setFinalFilters] = useState<any>(defaultFilter);
+  const [filterError, setFilterError] = useState('');
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
     /* istanbul ignore else */
@@ -58,6 +75,7 @@ const DomainExplorer: React.FC<IOwnProps> = ({
   }, []);
 
   const getQuery = useGetQueryFieldsQuery();
+
   const getQueryTypes = useGetQueryTypesQuery();
   const getPicker = useGetColumnPickerAttributesQuery({
     variables: { columnPickerType: domainName }
@@ -66,6 +84,21 @@ const DomainExplorer: React.FC<IOwnProps> = ({
     setColumnFilters(_columnFilter);
     setLimit(_columnFilter.length);
   };
+  const domainArg =
+    !getQuery.loading &&
+    getQuery.data &&
+    getQuery.data.__type.fields.find(item => {
+      if (item.name === domainName) {
+        return item;
+      }
+    });
+
+  const argument = domainArg && domainArg.args[0].type.name;
+  const getSchema = useGetInputFieldsFromQueryQuery({
+    variables: {
+      currentQuery: argument
+    }
+  });
 
   let data = [];
   const tempArray = [];
@@ -113,68 +146,136 @@ const DomainExplorer: React.FC<IOwnProps> = ({
       setEnableCache(true);
       setParameters(rememberedParams);
       setSelected(rememberedSelections);
+      setFinalFilters(rememberedFilters);
+      setFilterChips(rememberedChips);
     } else {
       setParameters(prev => [...defaultParams, ...prev]);
       setSelected(selections);
     }
   }, [columnPickerType, selections.length > 0]);
 
+  const onDeleteChip = (type = '', id = '') => {
+    if (type) {
+      setFilterChips(prev => prev.filter(item => item !== id));
+      const chipText = id.split(':');
+      let removeString = chipText[0].split('/');
+      removeString = removeString.map(stringEle => stringEle.trim());
+      let tempObj = finalFilters;
+      tempObj = deleteKey(tempObj, removeString);
+      const FinalObj = clearEmpties(tempObj);
+      setFinalFilters(FinalObj);
+      setRunFilter(true);
+    } else {
+      setReset(true);
+      setFilterChips(['metadata / processInstances / state: ACTIVE']);
+      setFinalFilters({
+        metadata: {
+          processInstances: {
+            state: {
+              equal: 'ACTIVE'
+            }
+          }
+        }
+      });
+    }
+  };
   const renderToolbar = () => {
     return (
       <DataToolbar
         id="data-toolbar-with-chip-groups"
         className="pf-m-toggle-group-container"
         collapseListedFiltersBreakpoint="md"
+        clearAllFilters={onDeleteChip}
+        clearFiltersButtonText="Reset to default"
       >
         <DataToolbarContent>
-          <DataToolbarToggleGroup toggleIcon={<FilterIcon />} breakpoint="md">
-            <DataToolbarGroup>
-              {!getPicker.loading && (
-                <DomainExplorerManageColumns
-                  columnPickerType={columnPickerType}
-                  setColumnFilters={onAddColumnFilters}
-                  setTableLoading={setTableLoading}
-                  getQueryTypes={getQueryTypes}
-                  setDisplayTable={setDisplayTable}
-                  parameters={parameters}
-                  setParameters={setParameters}
-                  selected={selected}
-                  setSelected={setSelected}
-                  data={data}
-                  getPicker={getPicker}
-                  setError={setError}
-                  setDisplayEmptyState={setDisplayEmptyState}
-                  rememberedParams={rememberedParams}
-                  enableCache={enableCache}
-                  setEnableCache={setEnableCache}
-                  pageSize={pageSize}
-                  offsetVal={offset}
-                  setOffsetVal={setOffset}
-                  setPageSize={setPageSize}
-                  setIsLoadingMore={setIsLoadingMore}
-                  isLoadingMore={isLoadingMore}
-                  metaData={metaData}
-                  setIsModalOpen={setIsModalOpen}
-                  isModalOpen={isModalOpen}
-                />
-              )}
-            </DataToolbarGroup>
-          </DataToolbarToggleGroup>
+          {!getPicker.loading && (
+            <>
+              <DataToolbarToggleGroup
+                toggleIcon={<FilterIcon />}
+                breakpoint="xl"
+              >
+                {!getQuery.loading && !getQueryTypes.loading && (
+                  <DataToolbarFilter
+                    categoryName="Filters"
+                    chips={filterChips}
+                    deleteChip={onDeleteChip}
+                  >
+                    <DataToolbarItem>
+                      <DomainExplorerFilterOptions
+                        currentDomain={domainName}
+                        parameters={parameters}
+                        setColumnFilters={setColumnFilters}
+                        setDisplayTable={setDisplayTable}
+                        setDisplayEmptyState={setDisplayEmptyState}
+                        setTableLoading={setTableLoading}
+                        setFilterError={setFilterError}
+                        getQueryTypes={getQueryTypes}
+                        filterChips={filterChips}
+                        setFilterChips={setFilterChips}
+                        runFilter={runFilter}
+                        setRunFilter={setRunFilter}
+                        finalFilters={finalFilters}
+                        setFinalFilters={setFinalFilters}
+                        getSchema={getSchema}
+                        argument={argument}
+                        reset={reset}
+                        setReset={setReset}
+                      />
+                    </DataToolbarItem>
+                  </DataToolbarFilter>
+                )}
+              </DataToolbarToggleGroup>
+              <DataToolbarGroup>
+                <DataToolbarItem>
+                  <DomainExplorerManageColumns
+                    columnPickerType={columnPickerType}
+                    setColumnFilters={onAddColumnFilters}
+                    setTableLoading={setTableLoading}
+                    getQueryTypes={getQueryTypes}
+                    setDisplayTable={setDisplayTable}
+                    parameters={parameters}
+                    setParameters={setParameters}
+                    selected={selected}
+                    setSelected={setSelected}
+                    data={data}
+                    getPicker={getPicker}
+                    setError={setError}
+                    setDisplayEmptyState={setDisplayEmptyState}
+                    rememberedParams={rememberedParams}
+                    enableCache={enableCache}
+                    setEnableCache={setEnableCache}
+                    pageSize={pageSize}
+                    offsetVal={offset}
+                    setOffsetVal={setOffset}
+                    setPageSize={setPageSize}
+                    setIsLoadingMore={setIsLoadingMore}
+                    isLoadingMore={isLoadingMore}
+                    metaData={metaData}
+                    setIsModalOpen={setIsModalOpen}
+                    isModalOpen={isModalOpen}
+                    finalFilters={finalFilters}
+                    argument={argument}
+                  />
+                </DataToolbarItem>
+              </DataToolbarGroup>
+            </>
+          )}
         </DataToolbarContent>
       </DataToolbar>
     );
   };
 
   if (!getQuery.loading && getQuery.error) {
-    return <ServerErrors error={getQuery.error} />;
+    return <ServerErrors error={getQuery.error} variant="large" />;
   }
 
   if (!getQueryTypes.loading && getQueryTypes.error) {
-    return <ServerErrors error={getQueryTypes.error} />;
+    return <ServerErrors error={getQueryTypes.error} variant="large" />;
   }
 
   if (!getPicker.loading && getPicker.error) {
-    return <ServerErrors error={getPicker.error} />;
+    return <ServerErrors error={getPicker.error} variant="large" />;
   }
 
   const onGetMoreInstances = (initVal, _pageSize) => {
@@ -205,16 +306,21 @@ const DomainExplorer: React.FC<IOwnProps> = ({
                 rows={rows}
                 isLoadingMore={isLoadingMore}
                 handleRetry={handleRetry}
+                filterError={filterError}
+                finalFilters={finalFilters}
+                filterChips={filterChips}
               />
-              {!displayEmptyState && (limit === pageSize || isLoadingMore) && (
-                <LoadMore
-                  offset={offset}
-                  setOffset={setOffset}
-                  getMoreItems={onGetMoreInstances}
-                  pageSize={pageSize}
-                  isLoadingMore={isLoadingMore}
-                />
-              )}
+              {!displayEmptyState &&
+                !filterError &&
+                (limit === pageSize || isLoadingMore) && (
+                  <LoadMore
+                    offset={offset}
+                    setOffset={setOffset}
+                    getMoreItems={onGetMoreInstances}
+                    pageSize={pageSize}
+                    isLoadingMore={isLoadingMore}
+                  />
+                )}
             </div>
           ) : (
             <Card>
@@ -225,7 +331,7 @@ const DomainExplorer: React.FC<IOwnProps> = ({
           )}
         </>
       ) : (
-        <ServerErrors error={error} />
+        <ServerErrors error={error} variant="large" />
       )}
     </>
   );

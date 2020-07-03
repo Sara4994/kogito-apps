@@ -1,4 +1,10 @@
-import { validateResponse, filterColumnSelection } from '../Utils';
+import {
+  validateResponse,
+  filterColumnSelection,
+  deleteKey,
+  clearEmpties,
+  set
+} from '../Utils';
 
 describe('Tests for utility functions', () => {
   it('Test validateResponse function', () => {
@@ -82,5 +88,24 @@ describe('Tests for utility functions', () => {
     const selectionArray = [];
     const objValue = 'country';
     filterColumnSelection(selectionArray, objValue);
+  });
+  it('Test deleteKey utility function', () => {
+    const tempObj = {
+      metadata: {
+        processInstances: { state: { equal: 'ACTIVE' } }
+      }
+    };
+    const removeString = ['metadata', 'processInstances', 'state'];
+    deleteKey(tempObj, removeString);
+  });
+  it('Test clearEmpties utility function', () => {
+    const obj = { country: { equal: 'Australia' } };
+    clearEmpties(obj);
+  });
+  it('Test set function', () => {
+    const obj = { trip: { country: { equal: 'India' } } };
+    const keys = 'trip,country,equal';
+    const value = 'India';
+    set(obj, keys, value);
   });
 });

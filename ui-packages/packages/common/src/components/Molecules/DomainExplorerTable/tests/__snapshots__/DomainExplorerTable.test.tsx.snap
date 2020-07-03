@@ -68,6 +68,9 @@ exports[`Domain Explorer Table Component Snapshot test with default props 1`] = 
   }
   displayEmptyState={false}
   displayTable={true}
+  filterChips={Array []}
+  filterError=""
+  finalFilters={Object {}}
   handleRetry={[MockFunction]}
   isLoadingMore={true}
   offset={10}
@@ -3512,6 +3515,19 @@ exports[`Domain Explorer Table Component Snapshot test with default props 1`] = 
       </Table>
     </ComponentWithOuia>
   </Component>
+  <Card
+    component="div"
+  >
+    <div
+      className="pf-c-card"
+    >
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        />
+      </CardBody>
+    </div>
+  </Card>
 </DomainExplorerTable>
 `;
 
@@ -3583,6 +3599,9 @@ exports[`Domain Explorer Table Component check null value for process instance a
   }
   displayEmptyState={true}
   displayTable={true}
+  filterChips={Array []}
+  filterError=""
+  finalFilters={Object {}}
   handleRetry={[MockFunction]}
   isLoadingMore={false}
   offset={0}
@@ -3685,6 +3704,8 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -3788,6 +3809,8 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -3930,6 +3953,8 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -4033,6 +4058,8 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -4199,7 +4226,7 @@ exports[`Domain Explorer Table Component check null value for process instance a
                     <div
                       className="pf-c-empty-state__body"
                     >
-                      Selected domain has no data to display. Check other domains.
+                      Selected filters has no data to display. Try other filters.
                     </div>
                   </EmptyStateBody>
                 </div>

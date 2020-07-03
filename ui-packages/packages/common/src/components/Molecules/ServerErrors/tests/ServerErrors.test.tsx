@@ -7,6 +7,15 @@ import { getWrapper } from '../../../../utils/OuiaUtils';
 const mockGoBack = jest.fn();
 const props = {
   error: 'some error',
+  variant: 'large',
+  history: {
+    goBack: mockGoBack
+  }
+};
+
+const props2 = {
+  error: 'error occured',
+  variant: 'small',
   history: {
     goBack: mockGoBack
   }
@@ -54,5 +63,41 @@ describe('ServerErrors component tests', () => {
         .find('pre')
         .props()['children']
     ).toEqual('"some error"');
+  });
+  it('snapshot testing with small variant ', () => {
+    const wrapper = getWrapper(
+      <BrowserRouter>
+        <ServerErrors {...props2} />
+      </BrowserRouter>,
+      'ServerErrors'
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+  // it('goback button click with small variant', () => {
+  //   const wrapper = getWrapper(
+  //     <BrowserRouter>
+  //       <ServerErrors {...props2} />
+  //     </BrowserRouter>,
+  //     'ServerErrors'
+  //   );
+  //   wrapper
+  //     .find('#goback-button')
+  //     .first()
+  //     .simulate('click');
+  //   expect(window.location.pathname).toEqual('/');
+  // });
+
+  /* tslint:disable */
+  it('display error button click with small variant ', () => {
+    const wrapper = mount(
+      <BrowserRouter>
+        <ServerErrors {...props2} />
+      </BrowserRouter>
+    );
+    wrapper
+      .find('#display-error')
+      .first()
+      .simulate('click');
+    wrapper.update();
   });
 });

@@ -32,6 +32,7 @@ import KogitoSpinner from '../../Atoms/KogitoSpinner/KogitoSpinner';
 import EndpointLink from '../../Atoms/EndpointLink/EndpointLink';
 import { GraphQL } from '../../../graphql/types';
 import ProcessInstanceState = GraphQL.ProcessInstanceState;
+import ServerErrors from '../ServerErrors/ServerErrors';
 
 const DomainExplorerTable = ({
   columnFilters,
@@ -44,7 +45,10 @@ const DomainExplorerTable = ({
   setRows,
   rows,
   isLoadingMore,
-  handleRetry
+  handleRetry,
+  filterError,
+  finalFilters,
+  filterChips
 }) => {
   // tslint:disable: forin
   const [columns, setColumns] = useState([]);
@@ -165,7 +169,12 @@ const DomainExplorerTable = ({
                       <Link
                         to={{
                           pathname: '/Process/' + tempObj.id,
-                          state: { parameters, selected }
+                          state: {
+                            parameters,
+                            selected,
+                            finalFilters,
+                            filterChips
+                          }
                         }}
                       >
                         <strong>
@@ -323,9 +332,9 @@ const DomainExplorerTable = ({
           <TableBody rowKey="rowKey" />
         </Table>
       )}
-      {!displayEmptyState && !displayTable && (
-        <Card component={'div'}>
-          <CardBody>
+      <Card component={'div'}>
+        <CardBody>
+          {!displayEmptyState && !displayTable && !filterError && (
             <Bullseye>
               <EmptyState>
                 <EmptyStateIcon icon={SearchIcon} />
@@ -345,12 +354,8 @@ const DomainExplorerTable = ({
                 </EmptyStateBody>
               </EmptyState>
             </Bullseye>
-          </CardBody>
-        </Card>
-      )}
-      {displayEmptyState && (
-        <Card component={'div'}>
-          <CardBody>
+          )}
+          {displayEmptyState && (
             <Bullseye>
               <EmptyState>
                 <EmptyStateIcon icon={SearchIcon} />
@@ -358,13 +363,16 @@ const DomainExplorerTable = ({
                   No data available
                 </Title>
                 <EmptyStateBody>
-                  Selected domain has no data to display. Check other domains.
+                  Selected filters has no data to display. Try other filters.
                 </EmptyStateBody>
               </EmptyState>
             </Bullseye>
-          </CardBody>
-        </Card>
-      )}
+          )}
+          {!displayEmptyState && !displayTable && filterError && (
+            <ServerErrors error={filterError} variant="small" />
+          )}
+        </CardBody>
+      </Card>
     </React.Fragment>
   );
 };

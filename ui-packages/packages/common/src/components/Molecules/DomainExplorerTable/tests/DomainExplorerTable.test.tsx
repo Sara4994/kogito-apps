@@ -3,6 +3,7 @@ import { getWrapperAsync } from '../../../../utils/OuiaUtils';
 
 import DomainExplorerTable from '../DomainExplorerTable';
 import { MockedProvider } from '@apollo/react-testing';
+import { BrowserRouter } from 'react-router-dom';
 
 global.Math.random = () => 0.7218415351930461;
 
@@ -112,7 +113,10 @@ describe('Domain Explorer Table Component', () => {
       ],
       setRows: jest.fn(),
       offset: 10,
-      handleRetry: jest.fn()
+      handleRetry: jest.fn(),
+      filterError: '',
+      finalFilters: {},
+      filterChips: []
     };
     const wrapper = await getWrapperAsync(
       <MockedProvider>
@@ -247,7 +251,10 @@ describe('Domain Explorer Table Component', () => {
       ],
       setRows: jest.fn(),
       offset: 10,
-      handleRetry: jest.fn()
+      handleRetry: jest.fn(),
+      filterError: '',
+      finalFilters: {},
+      filterChips: []
     };
 
     const wrapper = await getWrapperAsync(
@@ -257,7 +264,7 @@ describe('Domain Explorer Table Component', () => {
       'DomainExplorerTable'
     );
     wrapper.update();
-
+    // tslint:disable-next-line: no-string-literal
     expect(
       wrapper.find('.kogito-management-console--domain-explorer__table')
     ).toBeTruthy();
@@ -356,7 +363,10 @@ describe('Domain Explorer Table Component', () => {
       ],
       setRows: jest.fn(),
       offset: 0,
-      handleRetry: jest.fn()
+      handleRetry: jest.fn(),
+      filterError: '',
+      finalFilters: {},
+      filterChips: []
     };
     const wrapper = await getWrapperAsync(
       <MockedProvider>
@@ -463,7 +473,10 @@ describe('Domain Explorer Table Component', () => {
       ],
       setRows: jest.fn(),
       offset: 0,
-      handleRetry: jest.fn()
+      handleRetry: jest.fn(),
+      filterError: '',
+      finalFilters: {},
+      filterChips: []
     };
     const wrapper = await getWrapperAsync(
       <MockedProvider>
@@ -568,7 +581,10 @@ describe('Domain Explorer Table Component', () => {
       ],
       setRows: jest.fn(),
       offset: 0,
-      handleRetry: jest.fn()
+      handleRetry: jest.fn(),
+      filterError: '',
+      finalFilters: {},
+      filterChips: []
     };
     const wrapper = await getWrapperAsync(
       <MockedProvider>
@@ -578,5 +594,112 @@ describe('Domain Explorer Table Component', () => {
     );
     wrapper.update();
     expect(wrapper).toMatchSnapshot();
+  });
+  it('check filter errors', async () => {
+    const props = {
+      columnFilters: [
+        {
+          flight: {
+            arrival: 'Hello World',
+            __typename: 'Flight',
+            departure: 'Hello World',
+            flightNumber: 'Hello World',
+            gate: 'Hello World',
+            seat: 'Hello World'
+          },
+          metadata: {
+            processInstances: [
+              {
+                businessKey: 'Hello World',
+                id: 'Hello World',
+                lastUpdate: 'Tue, 12 May 2020 12:33:58 GMT',
+                processName: 'Hello World',
+                start: 'Tue, 12 May 2020 12:33:58 GMT',
+                state: 'ERROR'
+              },
+              {
+                businessKey: 'Hello World',
+                id: 'Hello World',
+                lastUpdate: 'Tue, 12 May 2020 12:33:58 GMT',
+                processName: 'Hello World',
+                start: 'Tue, 12 May 2020 12:33:58 GMT',
+                state: 'ABORTED'
+              }
+            ]
+          }
+        },
+        {
+          flight: {
+            arrival: null,
+            __typename: 'Flight',
+            departure: 'Hello World',
+            flightNumber: 'Hello World',
+            gate: 'Hello World',
+            seat: 'Hello World'
+          },
+          metadata: {
+            processInstances: [
+              {
+                businessKey: null,
+                id: 'Hello World',
+                lastUpdate: 'Tue, 12 May 2020 12:33:58 GMT',
+                processName: 'Hello World',
+                start: 'Tue, 12 May 2020 12:33:58 GMT',
+                state: 'ERROR'
+              },
+              {
+                businessKey: 'Hello World',
+                id: 'Hello World',
+                lastUpdate: 'Tue, 12 May 2020 12:33:58 GMT',
+                processName: 'Hello World',
+                start: 'Tue, 12 May 2020 12:33:58 GMT',
+                state: 'ERROR'
+              }
+            ]
+          }
+        }
+      ],
+      tableLoading: false,
+      displayTable: false,
+      displayEmptyState: false,
+      parameters: [],
+      selected: [],
+      isLoadingMore: false,
+      rows: [
+        {
+          cells: [
+            'Hello World',
+            'Hello World',
+            'Hello World',
+            'Hello World',
+            'Hello World'
+          ],
+          isOpen: false,
+          rowKey: '0.008857835601127073'
+        },
+        {
+          parent: 0,
+          rowKey: '0.6632979792309541',
+          cells: [
+            {
+              title: ''
+            }
+          ]
+        }
+      ],
+      setRows: jest.fn(),
+      offset: 0,
+      handleRetry: jest.fn(),
+      filterError: 'some error',
+      finalFilters: {},
+      filterChips: []
+    };
+    const wrapper = await getWrapperAsync(
+      <BrowserRouter>
+        <DomainExplorerTable {...props} />
+      </BrowserRouter>,
+      'DomainExplorerTable'
+    );
+    wrapper.update();
   });
 });
