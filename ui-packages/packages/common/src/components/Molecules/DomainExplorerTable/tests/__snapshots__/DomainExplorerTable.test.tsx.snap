@@ -68,9 +68,17 @@ exports[`Domain Explorer Table Component Snapshot test with default props 1`] = 
   }
   displayEmptyState={false}
   displayTable={true}
+  filterChips={
+    Array [
+      "metadata / processInstances / state: ACTIVE",
+    ]
+  }
+  filterError=""
+  finalFilters={Object {}}
   handleRetry={[MockFunction]}
   isLoadingMore={true}
   offset={10}
+  onDeleteChip={[MockFunction]}
   parameters={Array []}
   rows={
     Array [
@@ -3512,6 +3520,19 @@ exports[`Domain Explorer Table Component Snapshot test with default props 1`] = 
       </Table>
     </ComponentWithOuia>
   </Component>
+  <Card
+    component="div"
+  >
+    <div
+      className="pf-c-card"
+    >
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        />
+      </CardBody>
+    </div>
+  </Card>
 </DomainExplorerTable>
 `;
 
@@ -3583,9 +3604,17 @@ exports[`Domain Explorer Table Component check null value for process instance a
   }
   displayEmptyState={true}
   displayTable={true}
+  filterChips={
+    Array [
+      "metadata / processInstances / state: ACTIVE",
+    ]
+  }
+  filterError=""
+  finalFilters={Object {}}
   handleRetry={[MockFunction]}
   isLoadingMore={false}
   offset={0}
+  onDeleteChip={[MockFunction]}
   parameters={Array []}
   rows={
     Array [
@@ -3615,6 +3644,12 @@ exports[`Domain Explorer Table Component check null value for process instance a
   setRows={
     [MockFunction] {
       "calls": Array [
+        Array [
+          [Function],
+        ],
+        Array [
+          [Function],
+        ],
         Array [
           Array [
             Object {
@@ -3685,6 +3720,523 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
+                                        "parameters": Array [],
+                                        "selected": Array [],
+                                      },
+                                    }
+                                  }
+                                >
+                                  <strong>
+                                    <MockedProcessDescriptor
+                                      processInstanceData={
+                                        Object {
+                                          "businessKey": "Hello World",
+                                          "id": "Hello World",
+                                          "processName": "Hello World",
+                                          "serviceUrl": undefined,
+                                        }
+                                      }
+                                    />
+                                  </strong>
+                                </Link>
+                                <div>
+                                  <EndpointLink
+                                    isLinkShown={false}
+                                  />
+                                </div>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element={null}
+                                filter={[Function]}
+                                fromNow={true}
+                                interval={60000}
+                                local={false}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                Tue, 12 May 2020 12:33:58 GMT
+                              </t>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <OnRunningIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                Active
+                              </React.Fragment>,
+                            },
+                          ],
+                          "rowKey": "0.7218415351930461",
+                        },
+                        Object {
+                          "cells": Array [
+                            Object {
+                              "title": <React.Fragment>
+                                <HistoryIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                 Updated
+                                 
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element={null}
+                                  filter={[Function]}
+                                  fromNow={true}
+                                  interval={60000}
+                                  local={false}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  Tue, 12 May 2020 12:33:58 GMT
+                                </t>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <Link
+                                  to={
+                                    Object {
+                                      "pathname": "/Process/Hello World",
+                                      "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
+                                        "parameters": Array [],
+                                        "selected": Array [],
+                                      },
+                                    }
+                                  }
+                                >
+                                  <strong>
+                                    <MockedProcessDescriptor
+                                      processInstanceData={
+                                        Object {
+                                          "businessKey": "Hello World",
+                                          "id": "Hello World",
+                                          "processName": "Hello World",
+                                          "serviceUrl": undefined,
+                                        }
+                                      }
+                                    />
+                                  </strong>
+                                </Link>
+                                <div>
+                                  <EndpointLink
+                                    isLinkShown={false}
+                                  />
+                                </div>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element={null}
+                                filter={[Function]}
+                                fromNow={true}
+                                interval={60000}
+                                local={false}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                Tue, 12 May 2020 12:33:58 GMT
+                              </t>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <CheckCircleIcon
+                                  className="pf-u-mr-sm"
+                                  color="var(--pf-global--success-color--100)"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                Completed
+                              </React.Fragment>,
+                            },
+                          ],
+                          "rowKey": "0.7218415351930461",
+                        },
+                      ]
+                    }
+                    variant="compact"
+                  >
+                    <TableHeader />
+                    <TableBody />
+                  </Unknown>,
+                },
+              ],
+              "parent": 0,
+              "rowKey": "0.7218415351930461",
+            },
+            Object {
+              "cells": Array [
+                "Hello World",
+                "Hello World",
+                "Hello World",
+                "Hello World",
+                "Hello World",
+              ],
+              "isOpen": false,
+              "rowKey": "0.7218415351930461",
+            },
+            Object {
+              "cells": Array [
+                Object {
+                  "title": <Unknown
+                    aria-label="Process Instances"
+                    cells={
+                      Array [
+                        "Process name",
+                        "State",
+                        "Start",
+                        "Last update",
+                      ]
+                    }
+                    className="kogito-management-console__embedded-table"
+                    rows={
+                      Array [
+                        Object {
+                          "cells": Array [
+                            Object {
+                              "title": <React.Fragment>
+                                <HistoryIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                 Updated
+                                 
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element={null}
+                                  filter={[Function]}
+                                  fromNow={true}
+                                  interval={60000}
+                                  local={false}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  Tue, 12 May 2020 12:33:58 GMT
+                                </t>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <Link
+                                  to={
+                                    Object {
+                                      "pathname": "/Process/Hello World",
+                                      "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
+                                        "parameters": Array [],
+                                        "selected": Array [],
+                                      },
+                                    }
+                                  }
+                                >
+                                  <strong>
+                                    <MockedProcessDescriptor
+                                      processInstanceData={
+                                        Object {
+                                          "businessKey": "Hello World",
+                                          "id": "Hello World",
+                                          "processName": "Hello World",
+                                          "serviceUrl": undefined,
+                                        }
+                                      }
+                                    />
+                                  </strong>
+                                </Link>
+                                <div>
+                                  <EndpointLink
+                                    isLinkShown={false}
+                                  />
+                                </div>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element={null}
+                                filter={[Function]}
+                                fromNow={true}
+                                interval={60000}
+                                local={false}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                Tue, 12 May 2020 12:33:58 GMT
+                              </t>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <PausedIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                Pending
+                              </React.Fragment>,
+                            },
+                          ],
+                          "rowKey": "0.7218415351930461",
+                        },
+                        Object {
+                          "cells": Array [
+                            Object {
+                              "title": <React.Fragment>
+                                <HistoryIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                 Updated
+                                 
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element={null}
+                                  filter={[Function]}
+                                  fromNow={true}
+                                  interval={60000}
+                                  local={false}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  Tue, 12 May 2020 12:33:58 GMT
+                                </t>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <Link
+                                  to={
+                                    Object {
+                                      "pathname": "/Process/Hello World",
+                                      "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
+                                        "parameters": Array [],
+                                        "selected": Array [],
+                                      },
+                                    }
+                                  }
+                                >
+                                  <strong>
+                                    <MockedProcessDescriptor
+                                      processInstanceData={
+                                        Object {
+                                          "businessKey": "Hello World",
+                                          "id": "Hello World",
+                                          "processName": "Hello World",
+                                          "serviceUrl": undefined,
+                                        }
+                                      }
+                                    />
+                                  </strong>
+                                </Link>
+                                <div>
+                                  <EndpointLink
+                                    isLinkShown={false}
+                                  />
+                                </div>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <t
+                                ago={false}
+                                calendar={false}
+                                decimal={false}
+                                element={null}
+                                filter={[Function]}
+                                fromNow={true}
+                                interval={60000}
+                                local={false}
+                                onChange={[Function]}
+                                titleFormat=""
+                                toNow={false}
+                                unit={null}
+                                unix={false}
+                                utc={false}
+                                withTitle={false}
+                              >
+                                Tue, 12 May 2020 12:33:58 GMT
+                              </t>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <PausedIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                Suspended
+                              </React.Fragment>,
+                            },
+                          ],
+                          "rowKey": "0.7218415351930461",
+                        },
+                      ]
+                    }
+                    variant="compact"
+                  >
+                    <TableHeader />
+                    <TableBody />
+                  </Unknown>,
+                },
+              ],
+              "parent": 2,
+              "rowKey": "0.7218415351930461",
+            },
+          ],
+        ],
+        Array [
+          [Function],
+        ],
+        Array [
+          Array [
+            Object {
+              "cells": Array [
+                "Hello World",
+                "Hello World",
+                "Hello World",
+                "Hello World",
+                "Hello World",
+              ],
+              "isOpen": false,
+              "rowKey": "0.7218415351930461",
+            },
+            Object {
+              "cells": Array [
+                Object {
+                  "title": <Unknown
+                    aria-label="Process Instances"
+                    cells={
+                      Array [
+                        "Process name",
+                        "State",
+                        "Start",
+                        "Last update",
+                      ]
+                    }
+                    className="kogito-management-console__embedded-table"
+                    rows={
+                      Array [
+                        Object {
+                          "cells": Array [
+                            Object {
+                              "title": <React.Fragment>
+                                <HistoryIcon
+                                  className="pf-u-mr-sm"
+                                  color="currentColor"
+                                  noVerticalAlign={false}
+                                  size="sm"
+                                  title={null}
+                                />
+                                 Updated
+                                 
+                                <t
+                                  ago={false}
+                                  calendar={false}
+                                  decimal={false}
+                                  element={null}
+                                  filter={[Function]}
+                                  fromNow={true}
+                                  interval={60000}
+                                  local={false}
+                                  onChange={[Function]}
+                                  titleFormat=""
+                                  toNow={false}
+                                  unit={null}
+                                  unix={false}
+                                  utc={false}
+                                  withTitle={false}
+                                >
+                                  Tue, 12 May 2020 12:33:58 GMT
+                                </t>
+                              </React.Fragment>,
+                            },
+                            Object {
+                              "title": <React.Fragment>
+                                <Link
+                                  to={
+                                    Object {
+                                      "pathname": "/Process/Hello World",
+                                      "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -3788,6 +4340,10 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -3930,6 +4486,10 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -4033,6 +4593,10 @@ exports[`Domain Explorer Table Component check null value for process instance a
                                     Object {
                                       "pathname": "/Process/Hello World",
                                       "state": Object {
+                                        "filterChips": Array [
+                                          "metadata / processInstances / state: ACTIVE",
+                                        ],
+                                        "finalFilters": Object {},
                                         "parameters": Array [],
                                         "selected": Array [],
                                       },
@@ -4129,6 +4693,22 @@ exports[`Domain Explorer Table Component check null value for process instance a
           "type": "return",
           "value": undefined,
         },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
       ],
     }
   }
@@ -4199,7 +4779,7 @@ exports[`Domain Explorer Table Component check null value for process instance a
                     <div
                       className="pf-c-empty-state__body"
                     >
-                      Selected domain has no data to display. Check other domains.
+                      Selected filters have no data to display. Try other filters.
                     </div>
                   </EmptyStateBody>
                 </div>

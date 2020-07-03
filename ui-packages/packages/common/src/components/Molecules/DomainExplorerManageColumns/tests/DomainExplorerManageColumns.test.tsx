@@ -3,6 +3,7 @@ import { configure, mount, shallow } from 'enzyme';
 import DomainExplorerManageColumns from '../DomainExplorerManageColumns';
 import Adapter from 'enzyme-adapter-react-16';
 import reactApollo from 'react-apollo';
+import { act } from 'react-dom/test-utils';
 
 configure({ adapter: new Adapter() });
 
@@ -199,7 +200,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const wrapper = mount(<DomainExplorerManageColumns {...props} />);
     wrapper.update();
@@ -375,7 +378,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const event2 = { target: {} } as React.MouseEvent<HTMLInputElement>;
     const wrapper = mount(<DomainExplorerManageColumns {...props} />);
@@ -385,16 +390,18 @@ describe('Domain Explorer Manage columns component', () => {
       .find('#manage-columns-button')
       .first()
       .simulate('click');
-    wrapper
-      .find('DataListToggle')
-      .first()
-      .props()
-      .onClick(event2);
-    wrapper
-      .find('DataListToggle')
-      .at(2)
-      .props()
-      .onClick(event2);
+    act(() => {
+      wrapper
+        .find('DataListToggle')
+        .first()
+        .props()
+        .onClick(event2);
+      wrapper
+        .find('DataListToggle')
+        .at(2)
+        .props()
+        .onClick(event2);
+    });
   });
   it('Test Apply columns button', async () => {
     const props = {
@@ -441,7 +448,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {
@@ -571,7 +580,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const wrapper = mount(<DomainExplorerManageColumns {...props} />);
     wrapper
@@ -634,7 +645,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {
@@ -763,7 +776,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {
@@ -892,7 +907,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {
@@ -970,21 +987,23 @@ describe('Domain Explorer Manage columns component', () => {
       .find('#manage-columns-button')
       .first()
       .simulate('click');
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['toggle']['props'].onToggle();
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['onSelect'](event);
+    act(() => {
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['toggle']['props'].onToggle();
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['onSelect'](event);
+    });
     expect(wrapper.find('#selectAll-dropdown')).toBeTruthy();
     expect(wrapper.find('DropdownItem')).toBeTruthy();
   });
@@ -1041,7 +1060,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {
@@ -1061,35 +1082,37 @@ describe('Domain Explorer Manage columns component', () => {
       .first()
       .simulate('click');
     // tests checkbox on the select all/none dropdown present on the Modal
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
-    // triggers toggle function on select all/none dropdown present on the Modal
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['toggle']['props'].onToggle();
-    // triggers select function on select all/none dropdown
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      .onSelect(event);
-    // triggers click on dropdown's first item
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['dropdownItems'][0].props['onClick']();
-    // triggers click on dropdown's second item
-    wrapper
-      .find('#selectAll-dropdown')
-      .first()
-      .props()
-      ['dropdownItems'][1].props['onClick']();
+    act(() => {
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['toggle']['props']['splitButtonItems'][0]['props']['onClick']();
+      // triggers toggle function on select all/none dropdown present on the Modal
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['toggle']['props'].onToggle();
+      // triggers select function on select all/none dropdown
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        .onSelect(event);
+      // triggers click on dropdown's first item
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['dropdownItems'][0].props['onClick']();
+      // triggers click on dropdown's second item
+      wrapper
+        .find('#selectAll-dropdown')
+        .first()
+        .props()
+        ['dropdownItems'][1].props['onClick']();
+    });
     expect(wrapper.find('#selectAll-dropdown')).toBeTruthy();
   });
   it('test empty paramFields', () => {
@@ -1137,7 +1160,9 @@ describe('Domain Explorer Manage columns component', () => {
         ]
       },
       isModalOpen: true,
-      setIsModalOpen: jest.fn()
+      setIsModalOpen: jest.fn(),
+      finalFilters: {},
+      argument: 'TravelsArgument'
     };
     const mGraphQLResponse = {
       data: {

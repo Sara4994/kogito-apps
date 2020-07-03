@@ -25,7 +25,11 @@ import _ from 'lodash';
 import gql from 'graphql-tag';
 import { query } from 'gql-query-builder';
 import { useApolloClient } from 'react-apollo';
-import { validateResponse, filterColumnSelection } from '../../../utils/Utils';
+import {
+  validateResponse,
+  filterColumnSelection,
+  removeDuplicates
+} from '../../../utils/Utils';
 
 export interface IOwnProps {
   columnPickerType: any;
@@ -53,6 +57,8 @@ export interface IOwnProps {
   metaData: any;
   setIsModalOpen: any;
   isModalOpen: boolean;
+  finalFilters: object;
+  argument: string;
 }
 
 const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
@@ -80,7 +86,9 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
   isLoadingMore,
   metaData,
   setIsModalOpen,
-  isModalOpen
+  isModalOpen,
+  finalFilters,
+  argument
 }) => {
   // tslint:disable: forin
   // tslint:disable: no-floating-promises
@@ -204,7 +212,7 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
                     id={'kie-datalist-content-' + itemName}
                     isHidden={!expanded.includes(label.replace(/\,/g, ''))}
                     className="kogito-common--manage-columns__data-list-content"
-                    key={Math.random()}
+                    key={itemName + _index}
                   >
                     <DataListItemRow>
                       <DataListCheck
@@ -353,16 +361,6 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
   finalResult = finalResult.flat();
   finalResult.unshift(rootElements);
 
-  function getAllChilds(arr, comp) {
-    const unique = arr
-      .map(e => e[comp])
-      .map((e, i, final) => final.indexOf(e) === i && i)
-      .filter(e => arr[e])
-      .map(e => arr[e]);
-
-    return unique;
-  }
-
   useEffect(() => {
     /* istanbul ignore else */
     if (isLoadingMore) {
@@ -391,7 +389,8 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
           pagination: {
             value: { offset: offsetVal, limit: pageSize },
             type: 'Pagination'
-          }
+          },
+          where: { value: finalFilters, type: argument }
         }
       });
       try {
@@ -544,7 +543,7 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
           className="kogito-common--manage-columns__data-list"
           isCompact
         >
-          {getAllChilds(finalResult, 'props')}
+          {removeDuplicates(finalResult, 'props')}
         </DataList>
       </Modal>
     );
@@ -587,7 +586,6 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
         onClick={() => {
           onRefresh(parameters);
         }}
-        className="pf-u-m-md"
         id="refresh-button"
         aria-label={'Refresh list'}
       >

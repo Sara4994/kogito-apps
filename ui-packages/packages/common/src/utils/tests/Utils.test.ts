@@ -1,4 +1,10 @@
-import { validateResponse, filterColumnSelection } from '../Utils';
+import {
+  validateResponse,
+  filterColumnSelection,
+  deleteKey,
+  clearEmpties,
+  set
+} from '../Utils';
 
 describe('Tests for utility functions', () => {
   it('Test validateResponse function', () => {
@@ -82,5 +88,34 @@ describe('Tests for utility functions', () => {
     const selectionArray = [];
     const objValue = 'country';
     filterColumnSelection(selectionArray, objValue);
+  });
+  it('Test deleteKey utility function', () => {
+    const tempObj = {
+      metadata: {
+        processInstances: { state: { equal: 'ACTIVE' } }
+      }
+    };
+    const removeString = ['metadata', 'processInstances', 'state'];
+    const result = deleteKey(tempObj, removeString);
+    expect(result).toEqual({
+      metadata: {
+        processInstances: {}
+      }
+    });
+  });
+  it('Test clearEmpties utility function', () => {
+    const obj = { country: { equal: 'Australia' }, flight: {} };
+    const result = clearEmpties(obj);
+    expect(result).toEqual({ country: { equal: 'Australia' } });
+    const obj2 = { country: { equal: 'Australia' }, flight: { arrival: {} } };
+    const result2 = clearEmpties(obj2);
+    expect(result2).toEqual({ country: { equal: 'Australia' } });
+  });
+  it('Test set function', () => {
+    const obj = {};
+    const keys = 'trip,country,equal';
+    const value = 'India';
+    set(obj, keys, value);
+    expect(obj).toEqual({ trip: { country: { equal: 'India' } } });
   });
 });
