@@ -965,7 +965,31 @@ export namespace GraphQL {
                   type: { __typename?: '__Type' } & Pick<
                     __Type,
                     'name' | 'kind'
-                  >;
+                  > & {
+                      enumValues: Maybe<
+                        Array<
+                          { __typename?: '__EnumValue' } & Pick<
+                            __EnumValue,
+                            'name'
+                          >
+                        >
+                      >;
+                      ofType: Maybe<
+                        { __typename?: '__Type' } & Pick<
+                          __Type,
+                          'kind' | 'name'
+                        > & {
+                            enumValues: Maybe<
+                              Array<
+                                { __typename?: '__EnumValue' } & Pick<
+                                  __EnumValue,
+                                  'name'
+                                >
+                              >
+                            >;
+                          }
+                      >;
+                    };
                 }
             >
           >;
@@ -1598,6 +1622,16 @@ export namespace GraphQL {
           type {
             name
             kind
+            enumValues {
+              name
+            }
+            ofType {
+              kind
+              name
+              enumValues {
+                name
+              }
+            }
           }
         }
       }
