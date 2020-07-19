@@ -73,19 +73,6 @@ describe('ServerErrors component tests', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
-  // it('goback button click with small variant', () => {
-  //   const wrapper = getWrapper(
-  //     <BrowserRouter>
-  //       <ServerErrors {...props2} />
-  //     </BrowserRouter>,
-  //     'ServerErrors'
-  //   );
-  //   wrapper
-  //     .find('#goback-button')
-  //     .first()
-  //     .simulate('click');
-  //   expect(window.location.pathname).toEqual('/');
-  // });
 
   /* tslint:disable */
   it('display error button click with small variant ', () => {
@@ -98,6 +85,6 @@ describe('ServerErrors component tests', () => {
       .find('#display-error')
       .first()
       .simulate('click');
-    wrapper.update();
+    expect(wrapper.find('pre').props()['children']).toEqual('"error occured"');
   });
 });

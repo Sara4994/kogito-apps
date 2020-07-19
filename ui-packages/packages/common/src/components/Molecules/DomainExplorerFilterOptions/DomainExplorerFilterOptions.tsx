@@ -24,24 +24,24 @@ import { validateResponse, set, removeDuplicates } from '../../../utils/Utils';
 import './DomainExplorerFilterOptions.css';
 
 const DomainExplorerFilterOptions = ({
+  argument,
   currentDomain,
+  filterChips,
+  finalFilters,
+  getQueryTypes,
+  getSchema,
   parameters,
+  runFilter,
+  reset,
   setColumnFilters,
-  setTableLoading,
   setDisplayTable,
   setDisplayEmptyState,
-  setFilterError,
-  getQueryTypes,
-  filterChips,
-  setFilterChips,
-  runFilter,
-  setRunFilter,
-  finalFilters,
   setFinalFilters,
-  getSchema,
-  argument,
-  reset,
-  setReset
+  setFilterError,
+  setFilterChips,
+  setReset,
+  setRunFilter,
+  setTableLoading
 }) => {
   // tslint:disable: forin
   // tslint:disable: no-floating-promises
@@ -65,25 +65,25 @@ const DomainExplorerFilterOptions = ({
   const [selectedState, setSelectedState] = useState('');
   const [multiState, setMultiState] = useState([]);
 
-  const nullTypes = [
+  const scalarArgs = [
     null,
-    'String',
     'Boolean',
-    'StringArgument',
-    'DateArgument',
-    'IdArgument',
     'BooleanArgument',
-    'NumericArgument',
-    'StringArrayArgument',
+    'DateArgument',
     'DateRange',
+    'IdArgument',
     'NumericRange',
+    'NumericArgument',
     'ProcessInstanceState',
-    'ProcessInstanceStateArgument'
+    'ProcessInstanceStateArgument',
+    'String',
+    'StringArgument',
+    'StringArrayArgument'
   ];
 
-  const scalarTypes = ['String', 'Boolean'];
+  const scalarTypes = ['Boolean', 'String'];
 
-  const nonArgs = [null, 'String', 'Boolean'];
+  const nonArgs = [null, 'Boolean', 'String'];
   const stateArray = [
     'ABORTED',
     'ACTIVE',
@@ -195,7 +195,7 @@ const DomainExplorerFilterOptions = ({
             {group.inputFields !== null &&
               group.inputFields
                 .filter((item, _index) => {
-                  if (!nullTypes.includes(item.type.name)) {
+                  if (!scalarArgs.includes(item.type.name)) {
                     const tempData = [];
                     const schemaObj = fetchSchema(item);
                     tempData.push(schemaObj);
@@ -261,7 +261,7 @@ const DomainExplorerFilterOptions = ({
                 {groupItem.type.inputFields &&
                   groupItem.type.inputFields
                     .filter((item, _index) => {
-                      if (!nullTypes.includes(item.type.name)) {
+                      if (!scalarArgs.includes(item.type.name)) {
                         const tempData = [];
                         const _v = fetchSchema(item);
                         tempData.push(_v);
@@ -311,7 +311,6 @@ const DomainExplorerFilterOptions = ({
     const parent = event.nativeEvent.target.parentElement.parentElement.getAttribute(
       'value'
     );
-
     let tempParents;
     let lastEle;
     if (parent !== ' ') {
@@ -360,6 +359,29 @@ const DomainExplorerFilterOptions = ({
     setIsExpanded(false);
   };
 
+  const onStateToggle = _isOpen => {
+    setStateToggle(_isOpen);
+  };
+
+  const onStateSelect = event => {
+    const selection = event.target.innerText;
+    setSelectedState(selection);
+    setStateToggle(!stateToggle);
+  };
+
+  const onMultiStateToggle = _isOpen => {
+    setMultiStateToggle(_isOpen);
+  };
+
+  const onMultiStateSelect = (event, selection) => {
+    if (multiState.includes(selection)) {
+      setMultiState(prev => prev.filter(item => item !== selection));
+    } else {
+      setMultiState(prev => [...prev, selection]);
+    }
+    setMultiStateToggle(!multiStateToggle);
+  };
+
   const onLoad = () => {
     const innerText = 'id';
     let tempParents;
@@ -380,12 +402,12 @@ const DomainExplorerFilterOptions = ({
     });
     if (argField === undefined) {
       setCurrentArgument(argType.name);
-    } else {
-      if (argField.type.kind === 'INPUT_OBJECT') {
-        setCurrentArgument(argField.type.name);
-      } else {
-        setCurrentArgumentScalar(argField.type.name);
-      }
+      setCurrentArgumentScalar('String');
+      setTextValue('');
+      setInputArray('');
+      setCurrentBoolean('boolean');
+      setMultiState([]);
+      setSelectedState('');
     }
   };
 
@@ -400,6 +422,7 @@ const DomainExplorerFilterOptions = ({
     if (reset === true) {
       setSelected('id');
       setSelectTypes('equal');
+      setTypeParent('');
       onLoad();
       setRunFilter(true);
     }
@@ -416,7 +439,8 @@ const DomainExplorerFilterOptions = ({
   };
   async function generateFilterQuery() {
     reset !== true && setPlaceHolders();
-    if (parameters.length > 1) {
+    setTableLoading(true);
+    if (parameters.length > 1 && Object.keys(finalFilters).length > 0) {
       const Query = query({
         operation: currentDomain,
         variables: { where: { value: finalFilters, type: argument } },
@@ -453,6 +477,7 @@ const DomainExplorerFilterOptions = ({
         }
       } catch (error) {
         setFilterError(error);
+        setTableLoading(false);
         setDisplayTable(false);
         setDisplayEmptyState(false);
         setRunFilter(false);
@@ -461,6 +486,7 @@ const DomainExplorerFilterOptions = ({
       setTableLoading(false);
       setDisplayEmptyState(false);
       setDisplayTable(false);
+      setRunFilter(false);
     }
     setReset(false);
   }
@@ -577,28 +603,6 @@ const DomainExplorerFilterOptions = ({
     runFilter && generateFilterQuery();
   }, [runFilter]);
 
-  const onStateToggle = _isOpen => {
-    setStateToggle(_isOpen);
-  };
-
-  const onStateSelect = event => {
-    const selection = event.target.innerText;
-    setSelectedState(selection);
-    setStateToggle(!stateToggle);
-  };
-
-  const onMultiStateToggle = _isOpen => {
-    setMultiStateToggle(_isOpen);
-  };
-
-  const onMultiStateSelect = (event, selection) => {
-    if (multiState.includes(selection)) {
-      setMultiState(prev => prev.filter(item => item !== selection));
-    } else {
-      setMultiState(prev => [...prev, selection]);
-    }
-    setMultiStateToggle(!multiStateToggle);
-  };
   return (
     <>
       {!getSchema.loading && (
@@ -646,7 +650,7 @@ const DomainExplorerFilterOptions = ({
             variant="primary"
             onClick={onApplyFilter}
             id="button-with-string"
-            isDisabled={textValue.length === 0}
+            isDisabled={!(selected && selectTypes && textValue)}
           >
             Apply Filter
           </Button>
@@ -670,7 +674,9 @@ const DomainExplorerFilterOptions = ({
             variant="primary"
             id="button-with-boolean"
             onClick={onApplyFilter}
-            isDisabled={currentBoolean === 'boolean'}
+            isDisabled={
+              !(selected && selectTypes && currentBoolean !== 'boolean')
+            }
           >
             Apply Filter
           </Button>
@@ -680,16 +686,16 @@ const DomainExplorerFilterOptions = ({
         <>
           <InputGroup className="kogito-common--filter-options__inputs">
             <TextInput
-              name="textInput10"
-              id="textInput10"
+              name="filterArrayOfInputs"
+              id="filterArrayOfInputs"
               type="text"
               onChange={textGroupChange}
-              aria-label="input example with popover"
+              aria-label="filter array of inputs"
               placeholder="value"
               value={inputArray}
             />
             <Popover
-              aria-label="popover example"
+              aria-label="filter array of inputs popover"
               position={PopoverPosition.top}
               bodyContent='This field allows specifying multiple values using "," as value delimiter'
             >
@@ -702,7 +708,7 @@ const DomainExplorerFilterOptions = ({
             variant="primary"
             onClick={onApplyFilter}
             id="button-with-arrayInput"
-            isDisabled={inputArray.length === 0}
+            isDisabled={!(selected && selectTypes && inputArray)}
           >
             Apply Filter
           </Button>
@@ -724,12 +730,11 @@ const DomainExplorerFilterOptions = ({
               <SelectOption key={index} value={item} />
             ))}
           </Select>
-
           <Button
             variant="primary"
             onClick={onApplyFilter}
             id="button-with-stateSelection"
-            isDisabled={selectedState.length === 0}
+            isDisabled={!(selected && selectTypes && selectedState)}
           >
             Apply Filter
           </Button>
@@ -756,7 +761,7 @@ const DomainExplorerFilterOptions = ({
             variant="primary"
             onClick={onApplyFilter}
             id="button-with-MultiSelection"
-            isDisabled={multiState.length === 0}
+            isDisabled={!(selected && selectTypes && multiState)}
           >
             Apply Filter
           </Button>

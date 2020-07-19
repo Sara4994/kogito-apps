@@ -96,16 +96,26 @@ describe('Tests for utility functions', () => {
       }
     };
     const removeString = ['metadata', 'processInstances', 'state'];
-    deleteKey(tempObj, removeString);
+    const result = deleteKey(tempObj, removeString);
+    expect(result).toEqual({
+      metadata: {
+        processInstances: {}
+      }
+    });
   });
   it('Test clearEmpties utility function', () => {
-    const obj = { country: { equal: 'Australia' } };
-    clearEmpties(obj);
+    const obj = { country: { equal: 'Australia' }, flight: {} };
+    const result = clearEmpties(obj);
+    expect(result).toEqual({ country: { equal: 'Australia' } });
+    const obj2 = { country: { equal: 'Australia' }, flight: { arrival: {} } };
+    const result2 = clearEmpties(obj2);
+    expect(result2).toEqual({ country: { equal: 'Australia' } });
   });
   it('Test set function', () => {
-    const obj = { trip: { country: { equal: 'India' } } };
+    const obj = {};
     const keys = 'trip,country,equal';
     const value = 'India';
     set(obj, keys, value);
+    expect(obj).toEqual({ trip: { country: { equal: 'India' } } });
   });
 });

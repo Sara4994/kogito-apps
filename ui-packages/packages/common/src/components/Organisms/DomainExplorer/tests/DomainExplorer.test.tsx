@@ -28,6 +28,7 @@ jest.mock('@patternfly/react-core', () => ({
   ...jest.requireActual('@patternfly/react-core'),
   DataToolbar: () => <MockedDataToolbar />
 }));
+jest.mock('../../../Atoms/KogitoSpinner/KogitoSpinner');
 // tslint:disable: no-string-literal
 // tslint:disable: no-unexpected-multiline
 const props = {

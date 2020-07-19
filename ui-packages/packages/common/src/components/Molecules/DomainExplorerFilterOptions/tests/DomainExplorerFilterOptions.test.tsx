@@ -4,11 +4,9 @@ import reactApollo from 'react-apollo';
 import { GraphQL } from '../../../../graphql/types';
 import useGetInputFieldsFromQueryQuery = GraphQL.useGetInputFieldsFromQueryQuery;
 import useGetInputFieldsFromTypeQuery = GraphQL.useGetInputFieldsFromTypeQuery;
-import Adapter from 'enzyme-adapter-react-16';
-import { configure, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 
-configure({ adapter: new Adapter() });
 jest.mock('apollo-client');
 jest.mock('react-apollo', () => {
   const ApolloClient = { query: jest.fn() };
@@ -19,6 +17,77 @@ jest.mock('../../../../graphql/types');
 // tslint:disable: no-string-literal
 // tslint:disable: no-unexpected-multiline
 describe('Domain explorer filter options component tests', () => {
+  const mGraphQLResponse = {
+    data: {
+      Travels: [
+        {
+          flight: {
+            arrival: '2020-07-22T03:30:00.000+05:30',
+            departure: '2020-07-07T03:30:00.000+05:30',
+            flightNumber: 'MX555',
+            gate: null,
+            seat: null
+          },
+          metadata: {
+            processInstances: [
+              {
+                businessKey: 'LKJD13',
+                id: '37bc93d0-1100-3913-85aa-a8dc253281b0',
+                lastUpdate: '2020-07-06T09:16:09.823Z',
+                processName: 'travels',
+                serviceUrl: 'http://localhost:8080',
+                start: '2020-07-06T09:16:09.58Z',
+                state: 'ACTIVE'
+              },
+              {
+                businessKey: null,
+                id: '8526d522-24f6-4d12-b975-394a0adeb8f8',
+                lastUpdate: '2020-07-06T09:16:09.824Z',
+                processName: 'HotelBooking',
+                serviceUrl: 'http://localhost:8080',
+                start: '2020-07-06T09:16:09.746Z',
+                state: 'COMPLETED'
+              }
+            ]
+          }
+        },
+        {
+          flight: {
+            arrival: '2020-07-23T03:30:00.000+05:30',
+            departure: '2020-07-10T03:30:00.000+05:30',
+            flightNumber: 'MX555',
+            gate: null,
+            seat: null
+          },
+          metadata: {
+            processInstances: [
+              {
+                businessKey: '4Y0W6E',
+                id: 'd2b4967b-e8b1-3232-a07c-d639e08a11d4',
+                lastUpdate: '2020-07-06T09:16:55.621Z',
+                processName: 'travels',
+                serviceUrl: 'http://localhost:8080',
+                start: '2020-07-06T09:16:55.609Z',
+                state: 'ACTIVE'
+              },
+              {
+                businessKey: null,
+                id: 'cd5f6cc6-7ef4-4eb1-947b-3f53f201ab15',
+                lastUpdate: '2020-07-06T09:16:55.621Z',
+                processName: 'HotelBooking',
+                serviceUrl: 'http://localhost:8080',
+                start: '2020-07-06T09:16:55.611Z',
+                state: 'COMPLETED'
+              }
+            ]
+          }
+        }
+      ]
+    },
+    loading: false,
+    networkStatus: 7,
+    stale: false
+  };
   const defaultProps = {
     currentDomain: 'Travels',
     getQuery: {
@@ -75,46 +144,6 @@ describe('Domain explorer filter options component tests', () => {
     setDisplayTable: jest.fn(),
     setDisplayEmptyState: jest.fn(),
     setFilterError: jest.fn(),
-    getQueryTypes: {
-      loading: false,
-      data: {
-        __schema: {
-          queryType: [
-            {
-              name: 'AddressArgument',
-              kind: 'INPUT_OBJECT',
-              inputFields: [
-                {
-                  name: 'city',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'country',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'street',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'zipCode',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                }
-              ]
-            },
-            {
-              name: 'IdArgument',
-              kind: 'INPUT_OBJECT',
-              inputFields: [
-                { name: 'id', type: { name: null, kind: 'LIST' } },
-                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
-                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
-              ]
-            }
-          ]
-        }
-      }
-    },
     filterChips: ['metadata / processInstances / state: ACTIVE'],
     setFilterChips: jest.fn(),
     runFilter: true,
@@ -184,184 +213,6 @@ describe('Domain explorer filter options component tests', () => {
     reset: false,
     setReset: jest.fn()
   };
-  const defaultProps2 = {
-    reset: false,
-    setReset: jest.fn(),
-    currentDomain: 'Travels',
-    getQuery: {
-      loading: false,
-      data: {
-        __type: {
-          name: 'Query',
-          fields: [
-            {
-              name: 'Travels',
-              args: [
-                {
-                  name: 'where',
-                  type: { kind: 'INPUT_OBJECT', name: 'TravelsArgument' }
-                },
-                {
-                  name: 'orderBy',
-                  type: { kind: 'INPUT_OBJECT', name: 'TravelsOrderBy' }
-                },
-                {
-                  name: 'pagination',
-                  type: { kind: 'INPUT_OBJECT', name: 'Pagination' }
-                }
-              ],
-              type: {
-                ofType: { name: 'Travels' }
-              }
-            }
-          ]
-        }
-      }
-    },
-    parameters: [
-      { flight: ['arrival'] },
-      { flight: ['departure'] },
-      { flight: ['gate'] },
-      {
-        metadata: [
-          {
-            processInstances: [
-              'id',
-              'processName',
-              'state',
-              'start',
-              'lastUpdate',
-              'businessKey'
-            ]
-          }
-        ]
-      }
-    ],
-    setColumnFilters: jest.fn(),
-    setTableLoading: jest.fn(),
-    setDisplayTable: jest.fn(),
-    setDisplayEmptyState: jest.fn(),
-    setFilterError: jest.fn(),
-    getQueryTypes: {
-      loading: false,
-      data: {
-        __schema: {
-          queryType: [
-            {
-              name: 'AddressArgument',
-              kind: 'INPUT_OBJECT',
-              inputFields: [
-                {
-                  name: 'city',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'country',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'street',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                },
-                {
-                  name: 'zipCode',
-                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                }
-              ]
-            },
-            {
-              name: 'IdArgument',
-              kind: 'INPUT_OBJECT',
-              inputFields: [
-                { name: 'id', type: { name: null, kind: 'LIST' } },
-                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
-                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
-              ]
-            },
-            {
-              name: 'ProcessInstanceMetaArgument',
-              kind: 'INPUT_OBJECT',
-              inputFields: [
-                {
-                  name: 'state',
-                  type: {
-                    name: 'ProcessInstanceStateArgument',
-                    kind: 'INPUT_OBJECT'
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      }
-    },
-    filterChips: [],
-    setFilterChips: jest.fn(),
-    runFilter: true,
-    setRunFilter: jest.fn(),
-    finalFilters: {
-      metadata: {
-        processInstances: { state: { equal: 'ACTIVE' } }
-      },
-      trip: {
-        country: {
-          equal: 'Australia'
-        }
-      }
-    },
-    argument: 'TravelsArgument',
-    setFinalFilters: jest.fn(),
-    getSchema: {
-      data: {
-        __type: {
-          name: 'TravelsArgument',
-          inputFields: [
-            { name: 'and', type: { name: null, kind: 'LIST' } },
-            { name: 'or', type: { name: null, kind: 'LIST' } },
-            {
-              name: 'flight',
-              type: {
-                name: 'FlightArgument',
-                kind: 'INPUT_OBJECT',
-                inputFields: [
-                  {
-                    name: 'arrival',
-                    type: {
-                      name: 'StringArgument'
-                    }
-                  },
-                  {
-                    name: 'departure',
-                    type: {
-                      name: 'StringArgument'
-                    }
-                  },
-                  {
-                    name: 'flightNumber',
-                    type: {
-                      name: 'StringArgument'
-                    }
-                  },
-                  {
-                    name: 'gate',
-                    type: {
-                      name: 'StringArgument'
-                    }
-                  },
-                  {
-                    name: 'seat',
-                    type: {
-                      name: 'StringArgument'
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    }
-  };
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -373,14 +224,14 @@ describe('Domain explorer filter options component tests', () => {
     useEffect.mockImplementationOnce(f => f());
   };
 
-  const mockuseApolloClient = () => {
+  const mockUseApolloClient = () => {
     // tslint:disable-next-line: react-hooks-nesting
     client = useApolloClient();
   };
 
   beforeEach(() => {
     useApolloClient = jest.spyOn(reactApollo, 'useApolloClient');
-    mockuseApolloClient();
+    mockUseApolloClient();
     useEffect = jest.spyOn(React, 'useEffect');
     mockUseEffect();
     mockUseEffect();
@@ -715,92 +566,55 @@ describe('Domain explorer filter options component tests', () => {
     const wrapper = mount(<DomainExplorerFilterOptions {...props} />);
     wrapper.update();
     wrapper.setProps({});
-    const mGraphQLResponse = {
-      data: {
-        Travels: [
-          {
-            flight: {
-              arrival: '2020-07-22T03:30:00.000+05:30',
-              departure: '2020-07-07T03:30:00.000+05:30',
-              flightNumber: 'MX555',
-              gate: 'test',
-              seat: 'test'
-            },
-            metadata: {
-              processInstances: [
-                {
-                  businessKey: 'LKJD13',
-                  id: '37bc93d0-1100-3913-85aa-a8dc253281b0',
-                  lastUpdate: '2020-07-06T09:16:09.823Z',
-                  processName: 'travels',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:09.58Z',
-                  state: 'ACTIVE'
-                },
-                {
-                  businessKey: null,
-                  id: '8526d522-24f6-4d12-b975-394a0adeb8f8',
-                  lastUpdate: '2020-07-06T09:16:09.824Z',
-                  processName: 'HotelBooking',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:09.746Z',
-                  state: 'COMPLETED'
-                }
-              ]
-            }
-          },
-          {
-            flight: {
-              arrival: '2020-07-23T03:30:00.000+05:30',
-              departure: '2020-07-10T03:30:00.000+05:30',
-              flightNumber: 'MX555',
-              gate: null,
-              seat: null
-            },
-            metadata: {
-              processInstances: [
-                {
-                  businessKey: '4Y0W6E',
-                  id: 'd2b4967b-e8b1-3232-a07c-d639e08a11d4',
-                  lastUpdate: '2020-07-06T09:16:55.621Z',
-                  processName: 'travels',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:55.609Z',
-                  state: 'ACTIVE'
-                },
-                {
-                  businessKey: null,
-                  id: 'cd5f6cc6-7ef4-4eb1-947b-3f53f201ab15',
-                  lastUpdate: '2020-07-06T09:16:55.621Z',
-                  processName: 'HotelBooking',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:55.611Z',
-                  state: 'COMPLETED'
-                }
-              ]
-            }
-          }
-        ]
-      },
-      loading: false,
-      networkStatus: 7,
-      stale: false
-    };
     client.query.mockReturnValueOnce(mGraphQLResponse);
     await Promise.resolve();
     expect(wrapper).toMatchSnapshot();
   });
   it('Trigger onselect function on field select', async () => {
-    const mGraphQLResponse = {
-      data: {
-        Travels: []
-      },
-      loading: false,
-      networkStatus: 7,
-      stale: false
-    };
     client.query.mockReturnValueOnce(mGraphQLResponse);
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
 
@@ -829,12 +643,12 @@ describe('Domain explorer filter options component tests', () => {
         target: {
           parentElement: {
             parentElement: {
-              getAttribute: jest.fn(() => 'id')
+              getAttribute: jest.fn(() => ' ')
             }
           }
         }
       },
-      target: {}
+      target: { textContent: 'id', innerText: 'id' }
     } as any;
     const obj2 = {
       target: {
@@ -865,12 +679,14 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onSelect'](obj2);
     });
+    expect(wrapper.find('input')).toBeTruthy();
     // check input textbox when the operator is either "equal" or "like"
     wrapper
       .update()
       .find('input')
       .at(1)
       .simulate('change', 'Hello');
+    expect(wrapper.find('#button-with-string')).toBeTruthy();
     // trigger button click after setting isDisable false on button
     act(() => {
       wrapper
@@ -888,12 +704,53 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onClick'](event);
     });
-    await Promise.resolve();
-    expect(wrapper.find('input')).toBeTruthy();
-    expect(wrapper.find('#button-with-string')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('check "in" operator', async () => {
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps} />);
+    client.query.mockReturnValueOnce(mGraphQLResponse);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     // @ts-ignore
@@ -951,12 +808,15 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onSelect'](obj2);
     });
+    expect(wrapper.find('input')).toBeTruthy();
     // check input text box group when selected operator is "in"
     wrapper
       .update()
       .find('input')
       .at(1)
       .simulate('change', 'test1,test2');
+
+    expect(wrapper.find('#button-with-arrayInput')).toBeTruthy();
     // trigger button click after setting isDisable false on button
     wrapper
       .find('#button-with-arrayInput')
@@ -970,85 +830,13 @@ describe('Domain explorer filter options component tests', () => {
     act(() => {
       wrapper
         .find('#button-with-arrayInput')
-        .at(2)
+        .at(0)
         .props()
         ['onClick'](event);
     });
-    expect(wrapper.find('input')).toBeTruthy();
-    expect(wrapper.find('#button-with-arrayInput')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('check isNull operator', async () => {
-    const mGraphQLResponse = {
-      data: {
-        Travels: [
-          {
-            flight: {
-              arrival: '2020-07-22T03:30:00.000+05:30',
-              departure: '2020-07-07T03:30:00.000+05:30',
-              flightNumber: 'MX555',
-              gate: null,
-              seat: null
-            },
-            metadata: {
-              processInstances: [
-                {
-                  businessKey: 'LKJD13',
-                  id: '37bc93d0-1100-3913-85aa-a8dc253281b0',
-                  lastUpdate: '2020-07-06T09:16:09.823Z',
-                  processName: 'travels',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:09.58Z',
-                  state: 'ACTIVE'
-                },
-                {
-                  businessKey: null,
-                  id: '8526d522-24f6-4d12-b975-394a0adeb8f8',
-                  lastUpdate: '2020-07-06T09:16:09.824Z',
-                  processName: 'HotelBooking',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:09.746Z',
-                  state: 'COMPLETED'
-                }
-              ]
-            }
-          },
-          {
-            flight: {
-              arrival: '2020-07-23T03:30:00.000+05:30',
-              departure: '2020-07-10T03:30:00.000+05:30',
-              flightNumber: 'MX555',
-              gate: null,
-              seat: null
-            },
-            metadata: {
-              processInstances: [
-                {
-                  businessKey: '4Y0W6E',
-                  id: 'd2b4967b-e8b1-3232-a07c-d639e08a11d4',
-                  lastUpdate: '2020-07-06T09:16:55.621Z',
-                  processName: 'travels',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:55.609Z',
-                  state: 'ACTIVE'
-                },
-                {
-                  businessKey: null,
-                  id: 'cd5f6cc6-7ef4-4eb1-947b-3f53f201ab15',
-                  lastUpdate: '2020-07-06T09:16:55.621Z',
-                  processName: 'HotelBooking',
-                  serviceUrl: 'http://localhost:8080',
-                  start: '2020-07-06T09:16:55.611Z',
-                  state: 'COMPLETED'
-                }
-              ]
-            }
-          }
-        ]
-      },
-      loading: false,
-      networkStatus: 7,
-      stale: false
-    };
     client.query.mockReturnValueOnce(mGraphQLResponse);
     // @ts-ignore
     useGetInputFieldsFromQueryQuery.mockReturnValue({
@@ -1070,7 +858,49 @@ describe('Domain explorer filter options component tests', () => {
         }
       }
     });
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     const obj = {
@@ -1136,6 +966,7 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onSelect'](obj3);
     });
+    expect(wrapper.find('dropdown')).toBeTruthy();
     // stimulate on toggle props on boolean value dropdown
     act(() => {
       wrapper
@@ -1144,14 +975,14 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['toggle']['props']['onToggle']();
     });
+    expect(wrapper.find('#button-with-boolean')).toBeTruthy();
     wrapper
       .update()
       .find('#button-with-boolean')
       .first()
       .simulate('click');
     wrapper.update();
-    expect(wrapper.find('dropdown')).toBeTruthy();
-    expect(wrapper.find('#button-with-boolean')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('check equal operator on stateSelection', async () => {
     // @ts-ignore
@@ -1183,7 +1014,62 @@ describe('Domain explorer filter options component tests', () => {
         }
       }
     });
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps2} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            },
+            {
+              name: 'ProcessInstanceMetaArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'state',
+                  type: {
+                    name: 'ProcessInstanceStateArgument',
+                    kind: 'INPUT_OBJECT'
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     const obj = {
@@ -1243,18 +1129,19 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onToggle']();
     });
+    expect(wrapper.find('#stateSelection')).toBeTruthy();
     wrapper
       .update()
       .find('#stateSelection')
       .at(0)
       .props()['selections'] = 'ACTIVE';
+    expect(wrapper.find('#button-with-stateSelection')).toBeTruthy();
     wrapper
       .update()
       .find('#button-with-stateSelection')
       .first()
       .simulate('click');
-    expect(wrapper.find('#stateSelection')).toBeTruthy();
-    expect(wrapper.find('#button-with-stateSelection')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('check in operator on stateSelection', async () => {
     // @ts-ignore
@@ -1303,7 +1190,62 @@ describe('Domain explorer filter options component tests', () => {
         innerText: 'in'
       }
     } as any;
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps2} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            },
+            {
+              name: 'ProcessInstanceMetaArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'state',
+                  type: {
+                    name: 'ProcessInstanceStateArgument',
+                    kind: 'INPUT_OBJECT'
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     // simulate field dropdown to select "state" field
@@ -1329,6 +1271,7 @@ describe('Domain explorer filter options component tests', () => {
         innerText: ''
       }
     } as any;
+    expect(wrapper.find('#MultiSelection')).toBeTruthy();
     // simulate value dropdown to make multiple state values
     act(() => {
       wrapper
@@ -1346,208 +1289,15 @@ describe('Domain explorer filter options component tests', () => {
         .props()
         ['onToggle']();
     });
+    expect(wrapper.find('#button-with-MultiSelection')).toBeTruthy();
     wrapper
       .update()
       .find('#button-with-MultiSelection')
       .first()
       .simulate('click');
-
-    expect(wrapper.find('#MultiSelection')).toBeTruthy();
-    expect(wrapper.find('#button-with-MultiSelection')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('check equal operator on user task stateSelection', async () => {
-    const props = {
-      reset: false,
-      setReset: jest.fn(),
-      currentDomain: 'Travels',
-      getQuery: {
-        loading: false,
-        data: {
-          __type: {
-            name: 'Query',
-            fields: [
-              {
-                name: 'Travels',
-                args: [
-                  {
-                    name: 'where',
-                    type: { kind: 'INPUT_OBJECT', name: 'TravelsArgument' }
-                  },
-                  {
-                    name: 'orderBy',
-                    type: { kind: 'INPUT_OBJECT', name: 'TravelsOrderBy' }
-                  },
-                  {
-                    name: 'pagination',
-                    type: { kind: 'INPUT_OBJECT', name: 'Pagination' }
-                  }
-                ],
-                type: {
-                  ofType: { name: 'Travels' }
-                }
-              }
-            ]
-          }
-        }
-      },
-      parameters: [
-        { flight: ['arrival'] },
-        { flight: ['departure'] },
-        { flight: ['gate'] },
-        {
-          metadata: [
-            {
-              processInstances: [
-                'id',
-                'processName',
-                'state',
-                'start',
-                'lastUpdate',
-                'businessKey'
-              ]
-            }
-          ]
-        }
-      ],
-      setColumnFilters: jest.fn(),
-      setTableLoading: jest.fn(),
-      setDisplayTable: jest.fn(),
-      setDisplayEmptyState: jest.fn(),
-      setFilterError: jest.fn(),
-      getQueryTypes: {
-        loading: false,
-        data: {
-          __schema: {
-            queryType: [
-              {
-                name: 'AddressArgument',
-                kind: 'INPUT_OBJECT',
-                inputFields: [
-                  {
-                    name: 'city',
-                    type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                  },
-                  {
-                    name: 'country',
-                    type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                  },
-                  {
-                    name: 'street',
-                    type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                  },
-                  {
-                    name: 'zipCode',
-                    type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
-                  }
-                ]
-              },
-              {
-                name: 'IdArgument',
-                kind: 'INPUT_OBJECT',
-                inputFields: [
-                  { name: 'id', type: { name: null, kind: 'LIST' } },
-                  { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
-                  { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
-                ]
-              },
-              {
-                name: 'ProcessInstanceMetaArgument',
-                kind: 'INPUT_OBJECT',
-                inputFields: [
-                  {
-                    name: 'state',
-                    type: {
-                      name: 'ProcessInstanceStateArgument',
-                      kind: 'INPUT_OBJECT'
-                    }
-                  }
-                ]
-              },
-              {
-                name: 'UserTaskInstanceMetaArgument',
-                kind: 'INPUT_OBJECT',
-                inputFields: [
-                  {
-                    name: 'state',
-                    type: {
-                      name: 'StringArgument',
-                      kind: 'INPUT_OBJECT',
-                      __typename: '__Type'
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      },
-      filterChips: [],
-      setFilterChips: jest.fn(),
-      runFilter: true,
-      setRunFilter: jest.fn(),
-      finalFilters: {
-        metadata: {
-          processInstances: { state: { equal: 'ACTIVE' } }
-        },
-        trip: {
-          country: {
-            equal: 'Australia'
-          }
-        }
-      },
-      argument: 'TravelsArgument',
-      setFinalFilters: jest.fn(),
-      getSchema: {
-        data: {
-          __type: {
-            name: 'TravelsArgument',
-            inputFields: [
-              { name: 'and', type: { name: null, kind: 'LIST' } },
-              { name: 'or', type: { name: null, kind: 'LIST' } },
-              {
-                name: 'flight',
-                type: {
-                  name: 'FlightArgument',
-                  kind: 'INPUT_OBJECT',
-                  inputFields: [
-                    {
-                      name: 'arrival',
-                      type: {
-                        name: 'StringArgument'
-                      }
-                    },
-                    {
-                      name: 'departure',
-                      type: {
-                        name: 'StringArgument'
-                      }
-                    },
-                    {
-                      name: 'flightNumber',
-                      type: {
-                        name: 'StringArgument'
-                      }
-                    },
-                    {
-                      name: 'gate',
-                      type: {
-                        name: 'StringArgument'
-                      }
-                    },
-                    {
-                      name: 'seat',
-                      type: {
-                        name: 'StringArgument'
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    };
     // @ts-ignore
     useGetInputFieldsFromQueryQuery.mockReturnValue({
       loading: false,
@@ -1594,7 +1344,76 @@ describe('Domain explorer filter options component tests', () => {
         innerText: 'in'
       }
     } as any;
-    const wrapper = mount(<DomainExplorerFilterOptions {...props} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            },
+            {
+              name: 'ProcessInstanceMetaArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'state',
+                  type: {
+                    name: 'ProcessInstanceStateArgument',
+                    kind: 'INPUT_OBJECT'
+                  }
+                }
+              ]
+            },
+            {
+              name: 'UserTaskInstanceMetaArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'state',
+                  type: {
+                    name: 'StringArgument',
+                    kind: 'INPUT_OBJECT',
+                    __typename: '__Type'
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     // simulate fields dropdown to select "state" from userTasks
@@ -1617,6 +1436,7 @@ describe('Domain explorer filter options component tests', () => {
     });
     expect(wrapper.find('#MultiSelection')).toBeTruthy();
     expect(wrapper.find('#button-with-MultiSelection')).toBeTruthy();
+    expect(defaultProps.setTableLoading).toHaveBeenCalledWith(true);
   });
   it('test empty parent string', () => {
     // @ts-ignore
@@ -1639,7 +1459,49 @@ describe('Domain explorer filter options component tests', () => {
         }
       }
     });
-    const wrapper = mount(<DomainExplorerFilterOptions {...defaultProps} />);
+    const getQueryTypes = {
+      loading: false,
+      data: {
+        __schema: {
+          queryType: [
+            {
+              name: 'AddressArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                {
+                  name: 'city',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'country',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'street',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                },
+                {
+                  name: 'zipCode',
+                  type: { name: 'StringArgument', kind: 'INPUT_OBJECT' }
+                }
+              ]
+            },
+            {
+              name: 'IdArgument',
+              kind: 'INPUT_OBJECT',
+              inputFields: [
+                { name: 'id', type: { name: null, kind: 'LIST' } },
+                { name: 'equal', type: { name: 'String', kind: 'SCALAR' } },
+                { name: 'isNull', type: { name: 'Boolean', kind: 'SCALAR' } }
+              ]
+            }
+          ]
+        }
+      }
+    };
+    const wrapper = mount(
+      <DomainExplorerFilterOptions {...{ ...defaultProps, getQueryTypes }} />
+    );
     wrapper.update();
     wrapper.setProps({});
     const obj = {

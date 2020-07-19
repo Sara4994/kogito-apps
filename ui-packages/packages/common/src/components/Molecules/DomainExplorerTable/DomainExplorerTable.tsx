@@ -33,6 +33,10 @@ import EndpointLink from '../../Atoms/EndpointLink/EndpointLink';
 import { GraphQL } from '../../../graphql/types';
 import ProcessInstanceState = GraphQL.ProcessInstanceState;
 import ServerErrors from '../ServerErrors/ServerErrors';
+import {
+  KogitoEmptyState,
+  KogitoEmptyStateType
+} from '../../Atoms/KogitoEmptyState/KogitoEmptyState';
 
 const DomainExplorerTable = ({
   columnFilters,
@@ -48,7 +52,8 @@ const DomainExplorerTable = ({
   handleRetry,
   filterError,
   finalFilters,
-  filterChips
+  filterChips,
+  onDeleteChip
 }) => {
   // tslint:disable: forin
   const [columns, setColumns] = useState([]);
@@ -334,27 +339,30 @@ const DomainExplorerTable = ({
       )}
       <Card component={'div'}>
         <CardBody>
-          {!displayEmptyState && !displayTable && !filterError && (
-            <Bullseye>
-              <EmptyState>
-                <EmptyStateIcon icon={SearchIcon} />
-                <Title headingLevel="h5" size="lg">
-                  No columns selected
-                </Title>
-                <EmptyStateBody>
-                  <Button
-                    variant="link"
-                    id="retry-columns-button"
-                    onClick={handleRetry}
-                    isInline
-                  >
-                    Manage columns
-                  </Button>{' '}
-                  to see content
-                </EmptyStateBody>
-              </EmptyState>
-            </Bullseye>
-          )}
+          {!displayEmptyState &&
+            !displayTable &&
+            !filterError &&
+            filterChips.length > 0 && (
+              <Bullseye>
+                <EmptyState>
+                  <EmptyStateIcon icon={SearchIcon} />
+                  <Title headingLevel="h5" size="lg">
+                    No columns selected
+                  </Title>
+                  <EmptyStateBody>
+                    <Button
+                      variant="link"
+                      id="retry-columns-button"
+                      onClick={handleRetry}
+                      isInline
+                    >
+                      Manage columns
+                    </Button>{' '}
+                    to see content
+                  </EmptyStateBody>
+                </EmptyState>
+              </Bullseye>
+            )}
           {displayEmptyState && (
             <Bullseye>
               <EmptyState>
@@ -363,13 +371,21 @@ const DomainExplorerTable = ({
                   No data available
                 </Title>
                 <EmptyStateBody>
-                  Selected filters has no data to display. Try other filters.
+                  Selected filters have no data to display. Try other filters.
                 </EmptyStateBody>
               </EmptyState>
             </Bullseye>
           )}
           {!displayEmptyState && !displayTable && filterError && (
             <ServerErrors error={filterError} variant="small" />
+          )}
+          {filterChips.length === 0 && (
+            <KogitoEmptyState
+              type={KogitoEmptyStateType.Reset}
+              title="No filter applied."
+              body="Try applying at least one filter to see results"
+              onClick={() => onDeleteChip('')}
+            />
           )}
         </CardBody>
       </Card>

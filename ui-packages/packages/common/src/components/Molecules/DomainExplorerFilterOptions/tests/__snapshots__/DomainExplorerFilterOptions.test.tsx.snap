@@ -334,8 +334,7 @@ exports[`Domain explorer filter options component tests Snapshot test with defau
       ],
     }
   }
-  setRunFilter={[MockFunction]}
-  setTableLoading={
+  setRunFilter={
     [MockFunction] {
       "calls": Array [
         Array [
@@ -347,6 +346,34 @@ exports[`Domain explorer filter options component tests Snapshot test with defau
           "type": "return",
           "value": undefined,
         },
+      ],
+    }
+  }
+  setTableLoading={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+<<<<<<< HEAD
+=======
+          true,
+        ],
+        Array [
+>>>>>>> 79b8ae1865a0376771139857a556792ff6ff19d8
+          false,
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+<<<<<<< HEAD
+=======
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+>>>>>>> 79b8ae1865a0376771139857a556792ff6ff19d8
       ],
     }
   }
@@ -1013,6 +1040,91 @@ exports[`Domain explorer filter options component tests Snapshot test with defau
           </SelectToggle>
         </div>
       </Select>
+    </ComponentWithOuia>
+  </Component>
+  <ForwardRef
+    aria-label="filter text for "
+    className="kogito-common--filter-options__inputs"
+    name="filterText"
+    onChange={[Function]}
+    placeholder="value"
+    type="search"
+    value=""
+  >
+    <TextInputBase
+      aria-label="filter text for "
+      className="kogito-common--filter-options__inputs"
+      innerRef={null}
+      isDisabled={false}
+      isReadOnly={false}
+      isRequired={false}
+      isValid={true}
+      name="filterText"
+      onChange={[Function]}
+      placeholder="value"
+      type="search"
+      validated="default"
+      value=""
+    >
+      <input
+        aria-invalid={false}
+        aria-label="filter text for "
+        className="pf-c-form-control kogito-common--filter-options__inputs"
+        disabled={false}
+        name="filterText"
+        onChange={[Function]}
+        placeholder="value"
+        readOnly={false}
+        required={false}
+        type="search"
+        value=""
+      />
+    </TextInputBase>
+  </ForwardRef>
+  <Component
+    id="button-with-string"
+    isDisabled={true}
+    onClick={[Function]}
+    variant="primary"
+  >
+    <ComponentWithOuia
+      component={[Function]}
+      componentProps={
+        Object {
+          "children": "Apply Filter",
+          "id": "button-with-string",
+          "isDisabled": true,
+          "onClick": [Function],
+          "variant": "primary",
+        }
+      }
+      consumerContext={null}
+    >
+      <Button
+        id="button-with-string"
+        isDisabled={true}
+        onClick={[Function]}
+        ouiaContext={
+          Object {
+            "isOuia": false,
+            "ouiaId": null,
+          }
+        }
+        variant="primary"
+      >
+        <button
+          aria-disabled={null}
+          aria-label={null}
+          className="pf-c-button pf-m-primary"
+          disabled={true}
+          id="button-with-string"
+          onClick={[Function]}
+          tabIndex={null}
+          type="button"
+        >
+          Apply Filter
+        </button>
+      </Button>
     </ComponentWithOuia>
   </Component>
 </Memo(DomainExplorerFilterOptions)>

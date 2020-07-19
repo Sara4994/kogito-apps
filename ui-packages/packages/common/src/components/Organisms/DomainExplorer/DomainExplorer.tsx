@@ -29,7 +29,7 @@ interface IOwnProps {
   rememberedParams: any;
   rememberedSelections: any;
   metaData: any;
-  rememberedFilters: any;
+  rememberedFilters: object;
   rememberedChips: any[];
   defaultChip: any[];
   defaultFilter: any;
@@ -166,8 +166,6 @@ const DomainExplorer: React.FC<IOwnProps> = ({
       setFinalFilters(FinalObj);
       setRunFilter(true);
     } else {
-      setReset(true);
-      setFilterChips(['metadata / processInstances / state: ACTIVE']);
       setFinalFilters({
         metadata: {
           processInstances: {
@@ -177,6 +175,8 @@ const DomainExplorer: React.FC<IOwnProps> = ({
           }
         }
       });
+      setFilterChips(['metadata / processInstances / state: ACTIVE']);
+      setReset(true);
     }
   };
   const renderToolbar = () => {
@@ -203,24 +203,24 @@ const DomainExplorer: React.FC<IOwnProps> = ({
                   >
                     <DataToolbarItem>
                       <DomainExplorerFilterOptions
+                        argument={argument}
                         currentDomain={domainName}
+                        filterChips={filterChips}
+                        finalFilters={finalFilters}
+                        getQueryTypes={getQueryTypes}
+                        getSchema={getSchema}
                         parameters={parameters}
+                        reset={reset}
+                        runFilter={runFilter}
                         setColumnFilters={setColumnFilters}
                         setDisplayTable={setDisplayTable}
                         setDisplayEmptyState={setDisplayEmptyState}
-                        setTableLoading={setTableLoading}
                         setFilterError={setFilterError}
-                        getQueryTypes={getQueryTypes}
-                        filterChips={filterChips}
                         setFilterChips={setFilterChips}
-                        runFilter={runFilter}
-                        setRunFilter={setRunFilter}
-                        finalFilters={finalFilters}
                         setFinalFilters={setFinalFilters}
-                        getSchema={getSchema}
-                        argument={argument}
-                        reset={reset}
+                        setRunFilter={setRunFilter}
                         setReset={setReset}
+                        setTableLoading={setTableLoading}
                       />
                     </DataToolbarItem>
                   </DataToolbarFilter>
@@ -309,6 +309,7 @@ const DomainExplorer: React.FC<IOwnProps> = ({
                 filterError={filterError}
                 finalFilters={finalFilters}
                 filterChips={filterChips}
+                onDeleteChip={onDeleteChip}
               />
               {!displayEmptyState &&
                 !filterError &&

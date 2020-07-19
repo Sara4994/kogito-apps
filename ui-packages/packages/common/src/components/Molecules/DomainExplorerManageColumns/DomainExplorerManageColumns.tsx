@@ -57,8 +57,8 @@ export interface IOwnProps {
   metaData: any;
   setIsModalOpen: any;
   isModalOpen: boolean;
-  finalFilters: any;
-  argument: any;
+  finalFilters: object;
+  argument: string;
 }
 
 const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
