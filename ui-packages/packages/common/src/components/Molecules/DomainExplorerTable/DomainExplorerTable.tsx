@@ -38,22 +38,43 @@ import {
   KogitoEmptyStateType
 } from '../../Atoms/KogitoEmptyState/KogitoEmptyState';
 
-const DomainExplorerTable = ({
+interface RowContent {
+  parent: number;
+  isOpen: boolean;
+}
+interface IOwnProps {
+  columnFilters: any[];
+  displayTable: boolean;
+  displayEmptyState: boolean;
+  filterError: string;
+  finalFilters: object;
+  filterChips: string[];
+  handleRetry: () => void;
+  isLoadingMore: boolean;
+  offset: number;
+  onDeleteChip: (type) => void;
+  parameters: object[];
+  rows: RowContent[];
+  selected: string[];
+  setRows: (rows) => void;
+  tableLoading: boolean;
+}
+const DomainExplorerTable: React.FC<IOwnProps> = ({
   columnFilters,
-  tableLoading,
   displayTable,
   displayEmptyState,
-  parameters,
-  selected,
-  offset,
-  setRows,
-  rows,
-  isLoadingMore,
-  handleRetry,
   filterError,
   finalFilters,
   filterChips,
-  onDeleteChip
+  handleRetry,
+  isLoadingMore,
+  offset,
+  onDeleteChip,
+  parameters,
+  rows,
+  selected,
+  setRows,
+  tableLoading
 }) => {
   // tslint:disable: forin
   const [columns, setColumns] = useState([]);

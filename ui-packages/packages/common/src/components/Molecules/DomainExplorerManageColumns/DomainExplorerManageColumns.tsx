@@ -406,6 +406,7 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
         dropdownItems={items}
       />
     );
+
     return (
       <Modal
         title="Manage columns"
