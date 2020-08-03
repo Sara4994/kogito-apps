@@ -81,6 +81,7 @@ const DomainExplorerManageColumns: React.FC<IOwnProps> = ({
     const selectionArray = target.name
       .split('/')
       .map(item => item.charAt(0).toLowerCase() + item.slice(1));
+
     setEnableRefresh(false);
     if (selected.includes(selection)) {
       setSelected(prevState => prevState.filter(item => item !== selection));

@@ -3,7 +3,8 @@ import {
   Table,
   TableHeader,
   TableBody,
-  TableVariant
+  TableVariant,
+  sortable
 } from '@patternfly/react-table';
 import {
   Title,
@@ -37,6 +38,7 @@ import {
   KogitoEmptyState,
   KogitoEmptyStateType
 } from '../../Atoms/KogitoEmptyState/KogitoEmptyState';
+import { set } from '../../../utils/Utils';
 
 interface RowContent {
   parent: number;
@@ -56,7 +58,11 @@ interface IOwnProps {
   parameters: object[];
   rows: RowContent[];
   selected: string[];
+  sortBy: object;
+  setOrderByObj: object;
   setRows: (rows) => void;
+  setRunQuery: (runQuery: boolean) => void;
+  setSortBy: (sortBy) => void;
   tableLoading: boolean;
 }
 const DomainExplorerTable: React.FC<IOwnProps> = ({
@@ -73,7 +79,11 @@ const DomainExplorerTable: React.FC<IOwnProps> = ({
   parameters,
   rows,
   selected,
+  sortBy,
+  setOrderByObj,
   setRows,
+  setRunQuery,
+  setSortBy,
   tableLoading
 }) => {
   // tslint:disable: forin
@@ -139,7 +149,8 @@ const DomainExplorerTable: React.FC<IOwnProps> = ({
       for (const i in data) {
         const rest = k.length ? ' / ' + i : i;
         if (data[i] === null) {
-          !tempKeys.includes(k + rest) && tempKeys.push(k + rest);
+          !tempKeys.includes(k + rest) &&
+            tempKeys.push({ title: k + rest, transforms: [sortable] });
           if (rest.hasOwnProperty) {
             tempValue.push(data[i]);
           }
@@ -150,7 +161,8 @@ const DomainExplorerTable: React.FC<IOwnProps> = ({
           }
         } else {
           if (rest !== '__typename' && !rest.match('/ __typename')) {
-            !tempKeys.includes(k + rest) && tempKeys.push(k + rest);
+            !tempKeys.includes(k + rest) &&
+              tempKeys.push({ title: k + rest, transforms: [sortable] });
             if (rest.hasOwnProperty) {
               tempValue.push(data[i].toString());
             }
@@ -343,13 +355,22 @@ const DomainExplorerTable: React.FC<IOwnProps> = ({
     rows[rowKey].isOpen = isOpen;
     setRows([...rows]);
   };
-
+  const onSort = (event, index, direction) => {
+    setSortBy({ index, direction });
+    const sortingColumn = event.target.innerText.replace(' / ', ',');
+    const obj = {};
+    set(obj, sortingColumn, direction.toUpperCase());
+    setOrderByObj(obj);
+    setRunQuery(true);
+  };
   return (
     <React.Fragment>
       {displayTable && !displayEmptyState && columns.length && (
         <Table
           cells={columns}
           rows={rows}
+          sortBy={sortBy}
+          onSort={onSort}
           aria-label="Domain Explorer Table"
           className="kogito-common--domain-explorer__table"
           onCollapse={onCollapse}

@@ -73,6 +73,8 @@ const DomainExplorer: React.FC<IOwnProps> = ({
   const [reset, setReset] = useState(false);
   const [enableRefresh, setEnableRefresh] = useState(true);
   const [loadMoreClicked, setLoadMoreClicked] = useState(false);
+  const [orderByObj, setOrderByObj] = useState({});
+  const [sortBy, setSortBy] = useState({});
   useEffect(() => {
     /* istanbul ignore else */
     if (domainName) {
@@ -202,7 +204,8 @@ const DomainExplorer: React.FC<IOwnProps> = ({
         value: { offset, limit: pageSize },
         type: 'Pagination'
       },
-      where: { value: finalFilters, type: argument }
+      where: { value: finalFilters, type: argument },
+      orderBy: { value: orderByObj, type: 'TravelsOrderBy' }
     },
     fields: parameters
   });
@@ -377,6 +380,10 @@ const DomainExplorer: React.FC<IOwnProps> = ({
             finalFilters={finalFilters}
             filterChips={filterChips}
             onDeleteChip={onDeleteChip}
+            setOrderByObj={setOrderByObj}
+            setRunQuery={setRunQuery}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
           />
           {displayTable &&
             !displayEmptyState &&
