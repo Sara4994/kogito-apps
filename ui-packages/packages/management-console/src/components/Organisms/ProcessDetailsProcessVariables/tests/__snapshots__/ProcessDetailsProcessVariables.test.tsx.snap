@@ -1,6 +1,2681 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProcessVariables component tests snapshot testing with variables 1`] = `
+<Memo(ProcessDetailsProcessVariables)
+  displayLabel={true}
+  displaySuccess={true}
+  setDisplayLabel={[MockFunction]}
+  setUpdateJson={[MockFunction]}
+  updateJson={
+    Object {
+      "trip": Object {
+        "begin": "2019-10-22T22:00:00Z[UTC]",
+        "city": "Berlin",
+        "country": "Germany",
+        "end": "2019-10-30T22:00:00Z[UTC]",
+        "visaRequired": false,
+      },
+    }
+  }
+>
+  <Card
+    data-ouia-component-type="process-variables"
+    data-ouia-safe={true}
+  >
+    <article
+      className="pf-c-card"
+      data-ouia-component-id={0}
+      data-ouia-component-type="PF4/Card"
+      data-ouia-safe={true}
+    >
+      <CardHeader>
+        <div
+          className="pf-c-card__header"
+        >
+          <Title
+            headingLevel="h3"
+            size="xl"
+          >
+            <h3
+              className="pf-c-title pf-m-xl"
+            >
+              Process Variables
+            </h3>
+          </Title>
+          <Label
+            color="orange"
+            icon={<InfoCircleIcon />}
+          >
+            <span
+              className="pf-c-label pf-m-orange"
+            >
+              <span
+                className="pf-c-label__content"
+              >
+                <span
+                  className="pf-c-label__icon"
+                >
+                  <InfoCircleIcon>
+                    <MockedComponent />
+                  </InfoCircleIcon>
+                </span>
+                 
+                Changes are not saved yet
+              </span>
+            </span>
+          </Label>
+          <Label
+            className="kogito-management-console--variables__label-fadeIn"
+            color="green"
+            icon={<InfoCircleIcon />}
+          >
+            <span
+              className="pf-c-label pf-m-green kogito-management-console--variables__label-fadeIn"
+            >
+              <span
+                className="pf-c-label__content"
+              >
+                <span
+                  className="pf-c-label__icon"
+                >
+                  <InfoCircleIcon>
+                    <MockedComponent />
+                  </InfoCircleIcon>
+                </span>
+                 
+                Changes are saved
+              </span>
+            </span>
+          </Label>
+        </div>
+      </CardHeader>
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        >
+          <TextContent>
+            <div
+              className="pf-c-content"
+            >
+              <div>
+                <t
+                  collapseStringsAfterLength={false}
+                  collapsed={false}
+                  defaultValue={null}
+                  displayDataTypes={true}
+                  displayObjectSize={true}
+                  enableClipboard={true}
+                  groupArraysAfterLength={100}
+                  iconStyle="triangle"
+                  indentWidth={4}
+                  name={false}
+                  onAdd={false}
+                  onDelete={false}
+                  onEdit={[Function]}
+                  onSelect={false}
+                  shouldCollapse={false}
+                  sortKeys={false}
+                  src={
+                    Object {
+                      "trip": Object {
+                        "begin": "2019-10-22T22:00:00Z[UTC]",
+                        "city": "Berlin",
+                        "country": "Germany",
+                        "end": "2019-10-30T22:00:00Z[UTC]",
+                        "visaRequired": false,
+                      },
+                    }
+                  }
+                  style={Object {}}
+                  theme="rjv-default"
+                  validationMessage="Validation Error"
+                >
+                  <div
+                    className="react-json-view"
+                    style={
+                      Object {
+                        "backgroundColor": "rgba(0, 0, 0, 0)",
+                        "cursor": "default",
+                        "fontFamily": "monospace",
+                        "position": "relative",
+                      }
+                    }
+                  >
+                    <t
+                      active={false}
+                      message="Validation Error"
+                      rjvId="1598352165388"
+                      theme="rjv-default"
+                    />
+                    <t
+                      collapseStringsAfterLength={false}
+                      collapsed={false}
+                      defaultValue={null}
+                      displayDataTypes={true}
+                      displayObjectSize={true}
+                      enableClipboard={true}
+                      groupArraysAfterLength={100}
+                      iconStyle="triangle"
+                      indentWidth={4}
+                      name={false}
+                      onAdd={false}
+                      onDelete={false}
+                      onEdit={[Function]}
+                      onSelect={false}
+                      rjvId="1598352165388"
+                      shouldCollapse={false}
+                      sortKeys={false}
+                      src={
+                        Object {
+                          "trip": Object {
+                            "begin": "2019-10-22T22:00:00Z[UTC]",
+                            "city": "Berlin",
+                            "country": "Germany",
+                            "end": "2019-10-30T22:00:00Z[UTC]",
+                            "visaRequired": false,
+                          },
+                        }
+                      }
+                      style={Object {}}
+                      theme="rjv-default"
+                      type="object"
+                      validationMessage="Validation Error"
+                    >
+                      <div
+                        className="pretty-json-container object-container"
+                      >
+                        <div
+                          className="object-content"
+                        >
+                          <t
+                            collapseStringsAfterLength={false}
+                            collapsed={false}
+                            defaultValue={null}
+                            depth={0}
+                            displayDataTypes={true}
+                            displayObjectSize={true}
+                            enableClipboard={true}
+                            groupArraysAfterLength={100}
+                            iconStyle="triangle"
+                            indentWidth={4}
+                            jsvRoot={true}
+                            name={false}
+                            namespace={
+                              Array [
+                                false,
+                              ]
+                            }
+                            onAdd={false}
+                            onDelete={false}
+                            onEdit={[Function]}
+                            onSelect={false}
+                            rjvId="1598352165388"
+                            shouldCollapse={false}
+                            sortKeys={false}
+                            src={
+                              Object {
+                                "trip": Object {
+                                  "begin": "2019-10-22T22:00:00Z[UTC]",
+                                  "city": "Berlin",
+                                  "country": "Germany",
+                                  "end": "2019-10-30T22:00:00Z[UTC]",
+                                  "visaRequired": false,
+                                },
+                              }
+                            }
+                            style={Object {}}
+                            theme="rjv-default"
+                            type="object"
+                            validationMessage="Validation Error"
+                          >
+                            <div
+                              className="object-key-val"
+                            >
+                              <span>
+                                <span
+                                  onClick={[Function]}
+                                  style={
+                                    Object {
+                                      "cursor": "pointer",
+                                      "display": "inline-block",
+                                    }
+                                  }
+                                >
+                                  <div
+                                    className="icon-container"
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                        "width": "17px",
+                                      }
+                                    }
+                                  >
+                                    <a
+                                      iconStyle="triangle"
+                                      theme="rjv-default"
+                                    >
+                                      <t
+                                        className="expanded-icon"
+                                        style={
+                                          Object {
+                                            "color": "#586e75",
+                                          }
+                                        }
+                                      >
+                                        <span
+                                          className="expanded-icon"
+                                        >
+                                          <svg
+                                            fill="currentColor"
+                                            style={
+                                              Object {
+                                                "color": "#586e75",
+                                                "height": "1em",
+                                                "paddingLeft": "2px",
+                                                "verticalAlign": "top",
+                                                "width": "1em",
+                                              }
+                                            }
+                                            viewBox="0 0 15 15"
+                                          >
+                                            <path
+                                              d="M0 5l6 6 6-6z"
+                                            />
+                                          </svg>
+                                        </span>
+                                      </t>
+                                    </a>
+                                  </div>
+                                  <a
+                                    collapseStringsAfterLength={false}
+                                    collapsed={false}
+                                    defaultValue={null}
+                                    depth={0}
+                                    displayDataTypes={true}
+                                    displayObjectSize={true}
+                                    enableClipboard={true}
+                                    groupArraysAfterLength={100}
+                                    iconStyle="triangle"
+                                    indentWidth={4}
+                                    jsvRoot={true}
+                                    name={false}
+                                    namespace={
+                                      Array [
+                                        false,
+                                      ]
+                                    }
+                                    onAdd={false}
+                                    onDelete={false}
+                                    onEdit={[Function]}
+                                    onSelect={false}
+                                    rjvId="1598352165388"
+                                    shouldCollapse={false}
+                                    sortKeys={false}
+                                    src={
+                                      Object {
+                                        "trip": Object {
+                                          "begin": "2019-10-22T22:00:00Z[UTC]",
+                                          "city": "Berlin",
+                                          "country": "Germany",
+                                          "end": "2019-10-30T22:00:00Z[UTC]",
+                                          "visaRequired": false,
+                                        },
+                                      }
+                                    }
+                                    style={Object {}}
+                                    theme="rjv-default"
+                                    type="object"
+                                    validationMessage="Validation Error"
+                                  >
+                                    <span />
+                                  </a>
+                                  <span
+                                    style={
+                                      Object {
+                                        "color": "#002b36",
+                                        "cursor": "pointer",
+                                        "display": "inline-block",
+                                        "fontWeight": "bold",
+                                      }
+                                    }
+                                  >
+                                    {
+                                  </span>
+                                </span>
+                                <t
+                                  collapseStringsAfterLength={false}
+                                  collapsed={false}
+                                  defaultValue={null}
+                                  depth={0}
+                                  displayDataTypes={true}
+                                  displayObjectSize={true}
+                                  enableClipboard={true}
+                                  groupArraysAfterLength={100}
+                                  iconStyle="triangle"
+                                  indentWidth={4}
+                                  jsvRoot={true}
+                                  name={false}
+                                  namespace={
+                                    Array [
+                                      false,
+                                    ]
+                                  }
+                                  onAdd={false}
+                                  onDelete={false}
+                                  onEdit={[Function]}
+                                  onSelect={false}
+                                  rjvId="1598352165388"
+                                  shouldCollapse={false}
+                                  size={1}
+                                  sortKeys={false}
+                                  src={
+                                    Object {
+                                      "trip": Object {
+                                        "begin": "2019-10-22T22:00:00Z[UTC]",
+                                        "city": "Berlin",
+                                        "country": "Germany",
+                                        "end": "2019-10-30T22:00:00Z[UTC]",
+                                        "visaRequired": false,
+                                      },
+                                    }
+                                  }
+                                  style={Object {}}
+                                  theme="rjv-default"
+                                  type="object"
+                                  validationMessage="Validation Error"
+                                >
+                                  <div
+                                    className="object-meta-data"
+                                    onClick={[Function]}
+                                    style={
+                                      Object {
+                                        "display": "inline-block",
+                                        "padding": "0px 0px 0px 10px",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      className="object-size"
+                                      style={
+                                        Object {
+                                          "borderRadius": "3px",
+                                          "color": "rgba(0, 0, 0, 0.3)",
+                                          "cursor": "default",
+                                          "fontStyle": "italic",
+                                          "margin": "0px 6px 0px 0px",
+                                        }
+                                      }
+                                    >
+                                      1
+                                       item
+                                    </span>
+                                    <t
+                                      clickCallback={true}
+                                      namespace={
+                                        Array [
+                                          false,
+                                        ]
+                                      }
+                                      src={
+                                        Object {
+                                          "trip": Object {
+                                            "begin": "2019-10-22T22:00:00Z[UTC]",
+                                            "city": "Berlin",
+                                            "country": "Germany",
+                                            "end": "2019-10-30T22:00:00Z[UTC]",
+                                            "visaRequired": false,
+                                          },
+                                        }
+                                      }
+                                      theme="rjv-default"
+                                    >
+                                      <span
+                                        className="copy-to-clipboard-container"
+                                      >
+                                        <span
+                                          onClick={[Function]}
+                                          style={
+                                            Object {
+                                              "cursor": "pointer",
+                                              "display": "inline",
+                                            }
+                                          }
+                                        >
+                                          <t
+                                            className="copy-icon"
+                                            style={
+                                              Object {
+                                                "color": "#268bd2",
+                                                "fontSize": "15px",
+                                                "marginRight": "3px",
+                                                "verticalAlign": "top",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="copy-icon"
+                                            >
+                                              <svg
+                                                fill="currentColor"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                style={
+                                                  Object {
+                                                    "color": "#268bd2",
+                                                    "fontSize": "15px",
+                                                    "height": "1em",
+                                                    "marginRight": "3px",
+                                                    "verticalAlign": "top",
+                                                    "width": "1em",
+                                                  }
+                                                }
+                                                viewBox="0 0 40 40"
+                                              >
+                                                <g>
+                                                  <path
+                                                    d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                  />
+                                                </g>
+                                              </svg>
+                                            </span>
+                                          </t>
+                                        </span>
+                                      </span>
+                                    </t>
+                                  </div>
+                                </t>
+                              </span>
+                              <div
+                                className="pushed-content object-container"
+                              >
+                                <div
+                                  className="object-content"
+                                  style={
+                                    Object {
+                                      "marginLeft": "6px",
+                                    }
+                                  }
+                                >
+                                  <t
+                                    collapseStringsAfterLength={false}
+                                    collapsed={false}
+                                    defaultValue={null}
+                                    depth={1}
+                                    displayDataTypes={true}
+                                    displayObjectSize={true}
+                                    enableClipboard={true}
+                                    groupArraysAfterLength={100}
+                                    iconStyle="triangle"
+                                    indentWidth={4}
+                                    key="trip"
+                                    name="trip"
+                                    namespace={
+                                      Array [
+                                        false,
+                                        "trip",
+                                      ]
+                                    }
+                                    onAdd={false}
+                                    onDelete={false}
+                                    onEdit={[Function]}
+                                    onSelect={false}
+                                    parent_type="object"
+                                    rjvId="1598352165388"
+                                    shouldCollapse={false}
+                                    sortKeys={false}
+                                    src={
+                                      Object {
+                                        "begin": "2019-10-22T22:00:00Z[UTC]",
+                                        "city": "Berlin",
+                                        "country": "Germany",
+                                        "end": "2019-10-30T22:00:00Z[UTC]",
+                                        "visaRequired": false,
+                                      }
+                                    }
+                                    style={Object {}}
+                                    theme="rjv-default"
+                                    validationMessage="Validation Error"
+                                  >
+                                    <div
+                                      className="object-key-val"
+                                      style={
+                                        Object {
+                                          ":hover": Object {
+                                            "borderLeft": "2px solid rgb(235, 235, 235)",
+                                            "paddingLeft": "19px",
+                                          },
+                                          "borderLeft": "1px solid rgb(235, 235, 235)",
+                                          "paddingBottom": "3px",
+                                          "paddingLeft": 20,
+                                          "paddingRight": "5px",
+                                          "paddingTop": "3px",
+                                        }
+                                      }
+                                    >
+                                      <span>
+                                        <span
+                                          onClick={[Function]}
+                                          style={
+                                            Object {
+                                              "cursor": "pointer",
+                                              "display": "inline-block",
+                                            }
+                                          }
+                                        >
+                                          <div
+                                            className="icon-container"
+                                            style={
+                                              Object {
+                                                "display": "inline-block",
+                                                "width": "17px",
+                                              }
+                                            }
+                                          >
+                                            <a
+                                              iconStyle="triangle"
+                                              theme="rjv-default"
+                                            >
+                                              <t
+                                                className="expanded-icon"
+                                                style={
+                                                  Object {
+                                                    "color": "#586e75",
+                                                  }
+                                                }
+                                              >
+                                                <span
+                                                  className="expanded-icon"
+                                                >
+                                                  <svg
+                                                    fill="currentColor"
+                                                    style={
+                                                      Object {
+                                                        "color": "#586e75",
+                                                        "height": "1em",
+                                                        "paddingLeft": "2px",
+                                                        "verticalAlign": "top",
+                                                        "width": "1em",
+                                                      }
+                                                    }
+                                                    viewBox="0 0 15 15"
+                                                  >
+                                                    <path
+                                                      d="M0 5l6 6 6-6z"
+                                                    />
+                                                  </svg>
+                                                </span>
+                                              </t>
+                                            </a>
+                                          </div>
+                                          <a
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            depth={1}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            name="trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            parent_type="object"
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            sortKeys={false}
+                                            src={
+                                              Object {
+                                                "begin": "2019-10-22T22:00:00Z[UTC]",
+                                                "city": "Berlin",
+                                                "country": "Germany",
+                                                "end": "2019-10-30T22:00:00Z[UTC]",
+                                                "visaRequired": false,
+                                              }
+                                            }
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                          >
+                                            <span
+                                              key="false,trip"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "opacity": "1",
+                                                  },
+                                                  "color": "#002b36",
+                                                  "display": "inline-block",
+                                                  "fontStyle": "none",
+                                                  "letterSpacing": "0.5px",
+                                                  "opacity": "0.85",
+                                                  "verticalAlign": "top",
+                                                }
+                                              }
+                                            >
+                                              <span
+                                                className="object-key"
+                                              >
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                </span>
+                                                <span>
+                                                  trip
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  "
+                                                </span>
+                                              </span>
+                                              <span
+                                                style={
+                                                  Object {
+                                                    "color": "#002b36",
+                                                    "display": "inline-block",
+                                                    "margin": "0px 5px",
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                :
+                                              </span>
+                                            </span>
+                                          </a>
+                                          <span
+                                            style={
+                                              Object {
+                                                "color": "#002b36",
+                                                "cursor": "pointer",
+                                                "display": "inline-block",
+                                                "fontWeight": "bold",
+                                              }
+                                            }
+                                          >
+                                            {
+                                          </span>
+                                        </span>
+                                        <t
+                                          collapseStringsAfterLength={false}
+                                          collapsed={false}
+                                          defaultValue={null}
+                                          depth={1}
+                                          displayDataTypes={true}
+                                          displayObjectSize={true}
+                                          enableClipboard={true}
+                                          groupArraysAfterLength={100}
+                                          iconStyle="triangle"
+                                          indentWidth={4}
+                                          name="trip"
+                                          namespace={
+                                            Array [
+                                              false,
+                                              "trip",
+                                            ]
+                                          }
+                                          onAdd={false}
+                                          onDelete={false}
+                                          onEdit={[Function]}
+                                          onSelect={false}
+                                          parent_type="object"
+                                          rjvId="1598352165388"
+                                          shouldCollapse={false}
+                                          size={5}
+                                          sortKeys={false}
+                                          src={
+                                            Object {
+                                              "begin": "2019-10-22T22:00:00Z[UTC]",
+                                              "city": "Berlin",
+                                              "country": "Germany",
+                                              "end": "2019-10-30T22:00:00Z[UTC]",
+                                              "visaRequired": false,
+                                            }
+                                          }
+                                          style={Object {}}
+                                          theme="rjv-default"
+                                          validationMessage="Validation Error"
+                                        >
+                                          <div
+                                            className="object-meta-data"
+                                            onClick={[Function]}
+                                            style={
+                                              Object {
+                                                "display": "inline-block",
+                                                "padding": "0px 0px 0px 10px",
+                                              }
+                                            }
+                                          >
+                                            <span
+                                              className="object-size"
+                                              style={
+                                                Object {
+                                                  "borderRadius": "3px",
+                                                  "color": "rgba(0, 0, 0, 0.3)",
+                                                  "cursor": "default",
+                                                  "fontStyle": "italic",
+                                                  "margin": "0px 6px 0px 0px",
+                                                }
+                                              }
+                                            >
+                                              5
+                                               item
+                                              s
+                                            </span>
+                                            <t
+                                              clickCallback={true}
+                                              namespace={
+                                                Array [
+                                                  false,
+                                                  "trip",
+                                                ]
+                                              }
+                                              src={
+                                                Object {
+                                                  "begin": "2019-10-22T22:00:00Z[UTC]",
+                                                  "city": "Berlin",
+                                                  "country": "Germany",
+                                                  "end": "2019-10-30T22:00:00Z[UTC]",
+                                                  "visaRequired": false,
+                                                }
+                                              }
+                                              theme="rjv-default"
+                                            >
+                                              <span
+                                                className="copy-to-clipboard-container"
+                                              >
+                                                <span
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "cursor": "pointer",
+                                                      "display": "inline",
+                                                    }
+                                                  }
+                                                >
+                                                  <t
+                                                    className="copy-icon"
+                                                    style={
+                                                      Object {
+                                                        "color": "#268bd2",
+                                                        "fontSize": "15px",
+                                                        "marginRight": "3px",
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    <span
+                                                      className="copy-icon"
+                                                    >
+                                                      <svg
+                                                        fill="currentColor"
+                                                        preserveAspectRatio="xMidYMid meet"
+                                                        style={
+                                                          Object {
+                                                            "color": "#268bd2",
+                                                            "fontSize": "15px",
+                                                            "height": "1em",
+                                                            "marginRight": "3px",
+                                                            "verticalAlign": "top",
+                                                            "width": "1em",
+                                                          }
+                                                        }
+                                                        viewBox="0 0 40 40"
+                                                      >
+                                                        <g>
+                                                          <path
+                                                            d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                          />
+                                                        </g>
+                                                      </svg>
+                                                    </span>
+                                                  </t>
+                                                </span>
+                                              </span>
+                                            </t>
+                                          </div>
+                                        </t>
+                                      </span>
+                                      <div
+                                        className="pushed-content object-container"
+                                      >
+                                        <div
+                                          className="object-content"
+                                          style={
+                                            Object {
+                                              "marginLeft": "6px",
+                                            }
+                                          }
+                                        >
+                                          <t
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            key="begin_false,trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            singleIndent={5}
+                                            sortKeys={false}
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                            variable={
+                                              e {
+                                                "name": "begin",
+                                                "type": "string",
+                                                "value": "2019-10-22T22:00:00Z[UTC]",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="variable-row"
+                                              key="begin"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "borderLeft": "2px solid rgb(235, 235, 235)",
+                                                    "paddingLeft": "19px",
+                                                  },
+                                                  "borderLeft": "1px solid rgb(235, 235, 235)",
+                                                  "paddingBottom": "3px",
+                                                  "paddingLeft": 20,
+                                                  "paddingRight": "5px",
+                                                  "paddingTop": "3px",
+                                                }
+                                              }
+                                            >
+                                              <span>
+                                                <span
+                                                  className="object-key"
+                                                  key="begin_false,trip"
+                                                  style={
+                                                    Object {
+                                                      ":hover": Object {
+                                                        "opacity": "1",
+                                                      },
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "fontStyle": "none",
+                                                      "letterSpacing": "0.5px",
+                                                      "opacity": "0.85",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    begin
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "margin": "0px 5px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  :
+                                                </span>
+                                              </span>
+                                              <div
+                                                className="variable-value"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "cursor": "default",
+                                                    "display": "inline-block",
+                                                    "paddingRight": "6px",
+                                                    "position": "relative",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  collapseStringsAfterLength={false}
+                                                  collapsed={false}
+                                                  defaultValue={null}
+                                                  displayDataTypes={true}
+                                                  displayObjectSize={true}
+                                                  enableClipboard={true}
+                                                  groupArraysAfterLength={100}
+                                                  iconStyle="triangle"
+                                                  indentWidth={4}
+                                                  namespace={
+                                                    Array [
+                                                      false,
+                                                      "trip",
+                                                    ]
+                                                  }
+                                                  onAdd={false}
+                                                  onDelete={false}
+                                                  onEdit={[Function]}
+                                                  onSelect={false}
+                                                  rjvId="1598352165388"
+                                                  shouldCollapse={false}
+                                                  singleIndent={5}
+                                                  sortKeys={false}
+                                                  style={Object {}}
+                                                  theme="rjv-default"
+                                                  validationMessage="Validation Error"
+                                                  value="2019-10-22T22:00:00Z[UTC]"
+                                                  variable={
+                                                    e {
+                                                      "name": "begin",
+                                                      "type": "string",
+                                                      "value": "2019-10-22T22:00:00Z[UTC]",
+                                                    }
+                                                  }
+                                                >
+                                                  <div
+                                                    style={
+                                                      Object {
+                                                        "color": "#cb4b16",
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      collapseStringsAfterLength={false}
+                                                      collapsed={false}
+                                                      defaultValue={null}
+                                                      displayDataTypes={true}
+                                                      displayObjectSize={true}
+                                                      enableClipboard={true}
+                                                      groupArraysAfterLength={100}
+                                                      iconStyle="triangle"
+                                                      indentWidth={4}
+                                                      namespace={
+                                                        Array [
+                                                          false,
+                                                          "trip",
+                                                        ]
+                                                      }
+                                                      onAdd={false}
+                                                      onDelete={false}
+                                                      onEdit={[Function]}
+                                                      onSelect={false}
+                                                      rjvId="1598352165388"
+                                                      shouldCollapse={false}
+                                                      singleIndent={5}
+                                                      sortKeys={false}
+                                                      style={Object {}}
+                                                      theme="rjv-default"
+                                                      type_name="string"
+                                                      validationMessage="Validation Error"
+                                                      value="2019-10-22T22:00:00Z[UTC]"
+                                                      variable={
+                                                        e {
+                                                          "name": "begin",
+                                                          "type": "string",
+                                                          "value": "2019-10-22T22:00:00Z[UTC]",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="data-type-label"
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "marginRight": "4px",
+                                                            "opacity": "0.8",
+                                                          }
+                                                        }
+                                                      >
+                                                        string
+                                                      </span>
+                                                    </t>
+                                                    <span
+                                                      className="string-value"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "cursor": "default",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      2019-10-22T22:00:00Z[UTC]
+                                                      "
+                                                    </span>
+                                                  </div>
+                                                </t>
+                                              </div>
+                                              <t
+                                                clickCallback={true}
+                                                hidden={false}
+                                                namespace={
+                                                  Array [
+                                                    false,
+                                                    "trip",
+                                                  ]
+                                                }
+                                                src="2019-10-22T22:00:00Z[UTC]"
+                                                theme="rjv-default"
+                                              >
+                                                <span
+                                                  className="copy-to-clipboard-container"
+                                                >
+                                                  <span
+                                                    onClick={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "cursor": "pointer",
+                                                        "display": "inline",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      className="copy-icon"
+                                                      style={
+                                                        Object {
+                                                          "color": "#268bd2",
+                                                          "fontSize": "15px",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="copy-icon"
+                                                      >
+                                                        <svg
+                                                          fill="currentColor"
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          style={
+                                                            Object {
+                                                              "color": "#268bd2",
+                                                              "fontSize": "15px",
+                                                              "height": "1em",
+                                                              "marginRight": "3px",
+                                                              "verticalAlign": "top",
+                                                              "width": "1em",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 40 40"
+                                                        >
+                                                          <g>
+                                                            <path
+                                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                            />
+                                                          </g>
+                                                        </svg>
+                                                      </span>
+                                                    </t>
+                                                  </span>
+                                                </span>
+                                              </t>
+                                              <div
+                                                className="click-to-edit"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  className="click-to-edit-icon"
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "color": "#2aa198",
+                                                      "cursor": "pointer",
+                                                      "display": "inline-block",
+                                                      "fontSize": "15px",
+                                                      "marginRight": "3px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="click-to-edit-icon"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      style={
+                                                        Object {
+                                                          "color": "#2aa198",
+                                                          "cursor": "pointer",
+                                                          "display": "inline-block",
+                                                          "fontSize": "15px",
+                                                          "height": "1em",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                          "width": "1em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 40 40"
+                                                    >
+                                                      <g>
+                                                        <path
+                                                          d="m19.8 26.4l2.6-2.6-3.4-3.4-2.6 2.6v1.3h2.2v2.1h1.2z m9.8-16q-0.3-0.4-0.7 0l-7.8 7.8q-0.4 0.4 0 0.7t0.7 0l7.8-7.8q0.4-0.4 0-0.7z m1.8 13.2v4.3q0 2.6-1.9 4.5t-4.5 1.9h-18.6q-2.6 0-4.5-1.9t-1.9-4.5v-18.6q0-2.7 1.9-4.6t4.5-1.8h18.6q1.4 0 2.6 0.5 0.3 0.2 0.4 0.5 0.1 0.4-0.2 0.7l-1.1 1.1q-0.3 0.3-0.7 0.1-0.5-0.1-1-0.1h-18.6q-1.4 0-2.5 1.1t-1 2.5v18.6q0 1.4 1 2.5t2.5 1h18.6q1.5 0 2.5-1t1.1-2.5v-2.9q0-0.2 0.2-0.4l1.4-1.5q0.3-0.3 0.8-0.1t0.4 0.6z m-2.1-16.5l6.4 6.5-15 15h-6.4v-6.5z m9.9 3l-2.1 2-6.4-6.4 2.1-2q0.6-0.7 1.5-0.7t1.5 0.7l3.4 3.4q0.6 0.6 0.6 1.5t-0.6 1.5z"
+                                                        />
+                                                      </g>
+                                                    </svg>
+                                                  </span>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </t>
+                                          <t
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            key="city_false,trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            singleIndent={5}
+                                            sortKeys={false}
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                            variable={
+                                              e {
+                                                "name": "city",
+                                                "type": "string",
+                                                "value": "Berlin",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="variable-row"
+                                              key="city"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "borderLeft": "2px solid rgb(235, 235, 235)",
+                                                    "paddingLeft": "19px",
+                                                  },
+                                                  "borderLeft": "1px solid rgb(235, 235, 235)",
+                                                  "paddingBottom": "3px",
+                                                  "paddingLeft": 20,
+                                                  "paddingRight": "5px",
+                                                  "paddingTop": "3px",
+                                                }
+                                              }
+                                            >
+                                              <span>
+                                                <span
+                                                  className="object-key"
+                                                  key="city_false,trip"
+                                                  style={
+                                                    Object {
+                                                      ":hover": Object {
+                                                        "opacity": "1",
+                                                      },
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "fontStyle": "none",
+                                                      "letterSpacing": "0.5px",
+                                                      "opacity": "0.85",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    city
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "margin": "0px 5px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  :
+                                                </span>
+                                              </span>
+                                              <div
+                                                className="variable-value"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "cursor": "default",
+                                                    "display": "inline-block",
+                                                    "paddingRight": "6px",
+                                                    "position": "relative",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  collapseStringsAfterLength={false}
+                                                  collapsed={false}
+                                                  defaultValue={null}
+                                                  displayDataTypes={true}
+                                                  displayObjectSize={true}
+                                                  enableClipboard={true}
+                                                  groupArraysAfterLength={100}
+                                                  iconStyle="triangle"
+                                                  indentWidth={4}
+                                                  namespace={
+                                                    Array [
+                                                      false,
+                                                      "trip",
+                                                    ]
+                                                  }
+                                                  onAdd={false}
+                                                  onDelete={false}
+                                                  onEdit={[Function]}
+                                                  onSelect={false}
+                                                  rjvId="1598352165388"
+                                                  shouldCollapse={false}
+                                                  singleIndent={5}
+                                                  sortKeys={false}
+                                                  style={Object {}}
+                                                  theme="rjv-default"
+                                                  validationMessage="Validation Error"
+                                                  value="Berlin"
+                                                  variable={
+                                                    e {
+                                                      "name": "city",
+                                                      "type": "string",
+                                                      "value": "Berlin",
+                                                    }
+                                                  }
+                                                >
+                                                  <div
+                                                    style={
+                                                      Object {
+                                                        "color": "#cb4b16",
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      collapseStringsAfterLength={false}
+                                                      collapsed={false}
+                                                      defaultValue={null}
+                                                      displayDataTypes={true}
+                                                      displayObjectSize={true}
+                                                      enableClipboard={true}
+                                                      groupArraysAfterLength={100}
+                                                      iconStyle="triangle"
+                                                      indentWidth={4}
+                                                      namespace={
+                                                        Array [
+                                                          false,
+                                                          "trip",
+                                                        ]
+                                                      }
+                                                      onAdd={false}
+                                                      onDelete={false}
+                                                      onEdit={[Function]}
+                                                      onSelect={false}
+                                                      rjvId="1598352165388"
+                                                      shouldCollapse={false}
+                                                      singleIndent={5}
+                                                      sortKeys={false}
+                                                      style={Object {}}
+                                                      theme="rjv-default"
+                                                      type_name="string"
+                                                      validationMessage="Validation Error"
+                                                      value="Berlin"
+                                                      variable={
+                                                        e {
+                                                          "name": "city",
+                                                          "type": "string",
+                                                          "value": "Berlin",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="data-type-label"
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "marginRight": "4px",
+                                                            "opacity": "0.8",
+                                                          }
+                                                        }
+                                                      >
+                                                        string
+                                                      </span>
+                                                    </t>
+                                                    <span
+                                                      className="string-value"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "cursor": "default",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Berlin
+                                                      "
+                                                    </span>
+                                                  </div>
+                                                </t>
+                                              </div>
+                                              <t
+                                                clickCallback={true}
+                                                hidden={false}
+                                                namespace={
+                                                  Array [
+                                                    false,
+                                                    "trip",
+                                                  ]
+                                                }
+                                                src="Berlin"
+                                                theme="rjv-default"
+                                              >
+                                                <span
+                                                  className="copy-to-clipboard-container"
+                                                >
+                                                  <span
+                                                    onClick={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "cursor": "pointer",
+                                                        "display": "inline",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      className="copy-icon"
+                                                      style={
+                                                        Object {
+                                                          "color": "#268bd2",
+                                                          "fontSize": "15px",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="copy-icon"
+                                                      >
+                                                        <svg
+                                                          fill="currentColor"
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          style={
+                                                            Object {
+                                                              "color": "#268bd2",
+                                                              "fontSize": "15px",
+                                                              "height": "1em",
+                                                              "marginRight": "3px",
+                                                              "verticalAlign": "top",
+                                                              "width": "1em",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 40 40"
+                                                        >
+                                                          <g>
+                                                            <path
+                                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                            />
+                                                          </g>
+                                                        </svg>
+                                                      </span>
+                                                    </t>
+                                                  </span>
+                                                </span>
+                                              </t>
+                                              <div
+                                                className="click-to-edit"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  className="click-to-edit-icon"
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "color": "#2aa198",
+                                                      "cursor": "pointer",
+                                                      "display": "inline-block",
+                                                      "fontSize": "15px",
+                                                      "marginRight": "3px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="click-to-edit-icon"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      style={
+                                                        Object {
+                                                          "color": "#2aa198",
+                                                          "cursor": "pointer",
+                                                          "display": "inline-block",
+                                                          "fontSize": "15px",
+                                                          "height": "1em",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                          "width": "1em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 40 40"
+                                                    >
+                                                      <g>
+                                                        <path
+                                                          d="m19.8 26.4l2.6-2.6-3.4-3.4-2.6 2.6v1.3h2.2v2.1h1.2z m9.8-16q-0.3-0.4-0.7 0l-7.8 7.8q-0.4 0.4 0 0.7t0.7 0l7.8-7.8q0.4-0.4 0-0.7z m1.8 13.2v4.3q0 2.6-1.9 4.5t-4.5 1.9h-18.6q-2.6 0-4.5-1.9t-1.9-4.5v-18.6q0-2.7 1.9-4.6t4.5-1.8h18.6q1.4 0 2.6 0.5 0.3 0.2 0.4 0.5 0.1 0.4-0.2 0.7l-1.1 1.1q-0.3 0.3-0.7 0.1-0.5-0.1-1-0.1h-18.6q-1.4 0-2.5 1.1t-1 2.5v18.6q0 1.4 1 2.5t2.5 1h18.6q1.5 0 2.5-1t1.1-2.5v-2.9q0-0.2 0.2-0.4l1.4-1.5q0.3-0.3 0.8-0.1t0.4 0.6z m-2.1-16.5l6.4 6.5-15 15h-6.4v-6.5z m9.9 3l-2.1 2-6.4-6.4 2.1-2q0.6-0.7 1.5-0.7t1.5 0.7l3.4 3.4q0.6 0.6 0.6 1.5t-0.6 1.5z"
+                                                        />
+                                                      </g>
+                                                    </svg>
+                                                  </span>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </t>
+                                          <t
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            key="country_false,trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            singleIndent={5}
+                                            sortKeys={false}
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                            variable={
+                                              e {
+                                                "name": "country",
+                                                "type": "string",
+                                                "value": "Germany",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="variable-row"
+                                              key="country"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "borderLeft": "2px solid rgb(235, 235, 235)",
+                                                    "paddingLeft": "19px",
+                                                  },
+                                                  "borderLeft": "1px solid rgb(235, 235, 235)",
+                                                  "paddingBottom": "3px",
+                                                  "paddingLeft": 20,
+                                                  "paddingRight": "5px",
+                                                  "paddingTop": "3px",
+                                                }
+                                              }
+                                            >
+                                              <span>
+                                                <span
+                                                  className="object-key"
+                                                  key="country_false,trip"
+                                                  style={
+                                                    Object {
+                                                      ":hover": Object {
+                                                        "opacity": "1",
+                                                      },
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "fontStyle": "none",
+                                                      "letterSpacing": "0.5px",
+                                                      "opacity": "0.85",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    country
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "margin": "0px 5px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  :
+                                                </span>
+                                              </span>
+                                              <div
+                                                className="variable-value"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "cursor": "default",
+                                                    "display": "inline-block",
+                                                    "paddingRight": "6px",
+                                                    "position": "relative",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  collapseStringsAfterLength={false}
+                                                  collapsed={false}
+                                                  defaultValue={null}
+                                                  displayDataTypes={true}
+                                                  displayObjectSize={true}
+                                                  enableClipboard={true}
+                                                  groupArraysAfterLength={100}
+                                                  iconStyle="triangle"
+                                                  indentWidth={4}
+                                                  namespace={
+                                                    Array [
+                                                      false,
+                                                      "trip",
+                                                    ]
+                                                  }
+                                                  onAdd={false}
+                                                  onDelete={false}
+                                                  onEdit={[Function]}
+                                                  onSelect={false}
+                                                  rjvId="1598352165388"
+                                                  shouldCollapse={false}
+                                                  singleIndent={5}
+                                                  sortKeys={false}
+                                                  style={Object {}}
+                                                  theme="rjv-default"
+                                                  validationMessage="Validation Error"
+                                                  value="Germany"
+                                                  variable={
+                                                    e {
+                                                      "name": "country",
+                                                      "type": "string",
+                                                      "value": "Germany",
+                                                    }
+                                                  }
+                                                >
+                                                  <div
+                                                    style={
+                                                      Object {
+                                                        "color": "#cb4b16",
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      collapseStringsAfterLength={false}
+                                                      collapsed={false}
+                                                      defaultValue={null}
+                                                      displayDataTypes={true}
+                                                      displayObjectSize={true}
+                                                      enableClipboard={true}
+                                                      groupArraysAfterLength={100}
+                                                      iconStyle="triangle"
+                                                      indentWidth={4}
+                                                      namespace={
+                                                        Array [
+                                                          false,
+                                                          "trip",
+                                                        ]
+                                                      }
+                                                      onAdd={false}
+                                                      onDelete={false}
+                                                      onEdit={[Function]}
+                                                      onSelect={false}
+                                                      rjvId="1598352165388"
+                                                      shouldCollapse={false}
+                                                      singleIndent={5}
+                                                      sortKeys={false}
+                                                      style={Object {}}
+                                                      theme="rjv-default"
+                                                      type_name="string"
+                                                      validationMessage="Validation Error"
+                                                      value="Germany"
+                                                      variable={
+                                                        e {
+                                                          "name": "country",
+                                                          "type": "string",
+                                                          "value": "Germany",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="data-type-label"
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "marginRight": "4px",
+                                                            "opacity": "0.8",
+                                                          }
+                                                        }
+                                                      >
+                                                        string
+                                                      </span>
+                                                    </t>
+                                                    <span
+                                                      className="string-value"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "cursor": "default",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      Germany
+                                                      "
+                                                    </span>
+                                                  </div>
+                                                </t>
+                                              </div>
+                                              <t
+                                                clickCallback={true}
+                                                hidden={false}
+                                                namespace={
+                                                  Array [
+                                                    false,
+                                                    "trip",
+                                                  ]
+                                                }
+                                                src="Germany"
+                                                theme="rjv-default"
+                                              >
+                                                <span
+                                                  className="copy-to-clipboard-container"
+                                                >
+                                                  <span
+                                                    onClick={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "cursor": "pointer",
+                                                        "display": "inline",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      className="copy-icon"
+                                                      style={
+                                                        Object {
+                                                          "color": "#268bd2",
+                                                          "fontSize": "15px",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="copy-icon"
+                                                      >
+                                                        <svg
+                                                          fill="currentColor"
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          style={
+                                                            Object {
+                                                              "color": "#268bd2",
+                                                              "fontSize": "15px",
+                                                              "height": "1em",
+                                                              "marginRight": "3px",
+                                                              "verticalAlign": "top",
+                                                              "width": "1em",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 40 40"
+                                                        >
+                                                          <g>
+                                                            <path
+                                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                            />
+                                                          </g>
+                                                        </svg>
+                                                      </span>
+                                                    </t>
+                                                  </span>
+                                                </span>
+                                              </t>
+                                              <div
+                                                className="click-to-edit"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  className="click-to-edit-icon"
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "color": "#2aa198",
+                                                      "cursor": "pointer",
+                                                      "display": "inline-block",
+                                                      "fontSize": "15px",
+                                                      "marginRight": "3px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="click-to-edit-icon"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      style={
+                                                        Object {
+                                                          "color": "#2aa198",
+                                                          "cursor": "pointer",
+                                                          "display": "inline-block",
+                                                          "fontSize": "15px",
+                                                          "height": "1em",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                          "width": "1em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 40 40"
+                                                    >
+                                                      <g>
+                                                        <path
+                                                          d="m19.8 26.4l2.6-2.6-3.4-3.4-2.6 2.6v1.3h2.2v2.1h1.2z m9.8-16q-0.3-0.4-0.7 0l-7.8 7.8q-0.4 0.4 0 0.7t0.7 0l7.8-7.8q0.4-0.4 0-0.7z m1.8 13.2v4.3q0 2.6-1.9 4.5t-4.5 1.9h-18.6q-2.6 0-4.5-1.9t-1.9-4.5v-18.6q0-2.7 1.9-4.6t4.5-1.8h18.6q1.4 0 2.6 0.5 0.3 0.2 0.4 0.5 0.1 0.4-0.2 0.7l-1.1 1.1q-0.3 0.3-0.7 0.1-0.5-0.1-1-0.1h-18.6q-1.4 0-2.5 1.1t-1 2.5v18.6q0 1.4 1 2.5t2.5 1h18.6q1.5 0 2.5-1t1.1-2.5v-2.9q0-0.2 0.2-0.4l1.4-1.5q0.3-0.3 0.8-0.1t0.4 0.6z m-2.1-16.5l6.4 6.5-15 15h-6.4v-6.5z m9.9 3l-2.1 2-6.4-6.4 2.1-2q0.6-0.7 1.5-0.7t1.5 0.7l3.4 3.4q0.6 0.6 0.6 1.5t-0.6 1.5z"
+                                                        />
+                                                      </g>
+                                                    </svg>
+                                                  </span>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </t>
+                                          <t
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            key="end_false,trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            singleIndent={5}
+                                            sortKeys={false}
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                            variable={
+                                              e {
+                                                "name": "end",
+                                                "type": "string",
+                                                "value": "2019-10-30T22:00:00Z[UTC]",
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="variable-row"
+                                              key="end"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "borderLeft": "2px solid rgb(235, 235, 235)",
+                                                    "paddingLeft": "19px",
+                                                  },
+                                                  "borderLeft": "1px solid rgb(235, 235, 235)",
+                                                  "paddingBottom": "3px",
+                                                  "paddingLeft": 20,
+                                                  "paddingRight": "5px",
+                                                  "paddingTop": "3px",
+                                                }
+                                              }
+                                            >
+                                              <span>
+                                                <span
+                                                  className="object-key"
+                                                  key="end_false,trip"
+                                                  style={
+                                                    Object {
+                                                      ":hover": Object {
+                                                        "opacity": "1",
+                                                      },
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "fontStyle": "none",
+                                                      "letterSpacing": "0.5px",
+                                                      "opacity": "0.85",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    end
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "margin": "0px 5px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  :
+                                                </span>
+                                              </span>
+                                              <div
+                                                className="variable-value"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "cursor": "default",
+                                                    "display": "inline-block",
+                                                    "paddingRight": "6px",
+                                                    "position": "relative",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  collapseStringsAfterLength={false}
+                                                  collapsed={false}
+                                                  defaultValue={null}
+                                                  displayDataTypes={true}
+                                                  displayObjectSize={true}
+                                                  enableClipboard={true}
+                                                  groupArraysAfterLength={100}
+                                                  iconStyle="triangle"
+                                                  indentWidth={4}
+                                                  namespace={
+                                                    Array [
+                                                      false,
+                                                      "trip",
+                                                    ]
+                                                  }
+                                                  onAdd={false}
+                                                  onDelete={false}
+                                                  onEdit={[Function]}
+                                                  onSelect={false}
+                                                  rjvId="1598352165388"
+                                                  shouldCollapse={false}
+                                                  singleIndent={5}
+                                                  sortKeys={false}
+                                                  style={Object {}}
+                                                  theme="rjv-default"
+                                                  validationMessage="Validation Error"
+                                                  value="2019-10-30T22:00:00Z[UTC]"
+                                                  variable={
+                                                    e {
+                                                      "name": "end",
+                                                      "type": "string",
+                                                      "value": "2019-10-30T22:00:00Z[UTC]",
+                                                    }
+                                                  }
+                                                >
+                                                  <div
+                                                    style={
+                                                      Object {
+                                                        "color": "#cb4b16",
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      collapseStringsAfterLength={false}
+                                                      collapsed={false}
+                                                      defaultValue={null}
+                                                      displayDataTypes={true}
+                                                      displayObjectSize={true}
+                                                      enableClipboard={true}
+                                                      groupArraysAfterLength={100}
+                                                      iconStyle="triangle"
+                                                      indentWidth={4}
+                                                      namespace={
+                                                        Array [
+                                                          false,
+                                                          "trip",
+                                                        ]
+                                                      }
+                                                      onAdd={false}
+                                                      onDelete={false}
+                                                      onEdit={[Function]}
+                                                      onSelect={false}
+                                                      rjvId="1598352165388"
+                                                      shouldCollapse={false}
+                                                      singleIndent={5}
+                                                      sortKeys={false}
+                                                      style={Object {}}
+                                                      theme="rjv-default"
+                                                      type_name="string"
+                                                      validationMessage="Validation Error"
+                                                      value="2019-10-30T22:00:00Z[UTC]"
+                                                      variable={
+                                                        e {
+                                                          "name": "end",
+                                                          "type": "string",
+                                                          "value": "2019-10-30T22:00:00Z[UTC]",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="data-type-label"
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "marginRight": "4px",
+                                                            "opacity": "0.8",
+                                                          }
+                                                        }
+                                                      >
+                                                        string
+                                                      </span>
+                                                    </t>
+                                                    <span
+                                                      className="string-value"
+                                                      onClick={[Function]}
+                                                      style={
+                                                        Object {
+                                                          "cursor": "default",
+                                                        }
+                                                      }
+                                                    >
+                                                      "
+                                                      2019-10-30T22:00:00Z[UTC]
+                                                      "
+                                                    </span>
+                                                  </div>
+                                                </t>
+                                              </div>
+                                              <t
+                                                clickCallback={true}
+                                                hidden={false}
+                                                namespace={
+                                                  Array [
+                                                    false,
+                                                    "trip",
+                                                  ]
+                                                }
+                                                src="2019-10-30T22:00:00Z[UTC]"
+                                                theme="rjv-default"
+                                              >
+                                                <span
+                                                  className="copy-to-clipboard-container"
+                                                >
+                                                  <span
+                                                    onClick={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "cursor": "pointer",
+                                                        "display": "inline",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      className="copy-icon"
+                                                      style={
+                                                        Object {
+                                                          "color": "#268bd2",
+                                                          "fontSize": "15px",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="copy-icon"
+                                                      >
+                                                        <svg
+                                                          fill="currentColor"
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          style={
+                                                            Object {
+                                                              "color": "#268bd2",
+                                                              "fontSize": "15px",
+                                                              "height": "1em",
+                                                              "marginRight": "3px",
+                                                              "verticalAlign": "top",
+                                                              "width": "1em",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 40 40"
+                                                        >
+                                                          <g>
+                                                            <path
+                                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                            />
+                                                          </g>
+                                                        </svg>
+                                                      </span>
+                                                    </t>
+                                                  </span>
+                                                </span>
+                                              </t>
+                                              <div
+                                                className="click-to-edit"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  className="click-to-edit-icon"
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "color": "#2aa198",
+                                                      "cursor": "pointer",
+                                                      "display": "inline-block",
+                                                      "fontSize": "15px",
+                                                      "marginRight": "3px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="click-to-edit-icon"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      style={
+                                                        Object {
+                                                          "color": "#2aa198",
+                                                          "cursor": "pointer",
+                                                          "display": "inline-block",
+                                                          "fontSize": "15px",
+                                                          "height": "1em",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                          "width": "1em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 40 40"
+                                                    >
+                                                      <g>
+                                                        <path
+                                                          d="m19.8 26.4l2.6-2.6-3.4-3.4-2.6 2.6v1.3h2.2v2.1h1.2z m9.8-16q-0.3-0.4-0.7 0l-7.8 7.8q-0.4 0.4 0 0.7t0.7 0l7.8-7.8q0.4-0.4 0-0.7z m1.8 13.2v4.3q0 2.6-1.9 4.5t-4.5 1.9h-18.6q-2.6 0-4.5-1.9t-1.9-4.5v-18.6q0-2.7 1.9-4.6t4.5-1.8h18.6q1.4 0 2.6 0.5 0.3 0.2 0.4 0.5 0.1 0.4-0.2 0.7l-1.1 1.1q-0.3 0.3-0.7 0.1-0.5-0.1-1-0.1h-18.6q-1.4 0-2.5 1.1t-1 2.5v18.6q0 1.4 1 2.5t2.5 1h18.6q1.5 0 2.5-1t1.1-2.5v-2.9q0-0.2 0.2-0.4l1.4-1.5q0.3-0.3 0.8-0.1t0.4 0.6z m-2.1-16.5l6.4 6.5-15 15h-6.4v-6.5z m9.9 3l-2.1 2-6.4-6.4 2.1-2q0.6-0.7 1.5-0.7t1.5 0.7l3.4 3.4q0.6 0.6 0.6 1.5t-0.6 1.5z"
+                                                        />
+                                                      </g>
+                                                    </svg>
+                                                  </span>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </t>
+                                          <t
+                                            collapseStringsAfterLength={false}
+                                            collapsed={false}
+                                            defaultValue={null}
+                                            displayDataTypes={true}
+                                            displayObjectSize={true}
+                                            enableClipboard={true}
+                                            groupArraysAfterLength={100}
+                                            iconStyle="triangle"
+                                            indentWidth={4}
+                                            key="visaRequired_false,trip"
+                                            namespace={
+                                              Array [
+                                                false,
+                                                "trip",
+                                              ]
+                                            }
+                                            onAdd={false}
+                                            onDelete={false}
+                                            onEdit={[Function]}
+                                            onSelect={false}
+                                            rjvId="1598352165388"
+                                            shouldCollapse={false}
+                                            singleIndent={5}
+                                            sortKeys={false}
+                                            style={Object {}}
+                                            theme="rjv-default"
+                                            validationMessage="Validation Error"
+                                            variable={
+                                              e {
+                                                "name": "visaRequired",
+                                                "type": "boolean",
+                                                "value": false,
+                                              }
+                                            }
+                                          >
+                                            <div
+                                              className="variable-row"
+                                              key="visaRequired"
+                                              style={
+                                                Object {
+                                                  ":hover": Object {
+                                                    "borderLeft": "2px solid rgb(235, 235, 235)",
+                                                    "paddingLeft": "19px",
+                                                  },
+                                                  "borderLeft": "1px solid rgb(235, 235, 235)",
+                                                  "paddingBottom": "3px",
+                                                  "paddingLeft": 20,
+                                                  "paddingRight": "5px",
+                                                  "paddingTop": "3px",
+                                                }
+                                              }
+                                            >
+                                              <span>
+                                                <span
+                                                  className="object-key"
+                                                  key="visaRequired_false,trip"
+                                                  style={
+                                                    Object {
+                                                      ":hover": Object {
+                                                        "opacity": "1",
+                                                      },
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "fontStyle": "none",
+                                                      "letterSpacing": "0.5px",
+                                                      "opacity": "0.85",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    visaRequired
+                                                  </span>
+                                                  <span
+                                                    style={
+                                                      Object {
+                                                        "verticalAlign": "top",
+                                                      }
+                                                    }
+                                                  >
+                                                    "
+                                                  </span>
+                                                </span>
+                                                <span
+                                                  style={
+                                                    Object {
+                                                      "color": "#002b36",
+                                                      "display": "inline-block",
+                                                      "margin": "0px 5px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  :
+                                                </span>
+                                              </span>
+                                              <div
+                                                className="variable-value"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "cursor": "default",
+                                                    "display": "inline-block",
+                                                    "paddingRight": "6px",
+                                                    "position": "relative",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  collapseStringsAfterLength={false}
+                                                  collapsed={false}
+                                                  defaultValue={null}
+                                                  displayDataTypes={true}
+                                                  displayObjectSize={true}
+                                                  enableClipboard={true}
+                                                  groupArraysAfterLength={100}
+                                                  iconStyle="triangle"
+                                                  indentWidth={4}
+                                                  namespace={
+                                                    Array [
+                                                      false,
+                                                      "trip",
+                                                    ]
+                                                  }
+                                                  onAdd={false}
+                                                  onDelete={false}
+                                                  onEdit={[Function]}
+                                                  onSelect={false}
+                                                  rjvId="1598352165388"
+                                                  shouldCollapse={false}
+                                                  singleIndent={5}
+                                                  sortKeys={false}
+                                                  style={Object {}}
+                                                  theme="rjv-default"
+                                                  validationMessage="Validation Error"
+                                                  value={false}
+                                                  variable={
+                                                    e {
+                                                      "name": "visaRequired",
+                                                      "type": "boolean",
+                                                      "value": false,
+                                                    }
+                                                  }
+                                                >
+                                                  <div
+                                                    style={
+                                                      Object {
+                                                        "color": "#2aa198",
+                                                        "display": "inline-block",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      collapseStringsAfterLength={false}
+                                                      collapsed={false}
+                                                      defaultValue={null}
+                                                      displayDataTypes={true}
+                                                      displayObjectSize={true}
+                                                      enableClipboard={true}
+                                                      groupArraysAfterLength={100}
+                                                      iconStyle="triangle"
+                                                      indentWidth={4}
+                                                      namespace={
+                                                        Array [
+                                                          false,
+                                                          "trip",
+                                                        ]
+                                                      }
+                                                      onAdd={false}
+                                                      onDelete={false}
+                                                      onEdit={[Function]}
+                                                      onSelect={false}
+                                                      rjvId="1598352165388"
+                                                      shouldCollapse={false}
+                                                      singleIndent={5}
+                                                      sortKeys={false}
+                                                      style={Object {}}
+                                                      theme="rjv-default"
+                                                      type_name="bool"
+                                                      validationMessage="Validation Error"
+                                                      value={false}
+                                                      variable={
+                                                        e {
+                                                          "name": "visaRequired",
+                                                          "type": "boolean",
+                                                          "value": false,
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="data-type-label"
+                                                        style={
+                                                          Object {
+                                                            "fontSize": "11px",
+                                                            "marginRight": "4px",
+                                                            "opacity": "0.8",
+                                                          }
+                                                        }
+                                                      >
+                                                        bool
+                                                      </span>
+                                                    </t>
+                                                    false
+                                                  </div>
+                                                </t>
+                                              </div>
+                                              <t
+                                                clickCallback={true}
+                                                hidden={false}
+                                                namespace={
+                                                  Array [
+                                                    false,
+                                                    "trip",
+                                                  ]
+                                                }
+                                                src={false}
+                                                theme="rjv-default"
+                                              >
+                                                <span
+                                                  className="copy-to-clipboard-container"
+                                                >
+                                                  <span
+                                                    onClick={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "cursor": "pointer",
+                                                        "display": "inline",
+                                                      }
+                                                    }
+                                                  >
+                                                    <t
+                                                      className="copy-icon"
+                                                      style={
+                                                        Object {
+                                                          "color": "#268bd2",
+                                                          "fontSize": "15px",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                        }
+                                                      }
+                                                    >
+                                                      <span
+                                                        className="copy-icon"
+                                                      >
+                                                        <svg
+                                                          fill="currentColor"
+                                                          preserveAspectRatio="xMidYMid meet"
+                                                          style={
+                                                            Object {
+                                                              "color": "#268bd2",
+                                                              "fontSize": "15px",
+                                                              "height": "1em",
+                                                              "marginRight": "3px",
+                                                              "verticalAlign": "top",
+                                                              "width": "1em",
+                                                            }
+                                                          }
+                                                          viewBox="0 0 40 40"
+                                                        >
+                                                          <g>
+                                                            <path
+                                                              d="m30 35h-25v-22.5h25v7.5h2.5v-12.5c0-1.4-1.1-2.5-2.5-2.5h-7.5c0-2.8-2.2-5-5-5s-5 2.2-5 5h-7.5c-1.4 0-2.5 1.1-2.5 2.5v27.5c0 1.4 1.1 2.5 2.5 2.5h25c1.4 0 2.5-1.1 2.5-2.5v-5h-2.5v5z m-20-27.5h2.5s2.5-1.1 2.5-2.5 1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5 1.3 2.5 2.5 2.5h2.5s2.5 1.1 2.5 2.5h-20c0-1.5 1.1-2.5 2.5-2.5z m-2.5 20h5v-2.5h-5v2.5z m17.5-5v-5l-10 7.5 10 7.5v-5h12.5v-5h-12.5z m-17.5 10h7.5v-2.5h-7.5v2.5z m12.5-17.5h-12.5v2.5h12.5v-2.5z m-7.5 5h-5v2.5h5v-2.5z"
+                                                            />
+                                                          </g>
+                                                        </svg>
+                                                      </span>
+                                                    </t>
+                                                  </span>
+                                                </span>
+                                              </t>
+                                              <div
+                                                className="click-to-edit"
+                                                style={
+                                                  Object {
+                                                    "verticalAlign": "top",
+                                                  }
+                                                }
+                                              >
+                                                <t
+                                                  className="click-to-edit-icon"
+                                                  onClick={[Function]}
+                                                  style={
+                                                    Object {
+                                                      "color": "#2aa198",
+                                                      "cursor": "pointer",
+                                                      "display": "inline-block",
+                                                      "fontSize": "15px",
+                                                      "marginRight": "3px",
+                                                      "verticalAlign": "top",
+                                                    }
+                                                  }
+                                                >
+                                                  <span
+                                                    className="click-to-edit-icon"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <svg
+                                                      fill="currentColor"
+                                                      preserveAspectRatio="xMidYMid meet"
+                                                      style={
+                                                        Object {
+                                                          "color": "#2aa198",
+                                                          "cursor": "pointer",
+                                                          "display": "inline-block",
+                                                          "fontSize": "15px",
+                                                          "height": "1em",
+                                                          "marginRight": "3px",
+                                                          "verticalAlign": "top",
+                                                          "width": "1em",
+                                                        }
+                                                      }
+                                                      viewBox="0 0 40 40"
+                                                    >
+                                                      <g>
+                                                        <path
+                                                          d="m19.8 26.4l2.6-2.6-3.4-3.4-2.6 2.6v1.3h2.2v2.1h1.2z m9.8-16q-0.3-0.4-0.7 0l-7.8 7.8q-0.4 0.4 0 0.7t0.7 0l7.8-7.8q0.4-0.4 0-0.7z m1.8 13.2v4.3q0 2.6-1.9 4.5t-4.5 1.9h-18.6q-2.6 0-4.5-1.9t-1.9-4.5v-18.6q0-2.7 1.9-4.6t4.5-1.8h18.6q1.4 0 2.6 0.5 0.3 0.2 0.4 0.5 0.1 0.4-0.2 0.7l-1.1 1.1q-0.3 0.3-0.7 0.1-0.5-0.1-1-0.1h-18.6q-1.4 0-2.5 1.1t-1 2.5v18.6q0 1.4 1 2.5t2.5 1h18.6q1.5 0 2.5-1t1.1-2.5v-2.9q0-0.2 0.2-0.4l1.4-1.5q0.3-0.3 0.8-0.1t0.4 0.6z m-2.1-16.5l6.4 6.5-15 15h-6.4v-6.5z m9.9 3l-2.1 2-6.4-6.4 2.1-2q0.6-0.7 1.5-0.7t1.5 0.7l3.4 3.4q0.6 0.6 0.6 1.5t-0.6 1.5z"
+                                                        />
+                                                      </g>
+                                                    </svg>
+                                                  </span>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </t>
+                                        </div>
+                                      </div>
+                                      <span
+                                        className="brace-row"
+                                      >
+                                        <span
+                                          style={
+                                            Object {
+                                              "color": "#002b36",
+                                              "cursor": "pointer",
+                                              "display": "inline-block",
+                                              "fontWeight": "bold",
+                                              "paddingLeft": "3px",
+                                            }
+                                          }
+                                        >
+                                          }
+                                        </span>
+                                      </span>
+                                    </div>
+                                  </t>
+                                </div>
+                              </div>
+                              <span
+                                className="brace-row"
+                              >
+                                <span
+                                  style={
+                                    Object {
+                                      "color": "#002b36",
+                                      "cursor": "pointer",
+                                      "display": "inline-block",
+                                      "fontWeight": "bold",
+                                      "paddingLeft": "3px",
+                                    }
+                                  }
+                                >
+                                  }
+                                </span>
+                              </span>
+                            </div>
+                          </t>
+                        </div>
+                      </div>
+                    </t>
+                    <t
+                      active={false}
+                      defaultValue={null}
+                      rjvId="1598352165388"
+                      theme="rjv-default"
+                    />
+                  </div>
+                </t>
+              </div>
+            </div>
+          </TextContent>
+        </div>
+      </CardBody>
+    </article>
+  </Card>
+</Memo(ProcessDetailsProcessVariables)>
+`;
+
+exports[`ProcessVariables component tests snapshot testing without variables 1`] = `
 <Card
   data-ouia-component-type="process-variables"
   data-ouia-safe={true}
@@ -12,12 +2687,18 @@ exports[`ProcessVariables component tests snapshot testing with variables 1`] = 
     >
       Process Variables
     </Title>
+    <Label
+      className="kogito-management-console--variables__label-fadeOut"
+      color="green"
+      icon={<InfoCircleIcon />}
+    >
+       
+      Changes are saved
+    </Label>
   </CardHeader>
   <CardBody>
     <TextContent>
-      <div
-        key="0"
-      >
+      <div>
         <t
           collapseStringsAfterLength={false}
           collapsed={false}
@@ -28,38 +2709,15 @@ exports[`ProcessVariables component tests snapshot testing with variables 1`] = 
           groupArraysAfterLength={100}
           iconStyle="triangle"
           indentWidth={4}
-          name="root"
+          name={false}
           onAdd={false}
           onDelete={false}
-          onEdit={false}
+          onEdit={[Function]}
           onSelect={false}
           shouldCollapse={false}
           sortKeys={false}
           src={
             Object {
-              "hotel": Object {
-                "address": Object {
-                  "city": "Berlin",
-                  "country": "Germany",
-                  "street": "street",
-                  "zipCode": "12345",
-                },
-                "bookingNumber": "XX-012345",
-                "name": "Perfect hotel",
-                "phone": "09876543",
-              },
-              "traveller": Object {
-                "address": Object {
-                  "city": "Karkow",
-                  "country": "Poland",
-                  "street": "palna",
-                  "zipCode": "200300",
-                },
-                "email": "rob@redhat.com",
-                "firstName": "Rob",
-                "lastName": "Rob",
-                "nationality": "Polish",
-              },
               "trip": Object {
                 "begin": "2019-10-22T22:00:00Z[UTC]",
                 "city": "Berlin",
@@ -75,25 +2733,6 @@ exports[`ProcessVariables component tests snapshot testing with variables 1`] = 
         />
       </div>
     </TextContent>
-  </CardBody>
-</Card>
-`;
-
-exports[`ProcessVariables component tests snapshot testing without variables 1`] = `
-<Card
-  data-ouia-component-type="process-variables"
-  data-ouia-safe={true}
->
-  <CardHeader>
-    <Title
-      headingLevel="h3"
-      size="xl"
-    >
-      Process Variables
-    </Title>
-  </CardHeader>
-  <CardBody>
-    <TextContent />
   </CardBody>
 </Card>
 `;
