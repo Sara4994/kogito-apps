@@ -9,7 +9,7 @@ import ProcessInstanceState = GraphQL.ProcessInstanceState;
 import { Button } from '@patternfly/react-core';
 import axios from 'axios';
 jest.mock('axios');
-import * as Utils from '../../../../utils/Utils';
+// import * as Utils from '../../../../utils/Utils';
 import { act } from 'react-dom/test-utils';
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -293,7 +293,7 @@ describe('Process Details Page component tests', () => {
         </MockedProvider>,
         'ProcessDetailsPage'
       );
-      const handleAbortSpy = jest.spyOn(Utils, 'handleAbort');
+      // const handleAbortSpy = jest.spyOn(Utils, 'handleAbort');
       await act(async () => {
         wrapper
           .find(Button)
@@ -314,7 +314,7 @@ describe('Process Details Page component tests', () => {
         </MockedProvider>,
         'ProcessDetailsPage'
       );
-      const handleAbortSpy = jest.spyOn(Utils, 'handleAbort');
+      // const handleAbortSpy = jest.spyOn(Utils, 'handleAbort');
       await act(async () => {
         wrapper
           .find(Button)

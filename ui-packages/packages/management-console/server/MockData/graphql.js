@@ -53,6 +53,23 @@ module.exports = data = [
         type: 'StartNode'
       }
     ],
+    milestones: [
+    {
+      id: 'a23e6c20-02c2-4c2b-8c5c-e988a791019',
+      name: 'Manage decision',
+      status: 'ACTIVE'
+    },
+    {
+      id: 'a23e6c20-02c2-4c2b-8c5c-e988a628109i',
+      name: 'Manage decision',
+      status: 'COMPLETED'
+    },
+    {
+      id: 'a23e6c20-02c2-4c2b-8c5c-e98b81938009',
+      name: 'Manage decision',
+      status: 'AVAILABLE'
+    }
+  ],
     childProcessInstances: []
   },
   {
@@ -278,6 +295,23 @@ module.exports = data = [
         enter: '2019-10-22T03:37:30.753Z',
         exit: '2019-10-22T03:37:30.754Z',
         type: 'StartNode'
+      }
+    ],
+    milestones:[
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e988a791019',
+        name: 'Manage decision',
+        status: 'ACTIVE'
+      },
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e988a628109i',
+        name: 'Manage decision',
+        status: 'COMPLETED'
+      },
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e98b81938009',
+        name: 'Manage decision',
+        status: 'AVAILABLE'
       }
     ],
     childProcessInstances: [
@@ -860,6 +894,23 @@ module.exports = data = [
         enter: '2019-10-22T04:43:01.135Z',
         exit: '2019-10-22T04:43:01.135Z',
         type: 'StartNode'
+      }
+    ],
+    milestones:[
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e988a791019',
+        name: 'Manage decision',
+        status: 'ACTIVE'
+      },
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e988a628109i',
+        name: 'Manage decision',
+        status: 'COMPLETED'
+      },
+      {
+        id: 'a23e6c20-02c2-4c2b-8c5c-e98b81938009',
+        name: 'Manage decision',
+        status: 'AVAILABLE'
       }
     ],
     childProcessInstances: [

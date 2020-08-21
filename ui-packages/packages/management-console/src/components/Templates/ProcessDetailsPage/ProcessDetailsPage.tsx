@@ -31,6 +31,7 @@ import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import ProcessDetails from '../../Organisms/ProcessDetails/ProcessDetails';
 import ProcessDetailsProcessVariables from '../../Organisms/ProcessDetailsProcessVariables/ProcessDetailsProcessVariables';
 import ProcessDetailsTimeline from '../../Organisms/ProcessDetailsTimeline/ProcessDetailsTimeline';
+import ProcessDetailsProcessMilestones from '../../Organisms/ProcessDetailsProcessMilestones/ProcessDetailsProcessMilestones';
 import './ProcessDetailsPage.css';
 import PageTitle from '../../Molecules/PageTitle/PageTitle';
 import ProcessListModal from '../../Atoms/ProcessListModal/ProcessListModal';
@@ -418,6 +419,11 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<MatchProps, {}, {}> &
                   <ProcessDetailsTimeline data={data.ProcessInstances[0]} />
                 </GridItem>
                 {errorModal()}
+                <GridItem>
+                  <ProcessDetailsProcessMilestones
+                    data={data.ProcessInstances[0]}
+                  />
+                </GridItem>
               </Grid>
             ) : (
               <Card>

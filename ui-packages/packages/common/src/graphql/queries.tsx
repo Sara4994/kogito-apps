@@ -96,6 +96,11 @@ const GET_PROCESS_INSTANCE = gql`
         type
         definitionId
       }
+      milestones {
+        id
+        name
+        status
+      }
     }
   }
 `;
@@ -239,7 +244,6 @@ const GET_USER_TASKS_BY_STATES = gql`
       inputs
       outputs
       referenceName
-      endpoint
     }
   }
 `;
@@ -267,7 +271,6 @@ const GET_USER_TASK = gql`
       inputs
       outputs
       referenceName
-      endpoint
     }
   }
 `;
