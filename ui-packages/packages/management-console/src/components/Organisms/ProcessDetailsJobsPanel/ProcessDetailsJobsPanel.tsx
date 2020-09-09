@@ -52,6 +52,7 @@ const ProcessDetailsJobsPanel: React.FC<JobsPanelProps & OUIAProps> = ({
 
   const createRows = (jobsArray: GraphQL.Job[]): IRow[] => {
     const jobRows = [];
+    // console.log('job', data)
     jobsArray.forEach(job => {
       jobRows.push({
         cells: [

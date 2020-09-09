@@ -3145,7 +3145,8 @@ JobsData:[
     scheduledId: "0",
     retries: 0,
     lastUpdate: "2020-08-27T03:35:50.147Z",
-    expirationTime: null
+    expirationTime: null,
+    endpoint: 'http://localhost:4000'
   },
   {
     id: "dad3aa88-5c1e-4858-a919-6123c675a0fa_0",
@@ -3160,7 +3161,8 @@ JobsData:[
     scheduledId: null,
     retries: 0,
     lastUpdate: "2020-08-27T03:35:54.635Z",
-    expirationTime: "2020-08-27T04:35:54.631Z"
+    expirationTime: "2020-08-27T04:35:54.631Z",
+    endpoint: 'http://localhost:4000'
   },
   {
     id: "2234dde-npce1-2908-b3131-6123c675a0fa_0",
@@ -3175,7 +3177,8 @@ JobsData:[
     scheduledId: null,
     retries: 0,
     lastUpdate: "2020-08-27T03:35:54.635Z",
-    expirationTime: "2020-08-27T04:35:54.631Z"
+    expirationTime: "2020-08-27T04:35:54.631Z",
+    endpoint: 'http://localhost:4000'
   },
   {
     id: "T3113e-vbg43-2234-lo89-cpmw3214ra0fa_0",
@@ -3190,7 +3193,8 @@ JobsData:[
     scheduledId: null,
     retries: 0,
     lastUpdate: "2020-08-27T03:35:54.635Z",
-    expirationTime: "2020-08-27T04:35:54.631Z"
+    expirationTime: "2020-08-27T04:35:54.631Z",
+    endpoint: 'http://localhost:4000'
   },
   {
     id: "bff4ee-11qw23-6675-po987-qwedfrt45a0fa_0",
@@ -3205,7 +3209,8 @@ JobsData:[
     scheduledId: null,
     retries: 0,
     lastUpdate: "2020-08-27T03:35:54.635Z",
-    expirationTime: "2020-08-27T04:35:54.631Z"
+    expirationTime: "2020-08-27T04:35:54.631Z",
+    endpoint: 'http://localhost:4000'
   }
 ]
 }

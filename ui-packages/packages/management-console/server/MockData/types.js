@@ -612,6 +612,7 @@ type Job {
   retries: Int
   lastUpdate: DateTime
   executionCounter: Int
+  endpoint: String
 }
 
 enum JobStatus {
