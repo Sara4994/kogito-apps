@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SVG from 'react-inlinesvg';
 import {
   OnRunningIcon,
   CheckCircleIcon,
@@ -323,7 +324,7 @@ export const handleVariableUpdate = async (
     setVariableError(error.message);
   }
 };
-
+// function containing Api call to reschedule job
 export const handleJobReschedule = async (
   job,
   repeatInterval,
@@ -396,5 +397,19 @@ export const jobCancel = async (
     onJobCancelSuccess();
   } catch (error) {
     onJobCancelFailure(JSON.stringify(error.message));
+  }
+}
+export const getSvg = async (data, setSvg) => {
+  try {
+    await axios
+      .get(
+        `/svg/process/${data.ProcessInstances[0].processId}/instances/${data.ProcessInstances[0].id}`
+      )
+      .then(res => {
+        const temp = <SVG src={res.data} />;
+        setSvg(temp);
+      });
+  } catch (error) {
+    return error;
   }
 };

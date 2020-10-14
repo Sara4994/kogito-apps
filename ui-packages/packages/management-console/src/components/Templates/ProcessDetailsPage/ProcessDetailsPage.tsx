@@ -34,20 +34,22 @@ import ProcessDetails from '../../Organisms/ProcessDetails/ProcessDetails';
 import ProcessDetailsProcessVariables from '../../Organisms/ProcessDetailsProcessVariables/ProcessDetailsProcessVariables';
 import ProcessDetailsTimeline from '../../Organisms/ProcessDetailsTimeline/ProcessDetailsTimeline';
 import ProcessDetailsMilestones from '../../Organisms/ProcessDetailsMilestones/ProcessDetailsMilestones';
+import ProcessDetailsJobsPanel from '../../Organisms/ProcessDetailsJobsPanel/ProcessDetailsJobsPanel';
+import ProcessDetailsNodeTrigger from '../../Organisms/ProcessDetailsNodeTrigger/ProcessDetailsNodeTrigger';
+import ProcessDetailsProcessDiagram from '../../Organisms/ProcessDetailsProcessDiagram/ProcessDetailsProcessDiagram';
 import './ProcessDetailsPage.css';
 import PageTitle from '../../Molecules/PageTitle/PageTitle';
 import ProcessListModal from '../../Atoms/ProcessListModal/ProcessListModal';
 import {
+  getSvg,
   handleAbort,
   setTitle,
   handleVariableUpdate
 } from '../../../utils/Utils';
 import ProcessInstanceState = GraphQL.ProcessInstanceState;
 import { SyncIcon, InfoCircleIcon } from '@patternfly/react-icons';
-import ProcessDetailsJobsPanel from '../../Organisms/ProcessDetailsJobsPanel/ProcessDetailsJobsPanel';
 import { StaticContext } from 'react-router';
 import * as H from 'history';
-import ProcessDetailsNodeTrigger from '../../Organisms/ProcessDetailsNodeTrigger/ProcessDetailsNodeTrigger';
 
 interface MatchProps {
   instanceID: string;
@@ -75,11 +77,17 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
   const [errorModalOpen, setErrorModalOpen] = useState(false);
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [variableError, setVariableError] = useState();
+  const [svg, setSvg] = React.useState(null);
   let currentPage = JSON.parse(window.localStorage.getItem('state'));
 
   const { loading, error, data } = GraphQL.useGetProcessInstanceByIdQuery({
     variables: { id },
     fetchPolicy: 'network-only'
+  });
+  useEffect(() => {
+    if (data) {
+      // tslint:disable-next-line: no-floating-promises
+    }
   });
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
@@ -125,6 +133,7 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
 
   useEffect(() => {
     if (data) {
+      getSvg(data, setSvg);
       setUpdateJson(JSON.parse(data.ProcessInstances[0].variables));
     }
   }, [data]);
@@ -465,7 +474,32 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
                     </Split>
                   </GridItem>
                 </Grid>
-                <Flex>
+                {svg !== null && svg.props.src && (
+                  <Grid
+                    hasGutter
+                    md={1}
+                    span={12}
+                    lg={6}
+                    xl={4}
+                    className="kogito-management-console--details__marginSpaces"
+                  >
+                    <GridItem span={8}>
+                      <ProcessDetailsProcessDiagram svg={svg} />
+                    </GridItem>
+                    {data.ProcessInstances[0].addons.includes(
+                      'process-management'
+                    ) && (
+                      <GridItem span={4}>
+                        <Card className="kogito-management-console--NodeTrigger-cardHeight">
+                          <ProcessDetailsNodeTrigger
+                            processInstanceData={data.ProcessInstances[0]}
+                          />
+                        </Card>
+                      </GridItem>
+                    )}
+                  </Grid>
+                )}
+                <Flex className="kogito-management-console--details__marginSpaces">
                   <Flex
                     direction={{ default: 'column' }}
                     flex={{ default: 'flex_1' }}
@@ -509,17 +543,17 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
                     <FlexItem>
                       <ProcessDetailsJobsPanel processInstanceId={id} />
                     </FlexItem>
-                    {data.ProcessInstances[0].addons.includes(
-                      'process-management'
-                    ) &&
-                      data.ProcessInstances[0].state !==
-                        GraphQL.ProcessInstanceState.Completed &&
-                      data.ProcessInstances[0].state !==
-                        GraphQL.ProcessInstanceState.Aborted && (
+                    {svg !== null &&
+                      !svg.props.src &&
+                      data.ProcessInstances[0].addons.includes(
+                        'process-management'
+                      ) && (
                         <FlexItem>
-                          <ProcessDetailsNodeTrigger
-                            processInstanceData={data.ProcessInstances[0]}
-                          />
+                          <Card>
+                            <ProcessDetailsNodeTrigger
+                              processInstanceData={data.ProcessInstances[0]}
+                            />
+                          </Card>
                         </FlexItem>
                       )}
                   </Flex>

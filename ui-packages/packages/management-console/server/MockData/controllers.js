@@ -1,6 +1,8 @@
 const restData = require('./rest');
 const graphData = require('./graphql');
+const path = require('path');
 
+const processSvg = ['8035b580-6ae4-4aa8-9ec0-e18e19809e0b','8035b580-6ae4-4aa8-9ec0-e18e19809e0blmnop']
 module.exports = controller = {
   showError: (req, res) => {
     console.log('called', req.params.processId, req.params.processInstanceId);
@@ -179,6 +181,13 @@ module.exports = controller = {
       jobData[0].status = 'CANCELLED';
       jobData[0].lastUpdate = new Date().toISOString();
       res.status(200).send(jobData[0]);
+    }
+  },
+  dispatchSVG: (req, res) => {
+    if(processSvg.includes(req.params.id)){
+      res.sendFile(path.resolve(__dirname+'../../../src/static/travels.svg'))
+    } else {
+      res.send(null);
     }
   }
 };

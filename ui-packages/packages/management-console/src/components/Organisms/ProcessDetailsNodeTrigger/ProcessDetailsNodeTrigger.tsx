@@ -1,5 +1,4 @@
 import {
-  Card,
   CardBody,
   CardHeader,
   Title,
@@ -25,6 +24,7 @@ import {
   TriggerableNode
 } from '../../../utils/Utils';
 import { GraphQL, OUIAProps, componentOuiaProps } from '@kogito-apps/common';
+import './ProcessDetailsNodeTrigger.css';
 
 interface IOwnProps {
   processInstanceData: Pick<
@@ -112,7 +112,7 @@ const ProcessDetailsNodeTrigger: React.FC<IOwnProps & OUIAProps> = ({
   };
 
   return (
-    <Card {...componentOuiaProps(ouiaId, 'node-trigger', ouiaSafe)}>
+    <div {...componentOuiaProps(ouiaId, 'node-trigger', ouiaSafe)}>
       <ProcessListModal
         isModalOpen={isModalOpen}
         handleModalToggle={handleModalToggle}
@@ -213,7 +213,7 @@ const ProcessDetailsNodeTrigger: React.FC<IOwnProps & OUIAProps> = ({
           </Button>
         </div>
       </CardBody>
-    </Card>
+    </div>
   );
 };
 
