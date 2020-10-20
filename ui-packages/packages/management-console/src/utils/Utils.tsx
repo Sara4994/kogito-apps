@@ -406,6 +406,7 @@ export const getSvg = async (data, setSvg) => {
         `/svg/process/${data.ProcessInstances[0].processId}/instances/${data.ProcessInstances[0].id}`
       )
       .then(res => {
+        console.log('res', res);
         const temp = <SVG src={res.data} />;
         setSvg(temp);
       });

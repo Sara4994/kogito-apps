@@ -12,7 +12,8 @@ import {
   handleJobReschedule,
   handleNodeTrigger,
   getTriggerableNodes,
-  jobCancel
+  jobCancel,
+  getSvg
 } from '../Utils';
 import { GraphQL } from '@kogito-apps/common';
 import ProcessInstanceState = GraphQL.ProcessInstanceState;
@@ -694,6 +695,44 @@ describe('uitility function testing', () => {
       await wait(0);
       expect(onJobCancelFailure).toHaveBeenCalled();
       expect(onJobCancelFailure.mock.calls[0][0]).toEqual('"404 error"');
+    });
+  });
+
+
+  describe('test utility of svg panel', () => {
+    it('handle api to get svg', async () => {
+      mockedAxios.get.mockResolvedValue({
+        data:
+          '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="300" viewBox="0 0 1748 632"></g></g></svg>',
+        status: 200,
+        statusText: 'OK'
+      });
+      const data = {
+        ProcessInstances: [
+          {
+            callbackEndpoint:
+              'http://localhost:8080/management/jobs/travels/instances/9865268c-64d7-3a44-8972-7325b295f7cc/timers/58180644-2fdf-4261-83f2-f4e783d308a3_0',
+            executionCounter: 0,
+            executionResponse: null,
+            expirationTime: '2020-10-16T10:17:22.879Z',
+            id: '58180644-2fdf-4261-83f2-f4e783d308a3_0',
+            lastUpdate: '2020-10-07T07:41:31.467Z',
+            priority: 0,
+            processId: 'travels',
+            processInstanceId: '9865268c-64d7-3a44-8972-7325b295f7cc',
+            repeatInterval: null,
+            repeatLimit: null,
+            retries: 0,
+            rootProcessId: null,
+            rootProcessInstanceId: null,
+            scheduledId: null,
+            status: 'SCHEDULED'
+          }
+        ]
+      };
+      const setSvg = jest.fn();
+      const setSvgError = jest.fn();
+      await getSvg(data, setSvg, setSvgError);
     });
   });
 });

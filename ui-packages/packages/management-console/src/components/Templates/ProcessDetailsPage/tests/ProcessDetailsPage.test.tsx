@@ -11,6 +11,7 @@ import { Button } from '@patternfly/react-core';
 import axios from 'axios';
 jest.mock('axios');
 import * as Utils from '../../../../utils/Utils';
+import SVG from 'react-inlinesvg';
 import { act } from 'react-dom/test-utils';
 import _ from 'lodash';
 // tslint:disable: no-string-literal
@@ -546,5 +547,28 @@ describe('Process Details Page component tests', () => {
         .find('MockedProcessDetailsNodeTrigger')
         .exists()
     ).toBeFalsy();
+  });
+
+  it('test api to get svg', async () => {
+    const res = {
+      data:
+        '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="800" height="300" viewBox="0 0 1748 632"></svg>'
+    };
+    const svgElement: JSX.Element = (
+      <InlineSVG cacheRequests={true} src={res.data} uniquifyIDs={false} />
+    );
+    mockedAxios.get.mockResolvedValue(res);
+    const wrapper = await getWrapperAsync(
+      <MockedProvider mocks={mocks1} addTypename={false}>
+        <BrowserRouter>
+          <ProcessDetailsPage {...props} />
+        </BrowserRouter>
+      </MockedProvider>,
+      'ProcessDetailsPage'
+    );
+    wrapper.update();
+    expect(
+      wrapper.find('MockedProcessDetailsProcessDiagram').props()['svg']
+    ).toEqual(svgElement);
   });
 });

@@ -218,7 +218,7 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={9}
+                    data-ouia-component-id={11}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -523,7 +523,7 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
                                         aria-disabled={false}
                                         aria-label={null}
                                         className="pf-c-button pf-m-secondary kogito-management-console--details__buttonMargin"
-                                        data-ouia-component-id={10}
+                                        data-ouia-component-id={12}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -543,7 +543,7 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
                                         aria-disabled={false}
                                         aria-label={null}
                                         className="pf-c-button pf-m-secondary"
-                                        data-ouia-component-id={11}
+                                        data-ouia-component-id={13}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -564,7 +564,7 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
                                         aria-disabled={false}
                                         aria-label="Refresh list"
                                         className="pf-c-button pf-m-plain"
-                                        data-ouia-component-id={12}
+                                        data-ouia-component-id={14}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -615,9 +615,15 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
         </Grid>
         <Flex
           className="kogito-management-console--details__marginSpaces"
+          direction={
+            Object {
+              "default": "column",
+              "lg": "row",
+            }
+          }
         >
           <div
-            className="pf-l-flex kogito-management-console--details__marginSpaces"
+            className="pf-l-flex pf-m-column pf-m-row-on-lg kogito-management-console--details__marginSpaces"
           >
             <Flex
               direction={
@@ -894,6 +900,77 @@ exports[`Process Details Page component tests snapshot testing in Active state 1
                     <ProcessDetailsJobsPanel
                       processInstanceId="8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
                     />
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <Card>
+                      <article
+                        className="pf-c-card"
+                        data-ouia-component-id={15}
+                        data-ouia-component-type="PF4/Card"
+                        data-ouia-safe={true}
+                      >
+                        <MockedProcessDetailsNodeTrigger
+                          processInstanceData={
+                            Object {
+                              "addons": Array [
+                                "process-management",
+                              ],
+                              "businessKey": null,
+                              "childProcessInstances": Array [],
+                              "end": null,
+                              "endpoint": "http://localhost:4000",
+                              "error": Object {
+                                "message": "Something went wrong",
+                                "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                              },
+                              "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                              "lastUpdate": "2019-10-22T03:40:44.089Z",
+                              "milestones": Array [
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                                  "name": "Milestone 1: Order placed",
+                                  "status": "ACTIVE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                                  "name": "Milestone 2: Order shipped",
+                                  "status": "AVAILABLE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                                  "name": "Manager decision",
+                                  "status": "COMPLETED",
+                                },
+                              ],
+                              "nodes": Array [
+                                Object {
+                                  "definitionId": "StartEvent_1",
+                                  "enter": "2019-10-22T04:43:01.135Z",
+                                  "exit": "2019-10-22T04:43:01.135Z",
+                                  "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                  "name": "StartProcess",
+                                  "nodeId": "9",
+                                  "type": "StartNode",
+                                },
+                              ],
+                              "parentProcessInstance": null,
+                              "parentProcessInstanceId": null,
+                              "processId": "Travels",
+                              "processName": "travels",
+                              "roles": Array [],
+                              "serviceUrl": "http://localhost:4000",
+                              "start": "2019-10-22T03:40:44.089Z",
+                              "state": "ACTIVE",
+                              "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                            }
+                          }
+                        />
+                      </article>
+                    </Card>
                   </div>
                 </FlexItem>
               </div>
@@ -1242,7 +1319,7 @@ exports[`Process Details Page component tests snapshot testing in Error state 1`
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={78}
+                    data-ouia-component-id={95}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -1544,7 +1621,7 @@ exports[`Process Details Page component tests snapshot testing in Error state 1`
                                         aria-disabled={true}
                                         aria-label={null}
                                         className="pf-c-button pf-m-secondary pf-m-disabled"
-                                        data-ouia-component-id={79}
+                                        data-ouia-component-id={96}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={true}
@@ -1564,7 +1641,7 @@ exports[`Process Details Page component tests snapshot testing in Error state 1`
                                         aria-disabled={false}
                                         aria-label="Refresh list"
                                         className="pf-c-button pf-m-plain"
-                                        data-ouia-component-id={80}
+                                        data-ouia-component-id={97}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -1615,9 +1692,15 @@ exports[`Process Details Page component tests snapshot testing in Error state 1`
         </Grid>
         <Flex
           className="kogito-management-console--details__marginSpaces"
+          direction={
+            Object {
+              "default": "column",
+              "lg": "row",
+            }
+          }
         >
           <div
-            className="pf-l-flex kogito-management-console--details__marginSpaces"
+            className="pf-l-flex pf-m-column pf-m-row-on-lg kogito-management-console--details__marginSpaces"
           >
             <Flex
               direction={
@@ -2250,7 +2333,7 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                   <nav
                     aria-label="Breadcrumb"
                     className="pf-c-breadcrumb"
-                    data-ouia-component-id={90}
+                    data-ouia-component-id={109}
                     data-ouia-component-type="PF4/Breadcrumb"
                     data-ouia-safe={true}
                   >
@@ -2555,7 +2638,7 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                                         aria-disabled={false}
                                         aria-label={null}
                                         className="pf-c-button pf-m-secondary kogito-management-console--details__buttonMargin"
-                                        data-ouia-component-id={91}
+                                        data-ouia-component-id={110}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -2575,7 +2658,7 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                                         aria-disabled={false}
                                         aria-label={null}
                                         className="pf-c-button pf-m-secondary"
-                                        data-ouia-component-id={92}
+                                        data-ouia-component-id={111}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -2596,7 +2679,7 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                                         aria-disabled={false}
                                         aria-label="Refresh list"
                                         className="pf-c-button pf-m-plain"
-                                        data-ouia-component-id={93}
+                                        data-ouia-component-id={112}
                                         data-ouia-component-type="PF4/Button"
                                         data-ouia-safe={true}
                                         disabled={false}
@@ -2647,9 +2730,15 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
         </Grid>
         <Flex
           className="kogito-management-console--details__marginSpaces"
+          direction={
+            Object {
+              "default": "column",
+              "lg": "row",
+            }
+          }
         >
           <div
-            className="pf-l-flex kogito-management-console--details__marginSpaces"
+            className="pf-l-flex pf-m-column pf-m-row-on-lg kogito-management-console--details__marginSpaces"
           >
             <Flex
               direction={
@@ -2928,6 +3017,77 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                     />
                   </div>
                 </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <Card>
+                      <article
+                        className="pf-c-card"
+                        data-ouia-component-id={113}
+                        data-ouia-component-type="PF4/Card"
+                        data-ouia-safe={true}
+                      >
+                        <MockedProcessDetailsNodeTrigger
+                          processInstanceData={
+                            Object {
+                              "addons": Array [
+                                "process-management",
+                              ],
+                              "businessKey": null,
+                              "childProcessInstances": Array [],
+                              "end": null,
+                              "endpoint": "http://localhost:4000",
+                              "error": Object {
+                                "message": "Something went wrong",
+                                "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                              },
+                              "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                              "lastUpdate": "2019-10-22T03:40:44.089Z",
+                              "milestones": Array [
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                                  "name": "Milestone 1: Order placed",
+                                  "status": "ACTIVE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                                  "name": "Milestone 2: Order shipped",
+                                  "status": "AVAILABLE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                                  "name": "Manager decision",
+                                  "status": "COMPLETED",
+                                },
+                              ],
+                              "nodes": Array [
+                                Object {
+                                  "definitionId": "StartEvent_1",
+                                  "enter": "2019-10-22T04:43:01.135Z",
+                                  "exit": "2019-10-22T04:43:01.135Z",
+                                  "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                  "name": "StartProcess",
+                                  "nodeId": "9",
+                                  "type": "StartNode",
+                                },
+                              ],
+                              "parentProcessInstance": null,
+                              "parentProcessInstanceId": null,
+                              "processId": "Travels",
+                              "processName": "travels",
+                              "roles": Array [],
+                              "serviceUrl": "http://localhost:4000",
+                              "start": "2019-10-22T03:40:44.089Z",
+                              "state": "SUSPENDED",
+                              "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                            }
+                          }
+                        />
+                      </article>
+                    </Card>
+                  </div>
+                </FlexItem>
               </div>
             </Flex>
             <Modal
@@ -3160,6 +3320,1943 @@ exports[`Process Details Page component tests snapshot testing in Suspended stat
                   }
                   isOpen={false}
                   labelId="pf-modal-part-10"
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title=""
+                  variant="small"
+                />
+              </Portal>
+            </Modal>
+          </div>
+        </Flex>
+      </section>
+    </PageSection>
+  </div>
+</ProcessDetailsPage>
+`;
+
+exports[`Process Details Page component tests test api to get svg 1`] = `
+<ProcessDetailsPage
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+  location={
+    Object {
+      "hash": "",
+      "pathname": "/",
+      "search": "",
+      "state": Object {
+        "filters": Object {
+          "businessKey": Array [
+            "tra",
+          ],
+          "status": Array [
+            "ACTIVE",
+          ],
+        },
+      },
+    }
+  }
+  match={
+    Object {
+      "isExact": false,
+      "params": Object {
+        "instanceID": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+      },
+      "path": "",
+      "url": "",
+    }
+  }
+>
+  <div
+    data-ouia-component-type="ProcessDetailsPage"
+    data-ouia-safe={true}
+  >
+    <PageSection
+      variant="light"
+    >
+      <section
+        className="pf-c-page__main-section pf-m-light"
+      >
+        <MockedProcessListModal
+          handleModalToggle={[Function]}
+          isModalOpen={false}
+          modalContent=""
+          processName="travels"
+        />
+        <PageTitle
+          title="Process Details"
+        >
+          <Title
+            data-ouia-component-type="page-title"
+            data-ouia-safe={true}
+            headingLevel="h1"
+            size="4xl"
+          >
+            <h1
+              className="pf-c-title pf-m-4xl"
+              data-ouia-component-type="page-title"
+              data-ouia-safe={true}
+            >
+              Process Details
+            </h1>
+          </Title>
+        </PageTitle>
+        <Grid
+          hasGutter={true}
+          lg={6}
+          md={1}
+          span={12}
+          xl={4}
+        >
+          <div
+            className="pf-l-grid pf-m-all-12-col pf-m-all-1-col-on-md pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+          >
+            <GridItem
+              span={12}
+            >
+              <div
+                className="pf-l-grid__item pf-m-12-col"
+              >
+                <Breadcrumb>
+                  <nav
+                    aria-label="Breadcrumb"
+                    className="pf-c-breadcrumb"
+                    data-ouia-component-id={225}
+                    data-ouia-component-type="PF4/Breadcrumb"
+                    data-ouia-safe={true}
+                  >
+                    <ol
+                      className="pf-c-breadcrumb__list"
+                    >
+                      <BreadcrumbItem
+                        key=".0"
+                        showDivider={false}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <Link
+                            to="/"
+                          >
+                            <LinkAnchor
+                              href="/"
+                              navigate={[Function]}
+                            >
+                              <a
+                                href="/"
+                                onClick={[Function]}
+                              >
+                                Home
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </li>
+                      </BreadcrumbItem>
+                      <BreadcrumbItem
+                        key=".1:$0"
+                        showDivider={true}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <span
+                            className="pf-c-breadcrumb__item-divider"
+                          >
+                            <AngleRightIcon
+                              color="currentColor"
+                              noVerticalAlign={false}
+                              size="sm"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                aria-labelledby={null}
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 0 256 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                  transform=""
+                                />
+                              </svg>
+                            </AngleRightIcon>
+                          </span>
+                          <Link
+                            to={
+                              Object {
+                                "pathname": "/ProcessInstances",
+                                "state": Object {
+                                  "filters": Object {
+                                    "businessKey": Array [
+                                      "tra",
+                                    ],
+                                    "status": Array [
+                                      "ACTIVE",
+                                    ],
+                                  },
+                                },
+                              }
+                            }
+                          >
+                            <LinkAnchor
+                              href="/ProcessInstances"
+                              navigate={[Function]}
+                            >
+                              <a
+                                href="/ProcessInstances"
+                                onClick={[Function]}
+                              >
+                                Process Instances
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </li>
+                      </BreadcrumbItem>
+                      <BreadcrumbItem
+                        key=".1:$1"
+                        showDivider={true}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <span
+                            className="pf-c-breadcrumb__item-divider"
+                          >
+                            <AngleRightIcon
+                              color="currentColor"
+                              noVerticalAlign={false}
+                              size="sm"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                aria-labelledby={null}
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 0 256 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                  transform=""
+                                />
+                              </svg>
+                            </AngleRightIcon>
+                          </span>
+                          <Link
+                            to={
+                              Object {
+                                "pathname": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                "state": Object {
+                                  "filters": Object {
+                                    "businessKey": Array [
+                                      "tra",
+                                    ],
+                                    "status": Array [
+                                      "ACTIVE",
+                                    ],
+                                  },
+                                },
+                              }
+                            }
+                          >
+                            <LinkAnchor
+                              href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                              navigate={[Function]}
+                            >
+                              <a
+                                href="/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                                onClick={[Function]}
+                              >
+                                8035b580-6ae4-4aa8-9ec0-e18e19809e0b
+                              </a>
+                            </LinkAnchor>
+                          </Link>
+                        </li>
+                      </BreadcrumbItem>
+                      <BreadcrumbItem
+                        isActive={true}
+                        key=".2"
+                        showDivider={true}
+                      >
+                        <li
+                          className="pf-c-breadcrumb__item"
+                        >
+                          <span
+                            className="pf-c-breadcrumb__item-divider"
+                          >
+                            <AngleRightIcon
+                              color="currentColor"
+                              noVerticalAlign={false}
+                              size="sm"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                aria-labelledby={null}
+                                fill="currentColor"
+                                height="1em"
+                                role="img"
+                                style={
+                                  Object {
+                                    "verticalAlign": "-0.125em",
+                                  }
+                                }
+                                viewBox="0 0 256 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
+                                  transform=""
+                                />
+                              </svg>
+                            </AngleRightIcon>
+                          </span>
+                          travels
+                        </li>
+                      </BreadcrumbItem>
+                    </ol>
+                  </nav>
+                </Breadcrumb>
+              </div>
+            </GridItem>
+          </div>
+        </Grid>
+      </section>
+    </PageSection>
+    <PageSection>
+      <section
+        className="pf-c-page__main-section"
+      >
+        <Grid
+          hasGutter={true}
+          lg={6}
+          md={1}
+          span={12}
+          xl={4}
+        >
+          <div
+            className="pf-l-grid pf-m-all-12-col pf-m-all-1-col-on-md pf-m-all-6-col-on-lg pf-m-all-4-col-on-xl pf-m-gutter"
+          >
+            <GridItem
+              span={12}
+            >
+              <div
+                className="pf-l-grid__item pf-m-12-col"
+              >
+                <Split
+                  className="pf-u-align-items-center"
+                  component="div"
+                  hasGutter={true}
+                >
+                  <div
+                    className="pf-l-split pf-m-gutter pf-u-align-items-center"
+                  >
+                    <SplitItem
+                      isFilled={true}
+                    >
+                      <div
+                        className="pf-l-split__item pf-m-fill"
+                      >
+                        <Title
+                          className="kogito-management-console--details__title"
+                          headingLevel="h2"
+                          size="4xl"
+                        >
+                          <h2
+                            className="pf-c-title pf-m-4xl kogito-management-console--details__title"
+                          >
+                            <ItemDescriptor
+                              itemDescription={
+                                Object {
+                                  "description": null,
+                                  "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                                  "name": "travels",
+                                }
+                              }
+                            >
+                              <MockedComponent />
+                            </ItemDescriptor>
+                          </h2>
+                        </Title>
+                      </div>
+                    </SplitItem>
+                    <SplitItem>
+                      <div
+                        className="pf-l-split__item"
+                      >
+                        <OverflowMenu
+                          breakpoint="lg"
+                        >
+                          <div
+                            className="pf-c-overflow-menu"
+                          >
+                            <OverflowMenuContent
+                              isPersistent={true}
+                            >
+                              <div
+                                className="pf-c-overflow-menu__content"
+                              >
+                                <OverflowMenuGroup
+                                  groupType="button"
+                                  isPersistent={true}
+                                >
+                                  <div
+                                    className="pf-c-overflow-menu__group pf-m-button-group"
+                                  >
+                                    <Button
+                                      className="kogito-management-console--details__buttonMargin"
+                                      id="save-button"
+                                      isDisabled={false}
+                                      onClick={[Function]}
+                                      variant="secondary"
+                                    >
+                                      <button
+                                        aria-disabled={false}
+                                        aria-label={null}
+                                        className="pf-c-button pf-m-secondary kogito-management-console--details__buttonMargin"
+                                        data-ouia-component-id={226}
+                                        data-ouia-component-type="PF4/Button"
+                                        data-ouia-safe={true}
+                                        disabled={false}
+                                        id="save-button"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Save
+                                      </button>
+                                    </Button>
+                                    <Button
+                                      id="abort-button"
+                                      onClick={[Function]}
+                                      variant="secondary"
+                                    >
+                                      <button
+                                        aria-disabled={false}
+                                        aria-label={null}
+                                        className="pf-c-button pf-m-secondary"
+                                        data-ouia-component-id={227}
+                                        data-ouia-component-type="PF4/Button"
+                                        data-ouia-safe={true}
+                                        disabled={false}
+                                        id="abort-button"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        Abort
+                                      </button>
+                                    </Button>
+                                    <Button
+                                      aria-label="Refresh list"
+                                      id="refresh-button"
+                                      onClick={[Function]}
+                                      variant="plain"
+                                    >
+                                      <button
+                                        aria-disabled={false}
+                                        aria-label="Refresh list"
+                                        className="pf-c-button pf-m-plain"
+                                        data-ouia-component-id={228}
+                                        data-ouia-component-type="PF4/Button"
+                                        data-ouia-safe={true}
+                                        disabled={false}
+                                        id="refresh-button"
+                                        onClick={[Function]}
+                                        type="button"
+                                      >
+                                        <SyncIcon
+                                          color="currentColor"
+                                          noVerticalAlign={false}
+                                          size="sm"
+                                        >
+                                          <svg
+                                            aria-hidden={true}
+                                            aria-labelledby={null}
+                                            fill="currentColor"
+                                            height="1em"
+                                            role="img"
+                                            style={
+                                              Object {
+                                                "verticalAlign": "-0.125em",
+                                              }
+                                            }
+                                            viewBox="0 0 512 512"
+                                            width="1em"
+                                          >
+                                            <path
+                                              d="M440.65 12.57l4 82.77A247.16 247.16 0 0 0 255.83 8C134.73 8 33.91 94.92 12.29 209.82A12 12 0 0 0 24.09 224h49.05a12 12 0 0 0 11.67-9.26 175.91 175.91 0 0 1 317-56.94l-101.46-4.86a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12H500a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12h-47.37a12 12 0 0 0-11.98 12.57zM255.83 432a175.61 175.61 0 0 1-146-77.8l101.8 4.87a12 12 0 0 0 12.57-12v-47.4a12 12 0 0 0-12-12H12a12 12 0 0 0-12 12V500a12 12 0 0 0 12 12h47.35a12 12 0 0 0 12-12.6l-4.15-82.57A247.17 247.17 0 0 0 255.83 504c121.11 0 221.93-86.92 243.55-201.82a12 12 0 0 0-11.8-14.18h-49.05a12 12 0 0 0-11.67 9.26A175.86 175.86 0 0 1 255.83 432z"
+                                              transform=""
+                                            />
+                                          </svg>
+                                        </SyncIcon>
+                                      </button>
+                                    </Button>
+                                  </div>
+                                </OverflowMenuGroup>
+                              </div>
+                            </OverflowMenuContent>
+                          </div>
+                        </OverflowMenu>
+                      </div>
+                    </SplitItem>
+                  </div>
+                </Split>
+              </div>
+            </GridItem>
+          </div>
+        </Grid>
+        <Flex
+          className="kogito-management-console--details__marginSpaces"
+          direction={
+            Object {
+              "default": "column",
+              "lg": "row",
+            }
+          }
+        >
+          <div
+            className="pf-l-flex pf-m-column pf-m-row-on-lg kogito-management-console--details__marginSpaces"
+          >
+            <Flex
+              direction={
+                Object {
+                  "default": "column",
+                }
+              }
+              flex={
+                Object {
+                  "default": "flex_1",
+                }
+              }
+            >
+              <div
+                className="pf-l-flex pf-m-flex-1 pf-m-column"
+              >
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <MockedProcessDetails
+                      data={
+                        Object {
+                          "ProcessInstances": Array [
+                            Object {
+                              "addons": Array [
+                                "process-management",
+                              ],
+                              "businessKey": null,
+                              "childProcessInstances": Array [],
+                              "end": null,
+                              "endpoint": "http://localhost:4000",
+                              "error": Object {
+                                "message": "Something went wrong",
+                                "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                              },
+                              "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                              "lastUpdate": "2019-10-22T03:40:44.089Z",
+                              "milestones": Array [
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                                  "name": "Milestone 1: Order placed",
+                                  "status": "ACTIVE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                                  "name": "Milestone 2: Order shipped",
+                                  "status": "AVAILABLE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                                  "name": "Manager decision",
+                                  "status": "COMPLETED",
+                                },
+                              ],
+                              "nodes": Array [
+                                Object {
+                                  "definitionId": "StartEvent_1",
+                                  "enter": "2019-10-22T04:43:01.135Z",
+                                  "exit": "2019-10-22T04:43:01.135Z",
+                                  "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                  "name": "StartProcess",
+                                  "nodeId": "9",
+                                  "type": "StartNode",
+                                },
+                              ],
+                              "parentProcessInstance": null,
+                              "parentProcessInstanceId": null,
+                              "processId": "Travels",
+                              "processName": "travels",
+                              "roles": Array [],
+                              "serviceUrl": "http://localhost:4000",
+                              "start": "2019-10-22T03:40:44.089Z",
+                              "state": "ACTIVE",
+                              "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                            },
+                          ],
+                        }
+                      }
+                      from={
+                        Object {
+                          "filters": Object {
+                            "businessKey": Array [
+                              "tra",
+                            ],
+                            "status": Array [
+                              "ACTIVE",
+                            ],
+                          },
+                          "prev": "/ProcessInstances/8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                        }
+                      }
+                    />
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <ProcessDetailsMilestones
+                      milestones={
+                        Array [
+                          Object {
+                            "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                            "name": "Milestone 1: Order placed",
+                            "status": "ACTIVE",
+                          },
+                          Object {
+                            "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                            "name": "Milestone 2: Order shipped",
+                            "status": "AVAILABLE",
+                          },
+                          Object {
+                            "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                            "name": "Manager decision",
+                            "status": "COMPLETED",
+                          },
+                        ]
+                      }
+                    />
+                  </div>
+                </FlexItem>
+              </div>
+            </Flex>
+            <Flex
+              direction={
+                Object {
+                  "default": "column",
+                }
+              }
+              flex={
+                Object {
+                  "default": "flex_1",
+                }
+              }
+            >
+              <div
+                className="pf-l-flex pf-m-flex-1 pf-m-column"
+              >
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <MockedProcessDetailsProcessVariables
+                      displayLabel={true}
+                      displaySuccess={false}
+                      setDisplayLabel={[Function]}
+                      setUpdateJson={[Function]}
+                      updateJson={
+                        Object {
+                          "flight": Object {
+                            "arrival": "2019-10-30T22:00:00Z[UTC]",
+                            "departure": "2019-10-22T22:00:00Z[UTC]",
+                            "flightNumber": "MX555",
+                          },
+                          "hotel": Object {
+                            "address": Object {
+                              "city": "Berlin",
+                              "country": "Germany",
+                              "street": "street",
+                              "zipCode": "12345",
+                            },
+                            "bookingNumber": "XX-012345",
+                            "name": "Perfect hotel",
+                            "phone": "09876543",
+                          },
+                          "traveller": Object {
+                            "address": Object {
+                              "city": "Karkow",
+                              "country": "Poland",
+                              "street": "palna",
+                              "zipCode": "200300",
+                            },
+                            "email": "rob@redhat.com",
+                            "firstName": "Rob",
+                            "lastName": "Rob",
+                            "nationality": "Polish",
+                          },
+                          "trip": Object {
+                            "begin": "2019-10-22T22:00:00Z[UTC]",
+                            "city": "Berlin",
+                            "country": "Germany",
+                            "end": "2019-10-30T22:00:00Z[UTC]",
+                            "visaRequired": false,
+                          },
+                        }
+                      }
+                    />
+                  </div>
+                </FlexItem>
+              </div>
+            </Flex>
+            <Flex
+              direction={
+                Object {
+                  "default": "column",
+                }
+              }
+              flex={
+                Object {
+                  "default": "flex_1",
+                }
+              }
+            >
+              <div
+                className="pf-l-flex pf-m-flex-1 pf-m-column"
+              >
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <MockedProcessDetailsTimeline
+                      data={
+                        Object {
+                          "addons": Array [
+                            "process-management",
+                          ],
+                          "businessKey": null,
+                          "childProcessInstances": Array [],
+                          "end": null,
+                          "endpoint": "http://localhost:4000",
+                          "error": Object {
+                            "message": "Something went wrong",
+                            "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                          },
+                          "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                          "lastUpdate": "2019-10-22T03:40:44.089Z",
+                          "milestones": Array [
+                            Object {
+                              "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                              "name": "Milestone 1: Order placed",
+                              "status": "ACTIVE",
+                            },
+                            Object {
+                              "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                              "name": "Milestone 2: Order shipped",
+                              "status": "AVAILABLE",
+                            },
+                            Object {
+                              "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                              "name": "Manager decision",
+                              "status": "COMPLETED",
+                            },
+                          ],
+                          "nodes": Array [
+                            Object {
+                              "definitionId": "StartEvent_1",
+                              "enter": "2019-10-22T04:43:01.135Z",
+                              "exit": "2019-10-22T04:43:01.135Z",
+                              "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                              "name": "StartProcess",
+                              "nodeId": "9",
+                              "type": "StartNode",
+                            },
+                          ],
+                          "parentProcessInstance": null,
+                          "parentProcessInstanceId": null,
+                          "processId": "Travels",
+                          "processName": "travels",
+                          "roles": Array [],
+                          "serviceUrl": "http://localhost:4000",
+                          "start": "2019-10-22T03:40:44.089Z",
+                          "state": "ACTIVE",
+                          "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                        }
+                      }
+                    />
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <ProcessDetailsJobsPanel
+                      processInstanceId="8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                    />
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <Card>
+                      <article
+                        className="pf-c-card"
+                        data-ouia-component-id={229}
+                        data-ouia-component-type="PF4/Card"
+                        data-ouia-safe={true}
+                      >
+                        <MockedProcessDetailsNodeTrigger
+                          processInstanceData={
+                            Object {
+                              "addons": Array [
+                                "process-management",
+                              ],
+                              "businessKey": null,
+                              "childProcessInstances": Array [],
+                              "end": null,
+                              "endpoint": "http://localhost:4000",
+                              "error": Object {
+                                "message": "Something went wrong",
+                                "nodeDefinitionId": "a1e139d5-4e77-48c9-84ae-3459188e90433n",
+                              },
+                              "id": "8035b580-6ae4-4aa8-9ec0-e18e19809e0b",
+                              "lastUpdate": "2019-10-22T03:40:44.089Z",
+                              "milestones": Array [
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m36",
+                                  "name": "Milestone 1: Order placed",
+                                  "status": "ACTIVE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75m66",
+                                  "name": "Milestone 2: Order shipped",
+                                  "status": "AVAILABLE",
+                                },
+                                Object {
+                                  "id": "27107f38-d888-4edf-9a4f-11b9e6d75i86",
+                                  "name": "Manager decision",
+                                  "status": "COMPLETED",
+                                },
+                              ],
+                              "nodes": Array [
+                                Object {
+                                  "definitionId": "StartEvent_1",
+                                  "enter": "2019-10-22T04:43:01.135Z",
+                                  "exit": "2019-10-22T04:43:01.135Z",
+                                  "id": "90e5a337-1c26-4fcc-8ee2-d20e6ba2a1a3",
+                                  "name": "StartProcess",
+                                  "nodeId": "9",
+                                  "type": "StartNode",
+                                },
+                              ],
+                              "parentProcessInstance": null,
+                              "parentProcessInstanceId": null,
+                              "processId": "Travels",
+                              "processName": "travels",
+                              "roles": Array [],
+                              "serviceUrl": "http://localhost:4000",
+                              "start": "2019-10-22T03:40:44.089Z",
+                              "state": "ACTIVE",
+                              "variables": "{\\"flight\\":{\\"arrival\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"departure\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"flightNumber\\":\\"MX555\\"},\\"hotel\\":{\\"address\\":{\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"street\\":\\"street\\",\\"zipCode\\":\\"12345\\"},\\"bookingNumber\\":\\"XX-012345\\",\\"name\\":\\"Perfect hotel\\",\\"phone\\":\\"09876543\\"},\\"trip\\":{\\"begin\\":\\"2019-10-22T22:00:00Z[UTC]\\",\\"city\\":\\"Berlin\\",\\"country\\":\\"Germany\\",\\"end\\":\\"2019-10-30T22:00:00Z[UTC]\\",\\"visaRequired\\":false},\\"traveller\\":{\\"address\\":{\\"city\\":\\"Karkow\\",\\"country\\":\\"Poland\\",\\"street\\":\\"palna\\",\\"zipCode\\":\\"200300\\"},\\"email\\":\\"rob@redhat.com\\",\\"firstName\\":\\"Rob\\",\\"lastName\\":\\"Rob\\",\\"nationality\\":\\"Polish\\"}}",
+                            }
+                          }
+                        />
+                      </article>
+                    </Card>
+                  </div>
+                </FlexItem>
+              </div>
+            </Flex>
+            <Modal
+              actions={
+                Array [
+                  <Button
+                    id="retry-button"
+                    onClick={[Function]}
+                    variant="primary"
+                  >
+                    Retry
+                  </Button>,
+                  <Button
+                    id="discard-button"
+                    onClick={[Function]}
+                    variant="link"
+                  >
+                    Discard
+                  </Button>,
+                ]
+              }
+              appendTo={
+                <body
+                  class=""
+                  data-ouia-page-object-id="8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                  data-ouia-page-type="process-instances"
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-12"
+                          aria-label="Error modal"
+                          aria-labelledby="pf-modal-part-10 Error modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="154"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-10"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="155"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--danger-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Error
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-12"
+                          >
+                            Cannot read property 'then' of undefined
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="156"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="retry-button"
+                              type="button"
+                            >
+                              Retry
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="157"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="discard-button"
+                              type="button"
+                            >
+                              Discard
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-13"
+                          aria-label="Confirmation modal"
+                          aria-labelledby="pf-modal-part-11 Confirmation modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="158"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-11"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="159"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--warning-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Refresh
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-13"
+                          >
+                            This action discards changes made on process variables.
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="160"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="confirm-button"
+                              type="button"
+                            >
+                              Ok
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="161"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="cancel-button"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-14"
+                          aria-label="Error modal"
+                          aria-labelledby="pf-modal-part-12 Error modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="201"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-12"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="202"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--danger-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Error
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-14"
+                          >
+                            Cannot read property 'then' of undefined
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="203"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="retry-button"
+                              type="button"
+                            >
+                              Retry
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="204"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="discard-button"
+                              type="button"
+                            >
+                              Discard
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-15"
+                          aria-label="Confirmation modal"
+                          aria-labelledby="pf-modal-part-13 Confirmation modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="205"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-13"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="206"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--warning-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Refresh
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-15"
+                          >
+                            This action discards changes made on process variables.
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="207"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="confirm-button"
+                              type="button"
+                            >
+                              Ok
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="208"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="cancel-button"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div />
+                  <div />
+                </body>
+              }
+              aria-describedby=""
+              aria-label="Error modal"
+              aria-labelledby="Error modal"
+              className=""
+              hasNoBodyWrapper={false}
+              header={
+                <React.Fragment>
+                  <Title
+                    headingLevel="h1"
+                    size="2xl"
+                  >
+                    <InfoCircleIcon
+                      className="pf-u-mr-sm"
+                      color="var(--pf-global--danger-color--100)"
+                      noVerticalAlign={false}
+                      size="sm"
+                    />
+                    Error
+                  </Title>
+                </React.Fragment>
+              }
+              isOpen={false}
+              onClose={[Function]}
+              ouiaSafe={true}
+              showClose={true}
+              title=""
+              variant="small"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Button
+                        id="retry-button"
+                        onClick={[Function]}
+                        variant="primary"
+                      >
+                        Retry
+                      </Button>,
+                      <Button
+                        id="discard-button"
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Discard
+                      </Button>,
+                    ]
+                  }
+                  aria-describedby=""
+                  aria-label="Error modal"
+                  aria-labelledby="Error modal"
+                  boxId="pf-modal-part-14"
+                  className=""
+                  descriptorId="pf-modal-part-16"
+                  hasNoBodyWrapper={false}
+                  header={
+                    <React.Fragment>
+                      <Title
+                        headingLevel="h1"
+                        size="2xl"
+                      >
+                        <InfoCircleIcon
+                          className="pf-u-mr-sm"
+                          color="var(--pf-global--danger-color--100)"
+                          noVerticalAlign={false}
+                          size="sm"
+                        />
+                        Error
+                      </Title>
+                    </React.Fragment>
+                  }
+                  isOpen={false}
+                  labelId="pf-modal-part-15"
+                  onClose={[Function]}
+                  ouiaSafe={true}
+                  showClose={true}
+                  title=""
+                  variant="small"
+                />
+              </Portal>
+            </Modal>
+            <Modal
+              actions={
+                Array [
+                  <Button
+                    id="confirm-button"
+                    onClick={[Function]}
+                    variant="primary"
+                  >
+                    Ok
+                  </Button>,
+                  <Button
+                    id="cancel-button"
+                    onClick={[Function]}
+                    variant="link"
+                  >
+                    Cancel
+                  </Button>,
+                ]
+              }
+              appendTo={
+                <body
+                  class=""
+                  data-ouia-page-object-id="8035b580-6ae4-4aa8-9ec0-e18e19809e0b"
+                  data-ouia-page-type="process-instances"
+                >
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div />
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-12"
+                          aria-label="Error modal"
+                          aria-labelledby="pf-modal-part-10 Error modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="154"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-10"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="155"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--danger-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Error
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-12"
+                          >
+                            Cannot read property 'then' of undefined
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="156"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="retry-button"
+                              type="button"
+                            >
+                              Retry
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="157"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="discard-button"
+                              type="button"
+                            >
+                              Discard
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-13"
+                          aria-label="Confirmation modal"
+                          aria-labelledby="pf-modal-part-11 Confirmation modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="158"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-11"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="159"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--warning-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Refresh
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-13"
+                          >
+                            This action discards changes made on process variables.
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="160"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="confirm-button"
+                              type="button"
+                            >
+                              Ok
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="161"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="cancel-button"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-14"
+                          aria-label="Error modal"
+                          aria-labelledby="pf-modal-part-12 Error modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="201"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-12"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="202"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--danger-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Error
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-14"
+                          >
+                            Cannot read property 'then' of undefined
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="203"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="retry-button"
+                              type="button"
+                            >
+                              Retry
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="204"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="discard-button"
+                              type="button"
+                            >
+                              Discard
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      class="pf-c-backdrop"
+                    >
+                      <div
+                        class="pf-l-bullseye"
+                      >
+                        <div
+                          aria-describedby="pf-modal-part-15"
+                          aria-label="Confirmation modal"
+                          aria-labelledby="pf-modal-part-13 Confirmation modal"
+                          aria-modal="true"
+                          class="pf-c-modal-box pf-m-sm"
+                          data-ouia-component-id="205"
+                          data-ouia-component-type="PF4/ModalContent"
+                          data-ouia-safe="true"
+                          id="pf-modal-part-13"
+                          role="dialog"
+                        >
+                          <button
+                            aria-disabled="false"
+                            aria-label="Close"
+                            class="pf-c-button pf-m-plain"
+                            data-ouia-component-id="206"
+                            data-ouia-component-type="PF4/Button"
+                            data-ouia-safe="true"
+                            type="button"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style="vertical-align: -0.125em;"
+                              viewBox="0 0 352 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"
+                                transform=""
+                              />
+                            </svg>
+                          </button>
+                          <header
+                            class="pf-c-modal-box__header"
+                          >
+                            <h1
+                              class="pf-c-title pf-m-2xl"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                class="pf-u-mr-sm"
+                                fill="var(--pf-global--warning-color--100)"
+                                height="1em"
+                                role="img"
+                                style="vertical-align: -0.125em;"
+                                viewBox="0 0 512 512"
+                                width="1em"
+                              >
+                                <path
+                                  d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+                                  transform=""
+                                />
+                              </svg>
+                              Refresh
+                            </h1>
+                          </header>
+                          <div
+                            class="pf-c-modal-box__body"
+                            id="pf-modal-part-15"
+                          >
+                            This action discards changes made on process variables.
+                          </div>
+                          <footer
+                            class="pf-c-modal-box__footer"
+                          >
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-primary"
+                              data-ouia-component-id="207"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="confirm-button"
+                              type="button"
+                            >
+                              Ok
+                            </button>
+                            <button
+                              aria-disabled="false"
+                              class="pf-c-button pf-m-link"
+                              data-ouia-component-id="208"
+                              data-ouia-component-type="PF4/Button"
+                              data-ouia-safe="true"
+                              id="cancel-button"
+                              type="button"
+                            >
+                              Cancel
+                            </button>
+                          </footer>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div />
+                  <div />
+                </body>
+              }
+              aria-describedby=""
+              aria-label="Confirmation modal"
+              aria-labelledby="Confirmation modal"
+              className=""
+              hasNoBodyWrapper={false}
+              header={
+                <React.Fragment>
+                  <Title
+                    headingLevel="h1"
+                    size="2xl"
+                  >
+                    <InfoCircleIcon
+                      className="pf-u-mr-sm"
+                      color="var(--pf-global--warning-color--100)"
+                      noVerticalAlign={false}
+                      size="sm"
+                    />
+                    Refresh
+                  </Title>
+                </React.Fragment>
+              }
+              isOpen={false}
+              onClose={[Function]}
+              ouiaSafe={true}
+              showClose={true}
+              title=""
+              variant="small"
+            >
+              <Portal
+                containerInfo={<div />}
+              >
+                <ModalContent
+                  actions={
+                    Array [
+                      <Button
+                        id="confirm-button"
+                        onClick={[Function]}
+                        variant="primary"
+                      >
+                        Ok
+                      </Button>,
+                      <Button
+                        id="cancel-button"
+                        onClick={[Function]}
+                        variant="link"
+                      >
+                        Cancel
+                      </Button>,
+                    ]
+                  }
+                  aria-describedby=""
+                  aria-label="Confirmation modal"
+                  aria-labelledby="Confirmation modal"
+                  boxId="pf-modal-part-15"
+                  className=""
+                  descriptorId="pf-modal-part-17"
+                  hasNoBodyWrapper={false}
+                  header={
+                    <React.Fragment>
+                      <Title
+                        headingLevel="h1"
+                        size="2xl"
+                      >
+                        <InfoCircleIcon
+                          className="pf-u-mr-sm"
+                          color="var(--pf-global--warning-color--100)"
+                          noVerticalAlign={false}
+                          size="sm"
+                        />
+                        Refresh
+                      </Title>
+                    </React.Fragment>
+                  }
+                  isOpen={false}
+                  labelId="pf-modal-part-16"
                   onClose={[Function]}
                   ouiaSafe={true}
                   showClose={true}

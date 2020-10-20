@@ -41,11 +41,10 @@ const ProcessDetailsProcessDiagram: React.FC<IOwnProps & OUIAProps> = ({
                 <SvgLoaderSelectElement />
               </>
             }
-            render={content => (
+            render={() => (
               <UncontrolledReactSVGPanZoom
                 width={1000}
                 height={400}
-                detectWheel={false}
                 detectAutoPan={false}
                 background="#fff"
               >

@@ -368,6 +368,89 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
       );
     }
   }
+  console.log('svg', svg);
+  const renderPanels = () => {
+    if (svg !== null && svg.props.src) {
+      return (
+        <Flex direction={{ default: 'column' }}>
+          <Flex>
+            <FlexItem>
+              {svg !== null && svg.props.src && (
+                <ProcessDetailsProcessDiagram svg={svg} />
+              )}
+            </FlexItem>
+          </Flex>
+          <Flex>
+            <Flex
+              direction={{ default: 'column' }}
+              flex={{ default: 'flex_1' }}
+            >
+              {currentPage && (
+                <FlexItem>
+                  <ProcessDetails data={data} from={currentPage} />
+                </FlexItem>
+              )}
+              {data.ProcessInstances[0].milestones.length > 0 && (
+                <FlexItem>
+                  <ProcessDetailsMilestones
+                    milestones={data.ProcessInstances[0].milestones}
+                  />
+                </FlexItem>
+              )}
+            </Flex>
+            <Flex
+              direction={{ default: 'column' }}
+              flex={{ default: 'flex_1' }}
+            >
+              {Object.keys(updateJson).length > 0 && (
+                <FlexItem>
+                  <ProcessDetailsProcessVariables
+                    displayLabel={displayLabel}
+                    displaySuccess={displaySuccess}
+                    setUpdateJson={setUpdateJson}
+                    setDisplayLabel={setDisplayLabel}
+                    updateJson={updateJson}
+                  />
+                </FlexItem>
+              )}
+            </Flex>
+          </Flex>
+        </Flex>
+      );
+    } else {
+      return (
+        <>
+          <Flex direction={{ default: 'column' }} flex={{ default: 'flex_1' }}>
+            {currentPage && (
+              <FlexItem>
+                <ProcessDetails data={data} from={currentPage} />
+              </FlexItem>
+            )}
+            {data.ProcessInstances[0].milestones.length > 0 && (
+              <FlexItem>
+                <ProcessDetailsMilestones
+                  milestones={data.ProcessInstances[0].milestones}
+                />
+              </FlexItem>
+            )}
+          </Flex>
+          <Flex direction={{ default: 'column' }} flex={{ default: 'flex_1' }}>
+            {Object.keys(updateJson).length > 0 && (
+              <FlexItem>
+                <ProcessDetailsProcessVariables
+                  displayLabel={displayLabel}
+                  displaySuccess={displaySuccess}
+                  setUpdateJson={setUpdateJson}
+                  setDisplayLabel={setDisplayLabel}
+                  updateJson={updateJson}
+                />
+              </FlexItem>
+            )}
+          </Flex>
+        </>
+      );
+    }
+  };
 
   return (
     <div {...componentOuiaProps(ouiaId, 'ProcessDetailsPage', ouiaSafe)}>
@@ -474,65 +557,11 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
                     </Split>
                   </GridItem>
                 </Grid>
-                {svg !== null && svg.props.src && (
-                  <Grid
-                    hasGutter
-                    md={1}
-                    span={12}
-                    lg={6}
-                    xl={4}
-                    className="kogito-management-console--details__marginSpaces"
-                  >
-                    <GridItem span={8}>
-                      <ProcessDetailsProcessDiagram svg={svg} />
-                    </GridItem>
-                    {data.ProcessInstances[0].addons.includes(
-                      'process-management'
-                    ) && (
-                      <GridItem span={4}>
-                        <Card className="kogito-management-console--NodeTrigger-cardHeight">
-                          <ProcessDetailsNodeTrigger
-                            processInstanceData={data.ProcessInstances[0]}
-                          />
-                        </Card>
-                      </GridItem>
-                    )}
-                  </Grid>
-                )}
-                <Flex className="kogito-management-console--details__marginSpaces">
-                  <Flex
-                    direction={{ default: 'column' }}
-                    flex={{ default: 'flex_1' }}
-                  >
-                    {currentPage && (
-                      <FlexItem>
-                        <ProcessDetails data={data} from={currentPage} />
-                      </FlexItem>
-                    )}
-                    {data.ProcessInstances[0].milestones.length > 0 && (
-                      <FlexItem>
-                        <ProcessDetailsMilestones
-                          milestones={data.ProcessInstances[0].milestones}
-                        />
-                      </FlexItem>
-                    )}
-                  </Flex>
-                  <Flex
-                    direction={{ default: 'column' }}
-                    flex={{ default: 'flex_1' }}
-                  >
-                    {Object.keys(updateJson).length > 0 && (
-                      <FlexItem>
-                        <ProcessDetailsProcessVariables
-                          displayLabel={displayLabel}
-                          displaySuccess={displaySuccess}
-                          setUpdateJson={setUpdateJson}
-                          setDisplayLabel={setDisplayLabel}
-                          updateJson={updateJson}
-                        />
-                      </FlexItem>
-                    )}
-                  </Flex>
+                <Flex
+                  direction={{ default: 'column', lg: 'row' }}
+                  className="kogito-management-console--details__marginSpaces"
+                >
+                  {renderPanels()}
                   <Flex
                     direction={{ default: 'column' }}
                     flex={{ default: 'flex_1' }}
@@ -543,19 +572,17 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
                     <FlexItem>
                       <ProcessDetailsJobsPanel processInstanceId={id} />
                     </FlexItem>
-                    {svg !== null &&
-                      !svg.props.src &&
-                      data.ProcessInstances[0].addons.includes(
-                        'process-management'
-                      ) && (
-                        <FlexItem>
-                          <Card>
-                            <ProcessDetailsNodeTrigger
-                              processInstanceData={data.ProcessInstances[0]}
-                            />
-                          </Card>
-                        </FlexItem>
-                      )}
+                    {data.ProcessInstances[0].addons.includes(
+                      'process-management'
+                    ) && (
+                      <FlexItem>
+                        <Card>
+                          <ProcessDetailsNodeTrigger
+                            processInstanceData={data.ProcessInstances[0]}
+                          />
+                        </Card>
+                      </FlexItem>
+                    )}
                   </Flex>
                   {errorModal()}
                   {RenderConfirmationModal()}
