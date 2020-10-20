@@ -1,7 +1,6 @@
 import React from 'react';
 import { UncontrolledReactSVGPanZoom } from 'react-svg-pan-zoom';
 import { OUIAProps, componentOuiaProps } from '@kogito-apps/common';
-import travels from '../../../static/travels.svg';
 import {
   ReactSvgPanZoomLoader,
   SvgLoaderSelectElement
@@ -16,10 +15,12 @@ interface svgProp {
 }
 interface IOwnProps {
   svg: svgProp;
+  svgError: string;
 }
 
 const ProcessDetailsProcessDiagram: React.FC<IOwnProps & OUIAProps> = ({
   svg,
+  svgError,
   ouiaId,
   ouiaSafe
 }) => {
@@ -33,7 +34,7 @@ const ProcessDetailsProcessDiagram: React.FC<IOwnProps & OUIAProps> = ({
         </CardHeader>
         <CardBody>
           <ReactSvgPanZoomLoader
-            src={travels}
+            src={svg}
             width={1000}
             height={400}
             proxy={

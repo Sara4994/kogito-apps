@@ -25,7 +25,13 @@ exports[`ProcessDetailsDiagram component tests Snapshot testing 1`] = `
           </React.Fragment>
         }
         render={[Function]}
-        src="travels.svg"
+        src={
+          Object {
+            "props": Object {
+              "src": "<svg version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\" width=\\"800\\" height=\\"300\\" viewBox=\\"0 0 1748 632\\"></svg>",
+            },
+          }
+        }
         width={1000}
       />
     </CardBody>

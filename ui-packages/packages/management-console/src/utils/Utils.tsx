@@ -399,18 +399,18 @@ export const jobCancel = async (
     onJobCancelFailure(JSON.stringify(error.message));
   }
 }
-export const getSvg = async (data, setSvg) => {
+
+export const getSvg = async (data, setSvg, setSvgError): Promise<void> => {
   try {
     await axios
       .get(
         `/svg/process/${data.ProcessInstances[0].processId}/instances/${data.ProcessInstances[0].id}`
       )
       .then(res => {
-        console.log('res', res);
         const temp = <SVG src={res.data} />;
         setSvg(temp);
       });
   } catch (error) {
-    return error;
+    setSvgError(error.message);
   }
 };

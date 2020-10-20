@@ -30,6 +30,7 @@ import {
 } from '@kogito-apps/common';
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
+import ProcessDetailsErrorModal from '../../Atoms/ProcessDetailsErrorModal/ProcessDetailsErrorModal';
 import ProcessDetails from '../../Organisms/ProcessDetails/ProcessDetails';
 import ProcessDetailsProcessVariables from '../../Organisms/ProcessDetailsProcessVariables/ProcessDetailsProcessVariables';
 import ProcessDetailsTimeline from '../../Organisms/ProcessDetailsTimeline/ProcessDetailsTimeline';
@@ -78,7 +79,13 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
   const [confirmationModal, setConfirmationModal] = useState(false);
   const [variableError, setVariableError] = useState();
   const [svg, setSvg] = React.useState(null);
+  const [svgError, setSvgError] = useState<string>('');
   let currentPage = JSON.parse(window.localStorage.getItem('state'));
+  const [svgErrorModalOpen, setSvgErrorModalOpen] = useState<boolean>(false);
+
+  const handleSvgErrorModal = () => {
+    setSvgErrorModalOpen(!svgErrorModalOpen);
+  };
 
   const { loading, error, data } = GraphQL.useGetProcessInstanceByIdQuery({
     variables: { id },
@@ -132,11 +139,20 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
   };
 
   useEffect(() => {
-    if (data) {
-      getSvg(data, setSvg);
-      setUpdateJson(JSON.parse(data.ProcessInstances[0].variables));
-    }
+    const handleSvgApi = async () => {
+      if (data) {
+        await getSvg(data, setSvg, setSvgError);
+        setUpdateJson(JSON.parse(data.ProcessInstances[0].variables));
+      }
+    };
+    handleSvgApi();
   }, [data]);
+
+  useEffect(() => {
+    if (svgError && svgError.length > 0) {
+      setSvgErrorModalOpen(true);
+    }
+  }, [svgError]);
 
   useEffect(() => {
     if (variableError && variableError.length > 0) {
@@ -368,7 +384,7 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
       );
     }
   }
-  console.log('svg', svg);
+
   const renderPanels = () => {
     if (svg !== null && svg.props.src) {
       return (
@@ -376,7 +392,7 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
           <Flex>
             <FlexItem>
               {svg !== null && svg.props.src && (
-                <ProcessDetailsProcessDiagram svg={svg} />
+                <ProcessDetailsProcessDiagram svg={svg} svgError={svgError} />
               )}
             </FlexItem>
           </Flex>
@@ -596,6 +612,15 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
               </Card>
             )}
           </PageSection>
+          {svgErrorModalOpen && (
+            <ProcessDetailsErrorModal
+              errorString={svgError}
+              errorModalOpen={svgErrorModalOpen}
+              handleErrorModal={handleSvgErrorModal}
+              label="svg error modal"
+              title={setTitle('failure', 'Process Visualization')}
+            />
+          )}
         </>
       ) : (
         <ServerErrors error={error} variant="large" />
