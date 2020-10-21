@@ -398,7 +398,7 @@ export const jobCancel = async (
   } catch (error) {
     onJobCancelFailure(JSON.stringify(error.message));
   }
-}
+};
 
 export const getSvg = async (data, setSvg, setSvgError): Promise<void> => {
   try {

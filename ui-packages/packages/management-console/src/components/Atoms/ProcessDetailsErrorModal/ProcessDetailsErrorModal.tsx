@@ -1,10 +1,7 @@
 import React from 'react';
 import {
   Modal,
-  Title,
-  TitleSizes,
   ModalVariant,
-  Button,
   ModalBoxBody,
   TextContent,
   Text
@@ -14,6 +11,7 @@ import { OUIAProps, componentOuiaProps } from '@kogito-apps/common';
 interface IOwnProps {
   errorString: string;
   errorModalOpen: boolean;
+  errorModalAction: JSX.Element[];
   handleErrorModal: () => void;
   label: string;
   title: JSX.Element;
@@ -21,6 +19,7 @@ interface IOwnProps {
 const ProcessDetailsErrorModal: React.FC<IOwnProps & OUIAProps> = ({
   errorString,
   errorModalOpen,
+  errorModalAction,
   handleErrorModal,
   label,
   title,
@@ -36,15 +35,6 @@ const ProcessDetailsErrorModal: React.FC<IOwnProps & OUIAProps> = ({
       </ModalBoxBody>
     );
   };
-  const errorModalAction: JSX.Element[] = [
-    <Button
-      key="confirm-selection"
-      variant="primary"
-      onClick={handleErrorModal}
-    >
-      OK
-    </Button>
-  ];
 
   return (
     <Modal
@@ -52,11 +42,7 @@ const ProcessDetailsErrorModal: React.FC<IOwnProps & OUIAProps> = ({
       aria-labelledby={label}
       aria-label={label}
       title=""
-      header={
-        <Title headingLevel="h1" size={TitleSizes['2xl']}>
-          {title}
-        </Title>
-      }
+      header={title}
       isOpen={errorModalOpen}
       onClose={handleErrorModal}
       actions={errorModalAction}

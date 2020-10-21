@@ -4,7 +4,8 @@ import {
   CardHeader,
   Title,
   CardBody,
-  Tooltip
+  Tooltip,
+  FlexItem
 } from '@patternfly/react-core';
 import {
   Table,
@@ -106,31 +107,33 @@ const ProcessDetailsJobsPanel: React.FC<JobsPanelProps & OUIAProps> = ({
 
   if (!loading && data && data.Jobs.length > 0) {
     return (
-      <Card
-        {...componentOuiaProps(
-          ouiaId,
-          'process-details-jobs-panel',
-          ouiaSafe ? ouiaSafe : !loading
-        )}
-      >
-        <CardHeader>
-          <Title headingLevel="h3" size="xl">
-            Jobs
-          </Title>
-        </CardHeader>
-        <CardBody>
-          <Table
-            aria-label="Process details jobs panel"
-            aria-labelledby="Process details jobs panel"
-            variant={TableVariant.compact}
-            rows={rows}
-            cells={columns}
-          >
-            <TableHeader />
-            <TableBody />
-          </Table>
-        </CardBody>
-      </Card>
+      <FlexItem>
+        <Card
+          {...componentOuiaProps(
+            ouiaId,
+            'process-details-jobs-panel',
+            ouiaSafe ? ouiaSafe : !loading
+          )}
+        >
+          <CardHeader>
+            <Title headingLevel="h3" size="xl">
+              Jobs
+            </Title>
+          </CardHeader>
+          <CardBody>
+            <Table
+              aria-label="Process details jobs panel"
+              aria-labelledby="Process details jobs panel"
+              variant={TableVariant.compact}
+              rows={rows}
+              cells={columns}
+            >
+              <TableHeader />
+              <TableBody />
+            </Table>
+          </CardBody>
+        </Card>
+      </FlexItem>
     );
   } else {
     return null;

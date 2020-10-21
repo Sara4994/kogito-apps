@@ -91,11 +91,7 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
     variables: { id },
     fetchPolicy: 'network-only'
   });
-  useEffect(() => {
-    if (data) {
-      // tslint:disable-next-line: no-floating-promises
-    }
-  });
+
   const handleModalToggle = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -392,7 +388,7 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
           <Flex>
             <FlexItem>
               {svg !== null && svg.props.src && (
-                <ProcessDetailsProcessDiagram svg={svg} svgError={svgError} />
+                <ProcessDetailsProcessDiagram svg={svg} />
               )}
             </FlexItem>
           </Flex>
@@ -467,6 +463,16 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
       );
     }
   };
+
+  const errorModalAction: JSX.Element[] = [
+    <Button
+      key="confirm-selection"
+      variant="primary"
+      onClick={handleSvgErrorModal}
+    >
+      OK
+    </Button>
+  ];
 
   return (
     <div {...componentOuiaProps(ouiaId, 'ProcessDetailsPage', ouiaSafe)}>
@@ -585,20 +591,20 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
                     <FlexItem>
                       <ProcessDetailsTimeline data={data.ProcessInstances[0]} />
                     </FlexItem>
-                    <FlexItem>
-                      <ProcessDetailsJobsPanel processInstanceId={id} />
-                    </FlexItem>
+                    <ProcessDetailsJobsPanel processInstanceId={id} />
                     {data.ProcessInstances[0].addons.includes(
                       'process-management'
-                    ) && (
-                      <FlexItem>
-                        <Card>
+                    ) &&
+                      data.ProcessInstances[0].state !==
+                        GraphQL.ProcessInstanceState.Completed &&
+                      data.ProcessInstances[0].state !==
+                        GraphQL.ProcessInstanceState.Aborted && (
+                        <FlexItem>
                           <ProcessDetailsNodeTrigger
                             processInstanceData={data.ProcessInstances[0]}
                           />
-                        </Card>
-                      </FlexItem>
-                    )}
+                        </FlexItem>
+                      )}
                   </Flex>
                   {errorModal()}
                   {RenderConfirmationModal()}
@@ -616,9 +622,10 @@ const ProcessDetailsPage: React.FC<RouteComponentProps<
             <ProcessDetailsErrorModal
               errorString={svgError}
               errorModalOpen={svgErrorModalOpen}
+              errorModalAction={errorModalAction}
               handleErrorModal={handleSvgErrorModal}
               label="svg error modal"
-              title={setTitle('failure', 'Process Visualization')}
+              title={setTitle('failure', 'Process Diagram')}
             />
           )}
         </>

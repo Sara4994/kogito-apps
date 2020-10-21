@@ -15,12 +15,10 @@ interface svgProp {
 }
 interface IOwnProps {
   svg: svgProp;
-  svgError: string;
 }
 
 const ProcessDetailsProcessDiagram: React.FC<IOwnProps & OUIAProps> = ({
   svg,
-  svgError,
   ouiaId,
   ouiaSafe
 }) => {
@@ -29,12 +27,12 @@ const ProcessDetailsProcessDiagram: React.FC<IOwnProps & OUIAProps> = ({
       <Card {...componentOuiaProps(ouiaId, 'process-diagram', ouiaSafe)}>
         <CardHeader>
           <Title headingLevel="h3" size="xl">
-            Process Visualization
+            Process Diagram
           </Title>
         </CardHeader>
         <CardBody>
           <ReactSvgPanZoomLoader
-            src={svg}
+            src={svg.props.src}
             width={1000}
             height={400}
             proxy={

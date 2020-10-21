@@ -11,13 +11,14 @@ import { Button } from '@patternfly/react-core';
 import axios from 'axios';
 jest.mock('axios');
 import * as Utils from '../../../../utils/Utils';
-import SVG from 'react-inlinesvg';
 import { act } from 'react-dom/test-utils';
 import _ from 'lodash';
+import InlineSVG from 'react-inlinesvg';
 // tslint:disable: no-string-literal
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 jest.mock('../../../Atoms/ProcessListModal/ProcessListModal');
 jest.mock('../../../Atoms/ProcessListBulkInstances/ProcessListBulkInstances');
+jest.mock('../../../Atoms/ProcessDetailsErrorModal/ProcessDetailsErrorModal');
 jest.mock('../../../Organisms/ProcessDetails/ProcessDetails');
 jest.mock(
   '../../../Organisms/ProcessDetailsProcessDiagram/ProcessDetailsProcessDiagram'
@@ -524,6 +525,7 @@ describe('Process Details Page component tests', () => {
       </MockedProvider>,
       'ProcessDetailsPage'
     );
+    console.log('wrapper', wrapperWithoutNodeTrigger1.debug());
     expect(
       wrapperWithoutNodeTrigger1
         .find('MockedProcessDetailsNodeTrigger')

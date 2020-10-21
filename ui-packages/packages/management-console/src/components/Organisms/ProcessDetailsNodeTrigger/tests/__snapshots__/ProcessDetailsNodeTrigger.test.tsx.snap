@@ -59,7 +59,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                 aria-labelledby="pf-modal-part-2 process list modal"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="26"
+                data-ouia-component-id="40"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-2"
@@ -69,7 +69,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="27"
+                  data-ouia-component-id="41"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -144,7 +144,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="28"
+                    data-ouia-component-id="42"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -169,7 +169,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                 aria-labelledby="pf-modal-part-3 process list modal"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="45"
+                data-ouia-component-id="67"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-3"
@@ -179,7 +179,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="46"
+                  data-ouia-component-id="68"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -254,7 +254,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="47"
+                    data-ouia-component-id="69"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -313,7 +313,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                 aria-labelledby="pf-modal-part-3 process list modal"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="45"
+                data-ouia-component-id="67"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-3"
@@ -323,7 +323,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="46"
+                  data-ouia-component-id="68"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -398,7 +398,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="47"
+                    data-ouia-component-id="69"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -478,7 +478,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                   aria-label="process list modal"
                   aria-labelledby="pf-modal-part-3 process list modal"
                   className=""
-                  data-ouia-component-id={45}
+                  data-ouia-component-id={67}
                   data-ouia-component-type="PF4/ModalContent"
                   data-ouia-safe={true}
                   id="pf-modal-part-3"
@@ -491,7 +491,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                     aria-labelledby="pf-modal-part-3 process list modal"
                     aria-modal="true"
                     className="pf-c-modal-box pf-m-sm"
-                    data-ouia-component-id={45}
+                    data-ouia-component-id={67}
                     data-ouia-component-type="PF4/ModalContent"
                     data-ouia-safe={true}
                     id="pf-modal-part-3"
@@ -511,7 +511,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                           aria-disabled={false}
                           aria-label="Close"
                           className="pf-c-button pf-m-plain"
-                          data-ouia-component-id={46}
+                          data-ouia-component-id={68}
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe={true}
                           disabled={false}
@@ -637,7 +637,7 @@ exports[`Process details node trigger component tests Node trigger failure tests
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-primary"
-                            data-ouia-component-id={47}
+                            data-ouia-component-id={69}
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
@@ -718,7 +718,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                 aria-labelledby="pf-modal-part-2 process list modal"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="26"
+                data-ouia-component-id="40"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-2"
@@ -728,7 +728,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="27"
+                  data-ouia-component-id="41"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -803,7 +803,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="28"
+                    data-ouia-component-id="42"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -862,7 +862,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                 aria-labelledby="pf-modal-part-2 process list modal"
                 aria-modal="true"
                 class="pf-c-modal-box pf-m-sm"
-                data-ouia-component-id="26"
+                data-ouia-component-id="40"
                 data-ouia-component-type="PF4/ModalContent"
                 data-ouia-safe="true"
                 id="pf-modal-part-2"
@@ -872,7 +872,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                   aria-disabled="false"
                   aria-label="Close"
                   class="pf-c-button pf-m-plain"
-                  data-ouia-component-id="27"
+                  data-ouia-component-id="41"
                   data-ouia-component-type="PF4/Button"
                   data-ouia-safe="true"
                   type="button"
@@ -947,7 +947,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                   <button
                     aria-disabled="false"
                     class="pf-c-button pf-m-primary"
-                    data-ouia-component-id="28"
+                    data-ouia-component-id="42"
                     data-ouia-component-type="PF4/Button"
                     data-ouia-safe="true"
                     type="button"
@@ -1027,7 +1027,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                   aria-label="process list modal"
                   aria-labelledby="pf-modal-part-2 process list modal"
                   className=""
-                  data-ouia-component-id={26}
+                  data-ouia-component-id={40}
                   data-ouia-component-type="PF4/ModalContent"
                   data-ouia-safe={true}
                   id="pf-modal-part-2"
@@ -1040,7 +1040,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                     aria-labelledby="pf-modal-part-2 process list modal"
                     aria-modal="true"
                     className="pf-c-modal-box pf-m-sm"
-                    data-ouia-component-id={26}
+                    data-ouia-component-id={40}
                     data-ouia-component-type="PF4/ModalContent"
                     data-ouia-safe={true}
                     id="pf-modal-part-2"
@@ -1060,7 +1060,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                           aria-disabled={false}
                           aria-label="Close"
                           className="pf-c-button pf-m-plain"
-                          data-ouia-component-id={27}
+                          data-ouia-component-id={41}
                           data-ouia-component-type="PF4/Button"
                           data-ouia-safe={true}
                           disabled={false}
@@ -1186,7 +1186,7 @@ exports[`Process details node trigger component tests Node trigger success tests
                             aria-disabled={false}
                             aria-label={null}
                             className="pf-c-button pf-m-primary"
-                            data-ouia-component-id={28}
+                            data-ouia-component-id={42}
                             data-ouia-component-type="PF4/Button"
                             data-ouia-safe={true}
                             disabled={false}
@@ -1220,159 +1220,148 @@ exports[`Process details node trigger component tests select a node test  1`] = 
     }
   }
 >
-  <div
+  <Card
     data-ouia-component-type="node-trigger"
     data-ouia-safe={true}
   >
-    <ProcessListModal
-      handleModalToggle={[Function]}
-      isModalOpen={false}
-      modalContent=""
-      processName="Book"
+    <article
+      className="pf-c-card"
+      data-ouia-component-id={15}
+      data-ouia-component-type="PF4/Card"
+      data-ouia-safe={true}
     >
-      <Modal
-        actions={
-          Array [
-            <Button
-              onClick={[Function]}
-              variant="primary"
-            >
-              OK
-            </Button>,
-          ]
-        }
-        appendTo={
-          <body>
-            <div />
-            <div />
-          </body>
-        }
-        aria-describedby=""
-        aria-label="process list modal"
-        aria-labelledby="process list modal"
-        className=""
-        data-ouia-component-type="process-list-modal"
-        data-ouia-safe={true}
-        hasNoBodyWrapper={false}
-        header={
+      <ProcessListModal
+        handleModalToggle={[Function]}
+        isModalOpen={false}
+        modalContent=""
+        modalTitle={
           <Title
             headingLevel="h1"
             size="2xl"
-          />
+          >
+            <span>
+              
+            </span>
+          </Title>
         }
-        isOpen={false}
-        onClose={[Function]}
-        ouiaSafe={true}
-        showClose={true}
-        title=""
-        variant="small"
+        processName="Book"
       >
-        <Portal
-          containerInfo={<div />}
-        >
-          <ModalContent
-            actions={
-              Array [
-                <Button
-                  onClick={[Function]}
-                  variant="primary"
-                >
-                  OK
-                </Button>,
-              ]
-            }
-            aria-describedby=""
-            aria-label="process list modal"
-            aria-labelledby="process list modal"
-            boxId="pf-modal-part-1"
-            className=""
-            data-ouia-component-type="process-list-modal"
-            data-ouia-safe={true}
-            descriptorId="pf-modal-part-3"
-            hasNoBodyWrapper={false}
-            header={
-              <Title
-                headingLevel="h1"
-                size="2xl"
-              />
-            }
-            isOpen={false}
-            labelId="pf-modal-part-2"
-            onClose={[Function]}
-            ouiaSafe={true}
-            showClose={true}
-            title=""
-            variant="small"
-          />
-        </Portal>
-      </Modal>
-    </ProcessListModal>
-    <CardHeader>
-      <div
-        className="pf-c-card__header"
-      >
-        <Title
-          headingLevel="h3"
-          size="xl"
-        >
-          <h3
-            className="pf-c-title pf-m-xl"
-          >
-            Node Trigger
-          </h3>
-        </Title>
-      </div>
-    </CardHeader>
-    <CardHeader>
-      <div
-        className="pf-c-card__header"
-      >
-        <div>
-          Select a node from the process nodes list and click Trigger to launch it manually.
-        </div>
-      </div>
-    </CardHeader>
-    <CardBody>
-      <div
-        className="pf-c-card__body"
-      >
-        <div>
-          <Dropdown
-            direction="up"
-            dropdownItems={
-              Array [
-                <DropdownItem
-                  id="Send visa application"
-                >
-                  Send visa application
-                </DropdownItem>,
-                <DropdownItem
-                  id="Book"
-                >
-                  Book
-                </DropdownItem>,
-                <DropdownItem
-                  id="visasrejected"
-                >
-                  visasrejected
-                </DropdownItem>,
-              ]
-            }
-            isOpen={false}
-            onSelect={[Function]}
-            toggle={
-              <DropdownToggle
-                id="toggle-id"
-                onToggle={[Function]}
-                toggleIndicator={[Function]}
+        <Modal
+          actions={
+            Array [
+              <Button
+                onClick={[Function]}
+                variant="primary"
               >
-                Book
-              </DropdownToggle>
-            }
+                OK
+              </Button>,
+            ]
+          }
+          appendTo={
+            <body>
+              <div />
+              <div />
+            </body>
+          }
+          aria-describedby=""
+          aria-label="process list modal"
+          aria-labelledby="process list modal"
+          className=""
+          data-ouia-component-type="process-list-modal"
+          data-ouia-safe={true}
+          hasNoBodyWrapper={false}
+          header={
+            <Title
+              headingLevel="h1"
+              size="2xl"
+            >
+              <span>
+                
+              </span>
+            </Title>
+          }
+          isOpen={false}
+          onClose={[Function]}
+          ouiaSafe={true}
+          showClose={true}
+          title=""
+          variant="small"
+        >
+          <Portal
+            containerInfo={<div />}
           >
-            <DropdownWithContext
-              autoFocus={true}
+            <ModalContent
+              actions={
+                Array [
+                  <Button
+                    onClick={[Function]}
+                    variant="primary"
+                  >
+                    OK
+                  </Button>,
+                ]
+              }
+              aria-describedby=""
+              aria-label="process list modal"
+              aria-labelledby="process list modal"
+              boxId="pf-modal-part-1"
               className=""
+              data-ouia-component-type="process-list-modal"
+              data-ouia-safe={true}
+              descriptorId="pf-modal-part-3"
+              hasNoBodyWrapper={false}
+              header={
+                <Title
+                  headingLevel="h1"
+                  size="2xl"
+                >
+                  <span>
+                    
+                  </span>
+                </Title>
+              }
+              isOpen={false}
+              labelId="pf-modal-part-2"
+              onClose={[Function]}
+              ouiaSafe={true}
+              showClose={true}
+              title=""
+              variant="small"
+            />
+          </Portal>
+        </Modal>
+      </ProcessListModal>
+      <CardHeader>
+        <div
+          className="pf-c-card__header"
+        >
+          <Title
+            headingLevel="h3"
+            size="xl"
+          >
+            <h3
+              className="pf-c-title pf-m-xl"
+            >
+              Node Trigger
+            </h3>
+          </Title>
+        </div>
+      </CardHeader>
+      <CardHeader>
+        <div
+          className="pf-c-card__header"
+        >
+          <div>
+            Select a node from the process nodes list and click Trigger to launch it manually.
+          </div>
+        </div>
+      </CardHeader>
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        >
+          <div>
+            <Dropdown
               direction="up"
               dropdownItems={
                 Array [
@@ -1393,12 +1382,8 @@ exports[`Process details node trigger component tests select a node test  1`] = 
                   </DropdownItem>,
                 ]
               }
-              isGrouped={false}
               isOpen={false}
-              isPlain={false}
-              menuAppendTo="inline"
               onSelect={[Function]}
-              position="left"
               toggle={
                 <DropdownToggle
                   id="toggle-id"
@@ -1409,84 +1394,65 @@ exports[`Process details node trigger component tests select a node test  1`] = 
                 </DropdownToggle>
               }
             >
-              <div
-                className="pf-c-dropdown pf-m-top"
-                data-ouia-component-id={10}
-                data-ouia-component-type="PF4/Dropdown"
-                data-ouia-safe={true}
+              <DropdownWithContext
+                autoFocus={true}
+                className=""
+                direction="up"
+                dropdownItems={
+                  Array [
+                    <DropdownItem
+                      id="Send visa application"
+                    >
+                      Send visa application
+                    </DropdownItem>,
+                    <DropdownItem
+                      id="Book"
+                    >
+                      Book
+                    </DropdownItem>,
+                    <DropdownItem
+                      id="visasrejected"
+                    >
+                      visasrejected
+                    </DropdownItem>,
+                  ]
+                }
+                isGrouped={false}
+                isOpen={false}
+                isPlain={false}
+                menuAppendTo="inline"
+                onSelect={[Function]}
+                position="left"
+                toggle={
+                  <DropdownToggle
+                    id="toggle-id"
+                    onToggle={[Function]}
+                    toggleIndicator={[Function]}
+                  >
+                    Book
+                  </DropdownToggle>
+                }
               >
-                <DropdownToggle
-                  aria-haspopup={true}
-                  getMenuRef={[Function]}
-                  id="toggle-id"
-                  isOpen={false}
-                  isPlain={false}
-                  key=".0"
-                  onEnter={[Function]}
-                  onToggle={[Function]}
-                  parentRef={
-                    Object {
-                      "current": <div
-                        class="pf-c-dropdown pf-m-top"
-                        data-ouia-component-id="10"
-                        data-ouia-component-type="PF4/Dropdown"
-                        data-ouia-safe="true"
-                      >
-                        <button
-                          aria-expanded="false"
-                          aria-haspopup="true"
-                          class="pf-c-dropdown__toggle"
-                          id="toggle-id"
-                          type="button"
-                        >
-                          <span
-                            class="pf-c-dropdown__toggle-text"
-                          >
-                            Book
-                          </span>
-                          <span
-                            class="pf-c-dropdown__toggle-icon"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              fill="currentColor"
-                              height="1em"
-                              role="img"
-                              style="vertical-align: -0.125em;"
-                              viewBox="0 0 320 512"
-                              width="1em"
-                            >
-                              <path
-                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                                transform=""
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                      </div>,
-                    }
-                  }
-                  toggleIndicator={[Function]}
+                <div
+                  className="pf-c-dropdown pf-m-top"
+                  data-ouia-component-id={16}
+                  data-ouia-component-type="PF4/Dropdown"
+                  data-ouia-safe={true}
                 >
-                  <Toggle
+                  <DropdownToggle
                     aria-haspopup={true}
-                    bubbleEvent={false}
-                    className=""
                     getMenuRef={[Function]}
                     id="toggle-id"
-                    isActive={false}
-                    isDisabled={false}
                     isOpen={false}
                     isPlain={false}
-                    isPrimary={false}
-                    isSplitButton={false}
+                    key=".0"
                     onEnter={[Function]}
                     onToggle={[Function]}
                     parentRef={
                       Object {
                         "current": <div
                           class="pf-c-dropdown pf-m-top"
-                          data-ouia-component-id="10"
+                          data-ouia-component-id="16"
                           data-ouia-component-type="PF4/Dropdown"
                           data-ouia-safe="true"
                         >
@@ -1524,261 +1490,320 @@ exports[`Process details node trigger component tests select a node test  1`] = 
                         </div>,
                       }
                     }
+                    toggleIndicator={[Function]}
                   >
-                    <button
-                      aria-expanded={false}
+                    <Toggle
                       aria-haspopup={true}
-                      className="pf-c-dropdown__toggle"
-                      disabled={false}
+                      bubbleEvent={false}
+                      className=""
+                      getMenuRef={[Function]}
                       id="toggle-id"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="pf-c-dropdown__toggle-text"
-                      >
-                        Book
-                      </span>
-                      <span
-                        className="pf-c-dropdown__toggle-icon"
-                      >
-                        <CaretDownIcon
-                          color="currentColor"
-                          noVerticalAlign={false}
-                          size="sm"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            aria-labelledby={null}
-                            fill="currentColor"
-                            height="1em"
-                            role="img"
-                            style={
-                              Object {
-                                "verticalAlign": "-0.125em",
-                              }
-                            }
-                            viewBox="0 0 320 512"
-                            width="1em"
+                      isActive={false}
+                      isDisabled={false}
+                      isOpen={false}
+                      isPlain={false}
+                      isPrimary={false}
+                      isSplitButton={false}
+                      onEnter={[Function]}
+                      onToggle={[Function]}
+                      parentRef={
+                        Object {
+                          "current": <div
+                            class="pf-c-dropdown pf-m-top"
+                            data-ouia-component-id="16"
+                            data-ouia-component-type="PF4/Dropdown"
+                            data-ouia-safe="true"
                           >
-                            <path
-                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                              transform=""
-                            />
-                          </svg>
-                        </CaretDownIcon>
-                      </span>
-                    </button>
-                  </Toggle>
-                </DropdownToggle>
-              </div>
-            </DropdownWithContext>
-          </Dropdown>
-        </div>
-        <div
-          className="pf-u-mt-md"
-        >
-          <Flex
-            direction={
-              Object {
-                "default": "column",
+                            <button
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              class="pf-c-dropdown__toggle"
+                              id="toggle-id"
+                              type="button"
+                            >
+                              <span
+                                class="pf-c-dropdown__toggle-text"
+                              >
+                                Book
+                              </span>
+                              <span
+                                class="pf-c-dropdown__toggle-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style="vertical-align: -0.125em;"
+                                  viewBox="0 0 320 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </span>
+                            </button>
+                          </div>,
+                        }
+                      }
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        className="pf-c-dropdown__toggle"
+                        disabled={false}
+                        id="toggle-id"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="pf-c-dropdown__toggle-text"
+                        >
+                          Book
+                        </span>
+                        <span
+                          className="pf-c-dropdown__toggle-icon"
+                        >
+                          <CaretDownIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 320 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                transform=""
+                              />
+                            </svg>
+                          </CaretDownIcon>
+                        </span>
+                      </button>
+                    </Toggle>
+                  </DropdownToggle>
+                </div>
+              </DropdownWithContext>
+            </Dropdown>
+          </div>
+          <div
+            className="pf-u-mt-md"
+          >
+            <Flex
+              direction={
+                Object {
+                  "default": "column",
+                }
               }
-            }
-          >
-            <div
-              className="pf-l-flex pf-m-column"
             >
-              <FlexItem>
-                <div
-                  className=""
-                >
-                  <TextContent>
-                    <div
-                      className="pf-c-content"
-                    >
-                       
-                      <Split
-                        hasGutter={true}
+              <div
+                className="pf-l-flex pf-m-column"
+              >
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <TextContent>
+                      <div
+                        className="pf-c-content"
                       >
-                        <div
-                          className="pf-l-split pf-m-gutter"
+                         
+                        <Split
+                          hasGutter={true}
                         >
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="h6"
+                          <div
+                            className="pf-l-split pf-m-gutter"
+                          >
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <h6
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="h6"
                                 >
-                                  Node name : 
-                                </h6>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="p"
+                                  <h6
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    Node name : 
+                                  </h6>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <p
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="p"
                                 >
-                                  Book
-                                </p>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                        </div>
-                      </Split>
-                    </div>
-                  </TextContent>
-                </div>
-              </FlexItem>
-              <FlexItem>
-                <div
-                  className=""
-                >
-                  <TextContent>
-                    <div
-                      className="pf-c-content"
-                    >
-                       
-                      <Split
-                        hasGutter={true}
+                                  <p
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    Book
+                                  </p>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                          </div>
+                        </Split>
+                      </div>
+                    </TextContent>
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <TextContent>
+                      <div
+                        className="pf-c-content"
                       >
-                        <div
-                          className="pf-l-split pf-m-gutter"
+                         
+                        <Split
+                          hasGutter={true}
                         >
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="h6"
+                          <div
+                            className="pf-l-split pf-m-gutter"
+                          >
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <h6
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="h6"
                                 >
-                                  Node type : 
-                                </h6>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="p"
+                                  <h6
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    Node type : 
+                                  </h6>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <p
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="p"
                                 >
-                                  Split
-                                </p>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                        </div>
-                      </Split>
-                    </div>
-                  </TextContent>
-                </div>
-              </FlexItem>
-              <FlexItem>
-                <div
-                  className=""
-                >
-                  <TextContent>
-                    <div
-                      className="pf-c-content"
-                    >
-                       
-                      <Split
-                        hasGutter={true}
+                                  <p
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    Split
+                                  </p>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                          </div>
+                        </Split>
+                      </div>
+                    </TextContent>
+                  </div>
+                </FlexItem>
+                <FlexItem>
+                  <div
+                    className=""
+                  >
+                    <TextContent>
+                      <div
+                        className="pf-c-content"
                       >
-                        <div
-                          className="pf-l-split pf-m-gutter"
+                         
+                        <Split
+                          hasGutter={true}
                         >
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="h6"
+                          <div
+                            className="pf-l-split pf-m-gutter"
+                          >
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <h6
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="h6"
                                 >
-                                  Node id : 
-                                </h6>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                          <SplitItem>
-                            <div
-                              className="pf-l-split__item"
-                            >
-                              <Text
-                                component="p"
+                                  <h6
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    Node id : 
+                                  </h6>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                            <SplitItem>
+                              <div
+                                className="pf-l-split__item"
                               >
-                                <p
-                                  className=""
-                                  data-pf-content={true}
+                                <Text
+                                  component="p"
                                 >
-                                  2
-                                </p>
-                              </Text>
-                            </div>
-                          </SplitItem>
-                        </div>
-                      </Split>
-                    </div>
-                  </TextContent>
-                </div>
-              </FlexItem>
-            </div>
-          </Flex>
-        </div>
-        <div
-          className="pf-u-mt-md"
-        >
-          <Button
-            id="trigger"
-            isDisabled={false}
-            onClick={[Function]}
-            variant="secondary"
+                                  <p
+                                    className=""
+                                    data-pf-content={true}
+                                  >
+                                    2
+                                  </p>
+                                </Text>
+                              </div>
+                            </SplitItem>
+                          </div>
+                        </Split>
+                      </div>
+                    </TextContent>
+                  </div>
+                </FlexItem>
+              </div>
+            </Flex>
+          </div>
+          <div
+            className="pf-u-mt-md"
           >
-            <button
-              aria-disabled={false}
-              aria-label={null}
-              className="pf-c-button pf-m-secondary"
-              data-ouia-component-id={11}
-              data-ouia-component-type="PF4/Button"
-              data-ouia-safe={true}
-              disabled={false}
+            <Button
               id="trigger"
+              isDisabled={false}
               onClick={[Function]}
-              type="button"
+              variant="secondary"
             >
-              Trigger
-            </button>
-          </Button>
+              <button
+                aria-disabled={false}
+                aria-label={null}
+                className="pf-c-button pf-m-secondary"
+                data-ouia-component-id={17}
+                data-ouia-component-type="PF4/Button"
+                data-ouia-safe={true}
+                disabled={false}
+                id="trigger"
+                onClick={[Function]}
+                type="button"
+              >
+                Trigger
+              </button>
+            </Button>
+          </div>
         </div>
-      </div>
-    </CardBody>
-  </div>
+      </CardBody>
+    </article>
+  </Card>
 </ProcessDetailsNodeTrigger>
 `;
 
@@ -1792,158 +1817,147 @@ exports[`Process details node trigger component tests snapshot testing with none
     }
   }
 >
-  <div
+  <Card
     data-ouia-component-type="node-trigger"
     data-ouia-safe={true}
   >
-    <ProcessListModal
-      handleModalToggle={[Function]}
-      isModalOpen={false}
-      modalContent=""
-      processName={null}
+    <article
+      className="pf-c-card"
+      data-ouia-component-id={3}
+      data-ouia-component-type="PF4/Card"
+      data-ouia-safe={true}
     >
-      <Modal
-        actions={
-          Array [
-            <Button
-              onClick={[Function]}
-              variant="primary"
-            >
-              OK
-            </Button>,
-          ]
-        }
-        appendTo={
-          <body>
-            <div />
-          </body>
-        }
-        aria-describedby=""
-        aria-label="process list modal"
-        aria-labelledby="process list modal"
-        className=""
-        data-ouia-component-type="process-list-modal"
-        data-ouia-safe={true}
-        hasNoBodyWrapper={false}
-        header={
+      <ProcessListModal
+        handleModalToggle={[Function]}
+        isModalOpen={false}
+        modalContent=""
+        modalTitle={
           <Title
             headingLevel="h1"
             size="2xl"
-          />
+          >
+            <span>
+              
+            </span>
+          </Title>
         }
-        isOpen={false}
-        onClose={[Function]}
-        ouiaSafe={true}
-        showClose={true}
-        title=""
-        variant="small"
+        processName={null}
       >
-        <Portal
-          containerInfo={<div />}
-        >
-          <ModalContent
-            actions={
-              Array [
-                <Button
-                  onClick={[Function]}
-                  variant="primary"
-                >
-                  OK
-                </Button>,
-              ]
-            }
-            aria-describedby=""
-            aria-label="process list modal"
-            aria-labelledby="process list modal"
-            boxId="pf-modal-part-0"
-            className=""
-            data-ouia-component-type="process-list-modal"
-            data-ouia-safe={true}
-            descriptorId="pf-modal-part-2"
-            hasNoBodyWrapper={false}
-            header={
-              <Title
-                headingLevel="h1"
-                size="2xl"
-              />
-            }
-            isOpen={false}
-            labelId="pf-modal-part-1"
-            onClose={[Function]}
-            ouiaSafe={true}
-            showClose={true}
-            title=""
-            variant="small"
-          />
-        </Portal>
-      </Modal>
-    </ProcessListModal>
-    <CardHeader>
-      <div
-        className="pf-c-card__header"
-      >
-        <Title
-          headingLevel="h3"
-          size="xl"
-        >
-          <h3
-            className="pf-c-title pf-m-xl"
-          >
-            Node Trigger
-          </h3>
-        </Title>
-      </div>
-    </CardHeader>
-    <CardHeader>
-      <div
-        className="pf-c-card__header"
-      >
-        <div>
-          Select a node from the process nodes list and click Trigger to launch it manually.
-        </div>
-      </div>
-    </CardHeader>
-    <CardBody>
-      <div
-        className="pf-c-card__body"
-      >
-        <div>
-          <Dropdown
-            direction="up"
-            dropdownItems={
-              Array [
-                <DropdownItem
-                  id="Send visa application"
-                >
-                  Send visa application
-                </DropdownItem>,
-                <DropdownItem
-                  id="Book"
-                >
-                  Book
-                </DropdownItem>,
-                <DropdownItem
-                  id="visasrejected"
-                >
-                  visasrejected
-                </DropdownItem>,
-              ]
-            }
-            isOpen={false}
-            onSelect={[Function]}
-            toggle={
-              <DropdownToggle
-                id="toggle-id"
-                onToggle={[Function]}
-                toggleIndicator={[Function]}
+        <Modal
+          actions={
+            Array [
+              <Button
+                onClick={[Function]}
+                variant="primary"
               >
-                select a node
-              </DropdownToggle>
-            }
+                OK
+              </Button>,
+            ]
+          }
+          appendTo={
+            <body>
+              <div />
+            </body>
+          }
+          aria-describedby=""
+          aria-label="process list modal"
+          aria-labelledby="process list modal"
+          className=""
+          data-ouia-component-type="process-list-modal"
+          data-ouia-safe={true}
+          hasNoBodyWrapper={false}
+          header={
+            <Title
+              headingLevel="h1"
+              size="2xl"
+            >
+              <span>
+                
+              </span>
+            </Title>
+          }
+          isOpen={false}
+          onClose={[Function]}
+          ouiaSafe={true}
+          showClose={true}
+          title=""
+          variant="small"
+        >
+          <Portal
+            containerInfo={<div />}
           >
-            <DropdownWithContext
-              autoFocus={true}
+            <ModalContent
+              actions={
+                Array [
+                  <Button
+                    onClick={[Function]}
+                    variant="primary"
+                  >
+                    OK
+                  </Button>,
+                ]
+              }
+              aria-describedby=""
+              aria-label="process list modal"
+              aria-labelledby="process list modal"
+              boxId="pf-modal-part-0"
               className=""
+              data-ouia-component-type="process-list-modal"
+              data-ouia-safe={true}
+              descriptorId="pf-modal-part-2"
+              hasNoBodyWrapper={false}
+              header={
+                <Title
+                  headingLevel="h1"
+                  size="2xl"
+                >
+                  <span>
+                    
+                  </span>
+                </Title>
+              }
+              isOpen={false}
+              labelId="pf-modal-part-1"
+              onClose={[Function]}
+              ouiaSafe={true}
+              showClose={true}
+              title=""
+              variant="small"
+            />
+          </Portal>
+        </Modal>
+      </ProcessListModal>
+      <CardHeader>
+        <div
+          className="pf-c-card__header"
+        >
+          <Title
+            headingLevel="h3"
+            size="xl"
+          >
+            <h3
+              className="pf-c-title pf-m-xl"
+            >
+              Node Trigger
+            </h3>
+          </Title>
+        </div>
+      </CardHeader>
+      <CardHeader>
+        <div
+          className="pf-c-card__header"
+        >
+          <div>
+            Select a node from the process nodes list and click Trigger to launch it manually.
+          </div>
+        </div>
+      </CardHeader>
+      <CardBody>
+        <div
+          className="pf-c-card__body"
+        >
+          <div>
+            <Dropdown
               direction="up"
               dropdownItems={
                 Array [
@@ -1964,12 +1978,8 @@ exports[`Process details node trigger component tests snapshot testing with none
                   </DropdownItem>,
                 ]
               }
-              isGrouped={false}
               isOpen={false}
-              isPlain={false}
-              menuAppendTo="inline"
               onSelect={[Function]}
-              position="left"
               toggle={
                 <DropdownToggle
                   id="toggle-id"
@@ -1980,84 +1990,65 @@ exports[`Process details node trigger component tests snapshot testing with none
                 </DropdownToggle>
               }
             >
-              <div
-                className="pf-c-dropdown pf-m-top"
-                data-ouia-component-id={2}
-                data-ouia-component-type="PF4/Dropdown"
-                data-ouia-safe={true}
+              <DropdownWithContext
+                autoFocus={true}
+                className=""
+                direction="up"
+                dropdownItems={
+                  Array [
+                    <DropdownItem
+                      id="Send visa application"
+                    >
+                      Send visa application
+                    </DropdownItem>,
+                    <DropdownItem
+                      id="Book"
+                    >
+                      Book
+                    </DropdownItem>,
+                    <DropdownItem
+                      id="visasrejected"
+                    >
+                      visasrejected
+                    </DropdownItem>,
+                  ]
+                }
+                isGrouped={false}
+                isOpen={false}
+                isPlain={false}
+                menuAppendTo="inline"
+                onSelect={[Function]}
+                position="left"
+                toggle={
+                  <DropdownToggle
+                    id="toggle-id"
+                    onToggle={[Function]}
+                    toggleIndicator={[Function]}
+                  >
+                    select a node
+                  </DropdownToggle>
+                }
               >
-                <DropdownToggle
-                  aria-haspopup={true}
-                  getMenuRef={[Function]}
-                  id="toggle-id"
-                  isOpen={false}
-                  isPlain={false}
-                  key=".0"
-                  onEnter={[Function]}
-                  onToggle={[Function]}
-                  parentRef={
-                    Object {
-                      "current": <div
-                        class="pf-c-dropdown pf-m-top"
-                        data-ouia-component-id="2"
-                        data-ouia-component-type="PF4/Dropdown"
-                        data-ouia-safe="true"
-                      >
-                        <button
-                          aria-expanded="false"
-                          aria-haspopup="true"
-                          class="pf-c-dropdown__toggle"
-                          id="toggle-id"
-                          type="button"
-                        >
-                          <span
-                            class="pf-c-dropdown__toggle-text"
-                          >
-                            select a node
-                          </span>
-                          <span
-                            class="pf-c-dropdown__toggle-icon"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              fill="currentColor"
-                              height="1em"
-                              role="img"
-                              style="vertical-align: -0.125em;"
-                              viewBox="0 0 320 512"
-                              width="1em"
-                            >
-                              <path
-                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                                transform=""
-                              />
-                            </svg>
-                          </span>
-                        </button>
-                      </div>,
-                    }
-                  }
-                  toggleIndicator={[Function]}
+                <div
+                  className="pf-c-dropdown pf-m-top"
+                  data-ouia-component-id={4}
+                  data-ouia-component-type="PF4/Dropdown"
+                  data-ouia-safe={true}
                 >
-                  <Toggle
+                  <DropdownToggle
                     aria-haspopup={true}
-                    bubbleEvent={false}
-                    className=""
                     getMenuRef={[Function]}
                     id="toggle-id"
-                    isActive={false}
-                    isDisabled={false}
                     isOpen={false}
                     isPlain={false}
-                    isPrimary={false}
-                    isSplitButton={false}
+                    key=".0"
                     onEnter={[Function]}
                     onToggle={[Function]}
                     parentRef={
                       Object {
                         "current": <div
                           class="pf-c-dropdown pf-m-top"
-                          data-ouia-component-id="2"
+                          data-ouia-component-id="4"
                           data-ouia-component-type="PF4/Dropdown"
                           data-ouia-safe="true"
                         >
@@ -2095,86 +2086,145 @@ exports[`Process details node trigger component tests snapshot testing with none
                         </div>,
                       }
                     }
+                    toggleIndicator={[Function]}
                   >
-                    <button
-                      aria-expanded={false}
+                    <Toggle
                       aria-haspopup={true}
-                      className="pf-c-dropdown__toggle"
-                      disabled={false}
+                      bubbleEvent={false}
+                      className=""
+                      getMenuRef={[Function]}
                       id="toggle-id"
-                      onClick={[Function]}
-                      onKeyDown={[Function]}
-                      type="button"
-                    >
-                      <span
-                        className="pf-c-dropdown__toggle-text"
-                      >
-                        select a node
-                      </span>
-                      <span
-                        className="pf-c-dropdown__toggle-icon"
-                      >
-                        <CaretDownIcon
-                          color="currentColor"
-                          noVerticalAlign={false}
-                          size="sm"
-                        >
-                          <svg
-                            aria-hidden={true}
-                            aria-labelledby={null}
-                            fill="currentColor"
-                            height="1em"
-                            role="img"
-                            style={
-                              Object {
-                                "verticalAlign": "-0.125em",
-                              }
-                            }
-                            viewBox="0 0 320 512"
-                            width="1em"
+                      isActive={false}
+                      isDisabled={false}
+                      isOpen={false}
+                      isPlain={false}
+                      isPrimary={false}
+                      isSplitButton={false}
+                      onEnter={[Function]}
+                      onToggle={[Function]}
+                      parentRef={
+                        Object {
+                          "current": <div
+                            class="pf-c-dropdown pf-m-top"
+                            data-ouia-component-id="4"
+                            data-ouia-component-type="PF4/Dropdown"
+                            data-ouia-safe="true"
                           >
-                            <path
-                              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-                              transform=""
-                            />
-                          </svg>
-                        </CaretDownIcon>
-                      </span>
-                    </button>
-                  </Toggle>
-                </DropdownToggle>
-              </div>
-            </DropdownWithContext>
-          </Dropdown>
-        </div>
-        <div
-          className="pf-u-mt-md"
-        >
-          <Button
-            id="trigger"
-            isDisabled={true}
-            onClick={[Function]}
-            variant="secondary"
+                            <button
+                              aria-expanded="false"
+                              aria-haspopup="true"
+                              class="pf-c-dropdown__toggle"
+                              id="toggle-id"
+                              type="button"
+                            >
+                              <span
+                                class="pf-c-dropdown__toggle-text"
+                              >
+                                select a node
+                              </span>
+                              <span
+                                class="pf-c-dropdown__toggle-icon"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  fill="currentColor"
+                                  height="1em"
+                                  role="img"
+                                  style="vertical-align: -0.125em;"
+                                  viewBox="0 0 320 512"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                    transform=""
+                                  />
+                                </svg>
+                              </span>
+                            </button>
+                          </div>,
+                        }
+                      }
+                    >
+                      <button
+                        aria-expanded={false}
+                        aria-haspopup={true}
+                        className="pf-c-dropdown__toggle"
+                        disabled={false}
+                        id="toggle-id"
+                        onClick={[Function]}
+                        onKeyDown={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="pf-c-dropdown__toggle-text"
+                        >
+                          select a node
+                        </span>
+                        <span
+                          className="pf-c-dropdown__toggle-icon"
+                        >
+                          <CaretDownIcon
+                            color="currentColor"
+                            noVerticalAlign={false}
+                            size="sm"
+                          >
+                            <svg
+                              aria-hidden={true}
+                              aria-labelledby={null}
+                              fill="currentColor"
+                              height="1em"
+                              role="img"
+                              style={
+                                Object {
+                                  "verticalAlign": "-0.125em",
+                                }
+                              }
+                              viewBox="0 0 320 512"
+                              width="1em"
+                            >
+                              <path
+                                d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                                transform=""
+                              />
+                            </svg>
+                          </CaretDownIcon>
+                        </span>
+                      </button>
+                    </Toggle>
+                  </DropdownToggle>
+                </div>
+              </DropdownWithContext>
+            </Dropdown>
+          </div>
+          <div
+            className="pf-u-mt-md"
           >
-            <button
-              aria-disabled={true}
-              aria-label={null}
-              className="pf-c-button pf-m-secondary pf-m-disabled"
-              data-ouia-component-id={3}
-              data-ouia-component-type="PF4/Button"
-              data-ouia-safe={true}
-              disabled={true}
+            <Button
               id="trigger"
+              isDisabled={true}
               onClick={[Function]}
-              tabIndex={null}
-              type="button"
+              variant="secondary"
             >
-              Trigger
-            </button>
-          </Button>
+              <button
+                aria-disabled={true}
+                aria-label={null}
+                className="pf-c-button pf-m-secondary pf-m-disabled"
+                data-ouia-component-id={5}
+                data-ouia-component-type="PF4/Button"
+                data-ouia-safe={true}
+                disabled={true}
+                id="trigger"
+                onClick={[Function]}
+                tabIndex={null}
+                type="button"
+              >
+                Trigger
+              </button>
+            </Button>
+          </div>
         </div>
-      </div>
-    </CardBody>
-  </div>
+      </CardBody>
+    </article>
+  </Card>
 </ProcessDetailsNodeTrigger>
 `;

@@ -1,4 +1,5 @@
 import {
+  Card,
   CardBody,
   CardHeader,
   Title,
@@ -112,7 +113,7 @@ const ProcessDetailsNodeTrigger: React.FC<IOwnProps & OUIAProps> = ({
   };
 
   return (
-    <div {...componentOuiaProps(ouiaId, 'node-trigger', ouiaSafe)}>
+    <Card {...componentOuiaProps(ouiaId, 'node-trigger', ouiaSafe)}>
       <ProcessListModal
         isModalOpen={isModalOpen}
         handleModalToggle={handleModalToggle}
@@ -213,7 +214,7 @@ const ProcessDetailsNodeTrigger: React.FC<IOwnProps & OUIAProps> = ({
           </Button>
         </div>
       </CardBody>
-    </div>
+    </Card>
   );
 };
 
