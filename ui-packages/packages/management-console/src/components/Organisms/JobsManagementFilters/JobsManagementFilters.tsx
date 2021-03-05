@@ -42,7 +42,7 @@ const JobsManagementFilters: React.FC<IOwnProps & OUIAProps> = ({
   ouiaId,
   ouiaSafe
 }) => {
-  const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  statusMenuItems;
   const statusMenuItems: JSX.Element[] = [
     <SelectOption key="CANCELED" value="CANCELED" />,
     <SelectOption key="ERROR" value="ERROR" />,
