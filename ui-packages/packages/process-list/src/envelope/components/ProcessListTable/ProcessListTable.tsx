@@ -43,6 +43,7 @@ import {
   ProcessInstanceIconCreator
 } from '../utils/ProcessListUtils';
 import { ProcessListDriver } from '../../../api';
+import { Button } from '@patternfly/react-core';
 
 interface ProcessListTableProps {
   processInstances: ProcessInstance[];
@@ -78,6 +79,10 @@ const ProcessListTable: React.FC<ProcessListTableProps & OUIAProps> = ({
   const [rowPairs, setRowPairs] = useState<any>([]);
   const columns: string[] = ['Id', 'Status', 'Created', 'Last update'];
 
+  const handleClick = processInstance => {
+    driver.openProcess(processInstance);
+  };
+
   useEffect(() => {
     if (!_.isEmpty(processInstances)) {
       const tempRows = [];
@@ -86,15 +91,21 @@ const ProcessListTable: React.FC<ProcessListTableProps & OUIAProps> = ({
           id: processInstance.id,
           parent: [
             <>
-              <div>
-                <strong>
-                  <ItemDescriptor
-                    itemDescription={getProcessInstanceDescription(
-                      processInstance
-                    )}
-                  />
-                </strong>
-              </div>
+              <Button
+                variant={'link'}
+                onClick={() => handleClick(processInstance)}
+                {...componentOuiaProps(ouiaId, 'task-description', ouiaSafe)}
+              >
+                <div>
+                  <strong>
+                    <ItemDescriptor
+                      itemDescription={getProcessInstanceDescription(
+                        processInstance
+                      )}
+                    />
+                  </strong>
+                </div>
+              </Button>
               <EndpointLink
                 serviceUrl={processInstance.serviceUrl}
                 isLinkShown={false}

@@ -21,6 +21,7 @@ export interface ProcessListChannelApi {
     filter: ProcessInstanceFilter,
     sortBy: SortBy
   ): Promise<void>;
+  processList__openProcess(process: ProcessInstance): void;
   processList__applyFilter(filter: ProcessInstanceFilter): Promise<void>;
   processList__applySorting(sortBy: SortBy): Promise<void>;
   processList__query(offset: number, limit: number): Promise<ProcessInstance[]>;
